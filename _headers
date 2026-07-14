@@ -1,10 +1,55 @@
+# =========================================================
+# Security headers for every response
+# =========================================================
+/*
+  # Force HTTPS for 2 years, include subdomains, opt into browser preload lists.
+  # Once you're happy, submit at https://hstspreload.org for permanent HTTPS.
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+  # Strict Content Security Policy. Locks resource loading to this origin only:
+  #   - No external scripts, no ads, no analytics, no third-party frames.
+  #   - object-src 'none' blocks Flash/legacy plugins.
+  #   - frame-ancestors 'none' blocks clickjacking (nobody can iframe this site).
+  #   - form-action 'self' blocks credential phishing via injected forms.
+  #   - base-uri 'self' blocks <base> tag injection attacks.
+  #   - upgrade-insecure-requests forces any accidental http:// to https://.
+  # 'unsafe-inline' remains on style-src only because SVG/HTML use inline style attrs.
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
+
+  # Legacy clickjacking defence for browsers that don't parse CSP frame-ancestors.
+  X-Frame-Options: DENY
+
+  # Stop browsers guessing content-types (blocks a class of MIME confusion attacks).
+  X-Content-Type-Options: nosniff
+
+  # Send origin only on cross-origin nav, nothing on cross-origin downgrade.
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Disable powerful APIs this site never uses.
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+
+  # Isolate the browsing context from cross-origin windows (defence in depth).
+  Cross-Origin-Opener-Policy: same-origin
+
+  # Resources served here can only be embedded from same origin.
+  Cross-Origin-Resource-Policy: same-origin
+
+# =========================================================
+# Long-term caching for versioned static assets
+# (Updating an asset needs a new filename; safe here because
+#  the HTML is regenerated when references change.)
+# =========================================================
 /img/*
   Cache-Control: public, max-age=31536000, immutable
+
 /css/*
   Cache-Control: public, max-age=31536000, immutable
+
 /js/*
   Cache-Control: public, max-age=31536000, immutable
-/og-image.png
-  Cache-Control: public, max-age=86400
+
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
+
+/og-image.png
+  Cache-Control: public, max-age=86400

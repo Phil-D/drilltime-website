@@ -8,6 +8,8 @@ function applyLang(lang){
     const cur=document.documentElement.getAttribute('dir')==='rtl'?'ar':'en';
     applyLang(cur==='ar'?'en':'ar');
   }
+  // Wire language toggle buttons (avoids inline onclick so CSP can be strict)
+  document.querySelectorAll('.langbtn,.flang').forEach(function(b){b.addEventListener('click',toggleLang);});
   try{const saved=localStorage.getItem('dt_lang');if(saved)applyLang(saved);}catch(e){}
 
   // FAQ accordion
