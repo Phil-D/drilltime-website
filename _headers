@@ -14,7 +14,7 @@
   #   - base-uri 'self' blocks <base> tag injection attacks.
   #   - upgrade-insecure-requests forces any accidental http:// to https://.
   # 'unsafe-inline' remains on style-src only because SVG/HTML use inline style attrs.
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-FTDTVIWwUQ5dDNCq0H3o2XzJyP4AhsKMpIfogafcBL0='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
 
   # Legacy clickjacking defence for browsers that don't parse CSP frame-ancestors.
   X-Frame-Options: DENY
