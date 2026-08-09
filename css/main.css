@@ -1,4 +1,4 @@
-/* drill time, main.css v5. Layout A refined.
+/* drill time, main.css v6. Restructured architecture.
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -222,6 +222,9 @@ html[dir="rtl"] .story .sig{font-size:16px}
 }
 .shot{flex:0 0 auto;width:min(233px,68vw);scroll-snap-align:center;padding:var(--s5);border-radius:var(--r-m);background:var(--card);border:1px solid var(--line)}
 .shot:nth-child(even){background:var(--panel);border-color:#2c3124}
+.shot:last-child{background:var(--card);border-color:var(--line)}
+.shot-wide{width:min(377px,86vw)}
+.shots{align-items:center}
 .shot img{border-radius:var(--r-s);box-shadow:var(--shadow-2);width:100%;height:auto}
 
 /* 14. CTA */
@@ -232,7 +235,15 @@ html[dir="rtl"] .cta-section h2{font-size:clamp(32px,4.8vw,48px)}
 
 /* 15. SCHOOLS */
 .schools{display:grid;gap:var(--s6);justify-items:center;text-align:center}
-.schools picture{display:block;margin-block-start:var(--s6)}
+.schools-card{
+  width:100%;background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);
+  padding:var(--s6);display:grid;gap:var(--s6);box-shadow:var(--shadow-1);
+  margin-block-start:var(--s6);
+}
+.schools-card .pgrid{margin-block:0}
+.schools-card picture{background:transparent;border:0;box-shadow:none;padding:0;width:100%;margin:0;display:block}
+.schools-card picture img{border:1px solid var(--line);border-radius:var(--r-m)}
+.schools-card .pcell{background:#fff}
 .schools h2{font-weight:400;letter-spacing:-.02em;font-size:clamp(30px,4.5vw,44px);max-width:15em}
 html[dir="rtl"] .schools h2{font-size:clamp(32px,4.8vw,48px)}
 .pgrid{
