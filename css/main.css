@@ -1,5 +1,5 @@
-/* drill time, main.css v3. Redesign on a Fibonacci spatial scale.
-   Tokens first, then base, language switching, and sections top to bottom. */
+/* drill time, main.css v4. Layout A: contained and centred.
+   Large imagery capped and centred, calmer Fibonacci vertical rhythm. */
 
 /* 1. FONTS */
 @font-face{font-family:"Varela Round";font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/varela-round.woff2) format("woff2")}
@@ -56,8 +56,8 @@ html[dir="rtl"] .badge-en{display:none!important}
 
 /* 5. LAYOUT PRIMITIVES */
 .wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--s6)}
-main section{margin-block:var(--s9)}
-main .wrap>picture{display:block;margin-block:var(--s9)}
+main section{margin-block:var(--s10)}
+main .wrap>picture{display:block;margin-block:var(--s10);text-align:center}
 
 .skip-link{
   position:absolute;inset-inline-start:var(--s6);top:-100px;z-index:60;
@@ -90,7 +90,7 @@ main .wrap>picture{display:block;margin-block:var(--s9)}
 .langbtn:hover{background:#fff;border-color:var(--ink-soft)}
 
 /* 7. HERO */
-.hero{position:relative;overflow:clip;padding-block:var(--s8) var(--s9)}
+.hero{position:relative;overflow:clip;padding-block:var(--s8) var(--s10)}
 .halo{
   position:absolute;inset-inline-end:-13%;top:-21%;
   width:610px;height:610px;border-radius:50%;pointer-events:none;
@@ -127,7 +127,7 @@ html[dir="rtl"] .microcopy{font-size:14px}
 
 .hero-phone{position:relative;justify-self:center}
 .hero-phone img{
-  width:min(290px,100%);height:auto;border-radius:var(--r-l);
+  width:min(260px,100%);height:auto;border-radius:var(--r-l);
   box-shadow:var(--shadow-3);
   animation:hero-rise .9s cubic-bezier(.2,.7,.2,1) both;
 }
@@ -177,11 +177,12 @@ html[dir="rtl"] .rcard p{font-size:17px}
 /* 10. BIG DEVICE SHOTS (iPad frames dropped straight into .wrap) */
 main .wrap>picture img,.schools picture img,.end-panel picture img{
   border-radius:var(--r-m);border:1px solid var(--line);box-shadow:var(--shadow-2);
+  width:min(610px,100%)!important;height:auto;margin-inline:auto;display:block;
 }
 .end-panel picture img{border-color:#2c3124}
 
 /* 11. STORY */
-.story{padding-block:var(--s6)}
+.story{padding-block:var(--s8)}
 .story-inner{max-width:610px;margin-inline:auto;text-align:center;display:grid;gap:var(--s6);justify-items:center}
 .story p{font-size:clamp(19px,2.6vw,25px);line-height:1.55;color:var(--ink);letter-spacing:-.01em}
 html[dir="rtl"] .story p{font-size:clamp(21px,2.9vw,27px)}
@@ -199,7 +200,7 @@ html[dir="rtl"] .story .sig{font-size:16px}
 .showcase-copy h2{font-weight:400;letter-spacing:-.02em;font-size:clamp(28px,4vw,42px);line-height:1.1}
 .showcase-copy p{color:var(--ink-soft);font-size:17px}
 .showcase-stage{display:flex;gap:var(--s6);justify-content:center;align-items:flex-end}
-.showcase-phone{flex:0 1 260px}
+.showcase-phone{flex:0 1 233px}
 .showcase-phone img{border-radius:var(--r-m);box-shadow:var(--shadow-2)}
 .showcase-phone:first-child{transform:rotate(-2deg) translateY(var(--s4))}
 .showcase-phone:last-child{transform:rotate(2deg)}
@@ -208,14 +209,14 @@ html[dir="rtl"] .story .sig{font-size:16px}
 .band{
   background:linear-gradient(180deg,#e0e5d5,#d8ddcb);
   border-block:1px solid var(--line);
-  padding-block:var(--s8);margin-block:var(--s9);
+  padding-block:var(--s8);margin-block:var(--s10);
 }
 .band .eyebrow{margin-block-end:var(--s6)}
 .shots{
   display:flex;gap:var(--s6);overflow-x:auto;padding-block:var(--s4) var(--s6);
   scroll-snap-type:x mandatory;scrollbar-width:thin;
 }
-.shot{flex:0 0 auto;width:min(260px,72vw);scroll-snap-align:center}
+.shot{flex:0 0 auto;width:min(233px,68vw);scroll-snap-align:center}
 .shot img{border-radius:var(--r-m);box-shadow:var(--shadow-2);width:100%;height:auto}
 
 /* 14. CTA */
@@ -226,6 +227,7 @@ html[dir="rtl"] .cta-section h2{font-size:clamp(32px,4.8vw,48px)}
 
 /* 15. SCHOOLS */
 .schools{display:grid;gap:var(--s6);justify-items:center;text-align:center}
+.schools picture{display:block;width:100%;text-align:center;margin-block-start:var(--s7)}
 .schools h2{font-weight:400;letter-spacing:-.02em;font-size:clamp(30px,4.5vw,44px);max-width:15em}
 html[dir="rtl"] .schools h2{font-size:clamp(32px,4.8vw,48px)}
 .pgrid{
@@ -295,7 +297,7 @@ html[dir="rtl"] .end-panel h2{font-size:clamp(32px,4.8vw,48px)}
 .end-panel p{color:#c9cdc0;font-size:16px}
 .end-panel .badge .blk{display:none}
 .end-panel .badge .wht{display:block}
-.end-panel picture{display:block;width:100%;margin-block-start:var(--s7)}
+.end-panel picture{display:block;width:100%;margin-block-start:var(--s7);text-align:center}
 
 /* 18. FOOTER */
 footer{border-block-start:1px solid var(--line);margin-block-start:var(--s9);padding-block:var(--s8) var(--s6);background:var(--card)}
@@ -328,7 +330,8 @@ footer{border-block-start:1px solid var(--line);margin-block-start:var(--s9);pad
 
 /* 20. RESPONSIVE */
 @media (max-width:860px){
-  main section{margin-block:var(--s8)}
+  main section{margin-block:var(--s9)}
+  main .wrap>picture{margin-block:var(--s9)}
   .top-links{display:none}
   .hero-grid{grid-template-columns:1fr;gap:var(--s7)}
   .hero-copy{text-align:center}
