@@ -1,5 +1,5 @@
-/* drill time, main.css v4. Layout A: contained and centred.
-   Large imagery capped and centred, calmer Fibonacci vertical rhythm. */
+/* drill time, main.css v5. Layout A refined.
+   Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
 @font-face{font-family:"Varela Round";font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/varela-round.woff2) format("woff2")}
@@ -56,8 +56,8 @@ html[dir="rtl"] .badge-en{display:none!important}
 
 /* 5. LAYOUT PRIMITIVES */
 .wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--s6)}
-main section{margin-block:var(--s10)}
-main .wrap>picture{display:block;margin-block:var(--s10);text-align:center}
+main section{margin-block:var(--s9)}
+main .wrap>picture{display:block;margin-block:var(--s9)}
 
 .skip-link{
   position:absolute;inset-inline-start:var(--s6);top:-100px;z-index:60;
@@ -90,7 +90,7 @@ main .wrap>picture{display:block;margin-block:var(--s10);text-align:center}
 .langbtn:hover{background:#fff;border-color:var(--ink-soft)}
 
 /* 7. HERO */
-.hero{position:relative;overflow:clip;padding-block:var(--s8) var(--s10)}
+.hero{position:relative;overflow:clip;padding-block:var(--s6) var(--s8)}
 .halo{
   position:absolute;inset-inline-end:-13%;top:-21%;
   width:610px;height:610px;border-radius:50%;pointer-events:none;
@@ -99,10 +99,10 @@ main .wrap>picture{display:block;margin-block:var(--s10);text-align:center}
 }
 .hero-grid{
   display:grid;grid-template-columns:1.618fr 1fr;
-  gap:var(--s8);align-items:center;position:relative;
+  gap:var(--s7);align-items:center;position:relative;
 }
 .hero-copy{text-align:start}
-.hero-logo{width:89px;height:auto;color:var(--ink);margin-block-end:var(--s6)}
+.hero-logo{width:55px;height:auto;color:var(--ink);margin-block-end:var(--s5)}
 h1{font-weight:400;font-size:clamp(42px,6.5vw,72px);line-height:1;letter-spacing:-.02em}
 html[dir="rtl"] h1{font-size:clamp(48px,7.5vw,80px)}
 .tagline{font-size:clamp(20px,2.8vw,28px);color:var(--ink);letter-spacing:-.01em;margin-block-start:var(--s5)}
@@ -127,7 +127,7 @@ html[dir="rtl"] .microcopy{font-size:14px}
 
 .hero-phone{position:relative;justify-self:center}
 .hero-phone img{
-  width:min(260px,100%);height:auto;border-radius:var(--r-l);
+  width:min(290px,100%);height:auto;border-radius:var(--r-l);
   box-shadow:var(--shadow-3);
   animation:hero-rise .9s cubic-bezier(.2,.7,.2,1) both;
 }
@@ -149,7 +149,7 @@ html[dir="rtl"] .eyebrow{letter-spacing:normal;font-size:16px;font-weight:700}
 }
 
 /* 9. ROUTINE CARDS */
-.routines{margin-block-start:var(--s8)}
+.routines{margin-block-start:0}
 .rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s6)}
 .rcard{
   background:var(--card);border:1px solid var(--line);border-radius:var(--r-m);
@@ -175,14 +175,19 @@ html[dir="rtl"] .rcard h2{font-size:26px}
 html[dir="rtl"] .rcard p{font-size:17px}
 
 /* 10. BIG DEVICE SHOTS (iPad frames dropped straight into .wrap) */
-main .wrap>picture img,.schools picture img,.end-panel picture img{
-  border-radius:var(--r-m);border:1px solid var(--line);box-shadow:var(--shadow-2);
-  width:min(610px,100%)!important;height:auto;margin-inline:auto;display:block;
+main .wrap>picture,.schools picture{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);
+  padding:var(--s5);width:min(764px,100%);margin-inline:auto;box-shadow:var(--shadow-2);
 }
+main .wrap>picture img,.schools picture img,.end-panel picture img{
+  border-radius:var(--r-m);width:100%!important;height:auto;margin-inline:auto;display:block;
+}
+/* Art direction: crop the tall time-signature grid to its lively top */
+img[src*="ipad-grid"]{aspect-ratio:4/3;object-fit:cover;object-position:top}
 .end-panel picture img{border-color:#2c3124}
 
 /* 11. STORY */
-.story{padding-block:var(--s8)}
+.story{padding-block:var(--s7)}
 .story-inner{max-width:610px;margin-inline:auto;text-align:center;display:grid;gap:var(--s6);justify-items:center}
 .story p{font-size:clamp(19px,2.6vw,25px);line-height:1.55;color:var(--ink);letter-spacing:-.01em}
 html[dir="rtl"] .story p{font-size:clamp(21px,2.9vw,27px)}
@@ -199,25 +204,25 @@ html[dir="rtl"] .story .sig{font-size:16px}
 .showcase-copy{display:grid;gap:var(--s5);text-align:start}
 .showcase-copy h2{font-weight:400;letter-spacing:-.02em;font-size:clamp(28px,4vw,42px);line-height:1.1}
 .showcase-copy p{color:var(--ink-soft);font-size:17px}
-.showcase-stage{display:flex;gap:var(--s6);justify-content:center;align-items:flex-end}
-.showcase-phone{flex:0 1 233px}
+.showcase-stage{position:relative;display:flex;justify-content:center;padding-block:var(--s5);min-height:377px}
 .showcase-phone img{border-radius:var(--r-m);box-shadow:var(--shadow-2)}
-.showcase-phone:first-child{transform:rotate(-2deg) translateY(var(--s4))}
-.showcase-phone:last-child{transform:rotate(2deg)}
+.showcase-phone:first-child{position:relative;z-index:2;flex:0 0 233px}
+.showcase-phone:last-child{position:absolute;z-index:1;width:199px;inset-inline-end:5%;top:var(--s7);transform:rotate(6deg)}
 
 /* 13. BAND, see it in practice */
 .band{
   background:linear-gradient(180deg,#e0e5d5,#d8ddcb);
   border-block:1px solid var(--line);
-  padding-block:var(--s8);margin-block:var(--s10);
+  padding-block:var(--s8);margin-block:var(--s9);
 }
 .band .eyebrow{margin-block-end:var(--s6)}
 .shots{
   display:flex;gap:var(--s6);overflow-x:auto;padding-block:var(--s4) var(--s6);
   scroll-snap-type:x mandatory;scrollbar-width:thin;
 }
-.shot{flex:0 0 auto;width:min(233px,68vw);scroll-snap-align:center}
-.shot img{border-radius:var(--r-m);box-shadow:var(--shadow-2);width:100%;height:auto}
+.shot{flex:0 0 auto;width:min(233px,68vw);scroll-snap-align:center;padding:var(--s5);border-radius:var(--r-m);background:var(--card);border:1px solid var(--line)}
+.shot:nth-child(even){background:var(--panel);border-color:#2c3124}
+.shot img{border-radius:var(--r-s);box-shadow:var(--shadow-2);width:100%;height:auto}
 
 /* 14. CTA */
 .cta-section{text-align:center;display:grid;justify-items:center;gap:var(--s5)}
@@ -227,7 +232,7 @@ html[dir="rtl"] .cta-section h2{font-size:clamp(32px,4.8vw,48px)}
 
 /* 15. SCHOOLS */
 .schools{display:grid;gap:var(--s6);justify-items:center;text-align:center}
-.schools picture{display:block;width:100%;text-align:center;margin-block-start:var(--s7)}
+.schools picture{display:block;margin-block-start:var(--s6)}
 .schools h2{font-weight:400;letter-spacing:-.02em;font-size:clamp(30px,4.5vw,44px);max-width:15em}
 html[dir="rtl"] .schools h2{font-size:clamp(32px,4.8vw,48px)}
 .pgrid{
@@ -297,7 +302,8 @@ html[dir="rtl"] .end-panel h2{font-size:clamp(32px,4.8vw,48px)}
 .end-panel p{color:#c9cdc0;font-size:16px}
 .end-panel .badge .blk{display:none}
 .end-panel .badge .wht{display:block}
-.end-panel picture{display:block;width:100%;margin-block-start:var(--s7);text-align:center}
+.end-panel{padding-block-end:0}
+.end-panel picture{display:block;width:min(680px,100%);margin-block-start:var(--s7);margin-block-end:calc(-1*var(--s7))}
 
 /* 18. FOOTER */
 footer{border-block-start:1px solid var(--line);margin-block-start:var(--s9);padding-block:var(--s8) var(--s6);background:var(--card)}
@@ -330,8 +336,11 @@ footer{border-block-start:1px solid var(--line);margin-block-start:var(--s9);pad
 
 /* 20. RESPONSIVE */
 @media (max-width:860px){
-  main section{margin-block:var(--s9)}
-  main .wrap>picture{margin-block:var(--s9)}
+  main section{margin-block:var(--s8)}
+  main .wrap>picture{margin-block:var(--s8)}
+  .showcase-stage{min-height:0;flex-wrap:wrap;gap:var(--s6)}
+  .showcase-phone:last-child{position:static;transform:rotate(2deg);width:180px}
+  .end-panel picture{margin-block-end:calc(-1*var(--s6))}
   .top-links{display:none}
   .hero-grid{grid-template-columns:1fr;gap:var(--s7)}
   .hero-copy{text-align:center}
