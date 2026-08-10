@@ -1,4 +1,4 @@
-/* drill time, main.css v6. Restructured architecture.
+/* drill time, main.css v7. Hero: 40/60 tilted board.
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -90,7 +90,7 @@ main .wrap>picture{display:block;margin-block:var(--s9)}
 .langbtn:hover{background:#fff;border-color:var(--ink-soft)}
 
 /* 7. HERO */
-.hero{position:relative;overflow:clip;padding-block:var(--s6) var(--s8)}
+.hero{position:relative;overflow:clip;padding-block:var(--s6) var(--s9)}
 .halo{
   position:absolute;inset-inline-end:-13%;top:-21%;
   width:610px;height:610px;border-radius:50%;pointer-events:none;
@@ -98,7 +98,7 @@ main .wrap>picture{display:block;margin-block:var(--s9)}
   filter:blur(2px);
 }
 .hero-grid{
-  display:grid;grid-template-columns:1.618fr 1fr;
+  display:grid;grid-template-columns:1fr 1.618fr;
   gap:var(--s7);align-items:center;position:relative;
 }
 .hero-copy{text-align:start}
@@ -125,12 +125,17 @@ html[dir="rtl"] .hero .lead{font-size:clamp(18px,2.1vw,21px)}
 .microcopy{font-size:13px;color:var(--text-dim)}
 html[dir="rtl"] .microcopy{font-size:14px}
 
-.hero-phone{position:relative;justify-self:center}
-.hero-phone img{
-  width:min(290px,100%);height:auto;border-radius:var(--r-l);
+.hero-board{position:relative;justify-self:stretch;min-height:377px}
+.hero-board picture{display:block;position:absolute;inset-block-start:var(--s6);inset-inline-start:var(--s5);width:121%}
+.hero-board img{
+  width:100%;height:auto;border-radius:var(--r-m);
+  border:1px solid var(--line);background:#fff;
   box-shadow:var(--shadow-3);
+  transform:rotate(-3.5deg);transform-origin:center;
   animation:hero-rise .9s cubic-bezier(.2,.7,.2,1) both;
 }
+html[dir="rtl"] .hero-board img{transform:rotate(3.5deg)}
+.hero-board .halo{position:absolute;inset-inline-start:10%;top:-13%;width:520px;height:520px}
 @keyframes hero-rise{from{opacity:0;transform:translateY(21px)}to{opacity:1;transform:none}}
 
 /* 8. EYEBROWS, the beat-dot signature */
@@ -361,7 +366,11 @@ footer{border-block-start:1px solid var(--line);margin-block-start:var(--s9);pad
   .cta-row{align-items:center}
   .badge{font-size:16px}
   .halo{inset-inline-end:-34%;top:34%}
-  .hero-phone img{width:236px}
+  .hero-board{min-height:0}
+  .hero-board picture{position:static;width:100%}
+  .hero-board img{transform:none}
+  html[dir="rtl"] .hero-board img{transform:none}
+  .hero-board .halo{display:none}
   .rgrid{grid-template-columns:1fr}
   .showcase-grid{grid-template-columns:1fr;padding:var(--s7) var(--s6);text-align:center}
   .showcase-copy{text-align:center;justify-items:center}
