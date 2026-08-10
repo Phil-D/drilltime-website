@@ -1,4 +1,4 @@
-/* drill time, main.css v7. Hero: 40/60 tilted board.
+/* drill time, main.css v8. School brochure order, calm plinth hero.
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -135,6 +135,10 @@ html[dir="rtl"] .microcopy{font-size:14px}
   animation:hero-rise .9s cubic-bezier(.2,.7,.2,1) both;
 }
 html[dir="rtl"] .hero-board img{transform:rotate(3.5deg)}
+.hero-calm picture{position:static;width:100%;padding:var(--s5);background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);box-shadow:var(--shadow-2)}
+.hero-calm img,html[dir="rtl"] .hero-calm img{transform:none;border:1px solid var(--line);box-shadow:none;animation:none}
+.hero-calm{min-height:0}
+.hero-calm .halo{display:none}
 .hero-board .halo{position:absolute;inset-inline-start:10%;top:-13%;width:520px;height:520px}
 @keyframes hero-rise{from{opacity:0;transform:translateY(21px)}to{opacity:1;transform:none}}
 
@@ -239,7 +243,7 @@ html[dir="rtl"] .cta-section h2{font-size:clamp(32px,4.8vw,48px)}
 .cta-section p{color:var(--ink-soft);font-size:16px}
 
 /* 15. SCHOOLS */
-.schools{display:grid;gap:var(--s6);justify-items:center;text-align:center}
+.schools{display:grid;gap:var(--s6);justify-items:center;text-align:center;margin-block-start:var(--s8)}
 .schools-card{
   width:100%;background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);
   padding:var(--s6);display:grid;gap:var(--s6);box-shadow:var(--shadow-1);
