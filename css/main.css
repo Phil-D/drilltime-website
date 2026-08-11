@@ -1,4 +1,4 @@
-/* drill time, main.css v13. HTML and CSS only; the shipped showcase render, sized to the reference.
+/* drill time, main.css v14. Showcase crop locked proportionally at the count-in line.
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -216,8 +216,8 @@ html[dir="rtl"] .story .sig{font-size:16px}
 .showcase-copy h2{font-weight:400;letter-spacing:-.02em;font-size:clamp(28px,4vw,42px);line-height:1.1}
 .showcase-copy p{color:var(--ink-soft);font-size:17px}
 .showcase-stage{position:relative;display:flex;justify-content:center;padding-block-start:var(--s5)}
-.showcase-phone img{border-radius:0;box-shadow:none;background:transparent;width:100%;height:auto}
-.showcase-phone{position:relative;flex:0 1 520px;transform:translateY(var(--s7))}
+.showcase-phone img{border-radius:0;box-shadow:none;background:transparent;width:100%;height:auto;filter:drop-shadow(0 21px 34px rgba(33,38,30,.16))}
+.showcase-phone{position:relative;flex:0 1 520px;transform:translateY(10%)}
 
 
 /* 13. BAND, see it in practice */
