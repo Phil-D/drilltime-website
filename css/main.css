@@ -1,4 +1,4 @@
-/* drill time, main.css v27. Bookend tiles rebuilt standalone under fresh class names. */
+/* drill time, main.css v28. Bookends shrink-wrap their captures; thin 13px mat. */
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -232,17 +232,18 @@ html[dir="rtl"] .story .sig{font-size:16px}
 }
 
 /* 13. BAND, see it in practice */
-/* Gallery bookends, self-contained. Fresh class names so no legacy .shot rule can reach them.
-   Frame ratio equals the capture ratio exactly, so cover fits every pixel with zero crop. */
+/* Gallery bookends. Simplest possible model: the tile shrink-wraps its capture.
+   No aspect frames, no cover, no crop: height follows the image, so the card
+   can never be taller than the screenshot plus its thin mat. */
 .tile-a,.tile-b{
   flex:0 0 auto;scroll-snap-align:center;
-  width:min(560px,92vw);aspect-ratio:2752/2064;
-  display:grid;place-items:stretch;padding:5%;
+  width:min(560px,92vw);padding:var(--s5);
   border-radius:var(--r-m);border:1px solid var(--line);background:var(--card);
 }
 .tile-b{background:var(--panel);border-color:#2c3124}
-.tile-a>picture,.tile-b>picture{grid-area:1/1;width:100%;height:100%;margin:0;padding:0}
-.tile-a img,.tile-b img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;border-radius:var(--r-s);border:0;box-shadow:none}
+.tile-a picture,.tile-b picture{display:block;width:100%;margin:0}
+.tile-a picture:has(>img[hidden]),.tile-b picture:has(>img[hidden]){display:none}
+.tile-a img,.tile-b img{display:block;width:100%;height:auto;border-radius:var(--r-s);border:0;box-shadow:none}
 
 .band{
   background:linear-gradient(180deg,#e0e5d5,#d8ddcb);
