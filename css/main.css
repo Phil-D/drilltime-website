@@ -1,4 +1,4 @@
-/* drill time, main.css v22. Showcase crop as a ratio, so the 425px look holds at every width. */
+/* drill time, main.css v23. Showcase frame: the owner 390x445, stated as width plus 78/89 ratio. */
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -220,7 +220,7 @@ html[dir="rtl"] .story .sig{font-size:16px}
 .showcase-copy h2{font-weight:400;letter-spacing:-.02em;font-size:clamp(28px,4vw,42px);line-height:1.1}
 .showcase-copy p{color:var(--ink-soft);font-size:17px}
 .showcase-stage{display:block}
-.showcase-phone{overflow-y:hidden;overflow-x:visible;padding:0 24px;aspect-ratio:11/9}
+.showcase-phone{width:min(390px,100%);aspect-ratio:78/89;overflow-y:hidden;overflow-x:visible;padding:0 24px}
 .showcase-phone img{
   display:block;width:100%;height:auto;
   filter:drop-shadow(8px 8px 8px rgba(0,0,0,.5));
