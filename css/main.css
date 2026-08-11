@@ -1,4 +1,4 @@
-/* drill time, main.css v10. Single showcase phone, equal gallery heights, full-bleed close.
+/* drill time, main.css v11. Filled gallery tiles, contained rounded close.
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -239,8 +239,9 @@ html[dir="rtl"] .story .sig{font-size:16px}
 .shot-wide{width:min(377px,86vw)}
 .shots{align-items:stretch}
 .shot{display:grid;place-items:center}
-.shot-wide picture{width:100%}
-.shot-wide img{width:100%;height:auto}
+.shot-wide{place-items:stretch}
+.shot-wide picture{width:100%;height:100%}
+.shot-wide img{width:100%;height:100%;object-fit:cover}
 .shot img{border-radius:var(--r-s);box-shadow:var(--shadow-2);width:100%;height:auto}
 
 /* 14. CTA */
@@ -315,11 +316,11 @@ html[dir="rtl"] .faq-a-inner{font-size:17px}
 .cta-section.end{display:block;text-align:center}
 .end-panel{
   color:var(--bg);position:relative;overflow:clip;
-  width:100vw;margin-inline:calc(50% - 50vw);border-radius:0;
   background:
     radial-gradient(89% 55% at 50% 0%,rgba(47,107,255,.22),transparent 60%),
     linear-gradient(180deg,var(--panel-2),var(--panel));
-  padding:var(--s9) var(--s6);
+  border-radius:var(--r-l);
+  padding:var(--s9) var(--s7) var(--s7);
   display:grid;justify-items:center;gap:var(--s5);
 }
 .end-panel .logo{width:89px;height:auto;color:var(--bg)}
