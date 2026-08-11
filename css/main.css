@@ -1,4 +1,4 @@
-/* drill time, main.css v32. Hero board breathes: 8px drift on a 6s ease cycle. */
+/* drill time, main.css v34. Breathing pace nudged to 5s. */
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -146,7 +146,7 @@ html[dir="rtl"] .hero-calm picture:has(img.en){display:none}
   0%,100%{transform:translateY(0)}
   50%{transform:translateY(-8px)}
 }
-.hero-calm picture{animation:hero-breathe 6s ease-in-out infinite;will-change:transform}
+.hero-calm picture{animation:hero-breathe 5s ease-in-out infinite;will-change:transform}
 @media (prefers-reduced-motion:reduce){
   .hero-calm picture{animation:none}
 }
@@ -234,6 +234,7 @@ html[dir="rtl"] .story .sig{font-size:16px}
   display:block;width:100%;height:auto;
   filter:drop-shadow(8px 8px 8px rgba(0,0,0,.5));
 }
+html[dir="rtl"] .showcase-phone img{filter:drop-shadow(-8px 8px 8px rgba(0,0,0,.5))}
 @media (max-width:860px){
   .showcase-grid{grid-template-columns:1fr;gap:var(--s6)}
   .showcase-copy{text-align:center;justify-items:center;padding-block-end:0}
