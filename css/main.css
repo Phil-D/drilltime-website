@@ -1,4 +1,4 @@
-/* drill time, main.css v20. Gallery bookends get their own classes; hidden-language picture boxes never render. */
+/* drill time, main.css v21. Bookend frames on the tiles, language pictures stacked in one cell. */
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -245,14 +245,13 @@ html[dir="rtl"] .story .sig{font-size:16px}
 .shot{flex:0 0 auto;width:min(233px,68vw);scroll-snap-align:center;padding:var(--s5);border-radius:var(--r-m);background:var(--card);border:1px solid var(--line)}
 .shot:nth-child(even){background:var(--panel);border-color:#2c3124}
 .shot:has(img[src*="metronome-dark"]){background:var(--card);border-color:var(--line)}
-/* Tile 1, time-signature sheet: its own portrait frame */
-.shot-tall{width:min(300px,78vw)}
-.shot-tall picture{display:block;width:100%;aspect-ratio:5/8}
-.shot-tall img{width:100%;height:100%;object-fit:cover;object-position:center}
-/* Last tile, dark banner: its own landscape frame */
-.shot-land{width:min(500px,92vw);background:var(--panel);border-color:#2c3124}
-.shot-land picture{display:block;width:100%;aspect-ratio:4/3}
-.shot-land img{width:100%;height:100%;object-fit:cover}
+/* Bookend tiles: the frame lives on the tile itself; both language pictures
+   overlay one grid cell, so a hidden one can never add height */
+.shot-tall,.shot-land{display:grid;place-items:stretch}
+.shot-tall>picture,.shot-land>picture{grid-area:1/1;width:100%;height:100%;margin:0}
+.shot-tall img,.shot-land img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.shot-tall{width:min(300px,78vw);aspect-ratio:5/8}
+.shot-land{width:min(560px,92vw);aspect-ratio:4/3;background:var(--panel);border-color:#2c3124}
 .shots{align-items:center}
 /* Tile 1, the time-signature sheet: keeps its tall portrait frame */
 /* Last tile, the dark banner: true landscape, fills without stretching */
