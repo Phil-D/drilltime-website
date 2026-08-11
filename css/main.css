@@ -221,7 +221,7 @@ html[dir="rtl"] .story .sig{font-size:16px}
 .showcase-phone{overflow-y:hidden;overflow-x:visible;padding:0 24px}
 .showcase-phone img{
   display:block;width:100%;height:auto;margin-block-end:-20%;
-  filter:drop-shadow(8px 8px 8px rgba(0,0,0,.5));
+  filter: drop-shadow(-3px 33px 16px rgba(0, 0, 0, .5));
 }
 @media (max-width:860px){
   .showcase-grid{grid-template-columns:1fr;gap:var(--s6)}
