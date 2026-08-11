@@ -1,4 +1,4 @@
-/* drill time, main.css v26. Bookends: even percentage mat around the capture, scales at every size. */
+/* drill time, main.css v27. Bookend tiles rebuilt standalone under fresh class names. */
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -232,6 +232,18 @@ html[dir="rtl"] .story .sig{font-size:16px}
 }
 
 /* 13. BAND, see it in practice */
+/* Gallery bookends, self-contained. Fresh class names so no legacy .shot rule can reach them.
+   Frame ratio equals the capture ratio exactly, so cover fits every pixel with zero crop. */
+.tile-a,.tile-b{
+  flex:0 0 auto;scroll-snap-align:center;
+  width:min(560px,92vw);aspect-ratio:2752/2064;
+  display:grid;place-items:stretch;padding:5%;
+  border-radius:var(--r-m);border:1px solid var(--line);background:var(--card);
+}
+.tile-b{background:var(--panel);border-color:#2c3124}
+.tile-a>picture,.tile-b>picture{grid-area:1/1;width:100%;height:100%;margin:0;padding:0}
+.tile-a img,.tile-b img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;border-radius:var(--r-s);border:0;box-shadow:none}
+
 .band{
   background:linear-gradient(180deg,#e0e5d5,#d8ddcb);
   border-block:1px solid var(--line);
@@ -247,11 +259,6 @@ html[dir="rtl"] .story .sig{font-size:16px}
 .shot:has(img[src*="metronome-dark"]){background:var(--card);border-color:var(--line)}
 /* Bookend tiles: the frame lives on the tile itself; both language pictures
    overlay one grid cell, so a hidden one can never add height */
-.shot-tall,.shot-land{display:grid;place-items:stretch;padding:5%}
-.shot-tall>picture,.shot-land>picture{grid-area:1/1;width:100%;height:100%;margin:0}
-.shot.shot-tall img,.shot.shot-land img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;border-radius:var(--r-s)}
-.shot-tall{width:min(560px,92vw);aspect-ratio:4/3}
-.shot-land{width:min(560px,92vw);aspect-ratio:4/3;background:var(--panel);border-color:#2c3124}
 .shots{align-items:center}
 /* Tile 1, the time-signature sheet: keeps its tall portrait frame */
 /* Last tile, the dark banner: true landscape, fills without stretching */
