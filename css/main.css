@@ -1,4 +1,4 @@
-/* drill time, main.css v24. Bookend img rule outranks the generic shot img rule. */
+/* drill time, main.css v25. First tile matches its capture: full 4/3, no crop, no gap. */
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -250,7 +250,7 @@ html[dir="rtl"] .story .sig{font-size:16px}
 .shot-tall,.shot-land{display:grid;place-items:stretch}
 .shot-tall>picture,.shot-land>picture{grid-area:1/1;width:100%;height:100%;margin:0}
 .shot.shot-tall img,.shot.shot-land img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;border-radius:var(--r-s)}
-.shot-tall{width:min(300px,78vw);aspect-ratio:5/8}
+.shot-tall{width:min(560px,92vw);aspect-ratio:4/3}
 .shot-land{width:min(560px,92vw);aspect-ratio:4/3;background:var(--panel);border-color:#2c3124}
 .shots{align-items:center}
 /* Tile 1, the time-signature sheet: keeps its tall portrait frame */
