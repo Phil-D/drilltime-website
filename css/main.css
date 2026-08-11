@@ -1,4 +1,4 @@
-/* drill time, main.css v19. Gallery: aspect-ratio frames with object-fit cover; portrait grid tile, landscape dark tile. */
+/* drill time, main.css v20. Gallery bookends get their own classes; hidden-language picture boxes never render. */
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -47,6 +47,8 @@ html[dir="rtl"] .brand,html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3{
 
 /* 4. LANGUAGE SWITCHING (spans and images carry .en or .ar) */
 html[dir="ltr"] .ar{display:none!important}
+html[dir="ltr"] picture:has(>img.ar){display:none!important}
+html[dir="rtl"] picture:has(>img.en){display:none!important}
 html[dir="rtl"] .en{display:none!important}
 html[dir="rtl"] .ar[hidden]{display:inline-block!important}
 html[dir="rtl"] span.ar[hidden]{display:inline!important}
@@ -243,18 +245,17 @@ html[dir="rtl"] .story .sig{font-size:16px}
 .shot{flex:0 0 auto;width:min(233px,68vw);scroll-snap-align:center;padding:var(--s5);border-radius:var(--r-m);background:var(--card);border:1px solid var(--line)}
 .shot:nth-child(even){background:var(--panel);border-color:#2c3124}
 .shot:has(img[src*="metronome-dark"]){background:var(--card);border-color:var(--line)}
-.shot.shot-dark{background:var(--panel);border-color:#2c3124}
-.shot.shot-dark img{border:1px solid #2c3124}
-.shot-wide{width:min(377px,86vw)}
+/* Tile 1, time-signature sheet: its own portrait frame */
+.shot-tall{width:min(300px,78vw)}
+.shot-tall picture{display:block;width:100%;aspect-ratio:5/8}
+.shot-tall img{width:100%;height:100%;object-fit:cover;object-position:center}
+/* Last tile, dark banner: its own landscape frame */
+.shot-land{width:min(500px,92vw);background:var(--panel);border-color:#2c3124}
+.shot-land picture{display:block;width:100%;aspect-ratio:4/3}
+.shot-land img{width:100%;height:100%;object-fit:cover}
 .shots{align-items:center}
 /* Tile 1, the time-signature sheet: keeps its tall portrait frame */
-.shot-wide:not(.shot-dark){width:min(300px,78vw)}
-.shot-wide:not(.shot-dark) picture{display:block;width:100%;aspect-ratio:5/8}
-.shot-wide:not(.shot-dark) img{width:100%;height:100%;object-fit:cover;object-position:center}
 /* Last tile, the dark banner: true landscape, fills without stretching */
-.shot.shot-dark{width:min(500px,92vw)}
-.shot-dark picture{display:block;width:100%;aspect-ratio:4/3}
-.shot-dark img{width:100%;height:100%;object-fit:cover}
 .shot img{border-radius:var(--r-s);box-shadow:var(--shadow-2);width:100%;height:auto}
 
 /* 14. CTA */
