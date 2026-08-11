@@ -1,4 +1,4 @@
-/* drill time, main.css v15. Showcase rebuilt to the annotated reference: no card, full-bleed rule, count-in crop.
+/* drill time, main.css v16. Inspector-matched showcase: vertical clip with side room, requested drop shadow. */
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -218,10 +218,10 @@ html[dir="rtl"] .story .sig{font-size:16px}
 .showcase-copy h2{font-weight:400;letter-spacing:-.02em;font-size:clamp(28px,4vw,42px);line-height:1.1}
 .showcase-copy p{color:var(--ink-soft);font-size:17px}
 .showcase-stage{display:block}
-.showcase-phone{overflow:hidden}
+.showcase-phone{overflow-y:hidden;overflow-x:visible;padding:0 24px}
 .showcase-phone img{
   display:block;width:100%;height:auto;margin-block-end:-20%;
-  filter:drop-shadow(0 21px 34px rgba(33,38,30,.16));
+  filter:drop-shadow(8px 8px 8px rgba(0,0,0,.5));
 }
 @media (max-width:860px){
   .showcase-grid{grid-template-columns:1fr;gap:var(--s6)}
