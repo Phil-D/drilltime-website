@@ -1,4 +1,4 @@
-/* drill time, main.css v23. Showcase frame: the owner 390x445, stated as width plus 78/89 ratio. */
+/* drill time, main.css v24. Bookend img rule outranks the generic shot img rule. */
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -249,7 +249,7 @@ html[dir="rtl"] .story .sig{font-size:16px}
    overlay one grid cell, so a hidden one can never add height */
 .shot-tall,.shot-land{display:grid;place-items:stretch}
 .shot-tall>picture,.shot-land>picture{grid-area:1/1;width:100%;height:100%;margin:0}
-.shot-tall img,.shot-land img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.shot.shot-tall img,.shot.shot-land img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;border-radius:var(--r-s)}
 .shot-tall{width:min(300px,78vw);aspect-ratio:5/8}
 .shot-land{width:min(560px,92vw);aspect-ratio:4/3;background:var(--panel);border-color:#2c3124}
 .shots{align-items:center}
