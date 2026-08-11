@@ -1,4 +1,4 @@
-/* drill time, main.css v9. Critique pass: honest grid shot, single plinth, standalone CTA.
+/* drill time, main.css v10. Single showcase phone, equal gallery heights, full-bleed close.
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -31,7 +31,7 @@
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  margin:0;background:var(--bg);color:var(--ink);
+  margin:0;background:var(--bg);color:var(--ink);overflow-x:clip;
   font-family:"Varela Round",system-ui,sans-serif;
   font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
 }
@@ -215,10 +215,10 @@ html[dir="rtl"] .story .sig{font-size:16px}
 .showcase-copy{display:grid;gap:var(--s5);text-align:start}
 .showcase-copy h2{font-weight:400;letter-spacing:-.02em;font-size:clamp(28px,4vw,42px);line-height:1.1}
 .showcase-copy p{color:var(--ink-soft);font-size:17px}
-.showcase-stage{position:relative;display:flex;justify-content:center;padding-block:var(--s5);min-height:377px}
+.showcase-stage{position:relative;display:flex;justify-content:center;padding-block-start:var(--s5)}
 .showcase-phone img{border-radius:var(--r-m);box-shadow:var(--shadow-2)}
-.showcase-phone:first-child{position:relative;z-index:2;flex:0 0 233px;transform:translateY(var(--s6))}
-.showcase-phone:last-child{position:absolute;z-index:1;width:199px;inset-inline-end:5%;top:var(--s7);transform:rotate(6deg)}
+.showcase-phone{position:relative;flex:0 0 260px;transform:translateY(var(--s6))}
+
 
 /* 13. BAND, see it in practice */
 .band{
@@ -237,7 +237,10 @@ html[dir="rtl"] .story .sig{font-size:16px}
 .shot.shot-dark{background:var(--panel);border-color:#2c3124}
 .shot.shot-dark img{border:1px solid #2c3124}
 .shot-wide{width:min(377px,86vw)}
-.shots{align-items:center}
+.shots{align-items:stretch}
+.shot{display:grid;place-items:center}
+.shot-wide picture{width:100%}
+.shot-wide img{width:100%;height:auto}
 .shot img{border-radius:var(--r-s);box-shadow:var(--shadow-2);width:100%;height:auto}
 
 /* 14. CTA */
@@ -312,11 +315,11 @@ html[dir="rtl"] .faq-a-inner{font-size:17px}
 .cta-section.end{display:block;text-align:center}
 .end-panel{
   color:var(--bg);position:relative;overflow:clip;
+  width:100vw;margin-inline:calc(50% - 50vw);border-radius:0;
   background:
     radial-gradient(89% 55% at 50% 0%,rgba(47,107,255,.22),transparent 60%),
     linear-gradient(180deg,var(--panel-2),var(--panel));
-  border-radius:var(--r-l);
-  padding:var(--s9) var(--s7) var(--s7);
+  padding:var(--s9) var(--s6);
   display:grid;justify-items:center;gap:var(--s5);
 }
 .end-panel .logo{width:89px;height:auto;color:var(--bg)}
@@ -361,8 +364,7 @@ footer{border-block-start:1px solid var(--line);margin-block-start:var(--s9);pad
 @media (max-width:860px){
   main section{margin-block:var(--s8)}
   main .wrap>picture{margin-block:var(--s8)}
-  .showcase-stage{min-height:0;flex-wrap:wrap;gap:var(--s6)}
-  .showcase-phone:last-child{position:static;transform:rotate(2deg);width:180px}
+  .showcase-stage{flex-wrap:wrap;gap:var(--s6)}
   .end-panel picture{margin-block-end:calc(-1*var(--s6))}
   .top-links{display:none}
   .hero-grid{grid-template-columns:1fr;gap:var(--s7)}
