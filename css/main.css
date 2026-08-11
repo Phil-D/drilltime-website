@@ -1,4 +1,4 @@
-/* drill time, main.css v16. Inspector-matched showcase: vertical clip with side room, requested drop shadow. */
+/* drill time, main.css v17. End panel: 945px on desktop, fluid below, per the inspector note.
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -221,7 +221,7 @@ html[dir="rtl"] .story .sig{font-size:16px}
 .showcase-phone{overflow-y:hidden;overflow-x:visible;padding:0 24px}
 .showcase-phone img{
   display:block;width:100%;height:auto;margin-block-end:-20%;
-  filter: drop-shadow(-3px 33px 16px rgba(0, 0, 0, .5));
+  filter:drop-shadow(8px 8px 8px rgba(0,0,0,.5));
 }
 @media (max-width:860px){
   .showcase-grid{grid-template-columns:1fr;gap:var(--s6)}
@@ -323,6 +323,7 @@ html[dir="rtl"] .faq-a-inner{font-size:17px}
 /* 17. END PANEL */
 .cta-section.end{display:block;text-align:center}
 .end-panel{
+  width:min(945px,100%);margin-inline:auto;
   color:var(--bg);position:relative;overflow:clip;
   background:
     radial-gradient(89% 55% at 50% 0%,rgba(47,107,255,.22),transparent 60%),
