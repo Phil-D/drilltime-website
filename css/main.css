@@ -1,4 +1,4 @@
-/* drill time, main.css v17. End panel: 945px on desktop, fluid below, per the inspector note.
+/* drill time, main.css v19. Gallery: aspect-ratio frames with object-fit cover; portrait grid tile, landscape dark tile. */
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -247,8 +247,14 @@ html[dir="rtl"] .story .sig{font-size:16px}
 .shot.shot-dark img{border:1px solid #2c3124}
 .shot-wide{width:min(377px,86vw)}
 .shots{align-items:center}
-.shot-wide picture{display:block;width:100%}
-.shot-wide img{width:100%;height:auto}
+/* Tile 1, the time-signature sheet: keeps its tall portrait frame */
+.shot-wide:not(.shot-dark){width:min(300px,78vw)}
+.shot-wide:not(.shot-dark) picture{display:block;width:100%;aspect-ratio:5/8}
+.shot-wide:not(.shot-dark) img{width:100%;height:100%;object-fit:cover;object-position:center}
+/* Last tile, the dark banner: true landscape, fills without stretching */
+.shot.shot-dark{width:min(500px,92vw)}
+.shot-dark picture{display:block;width:100%;aspect-ratio:4/3}
+.shot-dark img{width:100%;height:100%;object-fit:cover}
 .shot img{border-radius:var(--r-s);box-shadow:var(--shadow-2);width:100%;height:auto}
 
 /* 14. CTA */
