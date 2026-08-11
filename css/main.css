@@ -1,4 +1,4 @@
-/* drill time, main.css v31. Arabic bookends restored: language switching is dir-based only. */
+/* drill time, main.css v32. Hero board breathes: 8px drift on a 6s ease cycle. */
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -141,6 +141,15 @@ html[dir="rtl"] .hero-board img{transform:rotate(3.5deg)}
 html[dir="ltr"] .hero-calm picture:has(img.ar){display:none}
 html[dir="rtl"] .hero-calm picture:has(img.en){display:none}
 .hero-calm img,html[dir="rtl"] .hero-calm img{transform:none;border:1px solid var(--line);box-shadow:none;animation:none}
+/* Calm breathing: the hero board drifts a few pixels, slow in, slow out */
+@keyframes hero-breathe{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+.hero-calm picture{animation:hero-breathe 6s ease-in-out infinite;will-change:transform}
+@media (prefers-reduced-motion:reduce){
+  .hero-calm picture{animation:none}
+}
 .hero-calm{min-height:0}
 .hero-calm .halo{display:none}
 .hero-board .halo{position:absolute;inset-inline-start:10%;top:-13%;width:520px;height:520px}
