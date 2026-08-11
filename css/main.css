@@ -1,4 +1,4 @@
-/* drill time, main.css v34. Breathing pace nudged to 5s. */
+/* drill time, main.css v35. Breathing pace nudged again, 4s. */
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -146,7 +146,7 @@ html[dir="rtl"] .hero-calm picture:has(img.en){display:none}
   0%,100%{transform:translateY(0)}
   50%{transform:translateY(-8px)}
 }
-.hero-calm picture{animation:hero-breathe 5s ease-in-out infinite;will-change:transform}
+.hero-calm picture{animation:hero-breathe 4s ease-in-out infinite;will-change:transform}
 @media (prefers-reduced-motion:reduce){
   .hero-calm picture{animation:none}
 }
