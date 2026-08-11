@@ -1,4 +1,4 @@
-/* drill time, main.css v29. Bookends match the phone tile height exactly, ratio kept, borders untouched. */
+/* drill time, main.css v30. Per-tile widths: portrait grid fits whole, landscape banner untouched. */
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -242,10 +242,12 @@ html[dir="rtl"] .story .sig{font-size:16px}
      Bookend image: that same height, at its own 4:3 (1.3334). */
   --ph:calc((min(233px,68vw) - 2*var(--s5))*2.1677);
   height:calc(var(--ph) + 2*var(--s5));
-  width:calc(var(--ph)*1.3334 + 2*var(--s5));
   padding:var(--s5);
   border-radius:var(--r-m);border:1px solid var(--line);background:var(--card);
 }
+/* Per-tile widths from each capture's true ratio: grid sheet is portrait 2064x2752, banner landscape 2752x2064 */
+.tile-a{width:calc(var(--ph)*0.75 + 2*var(--s5))}
+.tile-b{width:calc(var(--ph)*1.3334 + 2*var(--s5))}
 .tile-b{background:var(--panel);border-color:#2c3124}
 .tile-a picture,.tile-b picture{display:block;width:100%;margin:0}
 .tile-a picture:has(>img[hidden]),.tile-b picture:has(>img[hidden]){display:none}
