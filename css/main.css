@@ -1,4 +1,4 @@
-/* drill time, main.css v8. School brochure order, calm plinth hero.
+/* drill time, main.css v9. Critique pass: honest grid shot, single plinth, standalone CTA.
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -136,6 +136,8 @@ html[dir="rtl"] .microcopy{font-size:14px}
 }
 html[dir="rtl"] .hero-board img{transform:rotate(3.5deg)}
 .hero-calm picture{position:static;width:100%;padding:var(--s5);background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);box-shadow:var(--shadow-2)}
+html[dir="ltr"] .hero-calm picture:has(img.ar){display:none}
+html[dir="rtl"] .hero-calm picture:has(img.en){display:none}
 .hero-calm img,html[dir="rtl"] .hero-calm img{transform:none;border:1px solid var(--line);box-shadow:none;animation:none}
 .hero-calm{min-height:0}
 .hero-calm .halo{display:none}
@@ -191,8 +193,7 @@ main .wrap>picture,.schools picture{
 main .wrap>picture img,.schools picture img,.end-panel picture img{
   border-radius:var(--r-m);width:100%!important;height:auto;margin-inline:auto;display:block;
 }
-/* Art direction: crop the tall time-signature grid to its lively top */
-img[src*="ipad-grid"]{aspect-ratio:4/3;object-fit:cover;object-position:top}
+
 .end-panel picture img{border-color:#2c3124}
 
 /* 11. STORY */
@@ -205,6 +206,7 @@ html[dir="rtl"] .story .sig{font-size:16px}
 .story .accent{color:#b3431f;font-weight:700}
 
 /* 12. SHOWCASE */
+.showcase{overflow:clip;padding-block-end:0}
 .showcase-grid{
   display:grid;grid-template-columns:1fr 1.618fr;gap:var(--s8);align-items:center;
   background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);
@@ -215,7 +217,7 @@ html[dir="rtl"] .story .sig{font-size:16px}
 .showcase-copy p{color:var(--ink-soft);font-size:17px}
 .showcase-stage{position:relative;display:flex;justify-content:center;padding-block:var(--s5);min-height:377px}
 .showcase-phone img{border-radius:var(--r-m);box-shadow:var(--shadow-2)}
-.showcase-phone:first-child{position:relative;z-index:2;flex:0 0 233px}
+.showcase-phone:first-child{position:relative;z-index:2;flex:0 0 233px;transform:translateY(var(--s6))}
 .showcase-phone:last-child{position:absolute;z-index:1;width:199px;inset-inline-end:5%;top:var(--s7);transform:rotate(6deg)}
 
 /* 13. BAND, see it in practice */
@@ -231,7 +233,9 @@ html[dir="rtl"] .story .sig{font-size:16px}
 }
 .shot{flex:0 0 auto;width:min(233px,68vw);scroll-snap-align:center;padding:var(--s5);border-radius:var(--r-m);background:var(--card);border:1px solid var(--line)}
 .shot:nth-child(even){background:var(--panel);border-color:#2c3124}
-.shot:last-child{background:var(--card);border-color:var(--line)}
+.shot:has(img[src*="metronome-dark"]){background:var(--card);border-color:var(--line)}
+.shot.shot-dark{background:var(--panel);border-color:#2c3124}
+.shot.shot-dark img{border:1px solid #2c3124}
 .shot-wide{width:min(377px,86vw)}
 .shots{align-items:center}
 .shot img{border-radius:var(--r-s);box-shadow:var(--shadow-2);width:100%;height:auto}
@@ -322,8 +326,7 @@ html[dir="rtl"] .end-panel h2{font-size:clamp(32px,4.8vw,48px)}
 .end-panel p{color:#c9cdc0;font-size:16px}
 .end-panel .badge .blk{display:none}
 .end-panel .badge .wht{display:block}
-.end-panel{padding-block-end:0}
-.end-panel picture{display:block;width:min(680px,100%);margin-block-start:var(--s7);margin-block-end:calc(-1*var(--s7))}
+
 
 /* 18. FOOTER */
 footer{border-block-start:1px solid var(--line);margin-block-start:var(--s9);padding-block:var(--s8) var(--s6);background:var(--card)}
