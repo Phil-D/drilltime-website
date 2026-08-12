@@ -1,4 +1,4 @@
-/* drill time, main.css v38. Hero shadow escapes the section, next block pulled up: no visible cut-off. */
+/* drill time, main.css v39. Kill horizontal scroll on mobile; hero clips X, still leaks Y for the shadow. */
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -30,6 +30,7 @@
 /* 3. BASE */
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
+html,body{overflow-x:hidden;max-width:100%}
 body{
   margin:0;background:var(--bg);color:var(--ink);overflow-x:clip;
   font-family:"Varela Round",system-ui,sans-serif;
@@ -92,7 +93,7 @@ main .wrap>picture{display:block;margin-block:var(--s9)}
 .langbtn:hover{background:#fff;border-color:var(--ink-soft)}
 
 /* 7. HERO */
-.hero{position:relative;overflow:visible;padding-block:var(--s6) var(--s10)}
+.hero{position:relative;overflow-x:clip;overflow-y:visible;padding-block:var(--s6) var(--s10)}
 .hero + .wrap,.hero + section{margin-block-start:calc(-1*var(--s7))}
 .halo{
   position:absolute;inset-inline-end:-13%;top:-21%;
