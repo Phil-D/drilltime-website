@@ -1,4 +1,4 @@
-/* drill time, main.css v35. Breathing pace nudged again, 4s. */
+/* drill time, main.css v36. Dark Speed Builder tile gets a white mat, matching its neighbours. */
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -258,7 +258,7 @@ html[dir="rtl"] .showcase-phone img{filter:drop-shadow(-8px 8px 8px rgba(0,0,0,.
 /* Per-tile widths from each capture's true ratio: grid sheet is portrait 2064x2752, banner landscape 2752x2064 */
 .tile-a{width:calc(var(--ph)*0.75 + 2*var(--s5))}
 .tile-b{width:calc(var(--ph)*1.3334 + 2*var(--s5))}
-.tile-b{background:var(--panel);border-color:#2c3124}
+.tile-b{background:#fff;border-color:var(--line)}
 .tile-a picture,.tile-b picture{display:block;width:100%;margin:0}
 .tile-a picture,.tile-b picture{height:100%}
 .tile-a img,.tile-b img{display:block;height:100%;width:auto;border-radius:var(--r-s);border:0;box-shadow:none}
