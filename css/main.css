@@ -1,4 +1,4 @@
-/* drill time, main.css v36. Dark Speed Builder tile gets a white mat, matching its neighbours. */
+/* drill time, main.css v37. Hero: copy lifted; section join feathered under the iPad shadow. */
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -93,6 +93,9 @@ main .wrap>picture{display:block;margin-block:var(--s9)}
 
 /* 7. HERO */
 .hero{position:relative;overflow:clip;padding-block:var(--s6) var(--s9)}
+.hero{position:relative}
+.hero::after{content:"";position:absolute;inset-inline:0;bottom:-1px;height:34px;pointer-events:none;background:linear-gradient(180deg,transparent,var(--bg));z-index:1}
+
 .halo{
   position:absolute;inset-inline-end:-13%;top:-21%;
   width:610px;height:610px;border-radius:50%;pointer-events:none;
@@ -101,8 +104,9 @@ main .wrap>picture{display:block;margin-block:var(--s9)}
 }
 .hero-grid{
   display:grid;grid-template-columns:1fr 1.618fr;
-  gap:var(--s7);align-items:center;position:relative;
+  gap:var(--s7);align-items:start;position:relative;
 }
+.hero-copy{padding-block-start:var(--s7)}
 .hero-copy{text-align:start}
 .hero-logo{width:55px;height:auto;color:var(--ink);margin-block-end:var(--s5)}
 h1{font-weight:400;font-size:clamp(42px,6.5vw,72px);line-height:1;letter-spacing:-.02em}
