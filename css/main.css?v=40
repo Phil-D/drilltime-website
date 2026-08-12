@@ -2,8 +2,8 @@
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
-@font-face{font-family:"Varela Round";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/varela-round.woff2) format("woff2")}
-@font-face{font-family:"Beiruti";font-style:normal;font-weight:300 800;font-display:swap;src:url(fonts/beiruti.woff2) format("woff2")}
+@font-face{font-family:"Varela Round";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/varela-round.woff2) format("woff2")}
+@font-face{font-family:"Beiruti";font-style:normal;font-weight:300 800;font-display:swap;src:url(/fonts/beiruti.woff2) format("woff2")}
 
 /* 2. TOKENS */
 :root{
