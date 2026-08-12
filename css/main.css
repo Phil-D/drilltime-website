@@ -1,4 +1,4 @@
-/* drill time, main.css v37. Hero: copy lifted; section join feathered under the iPad shadow. */
+/* drill time, main.css v38. Hero shadow escapes the section, next block pulled up: no visible cut-off. */
    Tighter hero, plinthed device shots, art-directed crops, colour-rhythm gallery. */
 
 /* 1. FONTS */
@@ -92,10 +92,8 @@ main .wrap>picture{display:block;margin-block:var(--s9)}
 .langbtn:hover{background:#fff;border-color:var(--ink-soft)}
 
 /* 7. HERO */
-.hero{position:relative;overflow:clip;padding-block:var(--s6) var(--s9)}
-.hero{position:relative}
-.hero::after{content:"";position:absolute;inset-inline:0;bottom:-1px;height:34px;pointer-events:none;background:linear-gradient(180deg,transparent,var(--bg));z-index:1}
-
+.hero{position:relative;overflow:visible;padding-block:var(--s6) var(--s10)}
+.hero + .wrap,.hero + section{margin-block-start:calc(-1*var(--s7))}
 .halo{
   position:absolute;inset-inline-end:-13%;top:-21%;
   width:610px;height:610px;border-radius:50%;pointer-events:none;
