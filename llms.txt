@@ -1,0 +1,21 @@
+# drill time
+
+> drill time (also written DrillTime) is a bilingual English and Arabic music practice app for iPhone and iPad, made for young musicians and their teachers. It combines a metronome, a tempo trainer and a rhythm-reading trainer.
+
+## About the app
+
+- Metronome: time signatures, accents, swing and several click sounds.
+- Speed Builder: a tempo trainer that raises the tempo gradually.
+- Rhythm Shuffler: a rhythm-reading trainer with six difficulty levels.
+- Full English and Arabic interfaces, with right-to-left layout in Arabic.
+- Works offline. No sign-up or login.
+- Collects no personal data: no analytics, no tracking and no advertising. Practice settings stay on the device.
+- Pricing model: a one-time purchase, with no subscription and no ads.
+- Developer: Phil Doughty.
+
+## Pages
+
+- [Home](https://drilltimeapp.com/): overview of the app, its features and frequently asked questions
+- [Privacy Policy](https://drilltimeapp.com/privacy): what the app does and does not collect (it collects no personal data)
+- [Terms of Use](https://drilltimeapp.com/terms): the terms that apply to using the app
+- [Support](https://drilltimeapp.com/support): how to contact the developer by email, plus common help topics
