@@ -28,3 +28,14 @@
 - [Metronome, in Arabic](https://drilltimeapp.com/ar/metronome): the metronome page in Arabic
 - [Speed Builder, in Arabic](https://drilltimeapp.com/ar/speed-builder): the Speed Builder page in Arabic
 - [Rhythm Shuffler, in Arabic](https://drilltimeapp.com/ar/rhythm-shuffler): the Rhythm Shuffler page in Arabic, with Arabic note names
+
+## Practice guides
+
+- [Practice guides](https://drilltimeapp.com/guides): index of the practice guides for students, parents and teachers
+- [How to practise with a metronome](https://drilltimeapp.com/guides/metronome-practice): choosing a starting tempo, when to speed up, common mistakes and a one-week tempo ladder
+- [How to build speed without making mistakes](https://drilltimeapp.com/guides/build-speed): short passages, small tempo steps, staying relaxed and a five-day plan
+- [How to help your child practise every day](https://drilltimeapp.com/guides/daily-practice-for-kids): advice for parents on daily habits, practice time by age and what to say
+- [Practice guides, in Arabic](https://drilltimeapp.com/ar/guides): the guides index in Arabic
+- [How to practise with a metronome, in Arabic](https://drilltimeapp.com/ar/guides/metronome-practice): the metronome practice guide in Arabic
+- [How to build speed without making mistakes, in Arabic](https://drilltimeapp.com/ar/guides/build-speed): the speed-building guide in Arabic
+- [How to help your child practise every day, in Arabic](https://drilltimeapp.com/ar/guides/daily-practice-for-kids): the guide for parents in Arabic
