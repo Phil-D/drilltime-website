@@ -1,6 +1,6 @@
-# drill time
+# DrillTime
 
-> drill time (also written DrillTime) is a bilingual English and Arabic music practice app for iPhone and iPad, made for young musicians and their teachers. It combines a metronome, a tempo trainer and a rhythm-reading trainer.
+> DrillTime is a bilingual English and Arabic music practice app for iPhone and iPad, made for young musicians and their teachers. It combines a metronome, a tempo trainer and a rhythm-reading trainer.
 
 ## About the app
 
