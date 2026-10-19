@@ -19,3 +19,12 @@
 - [Privacy Policy](https://drilltimeapp.com/privacy): what the app does and does not collect (it collects no personal data)
 - [Terms of Use](https://drilltimeapp.com/terms): the terms that apply to using the app
 - [Support](https://drilltimeapp.com/support): how to contact the developer by email, plus common help topics
+
+## Feature pages
+
+- [Metronome](https://drilltimeapp.com/metronome): what the metronome does, how to use it, a 20-minute practice routine and key terms
+- [Speed Builder](https://drilltimeapp.com/speed-builder): raising tempo step by step from a start tempo to a goal tempo, with a sample plan
+- [Rhythm Shuffler](https://drilltimeapp.com/rhythm-shuffler): reading a fresh rhythm, tapping it back and checking timing accuracy, with common note values
+- [Metronome, in Arabic](https://drilltimeapp.com/ar/metronome): the metronome page in Arabic
+- [Speed Builder, in Arabic](https://drilltimeapp.com/ar/speed-builder): the Speed Builder page in Arabic
+- [Rhythm Shuffler, in Arabic](https://drilltimeapp.com/ar/rhythm-shuffler): the Rhythm Shuffler page in Arabic, with Arabic note names
