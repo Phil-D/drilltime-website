@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تطبيق تمرين موسيقي للمعلّمين والمدارس | DrillTime وقت التمرين</title>
+<meta name="description" content="كيف يستخدم معلّمو الموسيقى والمدارس DrillTime بين الدروس: المترونوم وبناء السرعة ومبدل الإيقاعات العشوائي، في تطبيق آمن للأطفال بلا حسابات ولا جمع للبيانات، بالعربية والإنجليزية.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#e9ede1">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="canonical" href="https://drilltimeapp.com/ar/teachers">
+<link rel="alternate" hreflang="en" href="https://drilltimeapp.com/teachers">
+<link rel="alternate" hreflang="ar" href="https://drilltimeapp.com/ar/teachers">
+<link rel="alternate" hreflang="x-default" href="https://drilltimeapp.com/teachers">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="DrillTime">
+<meta property="og:title" content="تطبيق تمرين موسيقي للمعلّمين والمدارس | DrillTime وقت التمرين">
+<meta property="og:description" content="كيف يستخدم معلّمو الموسيقى والمدارس DrillTime بين الدروس: المترونوم وبناء السرعة ومبدل الإيقاعات العشوائي، في تطبيق آمن للأطفال بلا حسابات ولا جمع للبيانات، بالعربية والإنجليزية.">
+<meta property="og:url" content="https://drilltimeapp.com/ar/teachers">
+<meta property="og:locale" content="ar_AE">
+<meta property="og:image" content="https://drilltimeapp.com/og/teachers.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DrillTime للمعلّمين والمدارس، مع أيقونة التطبيق ولقطة من شاشة التطبيق">
+<meta property="og:image:type" content="image/png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="تطبيق تمرين موسيقي للمعلّمين والمدارس | DrillTime وقت التمرين">
+<meta name="twitter:description" content="كيف يستخدم معلّمو الموسيقى والمدارس DrillTime بين الدروس: المترونوم وبناء السرعة ومبدل الإيقاعات العشوائي، في تطبيق آمن للأطفال بلا حسابات ولا جمع للبيانات، بالعربية والإنجليزية.">
+<meta name="twitter:image" content="https://drilltimeapp.com/og/teachers.png">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/beiruti.woff2" crossorigin>
+<style>
+/* DrillTime feature pages (metronome, speed builder, rhythm shuffler; EN and AR).
+   Same tokens, nav and footer as the privacy/terms/support pages. */
+@font-face{font-family:"Varela Round";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/varela-round.woff2) format("woff2")}
+@font-face{font-family:"Beiruti";font-style:normal;font-weight:300 800;font-display:swap;src:url(/fonts/beiruti.woff2) format("woff2")}
+:root{--bg:#e9ede1;--bg-2:#eef2e7;--card:#f4f7ee;--line:#cdd4c0;--ink:#21261e;--ink-soft:#464b3e;--text-dim:#5f675b;--blue:#2f6bff;--link:#2b5fe3}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:"Varela Round",system-ui,sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html[dir=rtl] body{font-family:"Beiruti",sans-serif;font-size:19px}
+html[dir=rtl] h1,html[dir=rtl] h2,html[dir=rtl] h3,html[dir=rtl] .brand{font-family:"Beiruti",sans-serif;font-weight:700}
+.wrap{max-width:760px;margin:0 auto;padding:0 28px}
+a{color:var(--link)}
+a:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:6px}
+main a{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.skip-link{position:absolute;inset-inline-start:-9999px;top:8px;background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:8px;z-index:100;text-decoration:none;font-size:14px}
+.skip-link:focus{inset-inline-start:8px}
+.nb{white-space:nowrap}
+.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* top bar */
+nav.top{display:flex;align-items:center;justify-content:space-between;max-width:1120px;margin:0 auto;padding:26px 28px}
+.brand{display:flex;align-items:center;gap:11px;font-size:19px;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+.brand svg{width:30px;height:auto;color:var(--ink)}
+.langbtn{display:inline-block;font-family:system-ui,sans-serif;border:1px solid var(--line);color:var(--ink);font-size:13px;letter-spacing:.04em;padding:8px 16px;border-radius:9px;text-decoration:none;transition:border-color .2s,background .2s}
+.langbtn:hover{border-color:#b4bca6;background:var(--card)}
+
+/* content */
+main{padding:24px 0 72px}
+.crumbs ol{list-style:none;display:flex;flex-wrap:wrap;gap:6px;font-size:14px;color:var(--text-dim);margin:0 0 18px;padding:0}
+.crumbs li{margin:0}
+.crumbs li+li::before{content:"/";margin-inline-end:6px;color:var(--text-dim)}
+.crumbs a{color:var(--text-dim)}
+h1{font-weight:400;font-size:clamp(34px,5.5vw,52px);line-height:1.08;letter-spacing:-.02em;margin-bottom:18px}
+html[dir=rtl] h1{font-size:clamp(36px,6vw,58px);line-height:1.2}
+h2{font-weight:400;font-size:clamp(23px,3vw,29px);letter-spacing:-.01em;margin:44px 0 12px;color:var(--ink)}
+html[dir=rtl] h2{font-size:clamp(25px,3.4vw,33px)}
+h3{font-weight:400;font-size:20px;margin:26px 0 8px;color:var(--ink)}
+html[dir=rtl] h3{font-size:22px}
+p,ul,ol,dd,td{color:var(--ink-soft)}
+p{margin-bottom:14px}
+.answer{font-size:19px;color:var(--ink);line-height:1.6}
+html[dir=rtl] .answer{font-size:21px}
+ul,ol{margin:0 0 16px;padding-inline-start:24px}
+li{margin-bottom:8px}
+li::marker{color:var(--text-dim)}
+
+/* screenshots */
+.shots{display:flex;gap:16px;margin:26px 0 8px}
+.shots figure{flex:1 1 0;max-width:240px}
+.shots img{display:block;width:100%;height:auto;border-radius:18px;border:1px solid var(--line);background:#fff}
+.shots figcaption{font-size:14px;color:var(--text-dim);margin-top:8px;line-height:1.45}
+html[dir=rtl] .shots figcaption{font-size:16px}
+
+/* table */
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--card);margin:14px 0 18px}
+table{border-collapse:collapse;width:100%;min-width:300px;font-size:16px;line-height:1.5}
+html[dir=rtl] table{font-size:18px}
+caption{text-align:start;padding:14px 16px 10px;color:var(--ink);font-size:16px}
+html[dir=rtl] caption{font-size:18px}
+th,td{padding:10px 16px;text-align:start;vertical-align:top;border-top:1px solid var(--line)}
+thead th{background:var(--bg-2);color:var(--ink);font-weight:400;font-size:14px;letter-spacing:.02em}
+html[dir=rtl] thead th{font-size:16px;letter-spacing:0}
+tbody th{color:var(--ink);font-weight:400}
+
+/* key terms */
+dl{margin:8px 0 14px}
+dt{color:var(--ink);margin-top:16px}
+dfn{font-style:normal}
+dd{margin:2px 0 0}
+
+/* author and call to action */
+.related{margin-top:40px;font-size:16px}
+html[dir=rtl] .related{font-size:18px}
+.author{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 26px;margin-top:48px}
+.author p{font-size:16px}
+html[dir=rtl] .author p{font-size:18px}
+.author .by{color:var(--ink);margin-bottom:8px}
+.author .updated{color:var(--text-dim);font-size:14px;margin:0}
+html[dir=rtl] .author .updated{font-size:16px}
+.cta{text-align:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px 24px;margin-top:24px}
+.cta h2{margin-top:0}
+.badge{display:inline-block;margin:6px 0 10px;border-radius:9px;text-decoration:none}
+.badge img{display:block}
+.badge>span{display:none}
+.microcopy{font-size:14px;color:var(--text-dim)}
+html[dir=rtl] .microcopy{font-size:16px}
+.more{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;padding:0;margin:14px 0 0}
+.more li{margin:0}
+.more a{display:inline-block;padding:6px 0}
+
+/* footer (matches the legal pages) */
+footer{border-top:1px solid var(--line);padding:52px 0 44px}
+.fgrid{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;max-width:1120px;margin:0 auto;padding:0 28px}
+.fbrand{display:flex;flex-direction:column;gap:8px;max-width:300px}
+.fmark{display:flex;align-items:center;gap:10px;font-size:18px;color:var(--ink)}
+.fmark svg{width:26px;height:auto}
+.ftag{color:var(--text-dim);font-size:14px;line-height:1.55;margin:0}
+html[dir=rtl] .ftag{font-size:16px}
+.fnav{display:flex;flex-direction:column;gap:12px;text-align:end}
+.fnav a{color:var(--text-dim);font-size:14px;text-decoration:none}
+html[dir=rtl] .fnav a{font-size:16px}
+.fnav a:hover{color:var(--ink)}
+.fbottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-top:1px solid var(--line);max-width:1120px;margin:36px auto 0;padding:22px 28px 0}
+.fbottom .cr{color:var(--text-dim);font-size:13px}
+.fbottom .langbtn{font-size:12px;padding:6px 14px;border-radius:8px}
+
+@media (max-width:600px){
+  .wrap,nav.top,.fgrid{padding-inline:20px}
+  .shots{gap:12px}
+  .author{padding:18px 20px}
+  .fnav{text-align:start}
+}
+/* guides: index cards */
+.cards{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:16px}
+.cards li{margin:0}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 26px;text-decoration:none!important;color:var(--ink)}
+.card:hover{border-color:#b4bca6}
+.card h2{margin:0 0 6px;font-size:clamp(21px,2.6vw,25px);color:var(--ink)}
+html[dir=rtl] .card h2{font-size:clamp(23px,3vw,28px)}
+.card p{margin:0 0 10px;color:var(--ink-soft)}
+.card .go{color:var(--link);text-decoration:underline;text-underline-offset:3px}
+@media (max-width:600px){th,td{padding:10px 12px}caption{padding:12px 12px 8px}}
+/* teachers page: parent message box and copy button */
+.msg-box{background:var(--card);border:1px solid var(--line);border-inline-start:4px solid var(--link);border-radius:14px;padding:18px 22px;margin:12px 0 18px}
+.msg{color:var(--ink);margin:0 0 14px;white-space:pre-line}
+.copy-btn{font:inherit;font-size:15px;color:#fff;background:var(--link);border:0;border-radius:9px;padding:10px 18px;min-height:44px;cursor:pointer}
+.copy-btn:hover{background:#2350c4}
+.copy-btn:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.copy-status{display:inline-block;margin-inline-start:12px;font-size:15px;color:var(--ink-soft)}
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://drilltimeapp.com/ar/teachers#webpage",
+   "url": "https://drilltimeapp.com/ar/teachers",
+   "name": "تطبيق تمرين موسيقي للمعلّمين والمدارس | DrillTime وقت التمرين",
+   "description": "كيف يستخدم معلّمو الموسيقى والمدارس DrillTime بين الدروس: المترونوم وبناء السرعة ومبدل الإيقاعات العشوائي، في تطبيق آمن للأطفال بلا حسابات ولا جمع للبيانات، بالعربية والإنجليزية.",
+   "inLanguage": "ar",
+   "dateModified": "2026-10-20",
+   "author": {
+    "@id": "https://drilltimeapp.com/#phil"
+   },
+   "about": {
+    "@id": "https://drilltimeapp.com/#app"
+   },
+   "audience": {
+    "@type": "EducationalAudience",
+    "educationalRole": "teacher"
+   },
+   "breadcrumb": {
+    "@id": "https://drilltimeapp.com/ar/teachers#breadcrumb"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://drilltimeapp.com/ar/teachers#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "الرئيسية",
+     "item": "https://drilltimeapp.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "للمعلّمين",
+     "item": "https://drilltimeapp.com/ar/teachers"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://drilltimeapp.com/ar/teachers#faq",
+   "inLanguage": "ar",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "هل DrillTime آمن للأطفال؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "نعم. لا يحتاج إلى حساب، ولا يعرض إعلانات، ولا يتضمن عمليات شراء داخل التطبيق، ولا يجمع أي بيانات شخصية. يبقى كل شيء على الجهاز، ويعمل التطبيق دون اتصال بالإنترنت تمامًا."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "هل يحتاج الطلاب إلى حساب؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "لا. لا يوجد إنشاء حساب ولا تسجيل دخول، فيفتح الطالب التطبيق ويبدأ التمرين مباشرة."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "هل تستطيع المدرسة شراء DrillTime لأجهزة كثيرة؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "نعم. يمكن للمدارس شراء التطبيقات بكميات عبر Apple School Manager وتثبيتها على أجهزة iPad الخاصة بالطلاب من خلال خدمة إدارة الأجهزة، ويشرح دليل Apple الشروط الحالية."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "مع أي آلات موسيقية يعمل؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "مع أي آلة. فالمترونوم وبناء السرعة يناسبان أي آلة والغناء أيضًا، ومبدل الإيقاعات العشوائي يدرّب على قراءة الإيقاع التي يحتاجها كل موسيقي."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "هل يعمل DrillTime بالعربية؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "نعم. كل شاشة متاحة بالعربية والإنجليزية، مع واجهة عربية كاملة من اليمين إلى اليسار."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "DefinedTermSet",
+   "@id": "https://drilltimeapp.com/ar/teachers#terms",
+   "name": "مصطلحات أساسية",
+   "inLanguage": "ar",
+   "hasDefinedTerm": [
+    {
+     "@type": "DefinedTerm",
+     "name": "سرعة الإيقاع",
+     "description": "مدى سرعة الموسيقى، وتُقاس بعدد النبضات في الدقيقة (BPM).",
+     "inDefinedTermSet": {
+      "@id": "https://drilltimeapp.com/ar/teachers#terms"
+     }
+    },
+    {
+     "@type": "DefinedTerm",
+     "name": "الممارسة المتعمّدة",
+     "description": "تمرين مركّز على أصعب أجزاء المهارة، بقدر يتجاوز ما تجده مريحًا قليلًا.",
+     "inDefinedTermSet": {
+      "@id": "https://drilltimeapp.com/ar/teachers#terms"
+     }
+    },
+    {
+     "@type": "DefinedTerm",
+     "name": "Apple School Manager",
+     "description": "خدمة من Apple تتيح للمدارس شراء التطبيقات بكميات وتخصيصها لأجهزة الطلاب.",
+     "inDefinedTermSet": {
+      "@id": "https://drilltimeapp.com/ar/teachers#terms"
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<script defer src="/js/page-lang.js?v=1"></script>
+<script defer src="/js/copy-message.js?v=1"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">تخطي إلى المحتوى</a>
+
+<nav class="top">
+  <a class="brand" href="/">
+    <svg viewBox="-40 -40 912 602" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="0" y="0" width="68" height="522" rx="34" fill="currentColor"/><rect x="764" y="0" width="68" height="522" rx="34" fill="currentColor"/><circle cx="136" cy="193" r="34" fill="currentColor"/><circle cx="136" cy="329" r="34" fill="currentColor"/><circle cx="696" cy="193" r="34" fill="currentColor"/><circle cx="696" cy="329" r="34" fill="currentColor"/><path d="M266 227L266 92L496 92" stroke="currentColor" stroke-width="68" stroke-linecap="round" stroke-linejoin="round"/><path d="M496 27L601 92L496 157Z" fill="currentColor" stroke="currentColor" stroke-width="68" stroke-linecap="round" stroke-linejoin="round"/><path d="M566 295L566 430L336 430" stroke="currentColor" stroke-width="68" stroke-linecap="round" stroke-linejoin="round"/><path d="M336 495L231 430L336 365Z" fill="currentColor" stroke="currentColor" stroke-width="68" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>drill time</span>
+  </a>
+  <a class="langbtn" href="/teachers" hreflang="en" lang="en">English</a>
+</nav>
+
+<main id="main">
+<div class="wrap">
+
+<nav class="crumbs" aria-label="مسار التنقّل">
+  <ol><li><a href="/">الرئيسية</a></li><li aria-current="page">للمعلّمين</li></ol>
+</nav>
+
+<h1>DrillTime وقت التمرين للمعلّمين والمدارس</h1>
+
+<p class="answer">DrillTime تطبيق للتمرين الموسيقي على iPhone وiPad، يجمع مترونومًا وأداة لرفع السرعة تدريجيًا وأخرى لتدريب قراءة الإيقاع، وقد صُمّم للعازفين الصغار وللمعلّمين الذين يوجّهون تمرينهم. وهو آمن للطلاب بطبيعة تصميمه: لا حسابات، ولا إعلانات، ولا عمليات شراء داخل التطبيق، ولا يجمع أي بيانات شخصية. ويعمل بالكامل دون اتصال بالإنترنت، بالعربية أو بالإنجليزية.</p>
+
+<div class="shots">
+<figure>
+  <img src="/img/metronome-ar-1-240.webp" srcset="/img/metronome-ar-1-180.webp 180w, /img/metronome-ar-1-240.webp 240w, /img/metronome-ar-1-360.webp 360w, /img/metronome-ar-1-480.webp 480w" sizes="(max-width: 600px) calc(50vw - 26px), 240px" width="240" height="520" alt="شاشة المترونوم في DrillTime على سرعة ٨٦ نبضة في الدقيقة، ويظهر تحتها اسم السرعة «سير معتدل» مع زرّي الزيادة والنقصان وشريط ضبط السرعة" fetchpriority="high" decoding="async">
+  <figcaption>المترونوم على ٨٦ نبضة في الدقيقة، بسرعة «سير معتدل».</figcaption>
+</figure>
+<figure>
+  <img src="/img/rhythm-shuffler-ar-1-240.webp" srcset="/img/rhythm-shuffler-ar-1-180.webp 180w, /img/rhythm-shuffler-ar-1-240.webp 240w, /img/rhythm-shuffler-ar-1-360.webp 360w, /img/rhythm-shuffler-ar-1-480.webp 480w" sizes="(max-width: 600px) calc(50vw - 26px), 240px" width="240" height="521" alt="شاشة إعداد مبدل الإيقاعات العشوائي في DrillTime، وعليها إيقاع من أربع مازورات في ميزان ٤/٤، والصعوبة مضبوطة على «صعب»، والسرعة ٨٠ نبضة في الدقيقة، مع زرّي «خلط» و«تشغيل»" loading="lazy" decoding="async">
+  <figcaption>إيقاع جديد من أربع مازورات في ميزان ٤/٤ على سرعة ٨٠ نبضة في الدقيقة.</figcaption>
+</figure>
+</div>
+
+<p>أدرّس الغيتار في دبي، وأصعب ما في عملي ليس الدرس نفسه، بل ما يحدث في الأيام الستة التي تفصل بين درس وآخر. صنعت DrillTime ليجد الطلاب ما يتمرّنون عليه بتركيز في تلك الأيام، وليجد المعلّمون أمثالك طريقة بسيطة لتحديده.</p>
+
+<h2>كيف يستخدم المعلّمون DrillTime</h2>
+
+<h3>المترونوم: هدف سرعة للأسبوع</h3>
+
+<p>أعطِ كل طالب مقطعًا وسرعة محددة يبلغها، واطلب منه أن يتمرّن مع <a href="/ar/metronome">المترونوم</a>. تعرض الشاشة عدد النبضات في الدقيقة واسم السرعة، ويختار الطالب الميزان والنبرات والسوينغ وصوت النقر، فيناسب معظم الأساليب والآلات.</p>
+
+<h3>بناء السرعة: صعود تدريجي في المقطع الصعب</h3>
+
+<p>للمقطع الذي ينهار عند السرعة الكاملة، حدّد سرعة البداية والهدف في أداة <a href="/ar/speed-builder">بناء السرعة</a>. فهي ترفع السرعة بخطوات صغيرة، وتعرض الإيقاع الحالي ورقم الخطوة والوقت المتبقي، ليتمرّن الطالب على الصعود التدريجي بدلًا من فرض السرعة.</p>
+
+<h3>مبدل الإيقاعات العشوائي: قراءة الإيقاع بين الدروس</h3>
+
+<p>يعرض <a href="/ar/rhythm-shuffler">مبدل الإيقاعات العشوائي</a> إيقاعًا مكتوبًا جديدًا، فينقره الطالب، ثم يُظهر نسبة دقته وعدد النغمات التي جاءت على الإيقاع أو مبكرة أو متأخرة أو فائتة. ومع ستة خيارات للصعوبة، يناسب المبتدئين والمتمكّنين من القراءة على السواء، والإيقاعات تتجدّد في كل مرة.</p>
+
+<div class="table-wrap" role="region" aria-labelledby="table-1" tabindex="0">
+<table>
+  <caption id="table-1">أي أداة لأي هدف</caption>
+  <thead><tr><th scope="col">الهدف</th><th scope="col">الأداة</th><th scope="col">طريقة استخدامها خلال الأسبوع</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">نبض ثابت</th><td>المترونوم</td><td>التمرين على مقطع الأسبوع مع النقر على سرعة محددة، ثم مرة واحدة دونه</td></tr>
+    <tr><th scope="row">بلوغ السرعة المكتوبة</th><td>بناء السرعة</td><td>سرعة بداية يتقنها الطالب، والسرعة المكتوبة هدفًا، في بضع جلسات قصيرة</td></tr>
+    <tr><th scope="row">قراءة الإيقاع بثقة</th><td>مبدل الإيقاعات العشوائي</td><td>بضعة إيقاعات جديدة يوميًا على صعوبة مريحة، مع مراجعة الدقة في كل مرة</td></tr>
+    <tr><th scope="row">روتين يومي</th><td>الأدوات الثلاث</td><td>جلسة قصيرة يوميًا: إحماء مع المترونوم، ثم مقطع في بناء السرعة، ثم إيقاعان أو ثلاثة</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>آمن للطلاب</h2>
+
+<p>يحرص المعلّمون، وهم محقّون في ذلك، على التدقيق في التطبيقات التي يرشّحونها للأطفال. وهذه هي الحقائق كما وردت في سياسة الخصوصية وشروط الاستخدام:</p>
+
+<ul>
+  <li>لا حسابات: لا إنشاء حساب ولا تسجيل دخول.</li>
+  <li>لا إعلانات، ولا عمليات شراء داخل التطبيق.</li>
+  <li>لا يجمع أي بيانات شخصية، ولا تحليلات ولا تتبّع.</li>
+  <li>يعمل دون اتصال بالإنترنت تمامًا، ولا يرسل أي طلبات عبر الشبكة أثناء التمرين.</li>
+  <li>مناسب للأجهزة المشتركة في الفصول، لأنه لا يخزّن أي شيء شخصي.</li>
+</ul>
+
+<p>وتوضّح <a href="/privacy">سياسة الخصوصية</a> كاملةً كيف يلبّي DrillTime بطبيعة تصميمه متطلبات COPPA وGDPR-K ومتطلبات حماية بيانات المدارس، بما في ذلك الأطفال دون الثالثة عشرة.</p>
+
+<h2>مصمَّم للفصول العربية والإنجليزية</h2>
+
+<p>DrillTime ثنائي اللغة بالكامل. كل شاشة متاحة بالعربية والإنجليزية، مع واجهة عربية كاملة من اليمين إلى اليسار، وزرّ في أعلى التطبيق للتبديل بين اللغتين. فيتمرّن كل طالب باللغة التي يرتاح لها، ويستخدم الفصل ثنائي اللغة التطبيق نفسه.</p>
+
+<h2>كيف تحصل مدرستك على DrillTime</h2>
+
+<p>يشتري الطلاب وأولياء الأمور DrillTime مرة واحدة من App Store دون اشتراك. أما المدارس التي تدير أجهزة iPad الخاصة بها، فيمكنها بدلًا من ذلك شراء التطبيقات بكميات عبر Apple School Manager، الذي يتيح للمدرسة:</p>
+
+<ul>
+  <li>شراء التطبيقات بكميات باسم المدرسة.</li>
+  <li>تثبيتها وتحديثها عن بُعد عبر خدمة إدارة الأجهزة.</li>
+  <li>سحب التطبيق من جهاز وإعادة تخصيصه لجهاز أو طالب آخر عند الحاجة.</li>
+</ul>
+
+<p>كما أن DrillTime مشمول بالأسعار التعليمية الخاصة لدى Apple، إذ تحصل المؤسسات التعليمية المؤهّلة على السعر التعليمي الخاص عند شراء ٢٠ نسخة أو أكثر عبر Apple School Manager. راجع التفاصيل الحالية في <a href="https://support.apple.com/ar-ae/guide/apple-school-manager/axme19b23f7f/web" target="_blank" rel="noopener">دليل Apple لشراء المحتوى عبر Apple School Manager<span class="vh"> (يُفتح في علامة تبويب جديدة)</span></a>.</p>
+
+<h2>رسالة جاهزة لأولياء الأمور</h2>
+
+<p>انسخ هذه الرسالة إلى واتساب أو إلى بريد إلكتروني لأولياء أمور طلابك، وعدّلها كما تشاء.</p>
+
+<div class="msg-box">
+<p class="msg" id="parent-message" lang="ar">مرحبًا، لمساعدة أبنائكم على التمرين في المنزل، أنصح بتطبيق DrillTime وقت التمرين، وهو تطبيق للتمرين الموسيقي على iPhone وiPad. يضم مترونومًا، وأداة ترفع السرعة خطوة بخطوة، وأخرى لتدريب قراءة الإيقاع، بالعربية والإنجليزية. يُشترى مرة واحدة، بلا إعلانات ولا حسابات، ولا يجمع أي بيانات شخصية. عشر دقائق يوميًا تصنع فرقًا حقيقيًا. لمعرفة المزيد: https://drilltimeapp.com</p>
+<button type="button" class="copy-btn" data-copy="parent-message" data-done="تم نسخ الرسالة" aria-label="نسخ الرسالة الموجّهة لأولياء الأمور" hidden>نسخ الرسالة</button>
+<span class="copy-status" role="status" aria-live="polite"></span>
+</div>
+
+<h2>مصطلحات أساسية</h2>
+
+<dl>
+  <dt><dfn>سرعة الإيقاع</dfn></dt>
+  <dd>مدى سرعة الموسيقى، وتُقاس بعدد النبضات في الدقيقة (BPM).</dd>
+  <dt><dfn>الممارسة المتعمّدة</dfn></dt>
+  <dd>تمرين مركّز على أصعب أجزاء المهارة، بقدر يتجاوز ما تجده مريحًا قليلًا.</dd>
+  <dt><dfn>Apple School Manager</dfn></dt>
+  <dd>خدمة من Apple تتيح للمدارس شراء التطبيقات بكميات وتخصيصها لأجهزة الطلاب.</dd>
+</dl>
+
+<h2>أسئلة شائعة</h2>
+
+<h3>هل DrillTime آمن للأطفال؟</h3>
+<p>نعم. لا يحتاج إلى حساب، ولا يعرض إعلانات، ولا يتضمن عمليات شراء داخل التطبيق، ولا يجمع أي بيانات شخصية. يبقى كل شيء على الجهاز، ويعمل التطبيق دون اتصال بالإنترنت تمامًا.</p>
+<h3>هل يحتاج الطلاب إلى حساب؟</h3>
+<p>لا. لا يوجد إنشاء حساب ولا تسجيل دخول، فيفتح الطالب التطبيق ويبدأ التمرين مباشرة.</p>
+<h3>هل تستطيع المدرسة شراء DrillTime لأجهزة كثيرة؟</h3>
+<p>نعم. يمكن للمدارس شراء التطبيقات بكميات عبر Apple School Manager وتثبيتها على أجهزة iPad الخاصة بالطلاب من خلال خدمة إدارة الأجهزة، ويشرح دليل Apple الشروط الحالية.</p>
+<h3>مع أي آلات موسيقية يعمل؟</h3>
+<p>مع أي آلة. فالمترونوم وبناء السرعة يناسبان أي آلة والغناء أيضًا، ومبدل الإيقاعات العشوائي يدرّب على قراءة الإيقاع التي يحتاجها كل موسيقي.</p>
+<h3>هل يعمل DrillTime بالعربية؟</h3>
+<p>نعم. كل شاشة متاحة بالعربية والإنجليزية، مع واجهة عربية كاملة من اليمين إلى اليسار.</p>
+
+<aside class="author">
+  <p class="by">بقلم فيل دوتي، معلّم الغيتار في دبي ومبتكر DrillTime.</p>
+  <p>لسنوات كنت أرى طلابي يستمتعون بدروسهم، ثم لا يكادون يلمسون آلاتهم حتى الدرس التالي. لذلك صنعت أداة التمرين التي تمنّيت لو كانت بين أيديهم.</p>
+  <p class="updated">آخر تحديث: ٢٠ أكتوبر ٢٠٢٦</p>
+</aside>
+
+<section class="cta" aria-labelledby="cta-heading">
+  <h2 id="cta-heading">تمرّن مع DrillTime</h2>
+  <a class="badge" href="#" data-appstore><img src="/img/appstore-ar-black.svg" alt="تنزيل التطبيق من App Store" width="168" height="56" loading="lazy" decoding="async"><span><small class="en">Coming soon on the</small><small class="ar" lang="ar">قريباً على</small>App Store</span></a>
+  <p class="microcopy">شراء لمرة واحدة. بدون اشتراك أو إعلانات أو حسابات.</p>
+  <nav aria-label="استكشف DrillTime">
+  <ul class="more">
+    <li><a href="/ar/metronome">المترونوم</a></li>
+    <li><a href="/ar/speed-builder">بناء السرعة</a></li>
+    <li><a href="/ar/rhythm-shuffler">مبدل الإيقاعات العشوائي</a></li>
+    <li><a href="/ar/guides">أدلة التمرين</a></li>
+  </ul>
+  </nav>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="fgrid">
+    <div class="fbrand">
+      <div class="fmark">
+        <span>drill time</span>
+        <svg viewBox="-40 -40 912 602" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="0" y="0" width="68" height="522" rx="34" fill="currentColor"/><rect x="764" y="0" width="68" height="522" rx="34" fill="currentColor"/><circle cx="136" cy="193" r="34" fill="currentColor"/><circle cx="136" cy="329" r="34" fill="currentColor"/><circle cx="696" cy="193" r="34" fill="currentColor"/><circle cx="696" cy="329" r="34" fill="currentColor"/><path d="M266 227L266 92L496 92" stroke="currentColor" stroke-width="68" stroke-linecap="round" stroke-linejoin="round"/><path d="M496 27L601 92L496 157Z" fill="currentColor" stroke="currentColor" stroke-width="68" stroke-linecap="round" stroke-linejoin="round"/><path d="M566 295L566 430L336 430" stroke="currentColor" stroke-width="68" stroke-linecap="round" stroke-linejoin="round"/><path d="M336 495L231 430L336 365Z" fill="currentColor" stroke="currentColor" stroke-width="68" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <p class="ftag">تدريب يومي على الموسيقى للعازفين الناشئين. دون إعلانات ولا يتطلب إنشاء حساب ويعمل دون اتصال بالإنترنت.</p>
+    </div>
+    <nav class="fnav" aria-label="روابط الموقع">
+      <a href="/ar/metronome">المترونوم</a>
+      <a href="/ar/speed-builder">بناء السرعة</a>
+      <a href="/ar/rhythm-shuffler">مبدل الإيقاعات العشوائي</a>
+      <a href="/ar/guides">أدلة التمرين</a>
+      <a href="/ar/teachers">للمعلّمين</a>
+      <a href="/privacy">الخصوصية</a>
+      <a href="/terms">الشروط</a>
+      <a href="/support">الدعم</a>
+    </nav>
+  </div>
+  <div class="fbottom">
+    <div class="cr">© 2026 DrillTime</div>
+    <a class="langbtn" href="/teachers" hreflang="en" lang="en">English</a>
+  </div>
+</footer>
+</body>
+</html>

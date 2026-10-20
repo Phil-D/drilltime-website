@@ -39,3 +39,8 @@
 - [How to practise with a metronome, in Arabic](https://drilltimeapp.com/ar/guides/metronome-practice): the metronome practice guide in Arabic
 - [How to build speed without making mistakes, in Arabic](https://drilltimeapp.com/ar/guides/build-speed): the speed-building guide in Arabic
 - [How to help your child practise every day, in Arabic](https://drilltimeapp.com/ar/guides/daily-practice-for-kids): the guide for parents in Arabic
+
+## For teachers and schools
+
+- [For Teachers & Schools](https://drilltimeapp.com/teachers): how teachers use each tool between lessons, why it is safe for students, buying for a school through Apple School Manager, and a ready-made message for parents
+- [For Teachers & Schools, in Arabic](https://drilltimeapp.com/ar/teachers): the teachers and schools page in Arabic
