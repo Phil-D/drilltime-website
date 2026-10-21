@@ -143,6 +143,202 @@ html[dir=rtl] .fnav a{font-size:16px}
   .author{padding:18px 20px}
   .fnav{text-align:start}
 }
+
+/* ---- Metronome design pilot: product-first layout on top of the feature-page base above.
+   Same DrillTime tokens; spacing, radii and shadows follow the home page scale. */
+:root{--r-s:13px;--r-m:21px;--r-l:34px;--s4:8px;--s5:13px;--s6:21px;--s7:34px;--s8:55px;--s9:89px;--wide:987px;
+  --shadow-1:0 1px 2px rgba(33,38,30,.06),0 3px 8px rgba(33,38,30,.05);
+  --shadow-2:0 3px 8px rgba(33,38,30,.08),0 13px 34px rgba(33,38,30,.12)}
+html{scroll-padding-top:84px}
+main{padding:0 0 var(--s8)}
+.wide{max-width:var(--wide);margin:0 auto;padding:0 28px}
+.badge{border-radius:var(--r-s);transition:transform .2s,box-shadow .2s}
+.badge:hover{transform:translateY(-2px);box-shadow:var(--shadow-2)}
+
+/* hero */
+.hero{padding:var(--s4) 0 var(--s9)}
+.hero .crumbs ol{margin-bottom:var(--s7)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:var(--s8);align-items:center}
+.hero h1{font-size:clamp(40px,6vw,64px);line-height:1.05;margin-bottom:var(--s6)}
+html[dir=rtl] .hero h1{font-size:clamp(44px,6.8vw,72px);line-height:1.2}
+.lede{font-size:21px;line-height:1.55;color:var(--ink-soft);max-width:28em;margin-bottom:var(--s7)}
+html[dir=rtl] .lede{font-size:23px}
+.hero .badge{margin:0 0 var(--s5)}
+.hero .badge img{width:168px;height:56px}
+
+/* phone frame */
+.phone{width:min(280px,100%);margin-inline:auto;padding:9px;background:var(--card);border:1px solid var(--line);border-radius:44px;box-shadow:var(--shadow-2)}
+.phone img{display:block;width:100%;height:auto;border-radius:35px;background:var(--bg)}
+
+/* slim App Store bar: in the page flow after the hero, then sticks to the top (no script, no layout shift) */
+.buybar{position:sticky;top:0;z-index:20;background:rgba(233,237,225,.94);border-block:1px solid var(--line);-webkit-backdrop-filter:saturate(1.3) blur(12px);backdrop-filter:saturate(1.3) blur(12px)}
+.buybar-in{display:flex;align-items:center;gap:12px;height:62px}
+.buybar .icon{width:38px;height:38px;border-radius:9px;border:1px solid var(--line);box-shadow:var(--shadow-1);flex:none}
+.bb-text{display:flex;flex-direction:column;line-height:1.25;margin:0 auto 0 0;min-width:0}
+html[dir=rtl] .bb-text{margin:0 0 0 auto}
+.bb-name{color:var(--ink);font-size:16px}
+.bb-sub{color:var(--text-dim);font-size:13px}
+html[dir=rtl] .bb-name{font-size:18px;font-weight:700}
+html[dir=rtl] .bb-sub{font-size:15px}
+.buybar .badge{margin:0;flex:none}
+.buybar .badge img{width:120px;height:40px}
+.buybar .badge:hover{box-shadow:var(--shadow-1)}
+
+/* story sections: one benefit each, image side alternates (mirrors itself in RTL) */
+.story{padding:var(--s9) 0}
+.cv{content-visibility:auto;contain-intrinsic-size:auto 740px}
+.story-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s8);align-items:center}
+.story.flip .story-media{order:-1}
+.story h2,.climb h2,.steps3 h2,.results h2,.tiers h2{font-size:clamp(30px,4.5vw,44px);line-height:1.1;letter-spacing:-.02em;margin:0 0 var(--s6)}
+html[dir=rtl] .story h2,html[dir=rtl] .climb h2,html[dir=rtl] .steps3 h2,html[dir=rtl] .results h2,html[dir=rtl] .tiers h2{font-size:clamp(32px,4.9vw,48px);line-height:1.3;letter-spacing:0}
+.story p,.climb-copy p,.tiers-head p{font-size:19px;line-height:1.6;max-width:24em;margin:0}
+.story p+p{margin-top:var(--s5)}
+html[dir=rtl] .story p,html[dir=rtl] .climb-copy p,html[dir=rtl] .tiers-head p{font-size:21px}
+.story .phone{width:min(260px,100%)}
+
+/* chips and panels: small illustrations built from the app's own labels */
+.chipset{margin-top:var(--s6)}
+.chip-label,.panel-sub,.opt-name{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim);margin:0 0 var(--s4)}
+html[dir=rtl] .chip-label,html[dir=rtl] .panel-sub,html[dir=rtl] .opt-name{font-size:16px;letter-spacing:0;text-transform:none}
+.chips{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{margin:0;padding:5px 12px;border:1px solid var(--line);border-radius:var(--r-s);background:var(--card);color:var(--ink);font-size:15px;line-height:1.35}
+html[dir=rtl] .chips li{font-size:17px}
+.panel{width:min(400px,100%);margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);padding:var(--s7) var(--s6);box-shadow:var(--shadow-2)}
+.panel .chips li{background:var(--bg-2)}
+.panel-cap{font-size:15px;color:var(--ink);margin-bottom:var(--s6)}
+html[dir=rtl] .panel-cap{font-size:18px}
+.pulse{display:grid;gap:12px;margin-bottom:var(--s7)}
+.p-row{display:grid;grid-template-columns:7.2em 1fr;align-items:center;gap:12px}
+.p-name{font-size:15px;color:var(--ink-soft)}
+html[dir=rtl] .p-name{font-size:17px}
+.p-dots{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;direction:ltr}
+.beat{display:flex;justify-content:space-around;align-items:center;height:24px;padding:0 3px;background:var(--bg-2);border:1px solid var(--line);border-radius:8px}
+.beat i{width:7px;height:7px;border-radius:50%;background:var(--text-dim)}
+.beat i:first-child{width:11px;height:11px;background:var(--ink)}
+.opt+.opt{margin-top:var(--s6)}
+
+/* gentle fade-in, added by /js/reveal.js only below the fold and never with reduced motion */
+.rv{opacity:0;transform:translateY(21px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+/* the quieter depth area */
+.depth{background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);padding:var(--s8) var(--s7);margin-top:var(--s7)}
+.depth-in{max-width:680px;margin:0 auto}
+.depth h2{font-size:clamp(26px,3.4vw,34px);line-height:1.15;margin:0 0 var(--s4)}
+html[dir=rtl] .depth h2{font-size:clamp(28px,3.8vw,38px);line-height:1.3}
+.depth .intro{color:var(--text-dim);font-size:16px}
+.depth h3{font-size:21px;margin:var(--s8) 0 var(--s5)}
+.depth h4{font-weight:400;font-size:18px;color:var(--ink);margin:var(--s7) 0 var(--s4)}
+html[dir=rtl] .depth h3{font-size:24px}
+html[dir=rtl] .depth h4{font-size:20px;font-weight:700}
+.depth p,.depth li,.depth dd,.depth summary{font-size:16px}
+html[dir=rtl] .depth p,html[dir=rtl] .depth li,html[dir=rtl] .depth dd,html[dir=rtl] .depth summary{font-size:18px}
+.depth .answer{font-size:17px}
+html[dir=rtl] .depth .answer{font-size:19px}
+
+/* numbered steps and routine cards */
+.steps,.routine{list-style:none;padding:0;counter-reset:step}
+.steps>li,.routine>li{counter-increment:step;position:relative;padding-inline-start:46px;margin-bottom:var(--s5)}
+.steps>li::before,.routine>li::before{content:counter(step);position:absolute;inset-inline-start:0;top:0;width:30px;height:30px;border-radius:50%;background:var(--bg-2);border:1px solid var(--line);color:var(--ink);font-size:14px;line-height:28px;text-align:center}
+html[dir=rtl] .steps>li::before,html[dir=rtl] .routine>li::before{content:counter(step,arabic-indic);font-size:16px}
+.routine>li{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-m);padding:var(--s5) var(--s6);padding-inline-start:58px}
+.routine>li::before{inset-inline-start:var(--s6);top:var(--s5);background:var(--card)}
+.r-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 12px}
+.r-stage{color:var(--ink)}
+.r-time{color:var(--text-dim);font-size:14px}
+html[dir=rtl] .r-time{font-size:16px}
+.routine p{margin:2px 0 0}
+
+/* FAQ */
+.faq{border-bottom:1px solid var(--line)}
+.faq details{border-top:1px solid var(--line)}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0;color:var(--ink);cursor:pointer;list-style:none;border-radius:6px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;width:26px;height:26px;border:1px solid var(--line);border-radius:50%;text-align:center;line-height:24px;color:var(--ink-soft);background:var(--bg-2)}
+.faq details[open] summary::after{content:"\2212"}
+.faq summary:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.faq details p{margin:0 0 var(--s6)}
+
+.depth .related{margin-top:var(--s8)}
+.depth .author{background:var(--bg-2);margin-top:var(--s6)}
+.cta{background:none;border:0;padding:var(--s9) 0 var(--s7);margin:0}
+.cta h2{font-size:clamp(30px,4.5vw,44px);letter-spacing:-.02em;margin-bottom:var(--s6)}
+html[dir=rtl] .cta h2{font-size:clamp(32px,4.9vw,48px)}
+
+@media (max-width:760px){
+  .hero-grid,.story-grid{grid-template-columns:minmax(0,1fr);gap:var(--s7)}
+  .hero{padding-bottom:var(--s8)}
+  .story{padding:var(--s8) 0}
+  .cv{contain-intrinsic-size:auto 880px}
+  .story.flip .story-media{order:0}
+  .phone{width:min(244px,100%)}
+  .story .phone{width:min(230px,100%)}
+}
+@media (max-width:600px){
+  .wide{padding-inline:20px}
+  .lede{font-size:19px}
+  html[dir=rtl] .lede{font-size:21px}
+  .story p{font-size:18px}
+  html[dir=rtl] .story p{font-size:20px}
+  .depth{padding:var(--s7) var(--s6);border-radius:var(--r-m);margin-inline:-6px}
+  .buybar-in{height:58px;gap:10px}
+  .buybar .icon{width:34px;height:34px}
+  .buybar .badge img{width:108px;height:36px}
+  .p-row{grid-template-columns:6.4em minmax(0,1fr);gap:8px}
+  .p-dots{gap:4px}
+  .beat{padding:0 2px}
+  .beat i{width:6px;height:6px}
+  .beat i:first-child{width:9px;height:9px}
+}
+@media (max-height:500px){.buybar{position:static}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .badge,.rv{transition:none}
+  .badge:hover{transform:none}
+  .rv{opacity:1;transform:none}
+}
+
+/* ---- Speed Builder: the hero sits on a climb that rises towards the phone, then a full-width climb card.
+   Accent: the app's single-hue ramp blue (#2E71E2) with its goal green (#1E824C). */
+.hero-climb{position:relative}
+.hero-climb .stairs{position:absolute;inset-inline:-28px;bottom:calc(-1 * var(--s7));width:calc(100% + 56px);height:44%}
+.hero-climb .hero-copy,.hero-climb .hero-media{position:relative}
+
+.climb{padding:var(--s9) 0 var(--s7)}
+.climb-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);padding:var(--s8) var(--s7) var(--s7);box-shadow:var(--shadow-1)}
+.climb-copy{margin-bottom:var(--s7)}
+.climb-copy p{max-width:32em}
+.climb-fig{margin:0}
+.climb-svg{display:block;width:100%;height:auto;font-family:inherit}
+.climb-svg text{font-size:24px;fill:var(--ink)}
+.climb-svg text.now{font-size:30px;fill:#2E71E2}
+.climb-svg .lab{font-size:16px;letter-spacing:.06em}
+.climb-svg .start{fill:#2E71E2}
+.climb-svg .goal{fill:#1E824C}
+.climb-svg .step{fill:var(--ink)}
+.climb-svg .cur{font-size:14px;fill:var(--text-dim)}
+.climb-svg .pill{fill:var(--bg-2);stroke:var(--line);stroke-width:1.5}
+.climb-svg .axis{stroke:var(--line);stroke-width:2}
+html[dir=rtl] .climb-svg .lab{font-size:20px;letter-spacing:0}
+html[dir=rtl] .climb-svg .cur{font-size:18px}
+.climb-fig figcaption{font-size:14px;color:var(--text-dim);margin-top:var(--s5)}
+html[dir=rtl] .climb-fig figcaption{font-size:16px}
+
+@media (max-width:760px){
+  .hero-sb .crumbs ol{justify-content:center}
+  .hero-sb .hero-copy{text-align:center}
+  .hero-sb .lede{margin-inline:auto}
+}
+@media (max-width:600px){
+  .climb-card{padding:var(--s7) var(--s6) var(--s6);border-radius:var(--r-m);margin-inline:-6px}
+  .climb-svg text{font-size:46px}
+  .climb-svg text.now{font-size:54px}
+  .climb-svg .lab{font-size:30px;letter-spacing:.02em}
+  .climb-svg .cur{font-size:28px}
+  html[dir=rtl] .climb-svg .lab{font-size:34px}
+  html[dir=rtl] .climb-svg .cur{font-size:32px}
+  .hero-climb .stairs{height:30%;inset-inline:-20px;width:calc(100% + 40px);bottom:calc(-1 * var(--s6))}
+}
 </style>
 <script type="application/ld+json">
 {
@@ -155,7 +351,7 @@ html[dir=rtl] .fnav a{font-size:16px}
    "name": "بناء السرعة: رفع سرعة العزف تدريجيًا | DrillTime وقت التمرين",
    "description": "تساعدك أداة بناء السرعة على رفع سرعة العزف خطوة بخطوة، من سرعة البداية حتى السرعة التي تستهدفها. طريقة الاستخدام وخطة نموذجية ونصائح من معلّم غيتار في دبي.",
    "inLanguage": "ar",
-   "dateModified": "2026-10-19",
+   "dateModified": "2026-10-21",
    "author": {
     "@id": "https://drilltimeapp.com/#phil"
    },
@@ -172,10 +368,10 @@ html[dir=rtl] .fnav a{font-size:16px}
   {
    "@type": "ImageObject",
    "@id": "https://drilltimeapp.com/ar/speed-builder#primaryimage",
-   "url": "https://drilltimeapp.com/img/speed-builder-ar-1-480.webp",
-   "contentUrl": "https://drilltimeapp.com/img/speed-builder-ar-1-480.webp",
-   "width": 480,
-   "height": 1041,
+   "url": "https://drilltimeapp.com/img/sb-player-ar-640.webp",
+   "contentUrl": "https://drilltimeapp.com/img/sb-player-ar-640.webp",
+   "width": 640,
+   "height": 1387,
    "caption": "شاشة بناء السرعة في DrillTime على ٨٦ نبضة في الدقيقة في الخطوة ٣ من ٦، صعودًا من سرعة البداية ٨٠ نحو الهدف ٩٥، مع الوقت المتبقي"
   },
   {
@@ -266,6 +462,7 @@ html[dir=rtl] .fnav a{font-size:16px}
 }
 </script>
 <script defer src="/js/page-lang.js?v=1"></script>
+<script defer src="/js/reveal.js?v=1"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">تخطي إلى المحتوى</a>
@@ -278,80 +475,121 @@ html[dir=rtl] .fnav a{font-size:16px}
   <a class="langbtn" href="/speed-builder" hreflang="en" lang="en">English</a>
 </nav>
 
-<main id="main">
-<div class="wrap">
-
+<main id="main" class="tool-speed-builder">
+<section class="hero hero-sb">
+<div class="wide">
 <nav class="crumbs" aria-label="مسار التنقّل">
   <ol><li><a href="/">الرئيسية</a></li><li aria-current="page">بناء السرعة</li></ol>
 </nav>
-
+<div class="hero-grid hero-climb">
+<svg class="stairs" viewBox="0 0 960 280" preserveAspectRatio="none" aria-hidden="true" focusable="false"><rect x="810.0" y="190" width="150.0" height="90" rx="14" fill="#2E71E2" fill-opacity="0.08"/><rect x="648.0" y="156" width="150.0" height="124" rx="14" fill="#2E71E2" fill-opacity="0.13"/><rect x="486.0" y="122" width="150.0" height="158" rx="14" fill="#2E71E2" fill-opacity="0.18"/><rect x="324.0" y="88" width="150.0" height="192" rx="14" fill="#2E71E2" fill-opacity="0.23"/><rect x="162.0" y="54" width="150.0" height="226" rx="14" fill="#2E71E2" fill-opacity="0.28"/><rect x="0.0" y="20" width="150.0" height="260" rx="14" fill="#2E71E2" fill-opacity="0.33"/></svg>
+<div class="hero-copy">
 <h1>بناء السرعة: أداة لرفع سرعة العزف تدريجيًا</h1>
+<p class="lede">ابدأ بإيقاع تتقنه، وحدّد هدفك، ودع بناء السرعة في DrillTime وقت التمرين يرفع الإيقاع خطوة بخطوة وأنت تواصل التمرين.</p>
+<a class="badge" href="#" data-appstore><img src="/img/appstore-ar-black.svg" alt="تنزيل التطبيق من App Store" width="168" height="56" decoding="async"><span><small class="en">Coming soon on the</small><small class="ar" lang="ar">قريباً على</small>App Store</span></a>
+<p class="microcopy">شراء لمرة واحدة. بدون اشتراك أو إعلانات أو حسابات.</p>
+</div>
+<div class="hero-media">
+<div class="phone"><img src="/img/sb-player-ar-480.webp" srcset="/img/sb-player-ar-240.webp 240w, /img/sb-player-ar-320.webp 320w, /img/sb-player-ar-400.webp 400w, /img/sb-player-ar-480.webp 480w, /img/sb-player-ar-640.webp 640w" sizes="(max-width: 760px) 224px, 260px" width="640" height="1387" alt="شاشة بناء السرعة في DrillTime على ٨٦ نبضة في الدقيقة في الخطوة ٣ من ٦، صعودًا من سرعة البداية ٨٠ نحو الهدف ٩٥، مع الوقت المتبقي" fetchpriority="high" decoding="async"></div>
+</div>
+</div>
+</div>
+</section>
 
-<p class="answer">بناء السرعة أداة في DrillTime وقت التمرين تنقلك تدريجيًا من سرعة بداية مريحة إلى السرعة التي تستهدفها. وهي موجّهة للطلاب الذين يعزفون المقطع جيدًا ببطء ثم يتعثّرون عند السرعة الكاملة، وللمعلّمين الذين يريدون أن يتقدّم طلابهم بثبات.</p>
-
-<div class="shots">
-<figure>
-  <img src="/img/speed-builder-ar-1-240.webp" srcset="/img/speed-builder-ar-1-180.webp 180w, /img/speed-builder-ar-1-240.webp 240w, /img/speed-builder-ar-1-360.webp 360w, /img/speed-builder-ar-1-480.webp 480w" sizes="(max-width: 600px) calc(50vw - 26px), 240px" width="240" height="520" alt="شاشة بناء السرعة في DrillTime على ٨٦ نبضة في الدقيقة في الخطوة ٣ من ٦، صعودًا من سرعة البداية ٨٠ نحو الهدف ٩٥، مع الوقت المتبقي" fetchpriority="high" decoding="async">
-  <figcaption>الخطوة ٣ من ٦، في الطريق من ٨٠ إلى ٩٥ نبضة في الدقيقة.</figcaption>
-</figure>
-<figure>
-  <img src="/img/speed-builder-ar-2-240.webp" srcset="/img/speed-builder-ar-2-180.webp 180w, /img/speed-builder-ar-2-240.webp 240w, /img/speed-builder-ar-2-360.webp?v=2 360w, /img/speed-builder-ar-2-480.webp 480w" sizes="(max-width: 600px) calc(50vw - 26px), 240px" width="240" height="521" alt="شاشة بناء السرعة على ٩٦ نبضة في الدقيقة في الخطوة ٥ من ١١، بين سرعة البداية ٨٠ والهدف ١٢٠، تحت عنوان «ارفع سرعتك خطوة بخطوة»" loading="lazy" decoding="async">
-  <figcaption>خطوات صغيرة من سرعة البداية إلى الهدف.</figcaption>
-</figure>
+<div class="buybar">
+<div class="wide buybar-in">
+<img class="icon" src="/img/app-icon-76.webp" alt="" width="76" height="76" loading="lazy" decoding="async">
+<p class="bb-text"><span class="bb-name">DrillTime وقت التمرين</span><span class="bb-sub">شراء لمرة واحدة</span></p>
+<a class="badge" href="#" data-appstore><img src="/img/appstore-ar-black.svg" alt="تنزيل التطبيق من App Store" width="120" height="40" loading="lazy" decoding="async"><span><small class="en">Coming soon on the</small><small class="ar" lang="ar">قريباً على</small>App Store</span></a>
+</div>
 </div>
 
-<h2>لمن هذه الأداة؟</h2>
+<section class="climb" aria-labelledby="s-1">
+<div class="wide">
+<div class="climb-card" data-reveal>
+<div class="climb-copy">
+<h2 id="s-1">من البطء إلى السرعة، خطوة بعد خطوة</h2>
+<p>حدّد إيقاع بداية تعزف عليه المقطع بإتقان، وإيقاع هدف تريد الوصول إليه. يرفع بناء السرعة الإيقاع بخطوات صغيرة، فلا تبدو كل خطوة أصعب من سابقتها إلا قليلًا.</p>
+</div>
+<figure class="climb-fig">
+<svg class="climb-svg" viewBox="0 0 960 296" aria-hidden="true" focusable="false"><rect x="795.7" y="182.0" width="140.3" height="54.0" rx="12" fill="#2E71E2"/><text x="865.8" y="168.0" text-anchor="middle">٨٠</text><text x="865.8" y="272" text-anchor="middle" class="lab start">البداية</text><rect x="641.3" y="155.6" width="140.3" height="80.4" rx="12" fill="#2E71E2"/><text x="711.5" y="141.6" text-anchor="middle">٨٣</text><rect x="487.0" y="129.2" width="140.3" height="106.8" rx="12" fill="#2E71E2"/><text x="557.2" y="115.2" text-anchor="middle" class="now">٨٦</text><rect x="447.2" y="248" width="220.0" height="36" rx="18" class="pill"/><text x="557.2" y="273" text-anchor="middle" class="lab step">خطوة ٣ من ٦</text><text x="557.2" y="53.2" text-anchor="middle" class="lab cur">الإيقاع الحالي</text><rect x="332.7" y="102.8" width="140.3" height="133.2" rx="12" fill="#c2c8cf"/><text x="402.8" y="88.8" text-anchor="middle">٨٩</text><rect x="178.3" y="76.4" width="140.3" height="159.6" rx="12" fill="#c2c8cf"/><text x="248.5" y="62.4" text-anchor="middle">٩٢</text><rect x="24.0" y="50.0" width="140.3" height="186.0" rx="12" fill="#c2c8cf"/><text x="94.2" y="36.0" text-anchor="middle">٩٥</text><text x="94.2" y="272" text-anchor="middle" class="lab goal">الهدف</text><line x1="24" y1="237" x2="936" y2="237" class="axis"/></svg>
+<figcaption>البداية ٨٠ والهدف ٩٥ نبضة في الدقيقة: ست خطوات، والإيقاع الآن في الخطوة ٣ على ٨٦.</figcaption>
+</figure>
+</div>
+</div>
+</section>
 
+<section class="story flip" aria-labelledby="s-2">
+<div class="wide story-grid">
+<div class="story-copy" data-reveal>
+<h2 id="s-2">أنت تقرّر طريقة الصعود</h2>
+<p>اختر جلسة مدتها <bdi dir="ltr">٣</bdi> أو <bdi dir="ltr">٥</bdi> أو <bdi dir="ltr">١٠</bdi> أو <bdi dir="ltr">١٥</bdi> دقيقة، أو مدة تحدّدها بنفسك، أو صعودًا واحدًا بلا وقت محدّد. ويحسب الوضع التلقائي مقدار الزيادة لتبلغ هدفك في الوقت المحدّد.</p>
+<p>وإن أردت التحكّم بنفسك، فالوضع اليدوي يزيد الإيقاع من <bdi dir="ltr">١</bdi> إلى <bdi dir="ltr">٣٠</bdi> نبضة في الدقيقة كل <bdi dir="ltr">١</bdi> إلى <bdi dir="ltr">٣٢</bdi> مازورة، ويتوقّف عند بلوغ الهدف أو عند انتهاء الوقت.</p>
+<p>وأضف عدًّا تمهيديًا من مازورة أو مازورتين أو أربع مازورات، واختر أن يبرز المترونوم كل النبضات أو النبضة الأولى فقط أو لا شيء منها.</p>
+</div>
+<div class="story-media" data-reveal>
+<figure class="panel">
+<figcaption class="panel-cap">خيارات بناء السرعة</figcaption>
+<div class="opt"><p class="opt-name">مدة الجلسة</p><ul class="chips"><li>مرة</li><li>٣ د</li><li>٥ د</li><li>١٠ د</li><li>١٥ د</li><li>مخصّص</li></ul></div><div class="opt"><p class="opt-name">التصاعد</p><ul class="chips"><li>تلقائي</li><li>يدوي</li></ul></div><div class="opt"><p class="opt-name">العدّ التمهيدي</p><ul class="chips"><li>بدون</li><li>مازورة</li><li>مازورتان</li><li>٤ مازورات</li><li>مخصّص</li></ul></div><div class="opt"><p class="opt-name">تشديد المترونوم</p><ul class="chips"><li>كل النبضات</li><li>النبضة الأولى</li><li>إيقاف</li></ul></div>
+</figure>
+</div>
+</div>
+</section>
+
+<section class="story cv" aria-labelledby="s-3">
+<div class="wide story-grid">
+<div class="story-copy" data-reveal>
+<h2 id="s-3">تعرف دائمًا أين وصلت</h2>
+<p>تعرض الشاشة الإيقاع الحالي ورقم الخطوة والوقت المتبقّي وإيقاعَي البداية والهدف، ويمكنك الإيقاف المؤقت متى احتجت.</p>
+<p>وفي النهاية يظهر لك ملخّص هادئ، مثل «تم بلوغ الهدف» أو مقدار ارتفاع الإيقاع.</p>
+</div>
+<div class="story-media" data-reveal>
+<div class="phone"><img src="/img/sb-run-ar-480.webp" srcset="/img/sb-run-ar-240.webp 240w, /img/sb-run-ar-320.webp 320w, /img/sb-run-ar-400.webp 400w, /img/sb-run-ar-480.webp 480w, /img/sb-run-ar-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1391" alt="بناء السرعة على ٩٦ نبضة في الدقيقة في الخطوة ٥ من ١١، مع إيقاع البداية ٨٠ والهدف ١٢٠، وثلاث دقائق متبقية وزر الإيقاف المؤقت" loading="lazy" decoding="async"></div>
+</div>
+</div>
+</section>
+
+<section class="wide" aria-labelledby="depth-heading">
+<div class="depth" data-reveal>
+<div class="depth-in">
+<h2 id="depth-heading">التمرين مع بناء السرعة</h2>
+<p class="intro">طريقة الاستخدام، والعادات التي أعلّمها لطلابي، وخطة نموذجية، والمصطلحات الأساسية، والأسئلة الشائعة.</p>
+
+<h3>لمن هذه الأداة؟</h3>
 <p>يخبرني طالب كل أسبوع تقريبًا أن المقطع يسير على ما يرام ببطء، لكنه ينهار عند السرعة الكاملة. وقد صمّمت أداة بناء السرعة لسدّ هذه الفجوة تحديدًا، ويستفيد منها:</p>
-
 <ul>
   <li>الطلاب الذين يتعلّمون السلالم والدراسات والمقاطع السريعة.</li>
   <li>كل من توقّف عند السرعة نفسها أسابيع عدة.</li>
   <li>الطلاب المتقدّمون للامتحانات ممّن يحتاجون إلى بلوغ السرعة المكتوبة.</li>
   <li>المعلّمون الذين يريدون تحديد هدف واضح للسرعة كل أسبوع.</li>
 </ul>
-
-<h2>طريقة الاستخدام</h2>
-
+<h3>طريقة الاستخدام</h3>
 <p class="answer">حدّد سرعة بداية تعزف عليها المقطع بإتقان، وسرعة تريد أن تصل إليها، ثم ابدأ. سترتفع السرعة بخطوات صغيرة، فلا تبدو كل خطوة أصعب من سابقتها إلا قليلًا.</p>
-
-<ol>
+<ol class="steps">
   <li>اختر المقطع، ويُستحسن أن يكون قصيرًا: جملة موسيقية واحدة أو بضع مازورات.</li>
   <li>اجعل سرعة البداية سرعةً تعزف عليها المقطع بإتقان ودون توتر.</li>
   <li>حدّد الهدف، وغالبًا ما يكون السرعة المكتوبة في المقطوعة.</li>
   <li>ابدأ، وكرّر المقطع باستمرار. ستعرض الشاشة الإيقاع الحالي ورقم الخطوة والوقت المتبقي.</li>
   <li>إذا تعثّرت في إحدى الخطوات، فأوقف التمرين مؤقتًا ثم ابدأ من جديد بسرعة بداية أبطأ.</li>
 </ol>
-
-<h2>نصائح للتمرين من معلّم</h2>
-
+<h3>نصائح للتمرين من معلّم</h3>
 <p>السرعة ثمرة الدقة. حين يحاول الطلاب فرض سرعة أعلى، يتسلّل التوتر إلى أيديهم، والصعود التدريجي هو ما يعالج ذلك. ف<a href="https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D9%85%D9%85%D8%A7%D8%B1%D8%B3%D8%A9_(%D8%B7%D8%B1%D9%8A%D9%82%D8%A9_%D8%A7%D9%84%D8%AA%D8%B9%D9%84%D9%85)" target="_blank" rel="noopener">الممارسة<span class="vh"> (يُفتح في علامة تبويب جديدة)</span></a> في جوهرها تكرار المهارة حتى تتعلّمها وتتقنها.</p>
-
 <ul>
   <li>اجعل هدف الجلسة الواحدة واقعيًا، فزيادة معتدلة على سرعة البداية تكفي.</li>
   <li>حافظ على استرخائك. إذا ارتفع كتفاك أو اشتدّت قبضتك، فالسرعة أعلى مما يجب.</li>
   <li>احرص على تكرار متقن في كل خطوة قبل أن تفكّر في الخطوة التالية.</li>
   <li>توقّع أن تمرّ بمرحلة ثبات بين حين وآخر، وعُد إلى التمرين في اليوم التالي، فالسرعة التي بدت مستحيلة كثيرًا ما تصبح سهلة بعد استراحة.</li>
 </ul>
-
-<h3>خطة نموذجية لرفع السرعة</h3>
-
-<div class="table-wrap" role="region" aria-labelledby="table-1" tabindex="0">
-<table>
-  <caption id="table-1">خطة نموذجية من خمسة أيام لمقطع واحد</caption>
-  <thead><tr><th scope="col">الخطوة</th><th scope="col">طريقة ضبط السرعة</th><th scope="col">الهدف</th></tr></thead>
-  <tbody>
-    <tr><th scope="row">اليوم ١</th><td>ابدأ بسرعة أقل بكثير من السرعة المكتوبة، واجعل الهدف أعلى منها قليلًا</td><td>تكرار متقن ومريح في كل خطوة</td></tr>
-    <tr><th scope="row">اليوم ٢</th><td>سرعة البداية نفسها، مع هدف أعلى قليلًا من اليوم الأول</td><td>الدقة نفسها عند أعلى سرعة جديدة</td></tr>
-    <tr><th scope="row">اليوم ٣</th><td>ابدأ أعلى من اليوم الأول ببضع نبضات في الدقيقة</td><td>لاحظ أين يظهر التوتر، وأبطئ عنده</td></tr>
-    <tr><th scope="row">اليوم ٤</th><td>جلسة قصيرة بإعدادات اليوم الثالث نفسها</td><td>تثبيت ما تعلّمته دون إضافة جديد</td></tr>
-    <tr><th scope="row">اليوم ٥</th><td>اجعل الهدف هو السرعة المكتوبة</td><td>بلوغها بإتقان مرة واحدة، ثم التوقف عند هذا الحد</td></tr>
-  </tbody>
-</table>
-</div>
-
-<h2>مصطلحات أساسية</h2>
-
+<h4>خطة نموذجية لرفع السرعة</h4>
+<p>خطة نموذجية من خمسة أيام لمقطع واحد</p>
+<ol class="routine">
+  <li><div class="r-head"><span class="r-stage">اليوم ١</span></div><p>ابدأ بسرعة أقل بكثير من السرعة المكتوبة، واجعل الهدف أعلى منها قليلًا</p><p class="r-goal"><span>الهدف:</span> تكرار متقن ومريح في كل خطوة</p></li>
+  <li><div class="r-head"><span class="r-stage">اليوم ٢</span></div><p>سرعة البداية نفسها، مع هدف أعلى قليلًا من اليوم الأول</p><p class="r-goal"><span>الهدف:</span> الدقة نفسها عند أعلى سرعة جديدة</p></li>
+  <li><div class="r-head"><span class="r-stage">اليوم ٣</span></div><p>ابدأ أعلى من اليوم الأول ببضع نبضات في الدقيقة</p><p class="r-goal"><span>الهدف:</span> لاحظ أين يظهر التوتر، وأبطئ عنده</p></li>
+  <li><div class="r-head"><span class="r-stage">اليوم ٤</span></div><p>جلسة قصيرة بإعدادات اليوم الثالث نفسها</p><p class="r-goal"><span>الهدف:</span> تثبيت ما تعلّمته دون إضافة جديد</p></li>
+  <li><div class="r-head"><span class="r-stage">اليوم ٥</span></div><p>اجعل الهدف هو السرعة المكتوبة</p><p class="r-goal"><span>الهدف:</span> بلوغها بإتقان مرة واحدة، ثم التوقف عند هذا الحد</p></li>
+</ol>
+<h3>مصطلحات أساسية</h3>
 <dl>
   <dt><dfn>سرعة الإيقاع</dfn></dt>
   <dd>مدى سرعة الموسيقى، وتُقاس بعدد النبضات في الدقيقة (BPM).</dd>
@@ -360,25 +598,34 @@ html[dir=rtl] .fnav a{font-size:16px}
   <dt><dfn>مرحلة الثبات</dfn></dt>
   <dd>فترة من التمرين تتوقف فيها السرعة التي تتقنها عن الارتفاع مؤقتًا، وهي أمر طبيعي يزول عادةً مع التمرين المنتظم والصبر.</dd>
 </dl>
-
-<h2>أسئلة شائعة</h2>
-
-<h3>ما الفرق بين بناء السرعة والمترونوم العادي؟</h3>
-<p>يبقى المترونوم على سرعة واحدة حتى تغيّرها بنفسك، أما بناء السرعة فيرفعها عنك خطوة بخطوة من سرعة البداية إلى الهدف، لتتفرّغ للموسيقى.</p>
-<h3>كم ينبغي أن يكون الفرق بين سرعة البداية والهدف؟</h3>
-<p>في الجلسة الواحدة يكون الفرق المعتدل هو الأنسب. وإذا تعثّرت في الخطوات الأخيرة، فاخفض الهدف وارفع السرعة من جديد على مدى عدة أيام.</p>
-<h3>هل يمكن للمعلّمين استخدام بناء السرعة في الدروس؟</h3>
-<p>نعم، فالأداة لا تحتاج إلى حساب وتعمل دون إنترنت، لذا يستطيع المعلّم ضبط سرعة البداية والهدف على جهاز iPad مشترك أثناء الدرس.</p>
+<h3>أسئلة شائعة</h3>
+<div class="faq">
+<details>
+  <summary>ما الفرق بين بناء السرعة والمترونوم العادي؟</summary>
+  <p>يبقى المترونوم على سرعة واحدة حتى تغيّرها بنفسك، أما بناء السرعة فيرفعها عنك خطوة بخطوة من سرعة البداية إلى الهدف، لتتفرّغ للموسيقى.</p>
+</details>
+<details>
+  <summary>كم ينبغي أن يكون الفرق بين سرعة البداية والهدف؟</summary>
+  <p>في الجلسة الواحدة يكون الفرق المعتدل هو الأنسب. وإذا تعثّرت في الخطوات الأخيرة، فاخفض الهدف وارفع السرعة من جديد على مدى عدة أيام.</p>
+</details>
+<details>
+  <summary>هل يمكن للمعلّمين استخدام بناء السرعة في الدروس؟</summary>
+  <p>نعم، فالأداة لا تحتاج إلى حساب وتعمل دون إنترنت، لذا يستطيع المعلّم ضبط سرعة البداية والهدف على جهاز iPad مشترك أثناء الدرس.</p>
+</details>
+</div>
 
 <p class="related">اقرأ أيضًا: <a href="/ar/guides/build-speed">كيف ترفع سرعة العزف دون أخطاء</a></p>
 
 <aside class="author">
   <p class="by">بقلم فيل دوتي، معلّم الغيتار في دبي ومبتكر DrillTime.</p>
   <p>لسنوات كنت أرى طلابي يستمتعون بدروسهم، ثم لا يكادون يلمسون آلاتهم حتى الدرس التالي. لذلك صنعت أداة التمرين التي تمنّيت لو كانت بين أيديهم.</p>
-  <p class="updated">آخر تحديث: ١٩ أكتوبر ٢٠٢٦</p>
+  <p class="updated">آخر تحديث: ٢١ أكتوبر ٢٠٢٦</p>
 </aside>
+</div>
+</div>
+</section>
 
-<section class="cta" aria-labelledby="cta-heading">
+<section class="cta wide" aria-labelledby="cta-heading">
   <h2 id="cta-heading">تمرّن مع DrillTime</h2>
   <a class="badge" href="#" data-appstore><img src="/img/appstore-ar-black.svg" alt="تنزيل التطبيق من App Store" width="168" height="56" loading="lazy" decoding="async"><span><small class="en">Coming soon on the</small><small class="ar" lang="ar">قريباً على</small>App Store</span></a>
   <p class="microcopy">شراء لمرة واحدة. بدون اشتراك أو إعلانات أو حسابات.</p>
@@ -390,8 +637,6 @@ html[dir=rtl] .fnav a{font-size:16px}
   </ul>
   </nav>
 </section>
-
-</div>
 </main>
 
 <footer>
