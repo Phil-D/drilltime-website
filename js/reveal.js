@@ -1,4 +1,4 @@
-/* Gentle fade-in for the metronome page sections. Content is visible without this script;
+/* Gentle fade-in for the tool page sections. Content is visible without this script;
    it only hides sections that start below the fold, and does nothing with reduced motion. */
 (function(){
   if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;

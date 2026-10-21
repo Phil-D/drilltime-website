@@ -185,14 +185,37 @@ html[dir=rtl] .bb-sub{font-size:15px}
 .buybar .badge:hover{box-shadow:var(--shadow-1)}
 
 /* story sections: one benefit each, image side alternates (mirrors itself in RTL) */
-.story{padding:var(--s9) 0;content-visibility:auto;contain-intrinsic-size:auto 740px}
-.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s8);align-items:center}
+.story{padding:var(--s9) 0}
+.cv{content-visibility:auto;contain-intrinsic-size:auto 740px}
+.story-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s8);align-items:center}
 .story.flip .story-media{order:-1}
-.story h2{font-size:clamp(30px,4.5vw,44px);line-height:1.1;letter-spacing:-.02em;margin:0 0 var(--s6)}
-html[dir=rtl] .story h2{font-size:clamp(32px,4.9vw,48px);line-height:1.3;letter-spacing:0}
-.story p{font-size:19px;line-height:1.6;max-width:24em;margin:0}
-html[dir=rtl] .story p{font-size:21px}
+.story h2,.climb h2,.steps3 h2,.results h2,.tiers h2{font-size:clamp(30px,4.5vw,44px);line-height:1.1;letter-spacing:-.02em;margin:0 0 var(--s6)}
+html[dir=rtl] .story h2,html[dir=rtl] .climb h2,html[dir=rtl] .steps3 h2,html[dir=rtl] .results h2,html[dir=rtl] .tiers h2{font-size:clamp(32px,4.9vw,48px);line-height:1.3;letter-spacing:0}
+.story p,.climb-copy p,.tiers-head p{font-size:19px;line-height:1.6;max-width:24em;margin:0}
+.story p+p{margin-top:var(--s5)}
+html[dir=rtl] .story p,html[dir=rtl] .climb-copy p,html[dir=rtl] .tiers-head p{font-size:21px}
 .story .phone{width:min(260px,100%)}
+
+/* chips and panels: small illustrations built from the app's own labels */
+.chipset{margin-top:var(--s6)}
+.chip-label,.panel-sub,.opt-name{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim);margin:0 0 var(--s4)}
+html[dir=rtl] .chip-label,html[dir=rtl] .panel-sub,html[dir=rtl] .opt-name{font-size:16px;letter-spacing:0;text-transform:none}
+.chips{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{margin:0;padding:5px 12px;border:1px solid var(--line);border-radius:var(--r-s);background:var(--card);color:var(--ink);font-size:15px;line-height:1.35}
+html[dir=rtl] .chips li{font-size:17px}
+.panel{width:min(400px,100%);margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);padding:var(--s7) var(--s6);box-shadow:var(--shadow-2)}
+.panel .chips li{background:var(--bg-2)}
+.panel-cap{font-size:15px;color:var(--ink);margin-bottom:var(--s6)}
+html[dir=rtl] .panel-cap{font-size:18px}
+.pulse{display:grid;gap:12px;margin-bottom:var(--s7)}
+.p-row{display:grid;grid-template-columns:7.2em 1fr;align-items:center;gap:12px}
+.p-name{font-size:15px;color:var(--ink-soft)}
+html[dir=rtl] .p-name{font-size:17px}
+.p-dots{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;direction:ltr}
+.beat{display:flex;justify-content:space-around;align-items:center;height:24px;padding:0 3px;background:var(--bg-2);border:1px solid var(--line);border-radius:8px}
+.beat i{width:7px;height:7px;border-radius:50%;background:var(--text-dim)}
+.beat i:first-child{width:11px;height:11px;background:var(--ink)}
+.opt+.opt{margin-top:var(--s6)}
 
 /* gentle fade-in, added by /js/reveal.js only below the fold and never with reduced motion */
 .rv{opacity:0;transform:translateY(21px);transition:opacity .7s ease,transform .7s ease}
@@ -243,9 +266,10 @@ html[dir=rtl] .r-time{font-size:16px}
 html[dir=rtl] .cta h2{font-size:clamp(32px,4.9vw,48px)}
 
 @media (max-width:760px){
-  .hero-grid,.story-grid{grid-template-columns:1fr;gap:var(--s7)}
+  .hero-grid,.story-grid{grid-template-columns:minmax(0,1fr);gap:var(--s7)}
   .hero{padding-bottom:var(--s8)}
-  .story{padding:var(--s8) 0;contain-intrinsic-size:auto 880px}
+  .story{padding:var(--s8) 0}
+  .cv{contain-intrinsic-size:auto 880px}
   .story.flip .story-media{order:0}
   .phone{width:min(244px,100%)}
   .story .phone{width:min(230px,100%)}
@@ -260,6 +284,11 @@ html[dir=rtl] .cta h2{font-size:clamp(32px,4.9vw,48px)}
   .buybar-in{height:58px;gap:10px}
   .buybar .icon{width:34px;height:34px}
   .buybar .badge img{width:108px;height:36px}
+  .p-row{grid-template-columns:6.4em minmax(0,1fr);gap:8px}
+  .p-dots{gap:4px}
+  .beat{padding:0 2px}
+  .beat i{width:6px;height:6px}
+  .beat i:first-child{width:9px;height:9px}
 }
 @media (max-height:500px){.buybar{position:static}}
 @media (prefers-reduced-motion:reduce){
@@ -280,7 +309,7 @@ html[dir=rtl] .cta h2{font-size:clamp(32px,4.9vw,48px)}
    "name": "Metronome app for music students | DrillTime",
    "description": "A steady, accurate metronome for music students and teachers, with time signatures, accents, swing and a count-in. Practice tips from a guitar teacher in Dubai.",
    "inLanguage": "en",
-   "dateModified": "2026-10-20",
+   "dateModified": "2026-10-21",
    "author": {
     "@id": "https://drilltimeapp.com/#phil"
    },
@@ -412,7 +441,7 @@ html[dir=rtl] .cta h2{font-size:clamp(32px,4.9vw,48px)}
   <a class="langbtn" href="/ar/metronome" hreflang="ar" lang="ar">العربية</a>
 </nav>
 
-<main id="main">
+<main id="main" class="tool-metronome">
 <section class="hero">
 <div class="wide">
 <nav class="crumbs" aria-label="Breadcrumb">
@@ -440,11 +469,28 @@ html[dir=rtl] .cta h2{font-size:clamp(32px,4.9vw,48px)}
 </div>
 </div>
 
-<section class="story" aria-labelledby="story-1">
+<section class="story cv" aria-labelledby="s-1">
 <div class="wide story-grid">
 <div class="story-copy" data-reveal>
-<h2 id="story-1">Any time signature</h2>
-<p>Choose from simple, compound and odd time signatures, then use accents to mark the strong beats of each bar.</p>
+<h2 id="s-1">Set the tempo your way</h2>
+<p>Drag the slider, tap plus or minus, type it on the keypad, or tap the tempo display in time to set it. Choose anything from 20 to 220 BPM, or up to 250 if you widen the range in Settings.</p>
+<p>Under the BPM you see the tempo marking:</p>
+<div class="chipset"><p class="chip-label">Tempo markings</p><ul class="chips"><li>Grave</li><li>Largo</li><li>Adagio</li><li>Andante</li><li>Moderato</li><li>Allegro</li><li>Presto</li><li>Prestissimo</li></ul></div>
+</div>
+<div class="story-media" data-reveal>
+<div class="phone"><img src="/img/pm-tempo-en-480.webp" srcset="/img/pm-tempo-en-240.webp 240w, /img/pm-tempo-en-320.webp 320w, /img/pm-tempo-en-400.webp 400w, /img/pm-tempo-en-480.webp 480w, /img/pm-tempo-en-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1387" alt="DrillTime metronome screen showing 86 BPM with the tempo name Andante, plus and minus buttons and a tempo slider" loading="lazy" decoding="async"></div>
+</div>
+</div>
+</section>
+
+<section class="story flip cv" aria-labelledby="s-2">
+<div class="wide story-grid">
+<div class="story-copy" data-reveal>
+<h2 id="s-2">17 time signatures, clearly grouped</h2>
+<p>Simple, compound and odd time signatures each have their own group. Tap the beats you want accented, and odd metres are grouped for you, such as 7/8 as 2+2+3.</p>
+<div class="chipset"><p class="chip-label">Simple</p><ul class="chips"><li>4/4</li><li>3/4</li><li>2/4</li><li>2/2</li><li>3/2</li><li>3/8</li></ul></div>
+<div class="chipset"><p class="chip-label">Compound</p><ul class="chips"><li>6/8</li><li>9/8</li><li>12/8</li><li>6/16</li></ul></div>
+<div class="chipset"><p class="chip-label">Odd</p><ul class="chips"><li>5/4</li><li>7/4</li><li>9/4</li><li>5/8</li><li>7/8</li><li>11/8</li><li>13/8</li></ul></div>
 </div>
 <div class="story-media" data-reveal>
 <div class="phone"><img src="/img/pm-timesig-en-480.webp" srcset="/img/pm-timesig-en-240.webp 240w, /img/pm-timesig-en-320.webp 320w, /img/pm-timesig-en-400.webp 400w, /img/pm-timesig-en-480.webp 480w, /img/pm-timesig-en-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1391" alt="The Time Signature sheet in DrillTime, with simple, compound and odd time signatures to choose from" loading="lazy" decoding="async"></div>
@@ -452,38 +498,19 @@ html[dir=rtl] .cta h2{font-size:clamp(32px,4.9vw,48px)}
 </div>
 </section>
 
-<section class="story flip" aria-labelledby="story-2">
+<section class="story" aria-labelledby="s-3">
 <div class="wide story-grid">
 <div class="story-copy" data-reveal>
-<h2 id="story-2">Set it up once</h2>
-<p>Pick a light or dark theme, sound or flash output and a count-in, and set the tempo and click sound it starts with.</p>
+<h2 id="s-3">Divisions, swing and six click sounds</h2>
+<p>Hear each beat as crotchets, quavers, semiquavers or triplets, or as dotted crotchets and duplets in compound time. Add swing in simple time, and pick the click that cuts through best over your instrument.</p>
 </div>
 <div class="story-media" data-reveal>
-<div class="phone"><img src="/img/pm-settings-en-480.webp" srcset="/img/pm-settings-en-240.webp 240w, /img/pm-settings-en-320.webp 320w, /img/pm-settings-en-400.webp 400w, /img/pm-settings-en-480.webp 480w, /img/pm-settings-en-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1391" alt="DrillTime settings showing colour mode, sound or flash output, and metronome defaults for tempo and count-in" loading="lazy" decoding="async"></div>
-</div>
-</div>
-</section>
-
-<section class="story" aria-labelledby="story-3">
-<div class="wide story-grid">
-<div class="story-copy" data-reveal>
-<h2 id="story-3">Calm for evening practice</h2>
-<p>The dark theme is easier on the eyes in the evening, and the click stays just as steady.</p>
-</div>
-<div class="story-media" data-reveal>
-<div class="phone"><img src="/img/pm-dark-en-480.webp" srcset="/img/pm-dark-en-240.webp 240w, /img/pm-dark-en-320.webp 320w, /img/pm-dark-en-400.webp 400w, /img/pm-dark-en-480.webp 480w, /img/pm-dark-en-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1389" alt="The DrillTime metronome in the dark theme, at 86 BPM" loading="lazy" decoding="async"></div>
-</div>
-</div>
-</section>
-
-<section class="story flip" aria-labelledby="story-4">
-<div class="wide story-grid">
-<div class="story-copy" data-reveal>
-<h2 id="story-4">English and Arabic</h2>
-<p>Every screen works in English and Arabic, with full right-to-left Arabic for bilingual classrooms.</p>
-</div>
-<div class="story-media" data-reveal>
-<div class="phone"><img src="/img/pm-metronome-ar-480.webp" srcset="/img/pm-metronome-ar-240.webp 240w, /img/pm-metronome-ar-320.webp 320w, /img/pm-metronome-ar-400.webp 400w, /img/pm-metronome-ar-480.webp 480w, /img/pm-metronome-ar-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1391" alt="The DrillTime metronome in Arabic at 120 BPM, laid out right to left" loading="lazy" decoding="async"></div>
+<figure class="panel">
+<figcaption class="panel-cap">Clicks in one bar of 4/4</figcaption>
+<div class="pulse"><div class="p-row"><span class="p-name">Crotchets<span class="vh">, 1 per beat</span></span><span class="p-dots" aria-hidden="true"><span class="beat"><i></i></span><span class="beat"><i></i></span><span class="beat"><i></i></span><span class="beat"><i></i></span></span></div><div class="p-row"><span class="p-name">Quavers<span class="vh">, 2 per beat</span></span><span class="p-dots" aria-hidden="true"><span class="beat"><i></i><i></i></span><span class="beat"><i></i><i></i></span><span class="beat"><i></i><i></i></span><span class="beat"><i></i><i></i></span></span></div><div class="p-row"><span class="p-name">Triplets<span class="vh">, 3 per beat</span></span><span class="p-dots" aria-hidden="true"><span class="beat"><i></i><i></i><i></i></span><span class="beat"><i></i><i></i><i></i></span><span class="beat"><i></i><i></i><i></i></span><span class="beat"><i></i><i></i><i></i></span></span></div><div class="p-row"><span class="p-name">Semiquavers<span class="vh">, 4 per beat</span></span><span class="p-dots" aria-hidden="true"><span class="beat"><i></i><i></i><i></i><i></i></span><span class="beat"><i></i><i></i><i></i><i></i></span><span class="beat"><i></i><i></i><i></i><i></i></span><span class="beat"><i></i><i></i><i></i><i></i></span></span></div></div>
+<p class="panel-sub">Click sound</p>
+<ul class="chips"><li>Clave</li><li>78</li><li>808</li><li>909</li><li>Shaker</li><li>Beep</li></ul>
+</figure>
 </div>
 </div>
 </section>
@@ -560,7 +587,7 @@ html[dir=rtl] .cta h2{font-size:clamp(32px,4.9vw,48px)}
 <aside class="author">
   <p class="by">Written by Phil Doughty, guitar teacher in Dubai and maker of DrillTime.</p>
   <p>For years I watched my students love their lessons, then barely touch their instrument until the next one. So I built the practice tool I wished they had.</p>
-  <p class="updated">Last updated 20 October 2026</p>
+  <p class="updated">Last updated 21 October 2026</p>
 </aside>
 </div>
 </div>

@@ -185,14 +185,37 @@ html[dir=rtl] .bb-sub{font-size:15px}
 .buybar .badge:hover{box-shadow:var(--shadow-1)}
 
 /* story sections: one benefit each, image side alternates (mirrors itself in RTL) */
-.story{padding:var(--s9) 0;content-visibility:auto;contain-intrinsic-size:auto 740px}
-.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s8);align-items:center}
+.story{padding:var(--s9) 0}
+.cv{content-visibility:auto;contain-intrinsic-size:auto 740px}
+.story-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s8);align-items:center}
 .story.flip .story-media{order:-1}
-.story h2{font-size:clamp(30px,4.5vw,44px);line-height:1.1;letter-spacing:-.02em;margin:0 0 var(--s6)}
-html[dir=rtl] .story h2{font-size:clamp(32px,4.9vw,48px);line-height:1.3;letter-spacing:0}
-.story p{font-size:19px;line-height:1.6;max-width:24em;margin:0}
-html[dir=rtl] .story p{font-size:21px}
+.story h2,.climb h2,.steps3 h2,.results h2,.tiers h2{font-size:clamp(30px,4.5vw,44px);line-height:1.1;letter-spacing:-.02em;margin:0 0 var(--s6)}
+html[dir=rtl] .story h2,html[dir=rtl] .climb h2,html[dir=rtl] .steps3 h2,html[dir=rtl] .results h2,html[dir=rtl] .tiers h2{font-size:clamp(32px,4.9vw,48px);line-height:1.3;letter-spacing:0}
+.story p,.climb-copy p,.tiers-head p{font-size:19px;line-height:1.6;max-width:24em;margin:0}
+.story p+p{margin-top:var(--s5)}
+html[dir=rtl] .story p,html[dir=rtl] .climb-copy p,html[dir=rtl] .tiers-head p{font-size:21px}
 .story .phone{width:min(260px,100%)}
+
+/* chips and panels: small illustrations built from the app's own labels */
+.chipset{margin-top:var(--s6)}
+.chip-label,.panel-sub,.opt-name{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim);margin:0 0 var(--s4)}
+html[dir=rtl] .chip-label,html[dir=rtl] .panel-sub,html[dir=rtl] .opt-name{font-size:16px;letter-spacing:0;text-transform:none}
+.chips{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{margin:0;padding:5px 12px;border:1px solid var(--line);border-radius:var(--r-s);background:var(--card);color:var(--ink);font-size:15px;line-height:1.35}
+html[dir=rtl] .chips li{font-size:17px}
+.panel{width:min(400px,100%);margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);padding:var(--s7) var(--s6);box-shadow:var(--shadow-2)}
+.panel .chips li{background:var(--bg-2)}
+.panel-cap{font-size:15px;color:var(--ink);margin-bottom:var(--s6)}
+html[dir=rtl] .panel-cap{font-size:18px}
+.pulse{display:grid;gap:12px;margin-bottom:var(--s7)}
+.p-row{display:grid;grid-template-columns:7.2em 1fr;align-items:center;gap:12px}
+.p-name{font-size:15px;color:var(--ink-soft)}
+html[dir=rtl] .p-name{font-size:17px}
+.p-dots{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;direction:ltr}
+.beat{display:flex;justify-content:space-around;align-items:center;height:24px;padding:0 3px;background:var(--bg-2);border:1px solid var(--line);border-radius:8px}
+.beat i{width:7px;height:7px;border-radius:50%;background:var(--text-dim)}
+.beat i:first-child{width:11px;height:11px;background:var(--ink)}
+.opt+.opt{margin-top:var(--s6)}
 
 /* gentle fade-in, added by /js/reveal.js only below the fold and never with reduced motion */
 .rv{opacity:0;transform:translateY(21px);transition:opacity .7s ease,transform .7s ease}
@@ -243,9 +266,10 @@ html[dir=rtl] .r-time{font-size:16px}
 html[dir=rtl] .cta h2{font-size:clamp(32px,4.9vw,48px)}
 
 @media (max-width:760px){
-  .hero-grid,.story-grid{grid-template-columns:1fr;gap:var(--s7)}
+  .hero-grid,.story-grid{grid-template-columns:minmax(0,1fr);gap:var(--s7)}
   .hero{padding-bottom:var(--s8)}
-  .story{padding:var(--s8) 0;contain-intrinsic-size:auto 880px}
+  .story{padding:var(--s8) 0}
+  .cv{contain-intrinsic-size:auto 880px}
   .story.flip .story-media{order:0}
   .phone{width:min(244px,100%)}
   .story .phone{width:min(230px,100%)}
@@ -260,6 +284,11 @@ html[dir=rtl] .cta h2{font-size:clamp(32px,4.9vw,48px)}
   .buybar-in{height:58px;gap:10px}
   .buybar .icon{width:34px;height:34px}
   .buybar .badge img{width:108px;height:36px}
+  .p-row{grid-template-columns:6.4em minmax(0,1fr);gap:8px}
+  .p-dots{gap:4px}
+  .beat{padding:0 2px}
+  .beat i{width:6px;height:6px}
+  .beat i:first-child{width:9px;height:9px}
 }
 @media (max-height:500px){.buybar{position:static}}
 @media (prefers-reduced-motion:reduce){
@@ -280,7 +309,7 @@ html[dir=rtl] .cta h2{font-size:clamp(32px,4.9vw,48px)}
    "name": "مترونوم لطلاب الموسيقى | DrillTime وقت التمرين",
    "description": "مترونوم دقيق وثابت يساعد طلاب الموسيقى ومعلّميهم على ضبط الإيقاع، مع الموازين والنبرات والسوينغ والعدّ التمهيدي، ونصائح عملية من معلّم غيتار في دبي.",
    "inLanguage": "ar",
-   "dateModified": "2026-10-20",
+   "dateModified": "2026-10-21",
    "author": {
     "@id": "https://drilltimeapp.com/#phil"
    },
@@ -412,7 +441,7 @@ html[dir=rtl] .cta h2{font-size:clamp(32px,4.9vw,48px)}
   <a class="langbtn" href="/metronome" hreflang="en" lang="en">English</a>
 </nav>
 
-<main id="main">
+<main id="main" class="tool-metronome">
 <section class="hero">
 <div class="wide">
 <nav class="crumbs" aria-label="مسار التنقّل">
@@ -440,11 +469,28 @@ html[dir=rtl] .cta h2{font-size:clamp(32px,4.9vw,48px)}
 </div>
 </div>
 
-<section class="story" aria-labelledby="story-1">
+<section class="story cv" aria-labelledby="s-1">
 <div class="wide story-grid">
 <div class="story-copy" data-reveal>
-<h2 id="story-1">كل الموازين التي تحتاجها</h2>
-<p>اختر من الموازين البسيطة والمركّبة وغير المنتظمة، ثم استخدم النبرات لإبراز الضربات القوية في كل مازورة.</p>
+<h2 id="s-1">اضبط السرعة بطريقتك</h2>
+<p>اسحب شريط التمرير، أو اضغط زرّي الزيادة والنقصان، أو اكتب الرقم على لوحة الأرقام، أو انقر على شاشة السرعة مع النبض لتضبطها بالنقر. تتراوح السرعة بين <bdi dir="ltr">٢٠</bdi> و<bdi dir="ltr">٢٢٠</bdi> نبضة في الدقيقة، ويمكن رفعها حتى <bdi dir="ltr">٢٥٠</bdi> إذا وسّعت نطاق الإيقاع في الإعدادات.</p>
+<p>وتظهر تحت عدد النبضات تسمية السرعة:</p>
+<div class="chipset"><p class="chip-label">تسميات السرعة</p><ul class="chips"><li>ثقيل جداً</li><li>واسع جداً</li><li>هادئ</li><li>سير معتدل</li><li>معتدل</li><li>سريع</li><li>سريع جداً</li><li>سريع للغاية</li></ul></div>
+</div>
+<div class="story-media" data-reveal>
+<div class="phone"><img src="/img/pm-tempo-ar-480.webp" srcset="/img/pm-tempo-ar-240.webp 240w, /img/pm-tempo-ar-320.webp 320w, /img/pm-tempo-ar-400.webp 400w, /img/pm-tempo-ar-480.webp 480w, /img/pm-tempo-ar-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1387" alt="شاشة المترونوم في DrillTime على سرعة ٨٦ نبضة في الدقيقة، ويظهر تحتها اسم السرعة «سير معتدل» مع زرّي الزيادة والنقصان وشريط ضبط السرعة" loading="lazy" decoding="async"></div>
+</div>
+</div>
+</section>
+
+<section class="story flip cv" aria-labelledby="s-2">
+<div class="wide story-grid">
+<div class="story-copy" data-reveal>
+<h2 id="s-2">١٧ ميزانًا في ثلاث مجموعات</h2>
+<p>لكل نوع من الموازين مجموعته: البسيطة والمركّبة وغير المنتظمة. انقر على النبضات التي تريد إبرازها، وستجد الموازين غير المنتظمة مقسّمة إلى مجموعات جاهزة، مثل <bdi dir="ltr">٧/٨</bdi> بتقسيم <bdi dir="ltr">٢+٢+٣</bdi>.</p>
+<div class="chipset"><p class="chip-label">بسيط</p><ul class="chips"><li><bdi dir="ltr">٤/٤</bdi></li><li><bdi dir="ltr">٣/٤</bdi></li><li><bdi dir="ltr">٢/٤</bdi></li><li><bdi dir="ltr">٢/٢</bdi></li><li><bdi dir="ltr">٣/٢</bdi></li><li><bdi dir="ltr">٣/٨</bdi></li></ul></div>
+<div class="chipset"><p class="chip-label">مركّب</p><ul class="chips"><li><bdi dir="ltr">٦/٨</bdi></li><li><bdi dir="ltr">٩/٨</bdi></li><li><bdi dir="ltr">١٢/٨</bdi></li><li><bdi dir="ltr">٦/١٦</bdi></li></ul></div>
+<div class="chipset"><p class="chip-label">غير منتظم</p><ul class="chips"><li><bdi dir="ltr">٥/٤</bdi></li><li><bdi dir="ltr">٧/٤</bdi></li><li><bdi dir="ltr">٩/٤</bdi></li><li><bdi dir="ltr">٥/٨</bdi></li><li><bdi dir="ltr">٧/٨</bdi></li><li><bdi dir="ltr">١١/٨</bdi></li><li><bdi dir="ltr">١٣/٨</bdi></li></ul></div>
 </div>
 <div class="story-media" data-reveal>
 <div class="phone"><img src="/img/pm-timesig-ar-480.webp" srcset="/img/pm-timesig-ar-240.webp 240w, /img/pm-timesig-ar-320.webp 320w, /img/pm-timesig-ar-400.webp 400w, /img/pm-timesig-ar-480.webp 480w, /img/pm-timesig-ar-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1391" alt="نافذة الميزان الإيقاعي في DrillTime، وفيها موازين بسيطة ومركّبة وغير منتظمة للاختيار منها" loading="lazy" decoding="async"></div>
@@ -452,38 +498,19 @@ html[dir=rtl] .cta h2{font-size:clamp(32px,4.9vw,48px)}
 </div>
 </section>
 
-<section class="story flip" aria-labelledby="story-2">
+<section class="story" aria-labelledby="s-3">
 <div class="wide story-grid">
 <div class="story-copy" data-reveal>
-<h2 id="story-2">اضبطه مرة واحدة</h2>
-<p>اختر الوضع الفاتح أو الداكن، والتنبيه بالصوت أو بالوميض، والعدّ التمهيدي، وحدّد السرعة وصوت النقر اللذين يبدأ بهما.</p>
+<h2 id="s-3">التقسيم والسوينغ وستة أصوات للنقر</h2>
+<p>اختر تقسيم النبضة: سوداء، أو ذواتا سنّ، أو أربع ذوات سنّين، أو ثلاثية، وفي الموازين المركّبة سوداء منقّطة أو ثنائية. أضف السوينغ في الموازين البسيطة، واختر صوت النقر الذي يُسمع بوضوح مع آلتك.</p>
 </div>
 <div class="story-media" data-reveal>
-<div class="phone"><img src="/img/pm-settings-ar-480.webp" srcset="/img/pm-settings-ar-240.webp 240w, /img/pm-settings-ar-320.webp 320w, /img/pm-settings-ar-400.webp 400w, /img/pm-settings-ar-480.webp 480w, /img/pm-settings-ar-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1391" alt="إعدادات DrillTime وفيها السمة، والإخراج بالصوت أو بالوميض، وإعدادات المترونوم الافتراضية للسرعة والعدّ التمهيدي" loading="lazy" decoding="async"></div>
-</div>
-</div>
-</section>
-
-<section class="story" aria-labelledby="story-3">
-<div class="wide story-grid">
-<div class="story-copy" data-reveal>
-<h2 id="story-3">وضع داكن لتمارين المساء</h2>
-<p>الوضع الداكن مريح للعين في المساء، والنقرة تبقى ثابتة كما هي.</p>
-</div>
-<div class="story-media" data-reveal>
-<div class="phone"><img src="/img/pm-dark-ar-480.webp" srcset="/img/pm-dark-ar-240.webp 240w, /img/pm-dark-ar-320.webp 320w, /img/pm-dark-ar-400.webp 400w, /img/pm-dark-ar-480.webp 480w, /img/pm-dark-ar-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1389" alt="شاشة المترونوم في DrillTime بالوضع الداكن على سرعة ٨٦ نبضة في الدقيقة" loading="lazy" decoding="async"></div>
-</div>
-</div>
-</section>
-
-<section class="story flip" aria-labelledby="story-4">
-<div class="wide story-grid">
-<div class="story-copy" data-reveal>
-<h2 id="story-4">بالعربية والإنجليزية</h2>
-<p>كل شاشة متاحة بالعربية والإنجليزية، مع واجهة عربية كاملة من اليمين إلى اليسار تناسب الفصول ثنائية اللغة.</p>
-</div>
-<div class="story-media" data-reveal>
-<div class="phone"><img src="/img/pm-metronome-en-480.webp" srcset="/img/pm-metronome-en-240.webp 240w, /img/pm-metronome-en-320.webp 320w, /img/pm-metronome-en-400.webp 400w, /img/pm-metronome-en-480.webp 480w, /img/pm-metronome-en-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1391" alt="شاشة المترونوم في DrillTime باللغة الإنجليزية على سرعة ١٢٠ نبضة في الدقيقة" loading="lazy" decoding="async"></div>
+<figure class="panel">
+<figcaption class="panel-cap">النقرات في مازورة واحدة من ميزان <bdi dir="ltr">٤/٤</bdi></figcaption>
+<div class="pulse"><div class="p-row"><span class="p-name">سوداء<span class="vh">, ١ في كل نبضة</span></span><span class="p-dots" aria-hidden="true"><span class="beat"><i></i></span><span class="beat"><i></i></span><span class="beat"><i></i></span><span class="beat"><i></i></span></span></div><div class="p-row"><span class="p-name">ذواتا سنّ<span class="vh">, ٢ في كل نبضة</span></span><span class="p-dots" aria-hidden="true"><span class="beat"><i></i><i></i></span><span class="beat"><i></i><i></i></span><span class="beat"><i></i><i></i></span><span class="beat"><i></i><i></i></span></span></div><div class="p-row"><span class="p-name">ثلاثية<span class="vh">, ٣ في كل نبضة</span></span><span class="p-dots" aria-hidden="true"><span class="beat"><i></i><i></i><i></i></span><span class="beat"><i></i><i></i><i></i></span><span class="beat"><i></i><i></i><i></i></span><span class="beat"><i></i><i></i><i></i></span></span></div><div class="p-row"><span class="p-name">ذوات السنّين<span class="vh">, ٤ في كل نبضة</span></span><span class="p-dots" aria-hidden="true"><span class="beat"><i></i><i></i><i></i><i></i></span><span class="beat"><i></i><i></i><i></i><i></i></span><span class="beat"><i></i><i></i><i></i><i></i></span><span class="beat"><i></i><i></i><i></i><i></i></span></span></div></div>
+<p class="panel-sub">صوت النقرة</p>
+<ul class="chips"><li>Clave</li><li>78</li><li>808</li><li>909</li><li>Shaker</li><li>Beep</li></ul>
+</figure>
 </div>
 </div>
 </section>
@@ -560,7 +587,7 @@ html[dir=rtl] .cta h2{font-size:clamp(32px,4.9vw,48px)}
 <aside class="author">
   <p class="by">بقلم فيل دوتي، معلّم الغيتار في دبي ومبتكر DrillTime.</p>
   <p>لسنوات كنت أرى طلابي يستمتعون بدروسهم، ثم لا يكادون يلمسون آلاتهم حتى الدرس التالي. لذلك صنعت أداة التمرين التي تمنّيت لو كانت بين أيديهم.</p>
-  <p class="updated">آخر تحديث: ٢٠ أكتوبر ٢٠٢٦</p>
+  <p class="updated">آخر تحديث: ٢١ أكتوبر ٢٠٢٦</p>
 </aside>
 </div>
 </div>
