@@ -143,6 +143,131 @@ html[dir=rtl] .fnav a{font-size:16px}
   .author{padding:18px 20px}
   .fnav{text-align:start}
 }
+
+/* ---- Metronome design pilot: product-first layout on top of the feature-page base above.
+   Same DrillTime tokens; spacing, radii and shadows follow the home page scale. */
+:root{--r-s:13px;--r-m:21px;--r-l:34px;--s4:8px;--s5:13px;--s6:21px;--s7:34px;--s8:55px;--s9:89px;--wide:987px;
+  --shadow-1:0 1px 2px rgba(33,38,30,.06),0 3px 8px rgba(33,38,30,.05);
+  --shadow-2:0 3px 8px rgba(33,38,30,.08),0 13px 34px rgba(33,38,30,.12)}
+html{scroll-padding-top:84px}
+main{padding:0 0 var(--s8)}
+.wide{max-width:var(--wide);margin:0 auto;padding:0 28px}
+.badge{border-radius:var(--r-s);transition:transform .2s,box-shadow .2s}
+.badge:hover{transform:translateY(-2px);box-shadow:var(--shadow-2)}
+
+/* hero */
+.hero{padding:var(--s4) 0 var(--s9)}
+.hero .crumbs ol{margin-bottom:var(--s7)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:var(--s8);align-items:center}
+.hero h1{font-size:clamp(40px,6vw,64px);line-height:1.05;margin-bottom:var(--s6)}
+html[dir=rtl] .hero h1{font-size:clamp(44px,6.8vw,72px);line-height:1.2}
+.lede{font-size:21px;line-height:1.55;color:var(--ink-soft);max-width:28em;margin-bottom:var(--s7)}
+html[dir=rtl] .lede{font-size:23px}
+.hero .badge{margin:0 0 var(--s5)}
+.hero .badge img{width:168px;height:56px}
+
+/* phone frame */
+.phone{width:min(280px,100%);margin-inline:auto;padding:9px;background:var(--card);border:1px solid var(--line);border-radius:44px;box-shadow:var(--shadow-2)}
+.phone img{display:block;width:100%;height:auto;border-radius:35px;background:var(--bg)}
+
+/* slim App Store bar: in the page flow after the hero, then sticks to the top (no script, no layout shift) */
+.buybar{position:sticky;top:0;z-index:20;background:rgba(233,237,225,.94);border-block:1px solid var(--line);-webkit-backdrop-filter:saturate(1.3) blur(12px);backdrop-filter:saturate(1.3) blur(12px)}
+.buybar-in{display:flex;align-items:center;gap:12px;height:62px}
+.buybar .icon{width:38px;height:38px;border-radius:9px;border:1px solid var(--line);box-shadow:var(--shadow-1);flex:none}
+.bb-text{display:flex;flex-direction:column;line-height:1.25;margin:0 auto 0 0;min-width:0}
+html[dir=rtl] .bb-text{margin:0 0 0 auto}
+.bb-name{color:var(--ink);font-size:16px}
+.bb-sub{color:var(--text-dim);font-size:13px}
+html[dir=rtl] .bb-name{font-size:18px;font-weight:700}
+html[dir=rtl] .bb-sub{font-size:15px}
+.buybar .badge{margin:0;flex:none}
+.buybar .badge img{width:120px;height:40px}
+.buybar .badge:hover{box-shadow:var(--shadow-1)}
+
+/* story sections: one benefit each, image side alternates (mirrors itself in RTL) */
+.story{padding:var(--s9) 0;content-visibility:auto;contain-intrinsic-size:auto 740px}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s8);align-items:center}
+.story.flip .story-media{order:-1}
+.story h2{font-size:clamp(30px,4.5vw,44px);line-height:1.1;letter-spacing:-.02em;margin:0 0 var(--s6)}
+html[dir=rtl] .story h2{font-size:clamp(32px,4.9vw,48px);line-height:1.3;letter-spacing:0}
+.story p{font-size:19px;line-height:1.6;max-width:24em;margin:0}
+html[dir=rtl] .story p{font-size:21px}
+.story .phone{width:min(260px,100%)}
+
+/* gentle fade-in, added by /js/reveal.js only below the fold and never with reduced motion */
+.rv{opacity:0;transform:translateY(21px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+/* the quieter depth area */
+.depth{background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);padding:var(--s8) var(--s7);margin-top:var(--s7)}
+.depth-in{max-width:680px;margin:0 auto}
+.depth h2{font-size:clamp(26px,3.4vw,34px);line-height:1.15;margin:0 0 var(--s4)}
+html[dir=rtl] .depth h2{font-size:clamp(28px,3.8vw,38px);line-height:1.3}
+.depth .intro{color:var(--text-dim);font-size:16px}
+.depth h3{font-size:21px;margin:var(--s8) 0 var(--s5)}
+.depth h4{font-weight:400;font-size:18px;color:var(--ink);margin:var(--s7) 0 var(--s4)}
+html[dir=rtl] .depth h3{font-size:24px}
+html[dir=rtl] .depth h4{font-size:20px;font-weight:700}
+.depth p,.depth li,.depth dd,.depth summary{font-size:16px}
+html[dir=rtl] .depth p,html[dir=rtl] .depth li,html[dir=rtl] .depth dd,html[dir=rtl] .depth summary{font-size:18px}
+.depth .answer{font-size:17px}
+html[dir=rtl] .depth .answer{font-size:19px}
+
+/* numbered steps and routine cards */
+.steps,.routine{list-style:none;padding:0;counter-reset:step}
+.steps>li,.routine>li{counter-increment:step;position:relative;padding-inline-start:46px;margin-bottom:var(--s5)}
+.steps>li::before,.routine>li::before{content:counter(step);position:absolute;inset-inline-start:0;top:0;width:30px;height:30px;border-radius:50%;background:var(--bg-2);border:1px solid var(--line);color:var(--ink);font-size:14px;line-height:28px;text-align:center}
+html[dir=rtl] .steps>li::before,html[dir=rtl] .routine>li::before{content:counter(step,arabic-indic);font-size:16px}
+.routine>li{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-m);padding:var(--s5) var(--s6);padding-inline-start:58px}
+.routine>li::before{inset-inline-start:var(--s6);top:var(--s5);background:var(--card)}
+.r-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 12px}
+.r-stage{color:var(--ink)}
+.r-time{color:var(--text-dim);font-size:14px}
+html[dir=rtl] .r-time{font-size:16px}
+.routine p{margin:2px 0 0}
+
+/* FAQ */
+.faq{border-bottom:1px solid var(--line)}
+.faq details{border-top:1px solid var(--line)}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0;color:var(--ink);cursor:pointer;list-style:none;border-radius:6px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;width:26px;height:26px;border:1px solid var(--line);border-radius:50%;text-align:center;line-height:24px;color:var(--ink-soft);background:var(--bg-2)}
+.faq details[open] summary::after{content:"\2212"}
+.faq summary:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.faq details p{margin:0 0 var(--s6)}
+
+.depth .related{margin-top:var(--s8)}
+.depth .author{background:var(--bg-2);margin-top:var(--s6)}
+.cta{background:none;border:0;padding:var(--s9) 0 var(--s7);margin:0}
+.cta h2{font-size:clamp(30px,4.5vw,44px);letter-spacing:-.02em;margin-bottom:var(--s6)}
+html[dir=rtl] .cta h2{font-size:clamp(32px,4.9vw,48px)}
+
+@media (max-width:760px){
+  .hero-grid,.story-grid{grid-template-columns:1fr;gap:var(--s7)}
+  .hero{padding-bottom:var(--s8)}
+  .story{padding:var(--s8) 0;contain-intrinsic-size:auto 880px}
+  .story.flip .story-media{order:0}
+  .phone{width:min(244px,100%)}
+  .story .phone{width:min(230px,100%)}
+}
+@media (max-width:600px){
+  .wide{padding-inline:20px}
+  .lede{font-size:19px}
+  html[dir=rtl] .lede{font-size:21px}
+  .story p{font-size:18px}
+  html[dir=rtl] .story p{font-size:20px}
+  .depth{padding:var(--s7) var(--s6);border-radius:var(--r-m);margin-inline:-6px}
+  .buybar-in{height:58px;gap:10px}
+  .buybar .icon{width:34px;height:34px}
+  .buybar .badge img{width:108px;height:36px}
+}
+@media (max-height:500px){.buybar{position:static}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .badge,.rv{transition:none}
+  .badge:hover{transform:none}
+  .rv{opacity:1;transform:none}
+}
 </style>
 <script type="application/ld+json">
 {
@@ -155,7 +280,7 @@ html[dir=rtl] .fnav a{font-size:16px}
    "name": "Metronome app for music students | DrillTime",
    "description": "A steady, accurate metronome for music students and teachers, with time signatures, accents, swing and a count-in. Practice tips from a guitar teacher in Dubai.",
    "inLanguage": "en",
-   "dateModified": "2026-10-19",
+   "dateModified": "2026-10-20",
    "author": {
     "@id": "https://drilltimeapp.com/#phil"
    },
@@ -172,11 +297,11 @@ html[dir=rtl] .fnav a{font-size:16px}
   {
    "@type": "ImageObject",
    "@id": "https://drilltimeapp.com/metronome#primaryimage",
-   "url": "https://drilltimeapp.com/img/metronome-en-1-480.webp",
-   "contentUrl": "https://drilltimeapp.com/img/metronome-en-1-480.webp",
-   "width": 480,
-   "height": 1041,
-   "caption": "DrillTime metronome screen showing 86 BPM with the tempo name Andante, plus and minus buttons and a tempo slider"
+   "url": "https://drilltimeapp.com/img/pm-metronome-en-640.webp",
+   "contentUrl": "https://drilltimeapp.com/img/pm-metronome-en-640.webp",
+   "width": 640,
+   "height": 1391,
+   "caption": "DrillTime metronome screen at 120 BPM with the tempo name Allegro, a tempo slider, and start, minus and plus buttons"
   },
   {
    "@type": "BreadcrumbList",
@@ -274,6 +399,7 @@ html[dir=rtl] .fnav a{font-size:16px}
 }
 </script>
 <script defer src="/js/page-lang.js?v=1"></script>
+<script defer src="/js/reveal.js?v=1"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -287,53 +413,105 @@ html[dir=rtl] .fnav a{font-size:16px}
 </nav>
 
 <main id="main">
-<div class="wrap">
-
+<section class="hero">
+<div class="wide">
 <nav class="crumbs" aria-label="Breadcrumb">
   <ol><li><a href="/">Home</a></li><li aria-current="page">Metronome</li></ol>
 </nav>
-
+<div class="hero-grid">
+<div class="hero-copy">
 <h1>Metronome for music practice</h1>
+<p class="lede">A steady, sample-accurate click for practising any instrument, with time signatures, accents, swing and a range of click sounds.</p>
+<a class="badge" href="#" data-appstore><img src="/img/appstore-en-black.svg" alt="Download on the App Store" width="168" height="56" decoding="async"><span><small class="en">Coming soon on the</small><small class="ar" lang="ar">قريباً على</small>App Store</span></a>
+<p class="microcopy">One-time purchase. No subscription, no ads, no accounts.</p>
+</div>
+<div class="hero-media">
+<div class="phone"><img src="/img/pm-metronome-en-480.webp" srcset="/img/pm-metronome-en-240.webp 240w, /img/pm-metronome-en-320.webp 320w, /img/pm-metronome-en-400.webp 400w, /img/pm-metronome-en-480.webp 480w, /img/pm-metronome-en-640.webp 640w" sizes="(max-width: 760px) 224px, 260px" width="640" height="1391" alt="DrillTime metronome screen at 120 BPM with the tempo name Allegro, a tempo slider, and start, minus and plus buttons" fetchpriority="high" decoding="async"></div>
+</div>
+</div>
+</div>
+</section>
 
-<p class="answer">The DrillTime metronome is a steady, sample-accurate click for practising any instrument. It is made for music students and the teachers who set their practice, with time signatures, accents, swing and a range of click sounds, in English or Arabic.</p>
-
-<div class="shots">
-<figure>
-  <img src="/img/metronome-en-1-240.webp" srcset="/img/metronome-en-1-180.webp 180w, /img/metronome-en-1-240.webp 240w, /img/metronome-en-1-360.webp 360w, /img/metronome-en-1-480.webp 480w" sizes="(max-width: 600px) calc(50vw - 26px), 240px" width="240" height="520" alt="DrillTime metronome screen showing 86 BPM with the tempo name Andante, plus and minus buttons and a tempo slider" fetchpriority="high" decoding="async">
-  <figcaption>The metronome at 86 BPM, Andante.</figcaption>
-</figure>
-<figure>
-  <img src="/img/metronome-en-2-240.webp" srcset="/img/metronome-en-2-180.webp 180w, /img/metronome-en-2-240.webp 240w, /img/metronome-en-2-360.webp 360w, /img/metronome-en-2-480.webp 480w" sizes="(max-width: 600px) calc(50vw - 26px), 240px" width="240" height="521" alt="The same DrillTime metronome screen in the dark theme, at 86 BPM" loading="lazy" decoding="async">
-  <figcaption>The dark theme, easier on the eyes in the evening.</figcaption>
-</figure>
+<div class="buybar">
+<div class="wide buybar-in">
+<img class="icon" src="/img/app-icon-76.webp" alt="" width="76" height="76" loading="lazy" decoding="async">
+<p class="bb-text"><span class="bb-name">DrillTime</span><span class="bb-sub">One-time purchase</span></p>
+<a class="badge" href="#" data-appstore><img src="/img/appstore-en-black.svg" alt="Download on the App Store" width="120" height="40" loading="lazy" decoding="async"><span><small class="en">Coming soon on the</small><small class="ar" lang="ar">قريباً على</small>App Store</span></a>
+</div>
 </div>
 
-<h2>Who it helps</h2>
+<section class="story" aria-labelledby="story-1">
+<div class="wide story-grid">
+<div class="story-copy" data-reveal>
+<h2 id="story-1">Any time signature</h2>
+<p>Choose from simple, compound and odd time signatures, then use accents to mark the strong beats of each bar.</p>
+</div>
+<div class="story-media" data-reveal>
+<div class="phone"><img src="/img/pm-timesig-en-480.webp" srcset="/img/pm-timesig-en-240.webp 240w, /img/pm-timesig-en-320.webp 320w, /img/pm-timesig-en-400.webp 400w, /img/pm-timesig-en-480.webp 480w, /img/pm-timesig-en-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1391" alt="The Time Signature sheet in DrillTime, with simple, compound and odd time signatures to choose from" loading="lazy" decoding="async"></div>
+</div>
+</div>
+</section>
 
+<section class="story flip" aria-labelledby="story-2">
+<div class="wide story-grid">
+<div class="story-copy" data-reveal>
+<h2 id="story-2">Set it up once</h2>
+<p>Pick a light or dark theme, sound or flash output and a count-in, and set the tempo and click sound it starts with.</p>
+</div>
+<div class="story-media" data-reveal>
+<div class="phone"><img src="/img/pm-settings-en-480.webp" srcset="/img/pm-settings-en-240.webp 240w, /img/pm-settings-en-320.webp 320w, /img/pm-settings-en-400.webp 400w, /img/pm-settings-en-480.webp 480w, /img/pm-settings-en-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1391" alt="DrillTime settings showing colour mode, sound or flash output, and metronome defaults for tempo and count-in" loading="lazy" decoding="async"></div>
+</div>
+</div>
+</section>
+
+<section class="story" aria-labelledby="story-3">
+<div class="wide story-grid">
+<div class="story-copy" data-reveal>
+<h2 id="story-3">Calm for evening practice</h2>
+<p>The dark theme is easier on the eyes in the evening, and the click stays just as steady.</p>
+</div>
+<div class="story-media" data-reveal>
+<div class="phone"><img src="/img/pm-dark-en-480.webp" srcset="/img/pm-dark-en-240.webp 240w, /img/pm-dark-en-320.webp 320w, /img/pm-dark-en-400.webp 400w, /img/pm-dark-en-480.webp 480w, /img/pm-dark-en-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1389" alt="The DrillTime metronome in the dark theme, at 86 BPM" loading="lazy" decoding="async"></div>
+</div>
+</div>
+</section>
+
+<section class="story flip" aria-labelledby="story-4">
+<div class="wide story-grid">
+<div class="story-copy" data-reveal>
+<h2 id="story-4">English and Arabic</h2>
+<p>Every screen works in English and Arabic, with full right-to-left Arabic for bilingual classrooms.</p>
+</div>
+<div class="story-media" data-reveal>
+<div class="phone"><img src="/img/pm-metronome-ar-480.webp" srcset="/img/pm-metronome-ar-240.webp 240w, /img/pm-metronome-ar-320.webp 320w, /img/pm-metronome-ar-400.webp 400w, /img/pm-metronome-ar-480.webp 480w, /img/pm-metronome-ar-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1391" alt="The DrillTime metronome in Arabic at 120 BPM, laid out right to left" loading="lazy" decoding="async"></div>
+</div>
+</div>
+</section>
+
+<section class="wide" aria-labelledby="depth-heading">
+<div class="depth" data-reveal>
+<div class="depth-in">
+<h2 id="depth-heading">Practising with the metronome</h2>
+<p class="intro">How to use it, the habits I teach, key terms and common questions.</p>
+
+<h3>Who it helps</h3>
 <p>In my lessons, most timing problems come back to one thing: the pulse drifts and the student does not notice. A metronome makes that drift easy to hear. It helps:</p>
-
 <ul>
   <li>Beginners who rush the easy bars and slow down in the hard ones.</li>
   <li>Students preparing a piece for a lesson, a concert or an exam.</li>
   <li>Teachers who want every student to practise at a set tempo between lessons.</li>
   <li>Bilingual classrooms, because every screen works in English and Arabic.</li>
 </ul>
-
-<h2>How to use it</h2>
-
+<h3>How to use it</h3>
 <p class="answer">Choose a tempo and a time signature, then start the click and practise along with it. Begin slowly, and only raise the tempo when the passage feels easy.</p>
-
-<ol>
+<ol class="steps">
   <li>Set the tempo with the slider or the plus and minus buttons. The screen shows the BPM and its Italian tempo name, such as Andante or Allegro.</li>
   <li>Pick the time signature, and use accents to mark the strong beats of the bar.</li>
   <li>Add swing if the style needs it, and choose the click sound you hear best over your instrument.</li>
   <li>Hold the settings button for a light or dark theme, sound or flash output, a count-in, and your default tempo and click sound.</li>
 </ol>
-
-<h2>Practice tips from a teacher</h2>
-
+<h3>Practice tips from a teacher</h3>
 <p>Musicians have long practised with a metronome to keep a steady <a href="https://www.britannica.com/art/tempo-music" target="_blank" rel="noopener">tempo<span class="vh"> (opens in a new tab)</span></a>, the speed of the music. These are the habits I teach with it:</p>
-
 <ul>
   <li>Start slower than you think. If you cannot get a passage right three times in a row, the tempo is too high.</li>
   <li>Listen for the click disappearing. When you are exactly together with it, the click almost vanishes under your note.</li>
@@ -341,25 +519,16 @@ html[dir=rtl] .fnav a{font-size:16px}
   <li>Keep sessions short and focused. Ten good minutes beat an hour of drifting.</li>
   <li>Turn the click off for the last run-through and check that the tempo holds on its own.</li>
 </ul>
-
-<h3>A simple daily routine</h3>
-
-<div class="table-wrap" role="region" aria-labelledby="table-1" tabindex="0">
-<table>
-  <caption id="table-1">A 20-minute metronome practice routine</caption>
-  <thead><tr><th scope="col">Stage</th><th scope="col">What to do</th><th scope="col">Suggested time</th></tr></thead>
-  <tbody>
-    <tr><th scope="row">Warm-up</th><td>Long notes or open strings with the click at a slow, comfortable tempo</td><td>3 minutes</td></tr>
-    <tr><th scope="row">Technique</th><td>Scales or exercises, two notes per click, then four</td><td>5 minutes</td></tr>
-    <tr><th scope="row">Piece, slowly</th><td>The hardest bars of your piece at a tempo you can perform cleanly</td><td>7 minutes</td></tr>
-    <tr><th scope="row">Piece, faster</th><td>Raise the tempo a little and repeat the whole section</td><td>3 minutes</td></tr>
-    <tr><th scope="row">Without the click</th><td>One run-through on your own to check the pulse holds</td><td>2 minutes</td></tr>
-  </tbody>
-</table>
-</div>
-
-<h2>Key terms</h2>
-
+<h4>A simple daily routine</h4>
+<p>A 20-minute metronome practice routine</p>
+<ol class="routine">
+  <li><div class="r-head"><span class="r-stage">Warm-up</span><span class="r-time">3 minutes</span></div><p>Long notes or open strings with the click at a slow, comfortable tempo</p></li>
+  <li><div class="r-head"><span class="r-stage">Technique</span><span class="r-time">5 minutes</span></div><p>Scales or exercises, two notes per click, then four</p></li>
+  <li><div class="r-head"><span class="r-stage">Piece, slowly</span><span class="r-time">7 minutes</span></div><p>The hardest bars of your piece at a tempo you can perform cleanly</p></li>
+  <li><div class="r-head"><span class="r-stage">Piece, faster</span><span class="r-time">3 minutes</span></div><p>Raise the tempo a little and repeat the whole section</p></li>
+  <li><div class="r-head"><span class="r-stage">Without the click</span><span class="r-time">2 minutes</span></div><p>One run-through on your own to check the pulse holds</p></li>
+</ol>
+<h3>Key terms</h3>
 <dl>
   <dt><dfn>Metronome</dfn></dt>
   <dd>A device or app that sounds a steady click at a tempo you choose, so you can keep an even pulse.</dd>
@@ -370,25 +539,34 @@ html[dir=rtl] .fnav a{font-size:16px}
   <dt><dfn>Subdivision</dfn></dt>
   <dd>Splitting each beat into smaller equal parts, such as two quavers or four semiquavers, to keep faster notes even.</dd>
 </dl>
-
-<h2>Questions</h2>
-
-<h3>Can I use the DrillTime metronome with any instrument?</h3>
-<p>Yes. It is a steady click, so it works for guitar, piano, strings, wind, drums or voice. Choose the click sound that cuts through best over your instrument.</p>
-<h3>Does the metronome work without an internet connection?</h3>
-<p>Yes. DrillTime works fully offline and needs no account, so it is ready in a practice room, a classroom or on a shared iPad.</p>
-<h3>What tempo should I start at?</h3>
-<p>Start at a tempo where you can perform the passage cleanly three times in a row. For many students that is well below the marked tempo, and that is fine.</p>
+<h3>Questions</h3>
+<div class="faq">
+<details>
+  <summary>Can I use the DrillTime metronome with any instrument?</summary>
+  <p>Yes. It is a steady click, so it works for guitar, piano, strings, wind, drums or voice. Choose the click sound that cuts through best over your instrument.</p>
+</details>
+<details>
+  <summary>Does the metronome work without an internet connection?</summary>
+  <p>Yes. DrillTime works fully offline and needs no account, so it is ready in a practice room, a classroom or on a shared iPad.</p>
+</details>
+<details>
+  <summary>What tempo should I start at?</summary>
+  <p>Start at a tempo where you can perform the passage cleanly three times in a row. For many students that is well below the marked tempo, and that is fine.</p>
+</details>
+</div>
 
 <p class="related">Related guide: <a href="/guides/metronome-practice">How to practise with a metronome</a></p>
 
 <aside class="author">
   <p class="by">Written by Phil Doughty, guitar teacher in Dubai and maker of DrillTime.</p>
   <p>For years I watched my students love their lessons, then barely touch their instrument until the next one. So I built the practice tool I wished they had.</p>
-  <p class="updated">Last updated 19 October 2026</p>
+  <p class="updated">Last updated 20 October 2026</p>
 </aside>
+</div>
+</div>
+</section>
 
-<section class="cta" aria-labelledby="cta-heading">
+<section class="cta wide" aria-labelledby="cta-heading">
   <h2 id="cta-heading">Practise with DrillTime</h2>
   <a class="badge" href="#" data-appstore><img src="/img/appstore-en-black.svg" alt="Download on the App Store" width="168" height="56" loading="lazy" decoding="async"><span><small class="en">Coming soon on the</small><small class="ar" lang="ar">قريباً على</small>App Store</span></a>
   <p class="microcopy">One-time purchase. No subscription, no ads, no accounts.</p>
@@ -400,8 +578,6 @@ html[dir=rtl] .fnav a{font-size:16px}
   </ul>
   </nav>
 </section>
-
-</div>
 </main>
 
 <footer>
