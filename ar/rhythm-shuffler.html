@@ -261,9 +261,6 @@ html[dir=rtl] .r-time{font-size:16px}
 
 .depth .related{margin-top:var(--s8)}
 .depth .author{background:var(--bg-2);margin-top:var(--s6)}
-.cta{background:none;border:0;padding:var(--s9) 0 var(--s7);margin:0}
-.cta h2{font-size:clamp(30px,4.5vw,44px);letter-spacing:-.02em;margin-bottom:var(--s6)}
-html[dir=rtl] .cta h2{font-size:clamp(32px,4.9vw,48px)}
 
 @media (max-width:760px){
   .hero-grid,.story-grid{grid-template-columns:minmax(0,1fr);gap:var(--s7)}
@@ -371,6 +368,26 @@ html[dir=rtl] .tier p{font-size:17px}
   .tier-grid{grid-template-columns:1fr}
   .counts{gap:6px}
 }
+
+/* ---- Final call to action: the same centred DrillTime card at the end of every feature, guide and
+   teachers page (cream card, site border and shadow, chip links). Fills its page column, so it lines
+   up with the content above it. */
+.cta{max-width:none;margin:48px 0 0;padding:44px 28px 34px;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:34px;box-shadow:0 3px 8px rgba(33,38,30,.08),0 13px 34px rgba(33,38,30,.12)}
+.cta h2{margin:0 0 13px;font-size:clamp(26px,3.4vw,34px);line-height:1.15;letter-spacing:-.01em;text-wrap:balance}
+html[dir=rtl] .cta h2{font-size:clamp(28px,3.8vw,38px);line-height:1.3;letter-spacing:0}
+.cta .badge{display:inline-block;margin:8px 0 13px}
+.cta .microcopy{max-width:30em;margin:0 auto}
+.cta nav{margin-top:21px;padding-top:21px;border-top:1px solid var(--line)}
+.cta .more{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:0;margin:0}
+.cta .more li{margin:0}
+.cta .more a{display:inline-block;padding:8px 16px;border:1px solid var(--line);border-radius:13px;background:var(--bg-2);color:var(--ink);font-size:15px;line-height:1.5;text-decoration:none;transition:border-color .2s,background-color .2s}
+html[dir=rtl] .cta .more a{font-size:17px}
+.cta .more a:hover{border-color:#b4bca6;background:var(--bg)}
+.cta .more a:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:13px}
+@media (max-width:600px){
+  .cta{padding:34px 20px 28px;border-radius:21px}
+}
+@media (prefers-reduced-motion:reduce){.cta .more a{transition:none}}
 </style>
 <script type="application/ld+json">
 {
@@ -680,7 +697,8 @@ html[dir=rtl] .tier p{font-size:17px}
 </div>
 </section>
 
-<section class="cta wide" aria-labelledby="cta-heading">
+<div class="wide">
+<section class="cta" aria-labelledby="cta-heading">
   <h2 id="cta-heading">تمرّن مع DrillTime</h2>
   <a class="badge" href="#" data-appstore><img src="/img/appstore-ar-black.svg" alt="تنزيل التطبيق من App Store" width="168" height="56" loading="lazy" decoding="async"><span><small class="en">Coming soon on the</small><small class="ar" lang="ar">قريباً على</small>App Store</span></a>
   <p class="microcopy">شراء لمرة واحدة. بدون اشتراك أو إعلانات أو حسابات.</p>
@@ -688,10 +706,11 @@ html[dir=rtl] .tier p{font-size:17px}
   <ul class="more">
     <li><a href="/ar/metronome">المترونوم</a></li>
     <li><a href="/ar/speed-builder">بناء السرعة</a></li>
-    <li><a href="/">الرئيسية</a></li>
+    <li><a href="/ar/guides">أدلة التمرين</a></li>
   </ul>
   </nav>
 </section>
+</div>
 </main>
 
 <footer>
