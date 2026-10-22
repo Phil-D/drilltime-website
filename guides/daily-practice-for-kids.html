@@ -154,6 +154,69 @@ html[dir=rtl] .card h2{font-size:clamp(23px,3vw,28px)}
 .card .go{color:var(--link);text-decoration:underline;text-underline-offset:3px}
 @media (max-width:600px){th,td{padding:10px 12px}caption{padding:12px 12px 8px}}
 
+/* ---- guides: calm reading layout with an "On this page" contents list
+   (a sticky sidebar beside the article on desktop, a collapsible block on phones) */
+html{scroll-padding-top:24px}
+.guide-wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+.guide{max-width:680px;margin:0 auto}
+.guide p,.guide li,.guide dd{max-width:38em}
+.guide h2{margin:64px 0 14px}
+.guide h3{margin-top:34px}
+.guide .shots{margin:34px 0 26px}
+.guide .table-wrap{margin:21px 0 26px}
+.guide-wrap .toc-m a,.guide-wrap .toc-side a{text-decoration:none}
+
+.toc-m{margin:8px 0 34px}
+.toc-m details{background:var(--card);border:1px solid var(--line);border-radius:14px}
+.toc-m summary{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 18px;color:var(--ink);cursor:pointer;list-style:none;border-radius:14px}
+.toc-m summary::-webkit-details-marker{display:none}
+.toc-m summary::after{content:"+";flex:none;width:26px;height:26px;border:1px solid var(--line);border-radius:50%;background:var(--bg-2);color:var(--ink-soft);text-align:center;line-height:24px}
+.toc-m details[open] summary::after{content:"\2212"}
+.toc-m summary:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.toc-m ol{margin:0;padding:0 18px 14px;padding-inline-start:40px}
+.toc-m li{margin:4px 0}
+.toc-m a{display:inline-block;padding:4px 0;color:var(--ink-soft)}
+.toc-m a:hover{color:var(--ink)}
+
+.toc-side{display:none}
+.toc-h{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim);margin:0 0 10px}
+html[dir=rtl] .toc-h{font-size:16px;letter-spacing:0;text-transform:none}
+.toc-side ol{list-style:none;padding:0;margin:0;border-inline-start:1px solid var(--line)}
+.toc-side li{margin:0}
+.toc-side a{display:block;margin-inline-start:-1px;padding:6px 14px;border-inline-start:2px solid transparent;font-size:15px;line-height:1.4;color:var(--text-dim)}
+html[dir=rtl] .toc-side a{font-size:17px}
+.toc-side a:hover{color:var(--ink)}
+.toc-side a[aria-current]{color:var(--ink);border-inline-start-color:#D99B26}
+
+@media (min-width:1024px){
+  .guide-grid{display:grid;grid-template-columns:200px minmax(0,680px);justify-content:center;align-items:start;gap:0 56px}
+  .guide{margin:0}
+  .toc-side{display:block;position:sticky;top:32px;margin-top:118px}
+  .toc-m{display:none}
+}
+
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:34px 0 0}
+.pg{display:flex;flex-direction:column;gap:3px;padding:16px 20px;border:1px solid var(--line);border-radius:18px;background:var(--bg-2);color:var(--ink);text-decoration:none!important;transition:border-color .2s,background-color .2s}
+.pg:hover{border-color:#b4bca6;background:var(--card)}
+.pg.next{grid-column:2;align-items:flex-end;text-align:end}
+.pg-label{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-dim)}
+html[dir=rtl] .pg-label{font-size:15px}
+.next .pg-label{flex-direction:row-reverse}
+.pg-title{font-size:16px;line-height:1.35}
+html[dir=rtl] .pg-title{font-size:18px}
+.pg-arrow{flex:none;width:15px;height:15px}
+.next .pg-arrow{transform:scaleX(-1)}
+html[dir=rtl] .prev .pg-arrow{transform:scaleX(-1)}
+html[dir=rtl] .next .pg-arrow{transform:none}
+.cta-col{max-width:760px;margin:0 auto}
+
+@media (max-width:600px){
+  .guide-wrap{padding-inline:20px}
+  .pager{grid-template-columns:1fr}
+  .pg.next{grid-column:auto}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pg{transition:none}}
+
 /* ---- Final call to action: the same centred DrillTime card at the end of every feature, guide and
    teachers page (cream card, site border and shadow, chip links). Fills its page column, so it lines
    up with the content above it. */
@@ -291,6 +354,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 }
 </script>
 <script defer src="/js/page-lang.js?v=1"></script>
+<script defer src="/js/toc.js?v=1"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -304,13 +368,41 @@ html[dir=rtl] .cta .more a{font-size:17px}
 </nav>
 
 <main id="main">
-<div class="wrap">
+<div class="guide-wrap">
+<div class="guide-grid">
+<nav class="toc-side" aria-labelledby="toc-side-h">
+  <p class="toc-h" id="toc-side-h">On this page</p>
+  <ol>
+    <li><a href="#how-long">How long should children practise?</a></li>
+    <li><a href="#daily-habit">Make practice a daily habit</a></li>
+    <li><a href="#what-to-say">What to say, and what to avoid</a></li>
+    <li><a href="#session-structure">A simple structure for each session</a></li>
+    <li><a href="#key-terms">Key terms</a></li>
+    <li><a href="#questions">Questions</a></li>
+  </ol>
+</nav>
+
+<article class="guide">
 
 <nav class="crumbs" aria-label="Breadcrumb">
   <ol><li><a href="/">Home</a></li><li><a href="/guides">Guides</a></li><li aria-current="page">How to help your child practise every day</li></ol>
 </nav>
 
 <h1>How to help your child practise every day</h1>
+
+<nav class="toc-m" aria-labelledby="toc-m-h">
+<details>
+  <summary id="toc-m-h">On this page</summary>
+  <ol>
+    <li><a href="#how-long">How long should children practise?</a></li>
+    <li><a href="#daily-habit">Make practice a daily habit</a></li>
+    <li><a href="#what-to-say">What to say, and what to avoid</a></li>
+    <li><a href="#session-structure">A simple structure for each session</a></li>
+    <li><a href="#key-terms">Key terms</a></li>
+    <li><a href="#questions">Questions</a></li>
+  </ol>
+</details>
+</nav>
 
 <p class="answer">Help your child practise every day by making it short, regular and predictable: the same time each day, one clear small goal, and ten to twenty minutes rather than an hour. Sit nearby, notice effort rather than perfection, and end on something they can do well. A steady daily habit matters far more than long sessions now and then.</p>
 
@@ -332,7 +424,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 <!-- PHIL: add a real example here -->
 <p>I see the difference regular practice makes in my students every week.</p>
 
-<h2>How long should children practise?</h2>
+<h2 id="how-long">How long should children practise?</h2>
 
 <p>Less than most parents expect. Short, frequent sessions beat long, rare ones, because skills stick better when practice is spread out. Psychologists call this the <a href="https://en.wikipedia.org/wiki/Spacing_effect" target="_blank" rel="noopener">spacing effect<span class="vh"> (opens in a new tab)</span></a>: learning lasts longer when it is spread over several sessions rather than crammed into one.</p>
 
@@ -353,7 +445,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 
 <p>Younger children often manage two very short sessions better than one longer one, for example five minutes before school and five after. That still counts as daily practice.</p>
 
-<h2>Make practice a daily habit</h2>
+<h2 id="daily-habit">Make practice a daily habit</h2>
 
 <ul>
   <li>Pick the same time every day, such as straight after school or before dinner.</li>
@@ -374,7 +466,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 
 <p>Sometimes a small audience helps. A short performance for a grandparent, or for the family after dinner, gives practice a purpose beyond the next lesson.</p>
 
-<h2>What to say, and what to avoid</h2>
+<h2 id="what-to-say">What to say, and what to avoid</h2>
 
 <p>Your words shape how your child feels about practice.</p>
 
@@ -392,7 +484,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 
 <p>It also helps to ask questions rather than give instructions. “What will you work on today?” gives your child ownership of the session, and children stick far more readily with plans they helped to make.</p>
 
-<h2>A simple structure for each session</h2>
+<h2 id="session-structure">A simple structure for each session</h2>
 
 <ol>
   <li>Warm up for a minute or two with something easy.</li>
@@ -412,7 +504,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 
 <p>DrillTime works offline, needs no account and collects no personal data, so it is safe to leave on a family iPad. The <a href="/metronome">metronome</a> keeps slow practice steady, <a href="/speed-builder">Speed Builder</a> raises the tempo in small steps, and <a href="/rhythm-shuffler">Rhythm Shuffler</a> gives your child a fresh rhythm to read and tap, then shows how accurate their timing was.</p>
 
-<h2>Key terms</h2>
+<h2 id="key-terms">Key terms</h2>
 
 <dl>
   <dt><dfn>Practice routine</dfn></dt>
@@ -423,7 +515,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
   <dd>One specific, achievable target for a single session, such as a clean bar or a steady tempo.</dd>
 </dl>
 
-<h2>Questions</h2>
+<h2 id="questions">Questions</h2>
 
 <h3>Should I sit with my child while they practise?</h3>
 <p>For younger children, yes, or at least stay nearby. Older children often prefer to practise alone, but still enjoy showing you what they have worked on.</p>
@@ -438,6 +530,14 @@ html[dir=rtl] .cta .more a{font-size:17px}
   <p class="updated">Last updated 20 October 2026</p>
 </aside>
 
+<nav class="pager" aria-label="Guides">
+<a class="pg prev" href="/guides/build-speed" rel="prev"><span class="pg-label"><svg class="pg-arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous guide</span><span class="pg-title">How to build speed without making mistakes</span></a>
+</nav>
+
+</article>
+</div>
+
+<div class="cta-col">
 <section class="cta" aria-labelledby="cta-heading">
   <h2 id="cta-heading">Practise with DrillTime</h2>
   <a class="badge" href="#" data-appstore><img src="/img/appstore-en-black.svg" alt="Download on the App Store" width="168" height="56" loading="lazy" decoding="async"><span><small class="en">Coming soon on the</small><small class="ar" lang="ar">قريباً على</small>App Store</span></a>
@@ -451,6 +551,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
   </ul>
   </nav>
 </section>
+</div>
 
 </div>
 </main>

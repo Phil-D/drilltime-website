@@ -143,16 +143,252 @@ html[dir=rtl] .fnav a{font-size:16px}
   .author{padding:18px 20px}
   .fnav{text-align:start}
 }
-/* guides: index cards */
-.cards{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:16px}
-.cards li{margin:0}
-.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 26px;text-decoration:none!important;color:var(--ink)}
-.card:hover{border-color:#b4bca6}
-.card h2{margin:0 0 6px;font-size:clamp(21px,2.6vw,25px);color:var(--ink)}
-html[dir=rtl] .card h2{font-size:clamp(23px,3vw,28px)}
-.card p{margin:0 0 10px;color:var(--ink-soft)}
-.card .go{color:var(--link);text-decoration:underline;text-underline-offset:3px}
-@media (max-width:600px){th,td{padding:10px 12px}caption{padding:12px 12px 8px}}
+
+/* ---- Metronome design pilot: product-first layout on top of the feature-page base above.
+   Same DrillTime tokens; spacing, radii and shadows follow the home page scale. */
+:root{--r-s:13px;--r-m:21px;--r-l:34px;--s4:8px;--s5:13px;--s6:21px;--s7:34px;--s8:55px;--s9:89px;--wide:987px;
+  --shadow-1:0 1px 2px rgba(33,38,30,.06),0 3px 8px rgba(33,38,30,.05);
+  --shadow-2:0 3px 8px rgba(33,38,30,.08),0 13px 34px rgba(33,38,30,.12)}
+html{scroll-padding-top:84px}
+main{padding:0 0 var(--s8)}
+.wide{max-width:var(--wide);margin:0 auto;padding:0 28px}
+.badge{border-radius:var(--r-s);transition:transform .2s,box-shadow .2s}
+.badge:hover{transform:translateY(-2px);box-shadow:var(--shadow-2)}
+
+/* hero */
+.hero{padding:var(--s4) 0 var(--s9)}
+.hero .crumbs ol{margin-bottom:var(--s7)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:var(--s8);align-items:center}
+.hero h1{font-size:clamp(40px,6vw,64px);line-height:1.05;margin-bottom:var(--s6)}
+html[dir=rtl] .hero h1{font-size:clamp(44px,6.8vw,72px);line-height:1.2}
+.lede{font-size:21px;line-height:1.55;color:var(--ink-soft);max-width:28em;margin-bottom:var(--s7)}
+html[dir=rtl] .lede{font-size:23px}
+.hero .badge{margin:0 0 var(--s5)}
+.hero .badge img{width:168px;height:56px}
+
+/* phone frame */
+.phone{width:min(280px,100%);margin-inline:auto;padding:9px;background:var(--card);border:1px solid var(--line);border-radius:44px;box-shadow:var(--shadow-2)}
+.phone img{display:block;width:100%;height:auto;border-radius:35px;background:var(--bg)}
+
+/* slim App Store bar: in the page flow after the hero, then sticks to the top (no script, no layout shift) */
+.buybar{position:sticky;top:0;z-index:20;background:rgba(233,237,225,.94);border-block:1px solid var(--line);-webkit-backdrop-filter:saturate(1.3) blur(12px);backdrop-filter:saturate(1.3) blur(12px)}
+.buybar-in{display:flex;align-items:center;gap:12px;height:62px}
+.buybar .icon{width:38px;height:38px;border-radius:9px;border:1px solid var(--line);box-shadow:var(--shadow-1);flex:none}
+.bb-text{display:flex;flex-direction:column;line-height:1.25;margin:0 auto 0 0;min-width:0}
+html[dir=rtl] .bb-text{margin:0 0 0 auto}
+.bb-name{color:var(--ink);font-size:16px}
+.bb-sub{color:var(--text-dim);font-size:13px}
+html[dir=rtl] .bb-name{font-size:18px;font-weight:700}
+html[dir=rtl] .bb-sub{font-size:15px}
+.buybar .badge{margin:0;flex:none}
+.buybar .badge img{width:120px;height:40px}
+.buybar .badge:hover{box-shadow:var(--shadow-1)}
+
+/* story sections: one benefit each, image side alternates (mirrors itself in RTL) */
+.story{padding:var(--s9) 0}
+.cv{content-visibility:auto;contain-intrinsic-size:auto 740px}
+.story-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s8);align-items:center}
+.story.flip .story-media{order:-1}
+.story h2,.climb h2,.steps3 h2,.results h2,.tiers h2{font-size:clamp(30px,4.5vw,44px);line-height:1.1;letter-spacing:-.02em;margin:0 0 var(--s6)}
+html[dir=rtl] .story h2,html[dir=rtl] .climb h2,html[dir=rtl] .steps3 h2,html[dir=rtl] .results h2,html[dir=rtl] .tiers h2{font-size:clamp(32px,4.9vw,48px);line-height:1.3;letter-spacing:0}
+.story p,.climb-copy p,.tiers-head p{font-size:19px;line-height:1.6;max-width:24em;margin:0}
+.story p+p{margin-top:var(--s5)}
+html[dir=rtl] .story p,html[dir=rtl] .climb-copy p,html[dir=rtl] .tiers-head p{font-size:21px}
+.story .phone{width:min(260px,100%)}
+
+/* chips and panels: small illustrations built from the app's own labels */
+.chipset{margin-top:var(--s6)}
+.chip-label,.panel-sub,.opt-name{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim);margin:0 0 var(--s4)}
+html[dir=rtl] .chip-label,html[dir=rtl] .panel-sub,html[dir=rtl] .opt-name{font-size:16px;letter-spacing:0;text-transform:none}
+.chips{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{margin:0;padding:5px 12px;border:1px solid var(--line);border-radius:var(--r-s);background:var(--card);color:var(--ink);font-size:15px;line-height:1.35}
+html[dir=rtl] .chips li{font-size:17px}
+.panel{width:min(400px,100%);margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);padding:var(--s7) var(--s6);box-shadow:var(--shadow-2)}
+.panel .chips li{background:var(--bg-2)}
+.panel-cap{font-size:15px;color:var(--ink);margin-bottom:var(--s6)}
+html[dir=rtl] .panel-cap{font-size:18px}
+.pulse{display:grid;gap:12px;margin-bottom:var(--s7)}
+.p-row{display:grid;grid-template-columns:7.2em 1fr;align-items:center;gap:12px}
+.p-name{font-size:15px;color:var(--ink-soft)}
+html[dir=rtl] .p-name{font-size:17px}
+.p-dots{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;direction:ltr}
+.beat{display:flex;justify-content:space-around;align-items:center;height:24px;padding:0 3px;background:var(--bg-2);border:1px solid var(--line);border-radius:8px}
+.beat i{width:7px;height:7px;border-radius:50%;background:var(--text-dim)}
+.beat i:first-child{width:11px;height:11px;background:var(--ink)}
+.opt+.opt{margin-top:var(--s6)}
+
+/* gentle fade-in, added by /js/reveal.js only below the fold and never with reduced motion */
+.rv{opacity:0;transform:translateY(21px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+/* the quieter depth area */
+.depth{background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);padding:var(--s8) var(--s7);margin-top:var(--s7)}
+.depth-in{max-width:680px;margin:0 auto}
+.depth h2{font-size:clamp(26px,3.4vw,34px);line-height:1.15;margin:0 0 var(--s4)}
+html[dir=rtl] .depth h2{font-size:clamp(28px,3.8vw,38px);line-height:1.3}
+.depth .intro{color:var(--text-dim);font-size:16px}
+.depth h3{font-size:21px;margin:var(--s8) 0 var(--s5)}
+.depth h4{font-weight:400;font-size:18px;color:var(--ink);margin:var(--s7) 0 var(--s4)}
+html[dir=rtl] .depth h3{font-size:24px}
+html[dir=rtl] .depth h4{font-size:20px;font-weight:700}
+.depth p,.depth li,.depth dd,.depth summary{font-size:16px}
+html[dir=rtl] .depth p,html[dir=rtl] .depth li,html[dir=rtl] .depth dd,html[dir=rtl] .depth summary{font-size:18px}
+.depth .answer{font-size:17px}
+html[dir=rtl] .depth .answer{font-size:19px}
+
+/* numbered steps and routine cards */
+.steps,.routine{list-style:none;padding:0;counter-reset:step}
+.steps>li,.routine>li{counter-increment:step;position:relative;padding-inline-start:46px;margin-bottom:var(--s5)}
+.steps>li::before,.routine>li::before{content:counter(step);position:absolute;inset-inline-start:0;top:0;width:30px;height:30px;border-radius:50%;background:var(--bg-2);border:1px solid var(--line);color:var(--ink);font-size:14px;line-height:28px;text-align:center}
+html[dir=rtl] .steps>li::before,html[dir=rtl] .routine>li::before{content:counter(step,arabic-indic);font-size:16px}
+.routine>li{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-m);padding:var(--s5) var(--s6);padding-inline-start:58px}
+.routine>li::before{inset-inline-start:var(--s6);top:var(--s5);background:var(--card)}
+.r-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 12px}
+.r-stage{color:var(--ink)}
+.r-time{color:var(--text-dim);font-size:14px}
+html[dir=rtl] .r-time{font-size:16px}
+.routine p{margin:2px 0 0}
+
+/* FAQ */
+.faq{border-bottom:1px solid var(--line)}
+.faq details{border-top:1px solid var(--line)}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0;color:var(--ink);cursor:pointer;list-style:none;border-radius:6px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;width:26px;height:26px;border:1px solid var(--line);border-radius:50%;text-align:center;line-height:24px;color:var(--ink-soft);background:var(--bg-2)}
+.faq details[open] summary::after{content:"\2212"}
+.faq summary:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.faq details p{margin:0 0 var(--s6)}
+
+.depth .related{margin-top:var(--s8)}
+.depth .author{background:var(--bg-2);margin-top:var(--s6)}
+
+@media (max-width:760px){
+  .hero-grid,.story-grid{grid-template-columns:minmax(0,1fr);gap:var(--s7)}
+  .hero{padding-bottom:var(--s8)}
+  .story{padding:var(--s8) 0}
+  .cv{contain-intrinsic-size:auto 880px}
+  .story.flip .story-media{order:0}
+  .phone{width:min(244px,100%)}
+  .story .phone{width:min(230px,100%)}
+}
+@media (max-width:600px){
+  .wide{padding-inline:20px}
+  .lede{font-size:19px}
+  html[dir=rtl] .lede{font-size:21px}
+  .story p{font-size:18px}
+  html[dir=rtl] .story p{font-size:20px}
+  .depth{padding:var(--s7) var(--s6);border-radius:var(--r-m);margin-inline:-6px}
+  .buybar-in{height:58px;gap:10px}
+  .buybar .icon{width:34px;height:34px}
+  .buybar .badge img{width:108px;height:36px}
+  .p-row{grid-template-columns:6.4em minmax(0,1fr);gap:8px}
+  .p-dots{gap:4px}
+  .beat{padding:0 2px}
+  .beat i{width:6px;height:6px}
+  .beat i:first-child{width:9px;height:9px}
+}
+@media (max-height:500px){.buybar{position:static}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .badge,.rv{transition:none}
+  .badge:hover{transform:none}
+  .rv{opacity:1;transform:none}
+}
+
+/* ---- guides hub: calm and editorial. Accent: the app's warm amber (#D99B26), used only on shapes. */
+.hub{padding-bottom:var(--s8)}
+.hub-col{max-width:820px;margin:0 auto;padding:0 28px}
+.hub h2{font-size:clamp(26px,3.4vw,34px);line-height:1.15;letter-spacing:-.01em;margin:0 0 var(--s4)}
+.hub .sec-intro{max-width:34em;margin:0 0 var(--s7);font-size:17px;color:var(--ink-soft)}
+html[dir=rtl] .hub .sec-intro{font-size:19px}
+html[dir=rtl] .hub h2{font-size:clamp(28px,3.8vw,38px);line-height:1.3;letter-spacing:0}
+
+.hub-hero{text-align:center;padding:var(--s4) 0 var(--s9)}
+.hub-hero .crumbs ol{justify-content:center;margin-bottom:var(--s8)}
+.hub-icon{display:block;width:88px;height:88px;margin:0 auto var(--s6);border:1px solid var(--line);border-radius:21px;box-shadow:var(--shadow-2)}
+.hub-hero h1{font-size:clamp(38px,5.6vw,60px);line-height:1.08;letter-spacing:-.02em;margin:0;text-wrap:balance}
+html[dir=rtl] .hub-hero h1{font-size:clamp(40px,6vw,64px);line-height:1.25;letter-spacing:0}
+.hub-sub{font-size:clamp(20px,2.6vw,26px);color:var(--text-dim);margin:var(--s4) 0 var(--s7)}
+html[dir=rtl] .hub-sub{font-size:clamp(22px,2.9vw,29px)}
+.hub-intro{max-width:28em;margin:0 auto var(--s7);font-size:19px;color:var(--ink-soft)}
+html[dir=rtl] .hub-intro{font-size:21px}
+.hub .hub-contents{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border:1px solid var(--line);border-radius:var(--r-s);background:var(--card);color:var(--ink);text-decoration:none}
+.hub-contents::after{content:"";width:7px;height:7px;margin-top:-4px;border-right:2px solid #D99B26;border-bottom:2px solid #D99B26;transform:rotate(45deg)}
+.hub-contents:hover{border-color:#b4bca6}
+
+.paths{padding:var(--s9) 0 var(--s8)}
+.path-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s7)}
+.path-list li{margin:0;padding-top:var(--s5);border-top:2px solid #D99B26}
+.who{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim);margin:0 0 var(--s4)}
+html[dir=rtl] .who{font-size:16px;letter-spacing:0;text-transform:none}
+.path-list p{font-size:16px;margin:0 0 var(--s5)}
+html[dir=rtl] .path-list p{font-size:18px}
+
+.feed{padding:var(--s8) 0}
+.modules{list-style:none;padding:0;margin:0}
+.module{display:grid;grid-template-columns:280px minmax(0,1fr);gap:var(--s7);align-items:center;margin:0}
+.module+.module{margin-top:var(--s8)}
+.module img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:var(--r-m)}
+.m-text h3{font-size:clamp(22px,2.6vw,26px);line-height:1.2;margin:0 0 var(--s4)}
+html[dir=rtl] .m-text h3{font-size:clamp(24px,2.9vw,29px);line-height:1.35}
+.m-text p{font-size:16px;margin:0 0 var(--s4)}
+html[dir=rtl] .m-text p{font-size:18px}
+.m-text .m-meta{font-size:14px;color:var(--text-dim)}
+html[dir=rtl] .m-text .m-meta{font-size:16px}
+
+.rules{padding:var(--s8) 0}
+.rule-list{list-style:none;padding:0;margin:0;counter-reset:rule}
+.rule-list li{counter-increment:rule;position:relative;margin:0;padding-inline-start:64px;min-height:42px}
+.rule-list li+li{margin-top:var(--s7)}
+.rule-list li::before{content:counter(rule);position:absolute;inset-inline-start:0;top:0;width:42px;height:42px;border-radius:50%;background:#f1e3c6;color:var(--ink);font-size:18px;line-height:42px;text-align:center}
+html[dir=rtl] .rule-list li::before{content:counter(rule,arabic-indic);font-size:20px}
+.rule-list p{font-size:19px;color:var(--ink);margin:0 0 4px}
+html[dir=rtl] .rule-list p{font-size:21px}
+.rule-list a{font-size:15px}
+html[dir=rtl] .rule-list a{font-size:17px}
+
+.hub-tools{padding:var(--s8) 0 0}
+.tool-row{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s5)}
+.tool-row li{margin:0}
+.hub .tool-row a{display:block;height:100%;padding:var(--s6);border:1px solid var(--line);border-radius:var(--r-m);background:var(--bg-2);color:var(--ink);text-decoration:none;transition:border-color .2s,background-color .2s}
+.hub .tool-row a:hover{border-color:#b4bca6;background:var(--card)}
+.t-name{display:block;font-size:18px;margin-bottom:4px}
+.t-line{display:block;font-size:14px;line-height:1.45;color:var(--text-dim)}
+html[dir=rtl] .t-name{font-size:20px}
+html[dir=rtl] .t-line{font-size:16px}
+.hub .cta{margin-top:var(--s8)}
+
+@media (max-width:760px){
+  .path-list{grid-template-columns:minmax(0,1fr);gap:var(--s7)}
+  .module{grid-template-columns:minmax(0,1fr);gap:var(--s5)}
+  .tool-row{grid-template-columns:minmax(0,1fr)}
+  .hub-hero{padding-bottom:var(--s8)}
+}
+@media (max-width:600px){
+  .hub-col{padding-inline:20px}
+  .hub-intro{font-size:18px}
+}
+@media (prefers-reduced-motion:reduce){.hub .tool-row a{transition:none}}
+
+/* ---- Final call to action: the same centred DrillTime card at the end of every feature, guide and
+   teachers page (cream card, site border and shadow, chip links). Fills its page column, so it lines
+   up with the content above it. */
+.cta{max-width:none;margin:48px 0 0;padding:44px 28px 34px;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:34px;box-shadow:0 3px 8px rgba(33,38,30,.08),0 13px 34px rgba(33,38,30,.12)}
+.cta h2{margin:0 0 13px;font-size:clamp(26px,3.4vw,34px);line-height:1.15;letter-spacing:-.01em;text-wrap:balance}
+html[dir=rtl] .cta h2{font-size:clamp(28px,3.8vw,38px);line-height:1.3;letter-spacing:0}
+.cta .badge{display:inline-block;margin:8px 0 13px}
+.cta .microcopy{max-width:30em;margin:0 auto}
+.cta nav{margin-top:21px;padding-top:21px;border-top:1px solid var(--line)}
+.cta .more{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:0;margin:0}
+.cta .more li{margin:0}
+.cta .more a{display:inline-block;padding:8px 16px;border:1px solid var(--line);border-radius:13px;background:var(--bg-2);color:var(--ink);font-size:15px;line-height:1.5;text-decoration:none;transition:border-color .2s,background-color .2s}
+html[dir=rtl] .cta .more a{font-size:17px}
+.cta .more a:hover{border-color:#b4bca6;background:var(--bg)}
+.cta .more a:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:13px}
+@media (max-width:600px){
+  .cta{padding:34px 20px 28px;border-radius:21px}
+}
+@media (prefers-reduced-motion:reduce){.cta .more a{transition:none}}
 </style>
 <script type="application/ld+json">
 {
@@ -165,7 +401,7 @@ html[dir=rtl] .card h2{font-size:clamp(23px,3vw,28px)}
    "name": "أدلة التمرين لطلاب الموسيقى وأولياء الأمور والمعلّمين | DrillTime وقت التمرين",
    "description": "أدلة عملية من معلّم غيتار في دبي: التمرين مع المترونوم، ورفع سرعة العزف دون أخطاء، ومساعدة الأطفال على التمرين كل يوم.",
    "inLanguage": "ar",
-   "dateModified": "2026-10-20",
+   "dateModified": "2026-10-22",
    "author": {
     "@id": "https://drilltimeapp.com/#phil"
    },
@@ -225,6 +461,7 @@ html[dir=rtl] .card h2{font-size:clamp(23px,3vw,28px)}
 }
 </script>
 <script defer src="/js/page-lang.js?v=1"></script>
+<script defer src="/js/reveal.js?v=1"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">تخطي إلى المحتوى</a>
@@ -237,24 +474,119 @@ html[dir=rtl] .card h2{font-size:clamp(23px,3vw,28px)}
   <a class="langbtn" href="/guides" hreflang="en" lang="en">English</a>
 </nav>
 
-<main id="main">
-<div class="wrap">
+<main id="main" class="hub">
 
+<section class="hub-hero">
+<div class="hub-col">
 <nav class="crumbs" aria-label="مسار التنقّل">
   <ol><li><a href="/">الرئيسية</a></li><li aria-current="page">أدلة التمرين</li></ol>
 </nav>
-
-<h1>أدلة التمرين</h1>
-
-<p class="answer">أدلة قصيرة وعملية من خبرتي في التدريس، للطلاب وأولياء الأمور والمعلّمين. يجيب كل دليل عن سؤال أسمعه في دروسي كل أسبوع، ويرشدك إلى أدوات DrillTime وقت التمرين التي تساعدك.</p>
-
-<ul class="cards">
-  <li><a class="card" href="/ar/guides/metronome-practice"><h2>كيف تتمرّن مع المترونوم</h2><p>كيف تختار سرعة البداية، ومتى ترفعها، وأشهر الأخطاء، مع سلّم سرعة لأسبوع كامل.</p><span class="go">اقرأ الدليل</span></a></li>
-  <li><a class="card" href="/ar/guides/build-speed"><h2>كيف ترفع سرعة العزف دون أخطاء</h2><p>مقاطع قصيرة، وخطوات سرعة صغيرة، واسترخاء أثناء العزف، مع خطة نموذجية من خمسة أيام.</p><span class="go">اقرأ الدليل</span></a></li>
-  <li><a class="card" href="/ar/guides/daily-practice-for-kids"><h2>كيف تساعد طفلك على التمرين كل يوم</h2><p>لأولياء الأمور: كم يتمرّن الطفل، وكيف تبني عادة يومية، وماذا تقول، وترتيب بسيط لكل جلسة.</p><span class="go">اقرأ الدليل</span></a></li>
-</ul>
-
+<img class="hub-icon" src="/img/app-icon-176.webp" alt="" width="88" height="88" decoding="async">
+<h1>أدلة التمرين من DrillTime وقت التمرين</h1>
+<p class="hub-sub">للطلاب وأولياء الأمور والمعلّمين</p>
+<p class="hub-intro">أدلة قصيرة وعملية من دروسي، يجيب كل منها عن سؤال أسمعه كل أسبوع.</p>
+<a class="hub-contents" href="#guides">المحتويات</a>
 </div>
+</section>
+
+<div class="buybar">
+<div class="wide buybar-in">
+<img class="icon" src="/img/app-icon-76.webp" alt="" width="76" height="76" loading="lazy" decoding="async">
+<p class="bb-text"><span class="bb-name">DrillTime وقت التمرين</span><span class="bb-sub">شراء لمرة واحدة</span></p>
+<a class="badge" href="#" data-appstore><img src="/img/appstore-ar-black.svg" alt="تنزيل التطبيق من App Store" width="120" height="40" loading="lazy" decoding="async"><span><small class="en">Coming soon on the</small><small class="ar" lang="ar">قريباً على</small>App Store</span></a>
+</div>
+</div>
+
+<section class="paths" aria-labelledby="start-h">
+<div class="hub-col">
+<h2 id="start-h">من أين تبدأ؟</h2>
+<p class="sec-intro">اختر السطر الأقرب إليك.</p>
+<ul class="path-list">
+  <li><p class="who">طالب</p><p>تعمل على مقطوعة أو مقطع سريع؟ ابدأ بنقرة ثابتة وخطوات سرعة صغيرة.</p><a href="/ar/guides/metronome-practice">كيف تتمرّن مع المترونوم</a></li>
+  <li><p class="who">وليّ أمر</p><p>تريد أن يصبح التمرين عادة بلا جدال؟ ابدأ بجلسات قصيرة كل يوم.</p><a href="/ar/guides/daily-practice-for-kids">كيف تساعد طفلك على التمرين كل يوم</a></li>
+  <li><p class="who">معلّم</p><p>تحدّد التمرين لطلابك أو لفصل كامل؟ تعرّف كيف يناسب DrillTime الدروس والمدارس، مع رسالة جاهزة لأولياء الأمور.</p><a href="/ar/teachers">DrillTime للمعلّمين والمدارس</a></li>
+</ul>
+</div>
+</section>
+
+<section class="feed" id="guides" aria-labelledby="guides-h">
+<div class="hub-col">
+<h2 id="guides-h">كل الأدلة</h2>
+<p class="sec-intro">يبدأ كل دليل بإجابة قصيرة تستطيع تطبيقها فورًا، ثم يشرح الطريقة، مع خطة نموذجية أو جدول، ومصطلحات أساسية، وأسئلة شائعة.</p>
+<ol class="modules">
+  <li class="module" data-reveal>
+    <img src="/img/thumb-guide-metronome-practice-480.webp" srcset="/img/thumb-guide-metronome-practice-320.webp 320w, /img/thumb-guide-metronome-practice-480.webp 480w, /img/thumb-guide-metronome-practice-640.webp 640w" sizes="(max-width: 760px) calc(100vw - 40px), 280px" width="640" height="510" alt="" loading="lazy" decoding="async">
+    <div class="m-text">
+      <h3>تمرّن مع المترونوم</h3>
+      <p>اختر سرعة البداية، واصعد بخطوات صغيرة، وعالج الأخطاء التي تعيق معظم الطلاب، وفي ختامه سلّم سرعة لأسبوع كامل.</p>
+      <p class="m-meta">للطلاب<span aria-hidden="true"> · </span><span class="vh">, </span>قراءة في ٥ دقائق</p>
+      <a class="m-link" href="/ar/guides/metronome-practice">اقرأ الدليل<span class="vh">: كيف تتمرّن مع المترونوم</span></a>
+    </div>
+  </li>
+  <li class="module" data-reveal>
+    <img src="/img/thumb-guide-build-speed-480.webp" srcset="/img/thumb-guide-build-speed-320.webp 320w, /img/thumb-guide-build-speed-480.webp 480w, /img/thumb-guide-build-speed-640.webp 640w" sizes="(max-width: 760px) calc(100vw - 40px), 280px" width="640" height="510" alt="" loading="lazy" decoding="async">
+    <div class="m-text">
+      <h3>ارفع سرعتك دون أخطاء</h3>
+      <p>مقاطع قصيرة وخطوات سرعة صغيرة ويدان مسترخيتان، لتنمو السرعة من الدقة، وفي ختامه خطة نموذجية من خمسة أيام.</p>
+      <p class="m-meta">للطلاب<span aria-hidden="true"> · </span><span class="vh">, </span>قراءة في ٤ دقائق</p>
+      <a class="m-link" href="/ar/guides/build-speed">اقرأ الدليل<span class="vh">: كيف ترفع سرعة العزف دون أخطاء</span></a>
+    </div>
+  </li>
+  <li class="module" data-reveal>
+    <img src="/img/thumb-guide-daily-practice-480.webp" srcset="/img/thumb-guide-daily-practice-320.webp 320w, /img/thumb-guide-daily-practice-480.webp 480w, /img/thumb-guide-daily-practice-640.webp 640w" sizes="(max-width: 760px) calc(100vw - 40px), 280px" width="640" height="510" alt="" loading="lazy" decoding="async">
+    <div class="m-text">
+      <h3>ساعد طفلك على التمرين كل يوم</h3>
+      <p>كم يتمرّن الأطفال، وكيف تبني عادة يومية، وماذا تقول حين يصعب التمرين، مع ترتيب بسيط لكل جلسة.</p>
+      <p class="m-meta">لأولياء الأمور<span aria-hidden="true"> · </span><span class="vh">, </span>قراءة في ٥ دقائق</p>
+      <a class="m-link" href="/ar/guides/daily-practice-for-kids">اقرأ الدليل<span class="vh">: كيف تساعد طفلك على التمرين كل يوم</span></a>
+    </div>
+  </li>
+</ol>
+</div>
+</section>
+
+<section class="rules" aria-labelledby="rules-h">
+<div class="hub-col" data-reveal>
+<h2 id="rules-h">خمس قواعد للتمرين الجيد</h2>
+<p class="sec-intro">خمس عادات من الأدلة، ولكل منها رابط إلى القسم الذي يشرحها.</p>
+<ol class="rule-list">
+  <li><p>ابدأ أبطأ مما تريد، على سرعة تعزف عليها المقطع ثلاث مرات متتالية دون أخطاء.</p><a href="/ar/guides/metronome-practice#starting-tempo">كيف تختار سرعة البداية</a></li>
+  <li><p>تمرّن على مازورتين إلى أربع في كل مرة، لا على المقطوعة كاملة.</p><a href="/ar/guides/build-speed#short-passage">ابدأ بمقطع قصير</a></li>
+  <li><p>ارفع السرعة بخطوات صغيرة، وبعد ثلاثة تكرارات متقنة فقط.</p><a href="/ar/guides/build-speed#small-steps">ارفع السرعة بخطوات صغيرة</a></li>
+  <li><p>ابقَ مسترخيًا، فالتوتر هو حدّ السرعة الخفي.</p><a href="/ar/guides/build-speed#stay-relaxed">ابقَ مسترخيًا وأنت تزيد السرعة</a></li>
+  <li><p>تمرّن قليلًا كل يوم، فعشر دقائق مركّزة أنفع من ساعة مرة في الأسبوع.</p><a href="/ar/guides/daily-practice-for-kids#how-long">كم ينبغي أن يتمرّن الأطفال؟</a></li>
+</ol>
+</div>
+</section>
+
+<section class="hub-tools" aria-labelledby="tools-h">
+<div class="hub-col">
+<h2 id="tools-h">أدوات DrillTime</h2>
+<p class="sec-intro">ترشدك الأدلة إلى هذه الأدوات حيث تفيدك.</p>
+<ul class="tool-row">
+  <li><a href="/ar/metronome"><span class="t-name">المترونوم</span><span class="t-line">نقرة ثابتة مع الموازين والنبرات.</span></a></li>
+  <li><a href="/ar/speed-builder"><span class="t-name">بناء السرعة</span><span class="t-line">يرفع الإيقاع عنك خطوة بخطوة.</span></a></li>
+  <li><a href="/ar/rhythm-shuffler"><span class="t-name">عازف النبض العشوائي</span><span class="t-line">اقرأ إيقاعًا، وانقره، وشاهد دقة توقيتك.</span></a></li>
+</ul>
+</div>
+</section>
+
+<div class="hub-col">
+<section class="cta" aria-labelledby="cta-heading">
+  <h2 id="cta-heading">تمرّن مع DrillTime</h2>
+  <a class="badge" href="#" data-appstore><img src="/img/appstore-ar-black.svg" alt="تنزيل التطبيق من App Store" width="168" height="56" loading="lazy" decoding="async"><span><small class="en">Coming soon on the</small><small class="ar" lang="ar">قريباً على</small>App Store</span></a>
+  <p class="microcopy">شراء لمرة واحدة. بدون اشتراك أو إعلانات أو حسابات.</p>
+  <nav aria-label="استكشف DrillTime">
+  <ul class="more">
+    <li><a href="/ar/metronome">المترونوم</a></li>
+    <li><a href="/ar/speed-builder">بناء السرعة</a></li>
+    <li><a href="/ar/rhythm-shuffler">عازف النبض العشوائي</a></li>
+    <li><a href="/ar/teachers">للمعلّمين</a></li>
+  </ul>
+  </nav>
+</section>
+</div>
+
 </main>
 
 <footer>

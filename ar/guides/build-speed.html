@@ -154,6 +154,69 @@ html[dir=rtl] .card h2{font-size:clamp(23px,3vw,28px)}
 .card .go{color:var(--link);text-decoration:underline;text-underline-offset:3px}
 @media (max-width:600px){th,td{padding:10px 12px}caption{padding:12px 12px 8px}}
 
+/* ---- guides: calm reading layout with an "On this page" contents list
+   (a sticky sidebar beside the article on desktop, a collapsible block on phones) */
+html{scroll-padding-top:24px}
+.guide-wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+.guide{max-width:680px;margin:0 auto}
+.guide p,.guide li,.guide dd{max-width:38em}
+.guide h2{margin:64px 0 14px}
+.guide h3{margin-top:34px}
+.guide .shots{margin:34px 0 26px}
+.guide .table-wrap{margin:21px 0 26px}
+.guide-wrap .toc-m a,.guide-wrap .toc-side a{text-decoration:none}
+
+.toc-m{margin:8px 0 34px}
+.toc-m details{background:var(--card);border:1px solid var(--line);border-radius:14px}
+.toc-m summary{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 18px;color:var(--ink);cursor:pointer;list-style:none;border-radius:14px}
+.toc-m summary::-webkit-details-marker{display:none}
+.toc-m summary::after{content:"+";flex:none;width:26px;height:26px;border:1px solid var(--line);border-radius:50%;background:var(--bg-2);color:var(--ink-soft);text-align:center;line-height:24px}
+.toc-m details[open] summary::after{content:"\2212"}
+.toc-m summary:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.toc-m ol{margin:0;padding:0 18px 14px;padding-inline-start:40px}
+.toc-m li{margin:4px 0}
+.toc-m a{display:inline-block;padding:4px 0;color:var(--ink-soft)}
+.toc-m a:hover{color:var(--ink)}
+
+.toc-side{display:none}
+.toc-h{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim);margin:0 0 10px}
+html[dir=rtl] .toc-h{font-size:16px;letter-spacing:0;text-transform:none}
+.toc-side ol{list-style:none;padding:0;margin:0;border-inline-start:1px solid var(--line)}
+.toc-side li{margin:0}
+.toc-side a{display:block;margin-inline-start:-1px;padding:6px 14px;border-inline-start:2px solid transparent;font-size:15px;line-height:1.4;color:var(--text-dim)}
+html[dir=rtl] .toc-side a{font-size:17px}
+.toc-side a:hover{color:var(--ink)}
+.toc-side a[aria-current]{color:var(--ink);border-inline-start-color:#D99B26}
+
+@media (min-width:1024px){
+  .guide-grid{display:grid;grid-template-columns:200px minmax(0,680px);justify-content:center;align-items:start;gap:0 56px}
+  .guide{margin:0}
+  .toc-side{display:block;position:sticky;top:32px;margin-top:118px}
+  .toc-m{display:none}
+}
+
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:34px 0 0}
+.pg{display:flex;flex-direction:column;gap:3px;padding:16px 20px;border:1px solid var(--line);border-radius:18px;background:var(--bg-2);color:var(--ink);text-decoration:none!important;transition:border-color .2s,background-color .2s}
+.pg:hover{border-color:#b4bca6;background:var(--card)}
+.pg.next{grid-column:2;align-items:flex-end;text-align:end}
+.pg-label{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-dim)}
+html[dir=rtl] .pg-label{font-size:15px}
+.next .pg-label{flex-direction:row-reverse}
+.pg-title{font-size:16px;line-height:1.35}
+html[dir=rtl] .pg-title{font-size:18px}
+.pg-arrow{flex:none;width:15px;height:15px}
+.next .pg-arrow{transform:scaleX(-1)}
+html[dir=rtl] .prev .pg-arrow{transform:scaleX(-1)}
+html[dir=rtl] .next .pg-arrow{transform:none}
+.cta-col{max-width:760px;margin:0 auto}
+
+@media (max-width:600px){
+  .guide-wrap{padding-inline:20px}
+  .pager{grid-template-columns:1fr}
+  .pg.next{grid-column:auto}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pg{transition:none}}
+
 /* ---- Final call to action: the same centred DrillTime card at the end of every feature, guide and
    teachers page (cream card, site border and shadow, chip links). Fills its page column, so it lines
    up with the content above it. */
@@ -291,6 +354,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 }
 </script>
 <script defer src="/js/page-lang.js?v=1"></script>
+<script defer src="/js/toc.js?v=1"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">تخطي إلى المحتوى</a>
@@ -304,13 +368,41 @@ html[dir=rtl] .cta .more a{font-size:17px}
 </nav>
 
 <main id="main">
-<div class="wrap">
+<div class="guide-wrap">
+<div class="guide-grid">
+<nav class="toc-side" aria-labelledby="toc-side-h">
+  <p class="toc-h" id="toc-side-h">في هذه الصفحة</p>
+  <ol>
+    <li><a href="#short-passage">ابدأ بمقطع قصير</a></li>
+    <li><a href="#small-steps">ارفع السرعة بخطوات صغيرة</a></li>
+    <li><a href="#five-day-plan">خطة نموذجية من خمسة أيام</a></li>
+    <li><a href="#stay-relaxed">ابقَ مسترخيًا وأنت تزيد السرعة</a></li>
+    <li><a href="#key-terms">مصطلحات أساسية</a></li>
+    <li><a href="#questions">أسئلة شائعة</a></li>
+  </ol>
+</nav>
+
+<article class="guide">
 
 <nav class="crumbs" aria-label="مسار التنقّل">
   <ol><li><a href="/">الرئيسية</a></li><li><a href="/ar/guides">أدلة التمرين</a></li><li aria-current="page">كيف ترفع سرعة العزف دون أخطاء</li></ol>
 </nav>
 
 <h1>كيف ترفع سرعة العزف دون أخطاء</h1>
+
+<nav class="toc-m" aria-labelledby="toc-m-h">
+<details>
+  <summary id="toc-m-h">في هذه الصفحة</summary>
+  <ol>
+    <li><a href="#short-passage">ابدأ بمقطع قصير</a></li>
+    <li><a href="#small-steps">ارفع السرعة بخطوات صغيرة</a></li>
+    <li><a href="#five-day-plan">خطة نموذجية من خمسة أيام</a></li>
+    <li><a href="#stay-relaxed">ابقَ مسترخيًا وأنت تزيد السرعة</a></li>
+    <li><a href="#key-terms">مصطلحات أساسية</a></li>
+    <li><a href="#questions">أسئلة شائعة</a></li>
+  </ol>
+</details>
+</nav>
 
 <p class="answer">ارفع سرعتك بتكرار مقطع قصير بإتقان على سرعة تقدر عليها، ثم زِد السرعة بخطوات صغيرة فقط حين يصبح المقطع سهلًا. توقّف عند أول خطأ أو توتر، وعُد خطوة إلى الوراء. فالسرعة تأتي من تكرارات دقيقة ومسترخية موزّعة على عدة أيام، لا من فرضها في جلسة واحدة.</p>
 
@@ -332,7 +424,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 <!-- PHIL: add a real example here -->
 <p>كثيرًا ما أرى هذا في دروسي حين يأتي طالب منزعجًا من مقطع سريع.</p>
 
-<h2>ابدأ بمقطع قصير</h2>
+<h2 id="short-passage">ابدأ بمقطع قصير</h2>
 
 <p>يؤتي العمل على السرعة أفضل ثماره حين يكون على أجزاء صغيرة. خذ مازورتين إلى أربع، أو جملة سريعة واحدة، بدلًا من المقطوعة كاملة. فالمقاطع القصيرة تتيح لك التكرار مرات كثيرة دون تعب، وتجعلك تسمع بوضوح موضع الخلل.</p>
 
@@ -348,7 +440,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 
 <p>وهذه هي فكرة <a href="https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D9%85%D9%85%D8%A7%D8%B1%D8%B3%D8%A9_(%D8%B7%D8%B1%D9%8A%D9%82%D8%A9_%D8%A7%D9%84%D8%AA%D8%B9%D9%84%D9%85)" target="_blank" rel="noopener">الممارسة<span class="vh"> (يُفتح في علامة تبويب جديدة)</span></a> في جوهرها: تكرار المهارة حتى تتعلّمها وتتقنها، جزءًا بعد جزء.</p>
 
-<h2>ارفع السرعة بخطوات صغيرة</h2>
+<h2 id="small-steps">ارفع السرعة بخطوات صغيرة</h2>
 
 <p>حدّد سرعة بداية يكون فيها المقطع متقنًا ومريحًا، ثم اصعد بخطوات من بضع نبضات في الدقيقة. والقاعدة الجيدة: ثلاثة تكرارات متقنة قبل كل خطوة صعود.</p>
 
@@ -374,7 +466,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 
 <p>صُمّمت أداة <a href="/ar/speed-builder">بناء السرعة</a> لهذا الغرض تحديدًا: تحدّد إيقاع البداية وإيقاع الهدف، فترفع السرعة تدريجيًا، وتعرض لك الإيقاع الحالي ورقم الخطوة والوقت المتبقي. أما العمل البطيء المتأنّي على سرعة واحدة، فيكفيه <a href="/ar/metronome">المترونوم</a>.</p>
 
-<h2>خطة نموذجية من خمسة أيام</h2>
+<h2 id="five-day-plan">خطة نموذجية من خمسة أيام</h2>
 
 <div class="table-wrap" role="region" aria-labelledby="table-1" tabindex="0">
 <table>
@@ -396,7 +488,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 
 <p>ووزّع العمل على أيام الأسبوع بدلًا من حصره في جلسة طويلة واحدة، فيداك تثبّتان ما تعلّمته بين الجلسات، وخمسة أيام قصيرة من التمرين تأخذك عادةً أبعد من أمسية طويلة واحدة.</p>
 
-<h2>ابقَ مسترخيًا وأنت تزيد السرعة</h2>
+<h2 id="stay-relaxed">ابقَ مسترخيًا وأنت تزيد السرعة</h2>
 
 <p>التوتر هو حدّ السرعة الخفي. فالقبضة المشدودة والكتفان المرفوعان وحبس النفس كلها تبطئ أصابعك، حتى وأنت تحاول الإسراع.</p>
 
@@ -411,7 +503,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 <!-- PHIL: add a real example here -->
 <p>وكثيرًا ما يُفاجأ الطلاب بمدى سرعتهم حين يتخلّصون من التوتر.</p>
 
-<h2>مصطلحات أساسية</h2>
+<h2 id="key-terms">مصطلحات أساسية</h2>
 
 <dl>
   <dt><dfn>التكرار المتقن</dfn></dt>
@@ -422,7 +514,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
   <dd>تمرين مركّز على أصعب أجزاء المهارة، بقدر يتجاوز ما تجده مريحًا قليلًا.</dd>
 </dl>
 
-<h2>أسئلة شائعة</h2>
+<h2 id="questions">أسئلة شائعة</h2>
 
 <h3>ما المدة المتوقعة حتى أتحسّن؟</h3>
 <p>يختلف ذلك باختلاف المقطع ومدى انتظام تمرينك. والتحسّن الصغير الثابت على مدى أيام أمر طبيعي، أما القفزة الكبيرة في جلسة واحدة فغالبًا ما تجرّ معها الأخطاء.</p>
@@ -437,6 +529,15 @@ html[dir=rtl] .cta .more a{font-size:17px}
   <p class="updated">آخر تحديث: ٢٠ أكتوبر ٢٠٢٦</p>
 </aside>
 
+<nav class="pager" aria-label="أدلة التمرين">
+<a class="pg prev" href="/ar/guides/metronome-practice" rel="prev"><span class="pg-label"><svg class="pg-arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>الدليل السابق</span><span class="pg-title">كيف تتمرّن مع المترونوم</span></a>
+<a class="pg next" href="/ar/guides/daily-practice-for-kids" rel="next"><span class="pg-label"><svg class="pg-arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>الدليل التالي</span><span class="pg-title">كيف تساعد طفلك على التمرين كل يوم</span></a>
+</nav>
+
+</article>
+</div>
+
+<div class="cta-col">
 <section class="cta" aria-labelledby="cta-heading">
   <h2 id="cta-heading">تمرّن مع DrillTime</h2>
   <a class="badge" href="#" data-appstore><img src="/img/appstore-ar-black.svg" alt="تنزيل التطبيق من App Store" width="168" height="56" loading="lazy" decoding="async"><span><small class="en">Coming soon on the</small><small class="ar" lang="ar">قريباً على</small>App Store</span></a>
@@ -450,6 +551,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
   </ul>
   </nav>
 </section>
+</div>
 
 </div>
 </main>
