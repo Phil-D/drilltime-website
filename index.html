@@ -61,11 +61,11 @@
   "operatingSystem": "iOS, iPadOS",
   "inLanguage": ["en", "ar"],
   "url": "https://drilltimeapp.com/",
-  "description": "A bilingual (English and Arabic) music practice app for young musicians. Includes a precise metronome with time signatures, accents and swing; Speed Builder, a tempo trainer that gradually increases speed; and Rhythm Shuffler, a rhythm-reading trainer with six difficulty levels. No ads, no accounts, no data collected. Works offline.",
+  "description": "A bilingual (English and Arabic) music practice app for young musicians. Includes a precise metronome with time signatures, accents and swing; Speed Builder, a tempo trainer that gradually increases speed; and Rhythm Shuffler, a rhythm-reading trainer with six difficulty settings. No ads, no accounts, no data collected. Works offline.",
   "featureList": [
     "Metronome with time signatures, accents, swing and multiple click sounds",
     "Speed Builder tempo trainer that ramps tempo gradually",
-    "Rhythm Shuffler rhythm-reading trainer with six difficulty levels",
+    "Rhythm Shuffler rhythm-reading trainer with six difficulty settings",
     "Full English and Arabic support with right-to-left layout",
     "Works offline",
     "No accounts and no data collection"
@@ -340,6 +340,14 @@ html[dir="rtl"] .pcell b{font-size:20px;font-weight:700}
 .pcell>span{color:var(--ink-soft);font-size:15px}
 html[dir="rtl"] .pcell>span{font-size:17px}
 .safe .more-link{font-size:16px}
+.devices{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:var(--s7);align-items:end;margin:0 0 var(--s7);padding-top:var(--s7);border-top:1px solid var(--line)}
+.ipad{aspect-ratio:1724/2101;max-height:420px;overflow:hidden;border-radius:7% 7% 0 0/5.7% 5.7% 0 0;align-self:end}
+.ipad img{display:block;width:100%;height:auto;vertical-align:top}
+.devices-text{padding-bottom:var(--s6)}
+.devices h3{font-weight:400;font-size:clamp(24px,3vw,30px);letter-spacing:-.01em;margin-bottom:var(--s4)}
+html[dir="rtl"] .devices h3{font-size:clamp(26px,3.3vw,33px)}
+.devices p{font-size:17px;color:var(--ink-soft);max-width:26em}
+html[dir="rtl"] .devices p{font-size:19px}
 
 /* 12. STORY (text as before) */
 .story{padding-block:var(--s9)}
@@ -431,6 +439,9 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
   .tool-shot{aspect-ratio:16/10}
   .tool-shot img{width:52%}
   .pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .devices{grid-template-columns:minmax(0,1fr);gap:var(--s5)}
+  .devices-text{order:-1;padding-bottom:0}
+  .ipad{max-height:300px;width:min(300px,100%)}
   .fgrid{grid-template-columns:1fr}
   .fnav{text-align:start}
   .fbottom{flex-direction:column;text-align:center}
@@ -581,6 +592,13 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
 <div class="pcell"><b><span class="en">No data collected</span><span class="ar" lang="ar">لا نجمع أي بيانات</span></b><span class="en">Everything stays on device. No tracking, analytics, or ads</span><span class="ar ar-block" lang="ar">تبقى جميع البيانات على الجهاز. لا يوجد تتبع ولا تحليلات ولا إعلانات.</span></div>
 <div class="pcell"><b><span class="en">Works offline</span><span class="ar" lang="ar">يعمل دون اتصال بالإنترنت</span></b><span class="en">Complete practice with no connection needed</span><span class="ar ar-block" lang="ar">تدرّب بشكل كامل دون الحاجة إلى الاتصال بالإنترنت.</span></div>
 <div class="pcell"><b><span class="en">English &amp; Arabic</span><span class="ar" lang="ar">بالعربية والإنجليزية</span></b><span class="en">Full right-to-left Arabic throughout, made for bilingual classrooms</span><span class="ar ar-block" lang="ar">دعم كامل للغتين الإنجليزية والعربية، مع واجهة عربية كاملة من اليمين إلى اليسار، مصممة للفصول الدراسية ثنائية اللغة.</span></div>
+</div>
+<div class="devices">
+<div class="ipad"><img class="en" src="/img/ipad-home-en-480.webp" srcset="/img/ipad-home-en-320.webp 320w, /img/ipad-home-en-480.webp 480w, /img/ipad-home-en-640.webp 640w, /img/ipad-home-en-960.webp 960w" sizes="(max-width: 860px) calc(100vw - 82px), 340px" width="960" height="1170" alt="DrillTime metronome on an iPad at 120 BPM, Allegro" loading="lazy" decoding="async"><img hidden class="ar" src="/img/ipad-home-ar-480.webp" srcset="/img/ipad-home-ar-320.webp 320w, /img/ipad-home-ar-480.webp 480w, /img/ipad-home-ar-640.webp 640w, /img/ipad-home-ar-960.webp 960w" sizes="(max-width: 860px) calc(100vw - 82px), 340px" width="960" height="1170" alt="مترونوم DrillTime على جهاز iPad على سرعة ١٢٠ نبضة في الدقيقة، بسرعة «سريع»" loading="lazy" decoding="async"></div>
+<div class="devices-text">
+<h3><span class="en">Works on iPhone and iPad</span><span class="ar" lang="ar">يعمل على iPhone وiPad</span></h3>
+<p><span class="en">The same app on both, so students can practise on a phone at home and on a shared iPad in class.</span><span class="ar" lang="ar">التطبيق نفسه على الجهازين، فيتمرّن الطلاب على الهاتف في البيت وعلى جهاز iPad مشترك في الفصل.</span></p>
+</div>
 </div>
 <a class="more-link en" href="/privacy">Read the privacy policy</a><a class="more-link ar" lang="ar" href="/privacy">اقرأ سياسة الخصوصية</a>
 </div>
