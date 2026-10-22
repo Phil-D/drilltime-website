@@ -167,8 +167,13 @@ html[dir=rtl] .lede{font-size:23px}
 .hero .badge img{width:168px;height:56px}
 
 /* phone frame */
-.phone{width:min(280px,100%);margin-inline:auto;padding:9px;background:var(--card);border:1px solid var(--line);border-radius:44px;box-shadow:var(--shadow-2)}
-.phone img{display:block;width:100%;height:auto;border-radius:35px;background:var(--bg)}
+/* ---- phone frame: one style for every selling screenshot (home fan, page heroes, story sections, teachers).
+   Screenshots are cropped below their own status bar; proportions use container units, so every phone
+   has the same bezel, island, corner radius and shadow at any size. */
+.phone{container-type:inline-size;width:min(280px,100%);margin-inline:auto}
+.pb{position:relative;padding:4.2cqw;padding-top:10.5cqw;background:var(--card);border:1px solid var(--line);border-radius:15cqw;box-shadow:var(--shadow-2)}
+.pb::before{content:"";position:absolute;top:3.8cqw;left:50%;width:22cqw;height:3.2cqw;margin-left:-11cqw;border-radius:9px;background:#2b3027}
+.pb img{display:block;width:100%;height:auto;border-radius:10cqw;background:var(--bg);vertical-align:top}
 
 /* slim App Store bar: in the page flow after the hero, then sticks to the top (no script, no layout shift) */
 .buybar{position:sticky;top:0;z-index:20;background:rgba(233,237,225,.94);border-block:1px solid var(--line);-webkit-backdrop-filter:saturate(1.3) blur(12px);backdrop-filter:saturate(1.3) blur(12px)}
@@ -547,7 +552,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 </div>
 <div class="hero-media">
 <svg class="staff" viewBox="0 0 600 300" aria-hidden="true" focusable="false"><g stroke="#cdd4c0" stroke-width="3" stroke-linecap="round"><line x1="0" y1="96" x2="600" y2="96"/><line x1="0" y1="126" x2="600" y2="126"/><line x1="0" y1="156" x2="600" y2="156"/><line x1="0" y1="186" x2="600" y2="186"/><line x1="0" y1="216" x2="600" y2="216"/></g><circle cx="70" cy="186" r="11" fill="#00805e"/><circle cx="150" cy="156" r="11" fill="#9f5e00"/><circle cx="450" cy="126" r="11" fill="#1f6eb5"/><circle cx="530" cy="171" r="11" fill="#a22f7d"/></svg>
-<div class="phone"><img src="/img/rs-read-ar-480.webp" srcset="/img/rs-read-ar-240.webp 240w, /img/rs-read-ar-320.webp 320w, /img/rs-read-ar-400.webp 400w, /img/rs-read-ar-480.webp 480w, /img/rs-read-ar-640.webp 640w" sizes="(max-width: 760px) 224px, 260px" width="640" height="1391" alt="شاشة القراءة في عازف النبض العشوائي: أربع مازورات من الإيقاع في ميزان ٤/٤، وخط يحدّد موضعك، ولوحة كبيرة مكتوب عليها «انقر الإيقاع»" fetchpriority="high" decoding="async"></div>
+<div class="phone"><div class="pb"><img src="/img/fr-read-ar-480.webp" srcset="/img/fr-read-ar-240.webp 240w, /img/fr-read-ar-320.webp 320w, /img/fr-read-ar-400.webp 400w, /img/fr-read-ar-480.webp 480w, /img/fr-read-ar-640.webp 640w" sizes="(max-width: 760px) 224px, 260px" width="640" height="1312" alt="شاشة القراءة في عازف النبض العشوائي: أربع مازورات من الإيقاع في ميزان ٤/٤، وخط يحدّد موضعك، ولوحة كبيرة مكتوب عليها «انقر الإيقاع»" fetchpriority="high" decoding="async"></div></div>
 </div>
 </div>
 </div>
@@ -607,7 +612,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 <p>اختر من ثمانية موازين، منها <bdi dir="ltr">٣/٤</bdi> و<bdi dir="ltr">٦/٨</bdi> و<bdi dir="ltr">٧/٨</bdi>، وانقر على أي منها لتسمع نبضه أولًا. ثم اضبط السرعة واعرض من <bdi dir="ltr">٤</bdi> إلى <bdi dir="ltr">٨</bdi> مازورات في المرة.</p>
 </div>
 <div class="story-media" data-reveal>
-<div class="phone"><img src="/img/rs-setup-ar-480.webp" srcset="/img/rs-setup-ar-240.webp 240w, /img/rs-setup-ar-320.webp 320w, /img/rs-setup-ar-400.webp 400w, /img/rs-setup-ar-480.webp 480w, /img/rs-setup-ar-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1389" alt="شاشة إعداد عازف النبض العشوائي في DrillTime، وعليها إيقاع من أربع مازورات في ميزان ٤/٤، والصعوبة مضبوطة على «صعب»، والسرعة ٨٠ نبضة في الدقيقة، مع زرّي «خلط» و«تشغيل»" loading="lazy" decoding="async"></div>
+<div class="phone"><div class="pb"><img src="/img/fr-setup-ar-480.webp" srcset="/img/fr-setup-ar-240.webp 240w, /img/fr-setup-ar-320.webp 320w, /img/fr-setup-ar-400.webp 400w, /img/fr-setup-ar-480.webp 480w, /img/fr-setup-ar-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1311" alt="شاشة إعداد عازف النبض العشوائي في DrillTime، وعليها إيقاع من أربع مازورات في ميزان ٤/٤، والصعوبة مضبوطة على «صعب»، والسرعة ٨٠ نبضة في الدقيقة، مع زرّي «خلط» و«تشغيل»" loading="lazy" decoding="async"></div></div>
 </div>
 </div>
 </section>

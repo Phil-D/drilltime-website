@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>try{var l=localStorage.getItem('dt_lang');if(l==='ar'){var d=document.documentElement;d.setAttribute('dir','rtl');d.setAttribute('lang','ar');}}catch(e){}</script>
-<script async src="/js/lang-assets.js?v=44" data-lcp-en="/img/pm-metronome-en-480.webp" data-lcp-ar="/img/pm-metronome-ar-480.webp" data-lcp-en-srcset="/img/pm-metronome-en-240.webp 240w, /img/pm-metronome-en-320.webp 320w, /img/pm-metronome-en-400.webp 400w, /img/pm-metronome-en-480.webp 480w, /img/pm-metronome-en-640.webp 640w" data-lcp-ar-srcset="/img/pm-metronome-ar-240.webp 240w, /img/pm-metronome-ar-320.webp 320w, /img/pm-metronome-ar-400.webp 400w, /img/pm-metronome-ar-480.webp 480w, /img/pm-metronome-ar-640.webp 640w" data-lcp-sizes="(max-width: 860px) calc(44vw - 18px), 232px"></script>
+<script async src="/js/lang-assets.js?v=44" data-lcp-en="/img/fm-metronome-en-480.webp" data-lcp-ar="/img/fm-metronome-ar-480.webp" data-lcp-en-srcset="/img/fm-metronome-en-240.webp 240w, /img/fm-metronome-en-320.webp 320w, /img/fm-metronome-en-400.webp 400w, /img/fm-metronome-en-480.webp 480w, /img/fm-metronome-en-640.webp 640w" data-lcp-ar-srcset="/img/fm-metronome-ar-240.webp 240w, /img/fm-metronome-ar-320.webp 320w, /img/fm-metronome-ar-400.webp 400w, /img/fm-metronome-ar-480.webp 480w, /img/fm-metronome-ar-640.webp 640w" data-lcp-sizes="(max-width: 860px) calc(38.5vw - 15px), 216px"></script>
 
 <!-- Primary meta -->
 <title>DrillTime – Metronome, Speed Trainer &amp; Rhythm Trainer for Musicians</title>
@@ -254,20 +254,28 @@ html[dir="rtl"] .microcopy{font-size:15px}
 /* the fan: Speed Builder and Rhythm Shuffler lean in behind the metronome (mirrored in Arabic) */
 .fan-stage{display:grid;justify-items:center;gap:var(--s6)}
 .fan{display:flex;justify-content:center;align-items:flex-end;padding-block:var(--s5) var(--s4);isolation:isolate}
+/* ---- phone frame: one style for every selling screenshot (home fan, page heroes, story sections, teachers).
+   Screenshots are cropped below their own status bar; proportions use container units, so every phone
+   has the same bezel, island, corner radius and shadow at any size. */
+.phone{container-type:inline-size;width:100%;margin-inline:auto}
+.pb{position:relative;padding:4.2cqw;padding-top:10.5cqw;background:var(--card);border:1px solid var(--line);border-radius:15cqw;box-shadow:var(--shadow-2)}
+.pb::before{content:"";position:absolute;top:3.8cqw;left:50%;width:22cqw;height:3.2cqw;margin-left:-11cqw;border-radius:9px;background:#2b3027}
+.pb img{display:block;width:100%;height:auto;border-radius:10cqw;background:var(--bg);vertical-align:top}
 .ph{margin:0;position:relative}
-.ph-frame{padding:8px;background:var(--card);border:1px solid var(--line);border-radius:40px;box-shadow:var(--shadow-2)}
-.ph-frame img{display:block;width:100%;height:auto;border-radius:32px;background:var(--bg)}
 /* Arabic images are shown with display:inline-block (language switching), so align them explicitly */
-.ph-frame img,.tool-shot img{vertical-align:top}
-.ph-m{width:250px;z-index:2}
-.ph-m .ph-frame{box-shadow:var(--shadow-3)}
-.ph-sb,.ph-rs{width:200px;z-index:1;margin-bottom:22px}
-.ph-sb{margin-inline-end:-44px;transform:rotate(-7deg)}
-.ph-rs{margin-inline-start:-44px;transform:rotate(7deg)}
+
+/* sizes are shares of the fan's width, so the three phones always fit and stay symmetric */
+.fan{width:min(100%,560px)}
+.ph-m{width:42%;z-index:2}
+.ph-m .pb{box-shadow:var(--shadow-3)}
+.ph-sb,.ph-rs{width:31%;z-index:1;margin-bottom:4%}
+.ph-sb{margin-inline-end:-7%;transform:rotate(-7deg)}
+.ph-rs{margin-inline-start:-7%;transform:rotate(7deg)}
 html[dir="rtl"] .ph-sb{transform:rotate(7deg)}
 html[dir="rtl"] .ph-rs{transform:rotate(-7deg)}
-.ph-sb .ph-frame{border-color:color-mix(in srgb,var(--t-speed) 35%,var(--line))}
-.ph-rs .ph-frame{border-color:color-mix(in srgb,var(--t-rhythm) 35%,var(--line))}
+/* each tool's accent only as a soft edge glow */
+.ph-sb .pb{box-shadow:var(--shadow-2),0 0 0 1px color-mix(in srgb,var(--t-speed) 26%,transparent),0 0 24px color-mix(in srgb,var(--t-speed) 14%,transparent)}
+.ph-rs .pb{box-shadow:var(--shadow-2),0 0 0 1px color-mix(in srgb,var(--t-rhythm) 26%,transparent),0 0 24px color-mix(in srgb,var(--t-rhythm) 14%,transparent)}
 .fan-chips{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:min(540px,100%)}
 .fan-chips li{margin:0}
 .fan-chips a{display:flex;width:100%;align-items:center;gap:8px;padding:7px 14px;white-space:nowrap;border:1px solid var(--line);border-radius:var(--r-s);background:var(--card);color:var(--ink);font-size:14px;text-decoration:none;transition:border-color .15s ease,background-color .15s ease}
@@ -299,7 +307,7 @@ html[dir="rtl"] .bb-sub{font-size:15px}
 .tool{margin:0;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);overflow:clip;box-shadow:var(--shadow-1)}
 .tool-metronome{--tc:var(--t-metro)}.tool-speed-builder{--tc:var(--t-speed)}.tool-rhythm-shuffler{--tc:var(--t-rhythm)}
 .tool-shot{position:relative;aspect-ratio:5/4;overflow:hidden;text-align:center;background:color-mix(in srgb,var(--tc) 9%,var(--bg-2));padding:var(--s6) var(--s6) 0;border-bottom:3px solid var(--tc)}
-.tool-shot img{display:block;width:72%;height:auto;margin-inline:auto;border-radius:24px 24px 0 0;border:1px solid var(--line);border-bottom:0;box-shadow:var(--shadow-2)}
+.tool-shot .phone{width:64%}
 .tool-text{padding:var(--s6) var(--s6) var(--s7);display:flex;flex-direction:column;gap:var(--s4);flex:1}
 .tool h3{font-weight:400;font-size:24px;letter-spacing:-.01em}
 html[dir="rtl"] .tool h3{font-size:27px}
@@ -429,15 +437,9 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
      re-wrapping the headline never moves the phones */
   .hero-grid{grid-template-columns:minmax(0,1fr);grid-template-areas:"brand" "fan" "copy";grid-template-rows:auto;row-gap:var(--s7)}
   .hero-brand{padding-top:0}
-  .ph-m{width:44vw}
-  .ph-sb,.ph-rs{width:34vw;margin-bottom:14px}
-  .ph-sb{margin-inline-end:-9vw}
-  .ph-rs{margin-inline-start:-9vw}
-  .ph-frame{padding:5px;border-radius:26px}
-  .ph-frame img{border-radius:21px}
   .tool-grid,.who-list,.guide-cards{grid-template-columns:minmax(0,1fr)}
   .tool-shot{aspect-ratio:16/10}
-  .tool-shot img{width:52%}
+  .tool-shot .phone{width:46%}
   .pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .devices{grid-template-columns:minmax(0,1fr);gap:var(--s5)}
   .devices-text{order:-1;padding-bottom:0}
@@ -511,13 +513,13 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
 <div class="fan-stage">
 <div class="fan">
 <figure class="ph ph-sb">
-  <div class="ph-frame"><img class="en" src="/img/sb-player-en-480.webp" srcset="/img/sb-player-en-240.webp 240w, /img/sb-player-en-320.webp 320w, /img/sb-player-en-400.webp 400w, /img/sb-player-en-480.webp 480w, /img/sb-player-en-640.webp 640w" sizes="(max-width: 860px) calc(34vw - 14px), 182px" width="640" height="1387" alt="DrillTime Speed Builder screen at 86 BPM on step 3 of 6, rising from a start tempo of 80 towards a goal of 95, with the time left shown" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/sb-player-ar-480.webp" srcset="/img/sb-player-ar-240.webp 240w, /img/sb-player-ar-320.webp 320w, /img/sb-player-ar-400.webp 400w, /img/sb-player-ar-480.webp 480w, /img/sb-player-ar-640.webp 640w" sizes="(max-width: 860px) calc(34vw - 14px), 182px" width="640" height="1387" alt="شاشة بناء السرعة في DrillTime على ٨٦ نبضة في الدقيقة في الخطوة ٣ من ٦، صعودًا من إيقاع البداية ٨٠ نحو إيقاع الهدف ٩٥، مع الوقت المتبقي" loading="lazy" fetchpriority="low" decoding="async"></div>
+  <div class="phone"><div class="pb"><img class="en" src="/img/fs-player-en-480.webp" srcset="/img/fs-player-en-240.webp 240w, /img/fs-player-en-320.webp 320w, /img/fs-player-en-400.webp 400w, /img/fs-player-en-480.webp 480w, /img/fs-player-en-640.webp 640w" sizes="(max-width: 860px) calc(28.4vw - 11px), 160px" width="640" height="1310" alt="DrillTime Speed Builder screen at 86 BPM on step 3 of 6, rising from a start tempo of 80 towards a goal of 95, with the time left shown" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/fs-player-ar-480.webp" srcset="/img/fs-player-ar-240.webp 240w, /img/fs-player-ar-320.webp 320w, /img/fs-player-ar-400.webp 400w, /img/fs-player-ar-480.webp 480w, /img/fs-player-ar-640.webp 640w" sizes="(max-width: 860px) calc(28.4vw - 11px), 160px" width="640" height="1310" alt="شاشة بناء السرعة في DrillTime على ٨٦ نبضة في الدقيقة في الخطوة ٣ من ٦، صعودًا من إيقاع البداية ٨٠ نحو إيقاع الهدف ٩٥، مع الوقت المتبقي" loading="lazy" fetchpriority="low" decoding="async"></div></div>
 </figure>
 <figure class="ph ph-m">
-  <div class="ph-frame"><img class="en" src="/img/pm-metronome-en-480.webp" srcset="/img/pm-metronome-en-240.webp 240w, /img/pm-metronome-en-320.webp 320w, /img/pm-metronome-en-400.webp 400w, /img/pm-metronome-en-480.webp 480w, /img/pm-metronome-en-640.webp 640w" sizes="(max-width: 860px) calc(44vw - 18px), 232px" width="640" height="1391" alt="DrillTime metronome screen at 120 BPM with the tempo name Allegro, a tempo slider, and start, minus and plus buttons" loading="lazy" data-lcp fetchpriority="high" decoding="async"><img hidden class="ar" src="/img/pm-metronome-ar-480.webp" srcset="/img/pm-metronome-ar-240.webp 240w, /img/pm-metronome-ar-320.webp 320w, /img/pm-metronome-ar-400.webp 400w, /img/pm-metronome-ar-480.webp 480w, /img/pm-metronome-ar-640.webp 640w" sizes="(max-width: 860px) calc(44vw - 18px), 232px" width="640" height="1391" alt="شاشة المترونوم في DrillTime على سرعة ١٢٠ نبضة في الدقيقة واسم السرعة «سريع»، مع شريط ضبط السرعة وأزرار التشغيل والنقصان والزيادة" loading="lazy" data-lcp fetchpriority="high" decoding="async"></div>
+  <div class="phone"><div class="pb"><img class="en" src="/img/fm-metronome-en-480.webp" srcset="/img/fm-metronome-en-240.webp 240w, /img/fm-metronome-en-320.webp 320w, /img/fm-metronome-en-400.webp 400w, /img/fm-metronome-en-480.webp 480w, /img/fm-metronome-en-640.webp 640w" sizes="(max-width: 860px) calc(38.5vw - 15px), 216px" width="640" height="1312" alt="DrillTime metronome screen at 120 BPM with the tempo name Allegro, a tempo slider, and start, minus and plus buttons" loading="lazy" data-lcp fetchpriority="high" decoding="async"><img hidden class="ar" src="/img/fm-metronome-ar-480.webp" srcset="/img/fm-metronome-ar-240.webp 240w, /img/fm-metronome-ar-320.webp 320w, /img/fm-metronome-ar-400.webp 400w, /img/fm-metronome-ar-480.webp 480w, /img/fm-metronome-ar-640.webp 640w" sizes="(max-width: 860px) calc(38.5vw - 15px), 216px" width="640" height="1312" alt="شاشة المترونوم في DrillTime على سرعة ١٢٠ نبضة في الدقيقة واسم السرعة «سريع»، مع شريط ضبط السرعة وأزرار التشغيل والنقصان والزيادة" loading="lazy" data-lcp fetchpriority="high" decoding="async"></div></div>
 </figure>
 <figure class="ph ph-rs">
-  <div class="ph-frame"><img class="en" src="/img/rs-read-en-480.webp" srcset="/img/rs-read-en-240.webp 240w, /img/rs-read-en-320.webp 320w, /img/rs-read-en-400.webp 400w, /img/rs-read-en-480.webp 480w, /img/rs-read-en-640.webp 640w" sizes="(max-width: 860px) calc(34vw - 14px), 182px" width="640" height="1391" alt="Rhythm Shuffler reading screen with four bars of rhythm in 4/4, a line marking your place, and a large Tap the rhythm pad" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/rs-read-ar-480.webp" srcset="/img/rs-read-ar-240.webp 240w, /img/rs-read-ar-320.webp 320w, /img/rs-read-ar-400.webp 400w, /img/rs-read-ar-480.webp 480w, /img/rs-read-ar-640.webp 640w" sizes="(max-width: 860px) calc(34vw - 14px), 182px" width="640" height="1391" alt="شاشة القراءة في عازف النبض العشوائي: أربع مازورات من الإيقاع في ميزان ٤/٤، وخط يحدّد موضعك، ولوحة كبيرة مكتوب عليها «انقر الإيقاع»" loading="lazy" fetchpriority="low" decoding="async"></div>
+  <div class="phone"><div class="pb"><img class="en" src="/img/fr-read-en-480.webp" srcset="/img/fr-read-en-240.webp 240w, /img/fr-read-en-320.webp 320w, /img/fr-read-en-400.webp 400w, /img/fr-read-en-480.webp 480w, /img/fr-read-en-640.webp 640w" sizes="(max-width: 860px) calc(28.4vw - 11px), 160px" width="640" height="1312" alt="Rhythm Shuffler reading screen with four bars of rhythm in 4/4, a line marking your place, and a large Tap the rhythm pad" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/fr-read-ar-480.webp" srcset="/img/fr-read-ar-240.webp 240w, /img/fr-read-ar-320.webp 320w, /img/fr-read-ar-400.webp 400w, /img/fr-read-ar-480.webp 480w, /img/fr-read-ar-640.webp 640w" sizes="(max-width: 860px) calc(28.4vw - 11px), 160px" width="640" height="1312" alt="شاشة القراءة في عازف النبض العشوائي: أربع مازورات من الإيقاع في ميزان ٤/٤، وخط يحدّد موضعك، ولوحة كبيرة مكتوب عليها «انقر الإيقاع»" loading="lazy" fetchpriority="low" decoding="async"></div></div>
 </figure>
 </div>
 <ul class="fan-chips">
@@ -543,7 +545,7 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
 <p class="sec-intro"><span class="en">Each one has its own page with a how-to, practice tips and common questions.</span><span class="ar" lang="ar">لكل منها صفحة خاصة فيها طريقة الاستخدام ونصائح للتمرين وأسئلة شائعة.</span></p>
 <ul class="tool-grid">
   <li class="tool tool-metronome" data-reveal>
-    <div class="tool-shot"><img class="en" src="/img/pm-tempo-en-480.webp" srcset="/img/pm-tempo-en-240.webp 240w, /img/pm-tempo-en-320.webp 320w, /img/pm-tempo-en-400.webp 400w, /img/pm-tempo-en-480.webp 480w, /img/pm-tempo-en-640.webp 640w" sizes="(max-width: 860px) calc(52vw - 43px), 196px" width="640" height="1387" alt="DrillTime metronome screen showing 86 BPM with the tempo name Andante" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/pm-tempo-ar-480.webp" srcset="/img/pm-tempo-ar-240.webp 240w, /img/pm-tempo-ar-320.webp 320w, /img/pm-tempo-ar-400.webp 400w, /img/pm-tempo-ar-480.webp 480w, /img/pm-tempo-ar-640.webp 640w" sizes="(max-width: 860px) calc(52vw - 43px), 196px" width="640" height="1387" alt="شاشة المترونوم في DrillTime على سرعة ٨٦ نبضة في الدقيقة واسم السرعة «سير معتدل»" loading="lazy" fetchpriority="low" decoding="async"></div>
+    <div class="tool-shot"><div class="phone"><div class="pb"><img class="en" src="/img/fm-tempo-en-480.webp" srcset="/img/fm-tempo-en-240.webp 240w, /img/fm-tempo-en-320.webp 320w, /img/fm-tempo-en-400.webp 400w, /img/fm-tempo-en-480.webp 480w, /img/fm-tempo-en-640.webp 640w" sizes="(max-width: 860px) calc(37vw - 15px), 160px" width="640" height="1310" alt="DrillTime metronome screen showing 86 BPM with the tempo name Andante" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/fm-tempo-ar-480.webp" srcset="/img/fm-tempo-ar-240.webp 240w, /img/fm-tempo-ar-320.webp 320w, /img/fm-tempo-ar-400.webp 400w, /img/fm-tempo-ar-480.webp 480w, /img/fm-tempo-ar-640.webp 640w" sizes="(max-width: 860px) calc(37vw - 15px), 160px" width="640" height="1310" alt="شاشة المترونوم في DrillTime على سرعة ٨٦ نبضة في الدقيقة واسم السرعة «سير معتدل»" loading="lazy" fetchpriority="low" decoding="async"></div></div></div>
     <div class="tool-text">
       <h3><span class="en">Metronome</span><span class="ar" lang="ar">المترونوم</span></h3>
       <p><span class="en">Sample-accurate click with time signatures, accents, swing, and a range of sounds</span><span class="ar" lang="ar">نقرة دقيقة وثابتة، مع الموازين الموسيقية والنبرات والسوينغ ومجموعة من أصوات النقر.</span></p>
@@ -551,7 +553,7 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
     </div>
   </li>
   <li class="tool tool-speed-builder" data-reveal>
-    <div class="tool-shot"><img class="en" src="/img/sb-run-en-480.webp" srcset="/img/sb-run-en-240.webp 240w, /img/sb-run-en-320.webp 320w, /img/sb-run-en-400.webp 400w, /img/sb-run-en-480.webp 480w, /img/sb-run-en-640.webp 640w" sizes="(max-width: 860px) calc(52vw - 43px), 196px" width="640" height="1391" alt="Speed Builder at 96 BPM on step 5 of 11, between a start of 80 and a goal of 120" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/sb-run-ar-480.webp" srcset="/img/sb-run-ar-240.webp 240w, /img/sb-run-ar-320.webp 320w, /img/sb-run-ar-400.webp 400w, /img/sb-run-ar-480.webp 480w, /img/sb-run-ar-640.webp 640w" sizes="(max-width: 860px) calc(52vw - 43px), 196px" width="640" height="1391" alt="بناء السرعة على ٩٦ نبضة في الدقيقة في الخطوة ٥ من ١١، بين إيقاع البداية ٨٠ وإيقاع الهدف ١٢٠" loading="lazy" fetchpriority="low" decoding="async"></div>
+    <div class="tool-shot"><div class="phone"><div class="pb"><img class="en" src="/img/fs-run-en-480.webp" srcset="/img/fs-run-en-240.webp 240w, /img/fs-run-en-320.webp 320w, /img/fs-run-en-400.webp 400w, /img/fs-run-en-480.webp 480w, /img/fs-run-en-640.webp 640w" sizes="(max-width: 860px) calc(37vw - 15px), 160px" width="640" height="1312" alt="Speed Builder at 96 BPM on step 5 of 11, between a start of 80 and a goal of 120" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/fs-run-ar-480.webp" srcset="/img/fs-run-ar-240.webp 240w, /img/fs-run-ar-320.webp 320w, /img/fs-run-ar-400.webp 400w, /img/fs-run-ar-480.webp 480w, /img/fs-run-ar-640.webp 640w" sizes="(max-width: 860px) calc(37vw - 15px), 160px" width="640" height="1312" alt="بناء السرعة على ٩٦ نبضة في الدقيقة في الخطوة ٥ من ١١، بين إيقاع البداية ٨٠ وإيقاع الهدف ١٢٠" loading="lazy" fetchpriority="low" decoding="async"></div></div></div>
     <div class="tool-text">
       <h3><span class="en">Speed Builder</span><span class="ar" lang="ar">بناء السرعة</span></h3>
       <p><span class="en">Set a start and a goal tempo; it ramps you up gradually until fast feels easy</span><span class="ar" lang="ar">حدّد إيقاع البداية وإيقاع الهدف، وسيرفع الإيقاع تدريجيًا حتى يصبح العزف السريع سهلًا عليك.</span></p>
@@ -559,7 +561,7 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
     </div>
   </li>
   <li class="tool tool-rhythm-shuffler" data-reveal>
-    <div class="tool-shot"><img class="en" src="/img/rs-setup-en-480.webp" srcset="/img/rs-setup-en-240.webp 240w, /img/rs-setup-en-320.webp 320w, /img/rs-setup-en-400.webp 400w, /img/rs-setup-en-480.webp 480w, /img/rs-setup-en-640.webp 640w" sizes="(max-width: 860px) calc(52vw - 43px), 196px" width="640" height="1389" alt="Rhythm Shuffler set-up screen with a four-bar rhythm in 4/4 and buttons to shuffle and start" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/rs-setup-ar-480.webp" srcset="/img/rs-setup-ar-240.webp 240w, /img/rs-setup-ar-320.webp 320w, /img/rs-setup-ar-400.webp 400w, /img/rs-setup-ar-480.webp 480w, /img/rs-setup-ar-640.webp 640w" sizes="(max-width: 860px) calc(52vw - 43px), 196px" width="640" height="1389" alt="شاشة إعداد عازف النبض العشوائي مع إيقاع من أربع مازورات في ميزان ٤/٤ وزرّي «خلط» و«تشغيل»" loading="lazy" fetchpriority="low" decoding="async"></div>
+    <div class="tool-shot"><div class="phone"><div class="pb"><img class="en" src="/img/fr-setup-en-480.webp" srcset="/img/fr-setup-en-240.webp 240w, /img/fr-setup-en-320.webp 320w, /img/fr-setup-en-400.webp 400w, /img/fr-setup-en-480.webp 480w, /img/fr-setup-en-640.webp 640w" sizes="(max-width: 860px) calc(37vw - 15px), 160px" width="640" height="1311" alt="Rhythm Shuffler set-up screen with a four-bar rhythm in 4/4 and buttons to shuffle and start" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/fr-setup-ar-480.webp" srcset="/img/fr-setup-ar-240.webp 240w, /img/fr-setup-ar-320.webp 320w, /img/fr-setup-ar-400.webp 400w, /img/fr-setup-ar-480.webp 480w, /img/fr-setup-ar-640.webp 640w" sizes="(max-width: 860px) calc(37vw - 15px), 160px" width="640" height="1311" alt="شاشة إعداد عازف النبض العشوائي مع إيقاع من أربع مازورات في ميزان ٤/٤ وزرّي «خلط» و«تشغيل»" loading="lazy" fetchpriority="low" decoding="async"></div></div></div>
     <div class="tool-text">
       <h3><span class="en">Rhythm Shuffler</span><span class="ar" lang="ar">عازف النبض العشوائي</span></h3>
       <p><span class="en">Read a rhythm, tap it back, and see how accurate your timing is. Six difficulty settings, fresh each time</span><span class="ar" lang="ar">اقرأ الإيقاع، وانقره، وشاهد مدى دقتك. ستة خيارات للصعوبة، تتجدد في كل مرة</span></p>

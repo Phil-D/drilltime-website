@@ -167,8 +167,13 @@ html[dir=rtl] .lede{font-size:23px}
 .hero .badge img{width:168px;height:56px}
 
 /* phone frame */
-.phone{width:min(280px,100%);margin-inline:auto;padding:9px;background:var(--card);border:1px solid var(--line);border-radius:44px;box-shadow:var(--shadow-2)}
-.phone img{display:block;width:100%;height:auto;border-radius:35px;background:var(--bg)}
+/* ---- phone frame: one style for every selling screenshot (home fan, page heroes, story sections, teachers).
+   Screenshots are cropped below their own status bar; proportions use container units, so every phone
+   has the same bezel, island, corner radius and shadow at any size. */
+.phone{container-type:inline-size;width:min(280px,100%);margin-inline:auto}
+.pb{position:relative;padding:4.2cqw;padding-top:10.5cqw;background:var(--card);border:1px solid var(--line);border-radius:15cqw;box-shadow:var(--shadow-2)}
+.pb::before{content:"";position:absolute;top:3.8cqw;left:50%;width:22cqw;height:3.2cqw;margin-left:-11cqw;border-radius:9px;background:#2b3027}
+.pb img{display:block;width:100%;height:auto;border-radius:10cqw;background:var(--bg);vertical-align:top}
 
 /* slim App Store bar: in the page flow after the hero, then sticks to the top (no script, no layout shift) */
 .buybar{position:sticky;top:0;z-index:20;background:rgba(233,237,225,.94);border-block:1px solid var(--line);-webkit-backdrop-filter:saturate(1.3) blur(12px);backdrop-filter:saturate(1.3) blur(12px)}
@@ -472,7 +477,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 <p class="microcopy">شراء لمرة واحدة. بدون اشتراك أو إعلانات أو حسابات.</p>
 </div>
 <div class="hero-media">
-<div class="phone"><img src="/img/pm-metronome-ar-480.webp" srcset="/img/pm-metronome-ar-240.webp 240w, /img/pm-metronome-ar-320.webp 320w, /img/pm-metronome-ar-400.webp 400w, /img/pm-metronome-ar-480.webp 480w, /img/pm-metronome-ar-640.webp 640w" sizes="(max-width: 760px) 224px, 260px" width="640" height="1391" alt="شاشة المترونوم في DrillTime على سرعة ١٢٠ نبضة في الدقيقة واسم السرعة «سريع»، مع شريط ضبط السرعة وأزرار التشغيل والنقصان والزيادة" fetchpriority="high" decoding="async"></div>
+<div class="phone"><div class="pb"><img src="/img/fm-metronome-ar-480.webp" srcset="/img/fm-metronome-ar-240.webp 240w, /img/fm-metronome-ar-320.webp 320w, /img/fm-metronome-ar-400.webp 400w, /img/fm-metronome-ar-480.webp 480w, /img/fm-metronome-ar-640.webp 640w" sizes="(max-width: 760px) 224px, 260px" width="640" height="1312" alt="شاشة المترونوم في DrillTime على سرعة ١٢٠ نبضة في الدقيقة واسم السرعة «سريع»، مع شريط ضبط السرعة وأزرار التشغيل والنقصان والزيادة" fetchpriority="high" decoding="async"></div></div>
 </div>
 </div>
 </div>
@@ -495,7 +500,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 <div class="chipset"><p class="chip-label">تسميات السرعة</p><ul class="chips"><li>ثقيل جداً</li><li>واسع جداً</li><li>هادئ</li><li>سير معتدل</li><li>معتدل</li><li>سريع</li><li>سريع جداً</li><li>سريع للغاية</li></ul></div>
 </div>
 <div class="story-media" data-reveal>
-<div class="phone"><img src="/img/pm-tempo-ar-480.webp" srcset="/img/pm-tempo-ar-240.webp 240w, /img/pm-tempo-ar-320.webp 320w, /img/pm-tempo-ar-400.webp 400w, /img/pm-tempo-ar-480.webp 480w, /img/pm-tempo-ar-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1387" alt="شاشة المترونوم في DrillTime على سرعة ٨٦ نبضة في الدقيقة، ويظهر تحتها اسم السرعة «سير معتدل» مع زرّي الزيادة والنقصان وشريط ضبط السرعة" loading="lazy" decoding="async"></div>
+<div class="phone"><div class="pb"><img src="/img/fm-tempo-ar-480.webp" srcset="/img/fm-tempo-ar-240.webp 240w, /img/fm-tempo-ar-320.webp 320w, /img/fm-tempo-ar-400.webp 400w, /img/fm-tempo-ar-480.webp 480w, /img/fm-tempo-ar-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1310" alt="شاشة المترونوم في DrillTime على سرعة ٨٦ نبضة في الدقيقة، ويظهر تحتها اسم السرعة «سير معتدل» مع زرّي الزيادة والنقصان وشريط ضبط السرعة" loading="lazy" decoding="async"></div></div>
 </div>
 </div>
 </section>
@@ -510,7 +515,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 <div class="chipset"><p class="chip-label">غير منتظم</p><ul class="chips"><li><bdi dir="ltr">٥/٤</bdi></li><li><bdi dir="ltr">٧/٤</bdi></li><li><bdi dir="ltr">٩/٤</bdi></li><li><bdi dir="ltr">٥/٨</bdi></li><li><bdi dir="ltr">٧/٨</bdi></li><li><bdi dir="ltr">١١/٨</bdi></li><li><bdi dir="ltr">١٣/٨</bdi></li></ul></div>
 </div>
 <div class="story-media" data-reveal>
-<div class="phone"><img src="/img/pm-timesig-ar-480.webp" srcset="/img/pm-timesig-ar-240.webp 240w, /img/pm-timesig-ar-320.webp 320w, /img/pm-timesig-ar-400.webp 400w, /img/pm-timesig-ar-480.webp 480w, /img/pm-timesig-ar-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1391" alt="نافذة الميزان الإيقاعي في DrillTime، وفيها موازين بسيطة ومركّبة وغير منتظمة للاختيار منها" loading="lazy" decoding="async"></div>
+<div class="phone"><div class="pb"><img src="/img/fm-timesig-ar-480.webp" srcset="/img/fm-timesig-ar-240.webp 240w, /img/fm-timesig-ar-320.webp 320w, /img/fm-timesig-ar-400.webp 400w, /img/fm-timesig-ar-480.webp 480w, /img/fm-timesig-ar-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1312" alt="نافذة الميزان الإيقاعي في DrillTime، وفيها موازين بسيطة ومركّبة وغير منتظمة للاختيار منها" loading="lazy" decoding="async"></div></div>
 </div>
 </div>
 </section>
