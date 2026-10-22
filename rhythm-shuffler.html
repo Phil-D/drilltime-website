@@ -143,6 +143,251 @@ html[dir=rtl] .fnav a{font-size:16px}
   .author{padding:18px 20px}
   .fnav{text-align:start}
 }
+
+/* ---- Metronome design pilot: product-first layout on top of the feature-page base above.
+   Same DrillTime tokens; spacing, radii and shadows follow the home page scale. */
+:root{--r-s:13px;--r-m:21px;--r-l:34px;--s4:8px;--s5:13px;--s6:21px;--s7:34px;--s8:55px;--s9:89px;--wide:987px;
+  --shadow-1:0 1px 2px rgba(33,38,30,.06),0 3px 8px rgba(33,38,30,.05);
+  --shadow-2:0 3px 8px rgba(33,38,30,.08),0 13px 34px rgba(33,38,30,.12)}
+html{scroll-padding-top:84px}
+main{padding:0 0 var(--s8)}
+.wide{max-width:var(--wide);margin:0 auto;padding:0 28px}
+.badge{border-radius:var(--r-s);transition:transform .2s,box-shadow .2s}
+.badge:hover{transform:translateY(-2px);box-shadow:var(--shadow-2)}
+
+/* hero */
+.hero{padding:var(--s4) 0 var(--s9)}
+.hero .crumbs ol{margin-bottom:var(--s7)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:var(--s8);align-items:center}
+.hero h1{font-size:clamp(40px,6vw,64px);line-height:1.05;margin-bottom:var(--s6)}
+html[dir=rtl] .hero h1{font-size:clamp(44px,6.8vw,72px);line-height:1.2}
+.lede{font-size:21px;line-height:1.55;color:var(--ink-soft);max-width:28em;margin-bottom:var(--s7)}
+html[dir=rtl] .lede{font-size:23px}
+.hero .badge{margin:0 0 var(--s5)}
+.hero .badge img{width:168px;height:56px}
+
+/* phone frame */
+.phone{width:min(280px,100%);margin-inline:auto;padding:9px;background:var(--card);border:1px solid var(--line);border-radius:44px;box-shadow:var(--shadow-2)}
+.phone img{display:block;width:100%;height:auto;border-radius:35px;background:var(--bg)}
+
+/* slim App Store bar: in the page flow after the hero, then sticks to the top (no script, no layout shift) */
+.buybar{position:sticky;top:0;z-index:20;background:rgba(233,237,225,.94);border-block:1px solid var(--line);-webkit-backdrop-filter:saturate(1.3) blur(12px);backdrop-filter:saturate(1.3) blur(12px)}
+.buybar-in{display:flex;align-items:center;gap:12px;height:62px}
+.buybar .icon{width:38px;height:38px;border-radius:9px;border:1px solid var(--line);box-shadow:var(--shadow-1);flex:none}
+.bb-text{display:flex;flex-direction:column;line-height:1.25;margin:0 auto 0 0;min-width:0}
+html[dir=rtl] .bb-text{margin:0 0 0 auto}
+.bb-name{color:var(--ink);font-size:16px}
+.bb-sub{color:var(--text-dim);font-size:13px}
+html[dir=rtl] .bb-name{font-size:18px;font-weight:700}
+html[dir=rtl] .bb-sub{font-size:15px}
+.buybar .badge{margin:0;flex:none}
+.buybar .badge img{width:120px;height:40px}
+.buybar .badge:hover{box-shadow:var(--shadow-1)}
+
+/* story sections: one benefit each, image side alternates (mirrors itself in RTL) */
+.story{padding:var(--s9) 0}
+.cv{content-visibility:auto;contain-intrinsic-size:auto 740px}
+.story-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s8);align-items:center}
+.story.flip .story-media{order:-1}
+.story h2,.climb h2,.steps3 h2,.results h2,.tiers h2{font-size:clamp(30px,4.5vw,44px);line-height:1.1;letter-spacing:-.02em;margin:0 0 var(--s6)}
+html[dir=rtl] .story h2,html[dir=rtl] .climb h2,html[dir=rtl] .steps3 h2,html[dir=rtl] .results h2,html[dir=rtl] .tiers h2{font-size:clamp(32px,4.9vw,48px);line-height:1.3;letter-spacing:0}
+.story p,.climb-copy p,.tiers-head p{font-size:19px;line-height:1.6;max-width:24em;margin:0}
+.story p+p{margin-top:var(--s5)}
+html[dir=rtl] .story p,html[dir=rtl] .climb-copy p,html[dir=rtl] .tiers-head p{font-size:21px}
+.story .phone{width:min(260px,100%)}
+
+/* chips and panels: small illustrations built from the app's own labels */
+.chipset{margin-top:var(--s6)}
+.chip-label,.panel-sub,.opt-name{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim);margin:0 0 var(--s4)}
+html[dir=rtl] .chip-label,html[dir=rtl] .panel-sub,html[dir=rtl] .opt-name{font-size:16px;letter-spacing:0;text-transform:none}
+.chips{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{margin:0;padding:5px 12px;border:1px solid var(--line);border-radius:var(--r-s);background:var(--card);color:var(--ink);font-size:15px;line-height:1.35}
+html[dir=rtl] .chips li{font-size:17px}
+.panel{width:min(400px,100%);margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);padding:var(--s7) var(--s6);box-shadow:var(--shadow-2)}
+.panel .chips li{background:var(--bg-2)}
+.panel-cap{font-size:15px;color:var(--ink);margin-bottom:var(--s6)}
+html[dir=rtl] .panel-cap{font-size:18px}
+.pulse{display:grid;gap:12px;margin-bottom:var(--s7)}
+.p-row{display:grid;grid-template-columns:7.2em 1fr;align-items:center;gap:12px}
+.p-name{font-size:15px;color:var(--ink-soft)}
+html[dir=rtl] .p-name{font-size:17px}
+.p-dots{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;direction:ltr}
+.beat{display:flex;justify-content:space-around;align-items:center;height:24px;padding:0 3px;background:var(--bg-2);border:1px solid var(--line);border-radius:8px}
+.beat i{width:7px;height:7px;border-radius:50%;background:var(--text-dim)}
+.beat i:first-child{width:11px;height:11px;background:var(--ink)}
+.opt+.opt{margin-top:var(--s6)}
+
+/* gentle fade-in, added by /js/reveal.js only below the fold and never with reduced motion */
+.rv{opacity:0;transform:translateY(21px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+/* the quieter depth area */
+.depth{background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);padding:var(--s8) var(--s7);margin-top:var(--s7)}
+.depth-in{max-width:680px;margin:0 auto}
+.depth h2{font-size:clamp(26px,3.4vw,34px);line-height:1.15;margin:0 0 var(--s4)}
+html[dir=rtl] .depth h2{font-size:clamp(28px,3.8vw,38px);line-height:1.3}
+.depth .intro{color:var(--text-dim);font-size:16px}
+.depth h3{font-size:21px;margin:var(--s8) 0 var(--s5)}
+.depth h4{font-weight:400;font-size:18px;color:var(--ink);margin:var(--s7) 0 var(--s4)}
+html[dir=rtl] .depth h3{font-size:24px}
+html[dir=rtl] .depth h4{font-size:20px;font-weight:700}
+.depth p,.depth li,.depth dd,.depth summary{font-size:16px}
+html[dir=rtl] .depth p,html[dir=rtl] .depth li,html[dir=rtl] .depth dd,html[dir=rtl] .depth summary{font-size:18px}
+.depth .answer{font-size:17px}
+html[dir=rtl] .depth .answer{font-size:19px}
+
+/* numbered steps and routine cards */
+.steps,.routine{list-style:none;padding:0;counter-reset:step}
+.steps>li,.routine>li{counter-increment:step;position:relative;padding-inline-start:46px;margin-bottom:var(--s5)}
+.steps>li::before,.routine>li::before{content:counter(step);position:absolute;inset-inline-start:0;top:0;width:30px;height:30px;border-radius:50%;background:var(--bg-2);border:1px solid var(--line);color:var(--ink);font-size:14px;line-height:28px;text-align:center}
+html[dir=rtl] .steps>li::before,html[dir=rtl] .routine>li::before{content:counter(step,arabic-indic);font-size:16px}
+.routine>li{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-m);padding:var(--s5) var(--s6);padding-inline-start:58px}
+.routine>li::before{inset-inline-start:var(--s6);top:var(--s5);background:var(--card)}
+.r-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 12px}
+.r-stage{color:var(--ink)}
+.r-time{color:var(--text-dim);font-size:14px}
+html[dir=rtl] .r-time{font-size:16px}
+.routine p{margin:2px 0 0}
+
+/* FAQ */
+.faq{border-bottom:1px solid var(--line)}
+.faq details{border-top:1px solid var(--line)}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0;color:var(--ink);cursor:pointer;list-style:none;border-radius:6px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;width:26px;height:26px;border:1px solid var(--line);border-radius:50%;text-align:center;line-height:24px;color:var(--ink-soft);background:var(--bg-2)}
+.faq details[open] summary::after{content:"\2212"}
+.faq summary:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.faq details p{margin:0 0 var(--s6)}
+
+.depth .related{margin-top:var(--s8)}
+.depth .author{background:var(--bg-2);margin-top:var(--s6)}
+
+@media (max-width:760px){
+  .hero-grid,.story-grid{grid-template-columns:minmax(0,1fr);gap:var(--s7)}
+  .hero{padding-bottom:var(--s8)}
+  .story{padding:var(--s8) 0}
+  .cv{contain-intrinsic-size:auto 880px}
+  .story.flip .story-media{order:0}
+  .phone{width:min(244px,100%)}
+  .story .phone{width:min(230px,100%)}
+}
+@media (max-width:600px){
+  .wide{padding-inline:20px}
+  .lede{font-size:19px}
+  html[dir=rtl] .lede{font-size:21px}
+  .story p{font-size:18px}
+  html[dir=rtl] .story p{font-size:20px}
+  .depth{padding:var(--s7) var(--s6);border-radius:var(--r-m);margin-inline:-6px}
+  .buybar-in{height:58px;gap:10px}
+  .buybar .icon{width:34px;height:34px}
+  .buybar .badge img{width:108px;height:36px}
+  .p-row{grid-template-columns:6.4em minmax(0,1fr);gap:8px}
+  .p-dots{gap:4px}
+  .beat{padding:0 2px}
+  .beat i{width:6px;height:6px}
+  .beat i:first-child{width:9px;height:9px}
+}
+@media (max-height:500px){.buybar{position:static}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .badge,.rv{transition:none}
+  .badge:hover{transform:none}
+  .rv{opacity:1;transform:none}
+}
+
+/* ---- Rhythm Shuffler: phone-first hero, three step cards, a results breakdown, a difficulty grid.
+   Accent: the app's colour-blind-safe result colours (on the beat #00805e, early #9f5e00,
+   late #1f6eb5, miss #a22f7d) and its six difficulty colours. */
+.hero-flip .hero-grid{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)}
+.hero-flip .hero-media{order:-1;position:relative}
+.hero-flip .staff{position:absolute;inset-inline-start:-14%;top:50%;width:128%;height:auto;transform:translateY(-50%)}
+.hero-flip .phone{position:relative}
+
+.steps3{padding:var(--s9) 0 var(--s6)}
+.steps3 h2{text-align:center;max-width:18em;margin-inline:auto}
+.step-cards{list-style:none;padding:0;margin:var(--s7) 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s6)}
+.step-card{margin:0;background:var(--card);border:1px solid var(--line);border-radius:var(--r-m);padding:var(--s7) var(--s6)}
+.step-n{display:flex;width:40px;height:40px;border-radius:50%;align-items:center;justify-content:center;background:#00805e;color:#fff;font-size:18px;margin-bottom:var(--s5)}
+.step-card h3{font-size:22px;margin:0 0 var(--s4)}
+.step-card p{font-size:16px;margin:0}
+html[dir=rtl] .step-card h3{font-size:25px}
+html[dir=rtl] .step-card p{font-size:18px}
+
+.results{padding:var(--s8) 0}
+.res-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s8);align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);padding:var(--s7);box-shadow:var(--shadow-1)}
+.res-fig{margin:0}
+.notes img{display:block;width:100%;height:auto;border-radius:var(--r-m);border:1px solid var(--line)}
+.acc{display:flex;align-items:baseline;gap:10px;margin:var(--s6) 0 var(--s4)}
+.acc-n{font-size:40px;line-height:1;color:var(--ink)}
+.acc-l{font-size:15px;color:var(--text-dim)}
+html[dir=rtl] .acc-l{font-size:18px}
+.counts{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.counts li{margin:0;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 4px;text-align:center;background:var(--bg-2);border-radius:var(--r-s)}
+.v-n{font-size:26px;line-height:1.15}
+.v-l{display:flex;align-items:center;gap:5px;font-size:13px;line-height:1.3;color:var(--ink-soft)}
+html[dir=rtl] .v-l{font-size:15px}
+.v-l::before{content:"";flex:none;width:9px;height:9px;border-radius:50%}
+.v-on .v-n{color:#00805e}.v-on .v-l::before{background:#00805e}
+.v-early .v-n{color:#9f5e00}.v-early .v-l::before{background:#9f5e00}
+.v-late .v-n{color:#1f6eb5}.v-late .v-l::before{background:#1f6eb5}
+.v-miss .v-n{color:#a22f7d}.v-miss .v-l::before{content:"\00d7";width:auto;height:auto;border-radius:0;color:#a22f7d;font-size:16px;line-height:1}
+.res-note{font-size:13px;color:var(--text-dim);margin:var(--s4) 0 0}
+html[dir=rtl] .res-note{font-size:15px}
+.res-copy p{font-size:17px;margin:0}
+.res-copy p+p{margin-top:var(--s5)}
+html[dir=rtl] .res-copy p{font-size:19px}
+
+.tiers{padding:var(--s9) 0 var(--s6)}
+.tiers-head{margin-bottom:var(--s7)}
+.tier-grid{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5)}
+.tier{margin:0;background:var(--card);border:1px solid var(--line);border-radius:var(--r-m);padding:var(--s6)}
+.tier h3{display:flex;align-items:center;gap:10px;font-size:20px;margin:0 0 6px}
+.tier h3::before{content:"";flex:none;width:14px;height:14px;border-radius:50%;background:var(--tier)}
+.tier p{font-size:15px;margin:0}
+html[dir=rtl] .tier h3{font-size:23px}
+html[dir=rtl] .tier p{font-size:17px}
+
+@media (max-width:760px){
+  .hero-flip .hero-grid{grid-template-columns:1fr}
+  .hero-flip .hero-media{order:0}
+  .hero-flip .staff{inset-inline-start:0;width:100%}
+  .step-cards{grid-template-columns:1fr;gap:var(--s5)}
+  .step-card{display:grid;grid-template-columns:40px minmax(0,1fr);column-gap:var(--s5);align-items:center}
+  .step-n{margin:0}
+  .step-card h3{margin:0}
+  .step-card p{grid-column:2;margin-top:var(--s3)}
+  .res-card{grid-template-columns:1fr;gap:var(--s7)}
+  .res-copy{order:-1}
+  .tier-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  .res-card{padding:var(--s6);border-radius:var(--r-m);margin-inline:-6px}
+  .step-card{padding:var(--s6)}
+}
+@media (max-width:420px){
+  .tier-grid{grid-template-columns:1fr}
+  .counts{gap:6px}
+}
+
+/* ---- Final call to action: the same centred DrillTime card at the end of every feature, guide and
+   teachers page (cream card, site border and shadow, chip links). Fills its page column, so it lines
+   up with the content above it. */
+.cta{max-width:none;margin:48px 0 0;padding:44px 28px 34px;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:34px;box-shadow:0 3px 8px rgba(33,38,30,.08),0 13px 34px rgba(33,38,30,.12)}
+.cta h2{margin:0 0 13px;font-size:clamp(26px,3.4vw,34px);line-height:1.15;letter-spacing:-.01em;text-wrap:balance}
+html[dir=rtl] .cta h2{font-size:clamp(28px,3.8vw,38px);line-height:1.3;letter-spacing:0}
+.cta .badge{display:inline-block;margin:8px 0 13px}
+.cta .microcopy{max-width:30em;margin:0 auto}
+.cta nav{margin-top:21px;padding-top:21px;border-top:1px solid var(--line)}
+.cta .more{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:0;margin:0}
+.cta .more li{margin:0}
+.cta .more a{display:inline-block;padding:8px 16px;border:1px solid var(--line);border-radius:13px;background:var(--bg-2);color:var(--ink);font-size:15px;line-height:1.5;text-decoration:none;transition:border-color .2s,background-color .2s}
+html[dir=rtl] .cta .more a{font-size:17px}
+.cta .more a:hover{border-color:#b4bca6;background:var(--bg)}
+.cta .more a:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:13px}
+@media (max-width:600px){
+  .cta{padding:34px 20px 28px;border-radius:21px}
+}
+@media (prefers-reduced-motion:reduce){.cta .more a{transition:none}}
 </style>
 <script type="application/ld+json">
 {
@@ -155,7 +400,7 @@ html[dir=rtl] .fnav a{font-size:16px}
    "name": "Rhythm reading practice app | DrillTime Rhythm Shuffler",
    "description": "Rhythm Shuffler gives you a fresh written rhythm, you tap it back, and it shows how accurate your timing was. Note values, tips and answers from a guitar teacher in Dubai.",
    "inLanguage": "en",
-   "dateModified": "2026-10-19",
+   "dateModified": "2026-10-21",
    "author": {
     "@id": "https://drilltimeapp.com/#phil"
    },
@@ -172,11 +417,11 @@ html[dir=rtl] .fnav a{font-size:16px}
   {
    "@type": "ImageObject",
    "@id": "https://drilltimeapp.com/rhythm-shuffler#primaryimage",
-   "url": "https://drilltimeapp.com/img/rhythm-shuffler-en-1-480.webp",
-   "contentUrl": "https://drilltimeapp.com/img/rhythm-shuffler-en-1-480.webp",
-   "width": 480,
-   "height": 1041,
-   "caption": "DrillTime Rhythm Shuffler set-up screen with a four-bar rhythm in 4/4, difficulty set to Hard, 80 BPM, and buttons to shuffle and start"
+   "url": "https://drilltimeapp.com/img/rs-read-en-640.webp",
+   "contentUrl": "https://drilltimeapp.com/img/rs-read-en-640.webp",
+   "width": 640,
+   "height": 1391,
+   "caption": "Rhythm Shuffler reading screen with four bars of rhythm in 4/4, a line marking your place, and a large Tap the rhythm pad"
   },
   {
    "@type": "BreadcrumbList",
@@ -274,6 +519,7 @@ html[dir=rtl] .fnav a{font-size:16px}
 }
 </script>
 <script defer src="/js/page-lang.js?v=1"></script>
+<script defer src="/js/reveal.js?v=1"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -286,66 +532,119 @@ html[dir=rtl] .fnav a{font-size:16px}
   <a class="langbtn" href="/ar/rhythm-shuffler" hreflang="ar" lang="ar">العربية</a>
 </nav>
 
-<main id="main">
-<div class="wrap">
-
+<main id="main" class="tool-rhythm-shuffler">
+<section class="hero hero-flip">
+<div class="wide">
 <nav class="crumbs" aria-label="Breadcrumb">
   <ol><li><a href="/">Home</a></li><li aria-current="page">Rhythm Shuffler</li></ol>
 </nav>
-
+<div class="hero-grid">
+<div class="hero-copy">
 <h1>Rhythm Shuffler: rhythm reading practice</h1>
+<p class="lede">Read a fresh rhythm, tap it back in time, and see how close every note was.</p>
+<a class="badge" href="#" data-appstore><img src="/img/appstore-en-black.svg" alt="Download on the App Store" width="168" height="56" decoding="async"><span><small class="en">Coming soon on the</small><small class="ar" lang="ar">قريباً على</small>App Store</span></a>
+<p class="microcopy">One-time purchase. No subscription, no ads, no accounts.</p>
+</div>
+<div class="hero-media">
+<svg class="staff" viewBox="0 0 600 300" aria-hidden="true" focusable="false"><g stroke="#cdd4c0" stroke-width="3" stroke-linecap="round"><line x1="0" y1="96" x2="600" y2="96"/><line x1="0" y1="126" x2="600" y2="126"/><line x1="0" y1="156" x2="600" y2="156"/><line x1="0" y1="186" x2="600" y2="186"/><line x1="0" y1="216" x2="600" y2="216"/></g><circle cx="70" cy="186" r="11" fill="#00805e"/><circle cx="150" cy="156" r="11" fill="#9f5e00"/><circle cx="450" cy="126" r="11" fill="#1f6eb5"/><circle cx="530" cy="171" r="11" fill="#a22f7d"/></svg>
+<div class="phone"><img src="/img/rs-read-en-480.webp" srcset="/img/rs-read-en-240.webp 240w, /img/rs-read-en-320.webp 320w, /img/rs-read-en-400.webp 400w, /img/rs-read-en-480.webp 480w, /img/rs-read-en-640.webp 640w" sizes="(max-width: 760px) 224px, 260px" width="640" height="1391" alt="Rhythm Shuffler reading screen with four bars of rhythm in 4/4, a line marking your place, and a large Tap the rhythm pad" fetchpriority="high" decoding="async"></div>
+</div>
+</div>
+</div>
+</section>
 
-<p class="answer">Rhythm Shuffler shows you a short written rhythm, you tap it back, and it shows how accurate your timing was. It is for students learning to read rhythms and for teachers who want reading practice that is fresh every time, with six difficulty settings.</p>
-
-<div class="shots">
-<figure>
-  <img src="/img/rhythm-shuffler-en-1-240.webp" srcset="/img/rhythm-shuffler-en-1-180.webp 180w, /img/rhythm-shuffler-en-1-240.webp 240w, /img/rhythm-shuffler-en-1-360.webp 360w, /img/rhythm-shuffler-en-1-480.webp 480w" sizes="(max-width: 600px) calc(50vw - 26px), 240px" width="240" height="521" alt="DrillTime Rhythm Shuffler set-up screen with a four-bar rhythm in 4/4, difficulty set to Hard, 80 BPM, and buttons to shuffle and start" fetchpriority="high" decoding="async">
-  <figcaption>A fresh four-bar rhythm in 4/4 at 80 BPM.</figcaption>
-</figure>
-<figure>
-  <img src="/img/rhythm-shuffler-en-2-240.webp" srcset="/img/rhythm-shuffler-en-2-180.webp 180w, /img/rhythm-shuffler-en-2-240.webp 240w, /img/rhythm-shuffler-en-2-360.webp?v=2 360w, /img/rhythm-shuffler-en-2-480.webp 480w" sizes="(max-width: 600px) calc(50vw - 26px), 240px" width="240" height="521" alt="Rhythm Shuffler result showing 92% accuracy with counts of notes on the beat, early, late and missed, and colour-coded notes, under the heading Read rhythms and tap them back" loading="lazy" decoding="async">
-  <figcaption>After tapping, every note is marked and you see your accuracy.</figcaption>
-</figure>
+<div class="buybar">
+<div class="wide buybar-in">
+<img class="icon" src="/img/app-icon-76.webp" alt="" width="76" height="76" loading="lazy" decoding="async">
+<p class="bb-text"><span class="bb-name">DrillTime</span><span class="bb-sub">One-time purchase</span></p>
+<a class="badge" href="#" data-appstore><img src="/img/appstore-en-black.svg" alt="Download on the App Store" width="120" height="40" loading="lazy" decoding="async"><span><small class="en">Coming soon on the</small><small class="ar" lang="ar">قريباً على</small>App Store</span></a>
+</div>
 </div>
 
-<h2>Who it helps</h2>
+<section class="steps3" aria-labelledby="s-1">
+<div class="wide">
+<h2 id="s-1" data-reveal>Read it, tap it, see how close you were</h2>
+<ol class="step-cards"><li class="step-card" data-reveal><span class="step-n" aria-hidden="true">1</span><h3>Read</h3><p>A fresh rhythm appears in clear notation, in the time signature and number of bars you chose.</p></li><li class="step-card" data-reveal><span class="step-n" aria-hidden="true">2</span><h3>Tap</h3><p>Tap the pad in time as a line moves through the bars.</p></li><li class="step-card" data-reveal><span class="step-n" aria-hidden="true">3</span><h3>See</h3><p>Every note is marked on the beat, early, late or missed, with your accuracy as a percentage.</p></li></ol>
+</div>
+</section>
 
+<section class="results cv" aria-labelledby="s-2">
+<div class="wide">
+<div class="res-card" data-reveal>
+<figure class="res-fig">
+<div class="notes"><img src="/img/rs-notes-en-720.webp" srcset="/img/rs-notes-en-360.webp 360w, /img/rs-notes-en-540.webp 540w, /img/rs-notes-en-720.webp 720w, /img/rs-notes-en-960.webp 960w" sizes="(max-width: 760px) calc(100vw - 72px), 420px" width="960" height="889" alt="A four-bar rhythm after tapping, with each note coloured by its timing and a dot under it showing how early or late it was; one missed note is marked with a cross" loading="lazy" decoding="async"></div>
+<figcaption>
+<p class="acc"><span class="acc-n">92%</span> <span class="acc-l">Accuracy</span></p>
+<ul class="counts"><li class="v-on"><span class="v-n">17</span><span class="v-l">On the beat</span></li><li class="v-early"><span class="v-n">2</span><span class="v-l">Early</span></li><li class="v-late"><span class="v-n">1</span><span class="v-l">Late</span></li><li class="v-miss"><span class="v-n">1</span><span class="v-l">Miss</span></li></ul>
+<p class="res-note">From the four-bar rhythm shown.</p>
+</figcaption>
+</figure>
+<div class="res-copy">
+<h2 id="s-2">See exactly where the timing slipped</h2>
+<p>Each note takes the colour of its timing, and a dot under it shifts towards the start or end of the bar to show how early or late you were. A miss shows a cross, and the colours are chosen to stay clear with colour blindness.</p>
+<p>Tap any note to see how far off it was in milliseconds. If most of your taps were early or late, a short tip tells you which.</p>
+<p>The first time you use a speaker or headphones, a quick 15-second calibration learns their timing, so your taps are judged fairly.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="tiers" aria-labelledby="s-3">
+<div class="wide">
+<div class="tiers-head" data-reveal>
+<h2 id="s-3">From Starter to Master</h2>
+<p>Six difficulty settings, each adding one new idea, so you can move on when the last one feels easy.</p>
+</div>
+<ol class="tier-grid" data-reveal><li class="tier" style="--tier:#2E7FB8"><h3>Starter</h3><p>One rhythm, repeated, with a note on every beat.</p></li><li class="tier" style="--tier:#2E9E54"><h3>Easy</h3><p>A second rhythm joins in, along with your first rests.</p></li><li class="tier" style="--tier:#C9920E"><h3>Normal</h3><p>Richer rhythms, with rests anywhere.</p></li><li class="tier" style="--tier:#D26E14"><h3>Hard</h3><p>Your first syncopation: notes that start off the beat.</p></li><li class="tier" style="--tier:#CC362F"><h3>Expert</h3><p>Adds semiquavers, triplets and ties.</p></li><li class="tier" style="--tier:#7A49C0"><h3>Master</h3><p>The widest mix of rhythms, arranged freely.</p></li></ol>
+</div>
+</section>
+
+<section class="story cv" aria-labelledby="s-4">
+<div class="wide story-grid">
+<div class="story-copy" data-reveal>
+<h2 id="s-4">Fresh every time</h2>
+<p>Shuffle for a new rhythm whenever you like, so you practise reading rather than remembering.</p>
+<p>Pick from eight time signatures, including 3/4, 6/8 and 7/8, and tap one to hear its pulse first. Then set the tempo and show 4 to 8 bars at a time.</p>
+</div>
+<div class="story-media" data-reveal>
+<div class="phone"><img src="/img/rs-setup-en-480.webp" srcset="/img/rs-setup-en-240.webp 240w, /img/rs-setup-en-320.webp 320w, /img/rs-setup-en-400.webp 400w, /img/rs-setup-en-480.webp 480w, /img/rs-setup-en-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1389" alt="DrillTime Rhythm Shuffler set-up screen with a four-bar rhythm in 4/4, difficulty set to Hard, 80 BPM, and buttons to shuffle and start" loading="lazy" decoding="async"></div>
+</div>
+</div>
+</section>
+
+<section class="wide" aria-labelledby="depth-heading">
+<div class="depth" data-reveal>
+<div class="depth-in">
+<h2 id="depth-heading">Reading rhythms with Rhythm Shuffler</h2>
+<p class="intro">How to use it, the habits I teach, common note values, key terms and common questions.</p>
+
+<h3>Who it helps</h3>
 <p>Reading rhythm is a separate skill from reading pitch, and it is the one my students most often skip. Rhythm Shuffler helps:</p>
-
 <ul>
   <li>Students who can count a rhythm but freeze when they see it written down.</li>
   <li>Beginners meeting quavers, rests and dotted notes for the first time.</li>
   <li>Students preparing for sight-reading in exams or ensemble rehearsals.</li>
   <li>Teachers who need new rhythms quickly, without writing them out by hand.</li>
 </ul>
-
-<h2>How to use it</h2>
-
+<h3>How to use it</h3>
 <p class="answer">Choose a difficulty, a time signature and a tempo, then shuffle to get a rhythm. Read it, tap it back on the screen in time, and check how accurate you were.</p>
-
-<ol>
+<ol class="steps">
   <li>Choose one of the six difficulty settings.</li>
   <li>Set the time signature, the tempo and the number of bars.</li>
   <li>Shuffle to get a new rhythm, then start it.</li>
   <li>Tap the rhythm on the screen as you read it.</li>
   <li>Check the result: your accuracy as a percentage and how many notes were on the beat, early, late or missed. Then try the same rhythm again or shuffle a new one.</li>
 </ol>
-
-<h2>Practice tips from a teacher</h2>
-
+<h3>Practice tips from a teacher</h3>
 <p>The rhythms can include dotted notes, rests and ties. These habits help my students read them:</p>
-
 <ul>
   <li>Count the beat out loud for a bar before you tap the first note.</li>
   <li>Look one beat ahead, not at the note you are tapping.</li>
   <li>Treat rests as part of the rhythm and keep counting through them.</li>
   <li>When a rhythm goes wrong, try it again before you shuffle a new one.</li>
 </ul>
-
-<h3>Common note values</h3>
-
+<h4>Common note values</h4>
 <p>The shape of a note shows how long it lasts, and these lengths are called <a href="https://www.britannica.com/art/note-staff-notation" target="_blank" rel="noopener">note values<span class="vh"> (opens in a new tab)</span></a>. These are the ones you meet first:</p>
-
 <div class="table-wrap" role="region" aria-labelledby="table-1" tabindex="0">
 <table>
   <caption id="table-1">Common note values in 4/4 time</caption>
@@ -360,9 +659,7 @@ html[dir=rtl] .fnav a{font-size:16px}
   </tbody>
 </table>
 </div>
-
-<h2>Key terms</h2>
-
+<h3>Key terms</h3>
 <dl>
   <dt><dfn>Rhythm</dfn></dt>
   <dd>The pattern of long and short sounds and silences in music, set against a steady beat.</dd>
@@ -373,24 +670,34 @@ html[dir=rtl] .fnav a{font-size:16px}
   <dt><dfn>Crotchet</dfn></dt>
   <dd>A note worth one beat in 4/4 time. In American English it is called a quarter note.</dd>
 </dl>
-
-<h2>Questions</h2>
-
-<h3>Do I need to read music to use Rhythm Shuffler?</h3>
-<p>You need to know the basic note values, such as crotchets and quavers. The easier settings use simpler rhythms, so it is a good way to learn the rest.</p>
-<h3>How does Rhythm Shuffler measure my timing?</h3>
-<p>When you finish tapping, it shows your accuracy as a percentage and how many notes were on the beat, early, late or missed, so you can see exactly where the timing slipped.</p>
-<h3>Will I see the same rhythms again?</h3>
-<p>The rhythms are fresh each time, so you practise reading rather than memorising one pattern.</p>
+<h3>Questions</h3>
+<div class="faq">
+<details>
+  <summary>Do I need to read music to use Rhythm Shuffler?</summary>
+  <p>You need to know the basic note values, such as crotchets and quavers. The easier settings use simpler rhythms, so it is a good way to learn the rest.</p>
+</details>
+<details>
+  <summary>How does Rhythm Shuffler measure my timing?</summary>
+  <p>When you finish tapping, it shows your accuracy as a percentage and how many notes were on the beat, early, late or missed, so you can see exactly where the timing slipped.</p>
+</details>
+<details>
+  <summary>Will I see the same rhythms again?</summary>
+  <p>The rhythms are fresh each time, so you practise reading rather than memorising one pattern.</p>
+</details>
+</div>
 
 <p class="related">Related guide: <a href="/guides/daily-practice-for-kids">How to help your child practise every day</a></p>
 
 <aside class="author">
   <p class="by">Written by Phil Doughty, guitar teacher in Dubai and maker of DrillTime.</p>
   <p>For years I watched my students love their lessons, then barely touch their instrument until the next one. So I built the practice tool I wished they had.</p>
-  <p class="updated">Last updated 19 October 2026</p>
+  <p class="updated">Last updated 21 October 2026</p>
 </aside>
+</div>
+</div>
+</section>
 
+<div class="wide">
 <section class="cta" aria-labelledby="cta-heading">
   <h2 id="cta-heading">Practise with DrillTime</h2>
   <a class="badge" href="#" data-appstore><img src="/img/appstore-en-black.svg" alt="Download on the App Store" width="168" height="56" loading="lazy" decoding="async"><span><small class="en">Coming soon on the</small><small class="ar" lang="ar">قريباً على</small>App Store</span></a>
@@ -399,11 +706,10 @@ html[dir=rtl] .fnav a{font-size:16px}
   <ul class="more">
     <li><a href="/metronome">Metronome</a></li>
     <li><a href="/speed-builder">Speed Builder</a></li>
-    <li><a href="/">Home</a></li>
+    <li><a href="/guides">Guides</a></li>
   </ul>
   </nav>
 </section>
-
 </div>
 </main>
 

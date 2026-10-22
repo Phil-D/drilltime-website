@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مبدل الإيقاعات العشوائي: تمرين على قراءة الإيقاع | DrillTime وقت التمرين</title>
-<meta name="description" content="يعرض لك مبدل الإيقاعات العشوائي إيقاعًا مكتوبًا جديدًا في كل مرة، تنقره على الشاشة، ثم يبيّن لك مدى دقة توقيتك. مع جدول لقيم النوتات ونصائح من معلّم غيتار في دبي.">
+<title>عازف النبض العشوائي: تمرين على قراءة الإيقاع | DrillTime وقت التمرين</title>
+<meta name="description" content="يعرض لك عازف النبض العشوائي إيقاعًا مكتوبًا جديدًا في كل مرة، تنقره على الشاشة، ثم يبيّن لك مدى دقة توقيتك. مع جدول لقيم النوتات ونصائح من معلّم غيتار في دبي.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#e9ede1">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -16,18 +16,18 @@
 <link rel="alternate" hreflang="x-default" href="https://drilltimeapp.com/rhythm-shuffler">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="DrillTime">
-<meta property="og:title" content="مبدل الإيقاعات العشوائي: تمرين على قراءة الإيقاع | DrillTime وقت التمرين">
-<meta property="og:description" content="يعرض لك مبدل الإيقاعات العشوائي إيقاعًا مكتوبًا جديدًا في كل مرة، تنقره على الشاشة، ثم يبيّن لك مدى دقة توقيتك. مع جدول لقيم النوتات ونصائح من معلّم غيتار في دبي.">
+<meta property="og:title" content="عازف النبض العشوائي: تمرين على قراءة الإيقاع | DrillTime وقت التمرين">
+<meta property="og:description" content="يعرض لك عازف النبض العشوائي إيقاعًا مكتوبًا جديدًا في كل مرة، تنقره على الشاشة، ثم يبيّن لك مدى دقة توقيتك. مع جدول لقيم النوتات ونصائح من معلّم غيتار في دبي.">
 <meta property="og:url" content="https://drilltimeapp.com/ar/rhythm-shuffler">
 <meta property="og:locale" content="ar_AE">
 <meta property="og:image" content="https://drilltimeapp.com/og/rhythm-shuffler.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="مبدل الإيقاعات العشوائي في DrillTime، مع أيقونة التطبيق ولقطة من شاشة التطبيق">
+<meta property="og:image:alt" content="عازف النبض العشوائي في DrillTime، مع أيقونة التطبيق ولقطة من شاشة التطبيق">
 <meta property="og:image:type" content="image/png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="مبدل الإيقاعات العشوائي: تمرين على قراءة الإيقاع | DrillTime وقت التمرين">
-<meta name="twitter:description" content="يعرض لك مبدل الإيقاعات العشوائي إيقاعًا مكتوبًا جديدًا في كل مرة، تنقره على الشاشة، ثم يبيّن لك مدى دقة توقيتك. مع جدول لقيم النوتات ونصائح من معلّم غيتار في دبي.">
+<meta name="twitter:title" content="عازف النبض العشوائي: تمرين على قراءة الإيقاع | DrillTime وقت التمرين">
+<meta name="twitter:description" content="يعرض لك عازف النبض العشوائي إيقاعًا مكتوبًا جديدًا في كل مرة، تنقره على الشاشة، ثم يبيّن لك مدى دقة توقيتك. مع جدول لقيم النوتات ونصائح من معلّم غيتار في دبي.">
 <meta name="twitter:image" content="https://drilltimeapp.com/og/rhythm-shuffler.png">
 <link rel="preload" as="font" type="font/woff2" href="/fonts/beiruti.woff2" crossorigin>
 <style>
@@ -143,6 +143,251 @@ html[dir=rtl] .fnav a{font-size:16px}
   .author{padding:18px 20px}
   .fnav{text-align:start}
 }
+
+/* ---- Metronome design pilot: product-first layout on top of the feature-page base above.
+   Same DrillTime tokens; spacing, radii and shadows follow the home page scale. */
+:root{--r-s:13px;--r-m:21px;--r-l:34px;--s4:8px;--s5:13px;--s6:21px;--s7:34px;--s8:55px;--s9:89px;--wide:987px;
+  --shadow-1:0 1px 2px rgba(33,38,30,.06),0 3px 8px rgba(33,38,30,.05);
+  --shadow-2:0 3px 8px rgba(33,38,30,.08),0 13px 34px rgba(33,38,30,.12)}
+html{scroll-padding-top:84px}
+main{padding:0 0 var(--s8)}
+.wide{max-width:var(--wide);margin:0 auto;padding:0 28px}
+.badge{border-radius:var(--r-s);transition:transform .2s,box-shadow .2s}
+.badge:hover{transform:translateY(-2px);box-shadow:var(--shadow-2)}
+
+/* hero */
+.hero{padding:var(--s4) 0 var(--s9)}
+.hero .crumbs ol{margin-bottom:var(--s7)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:var(--s8);align-items:center}
+.hero h1{font-size:clamp(40px,6vw,64px);line-height:1.05;margin-bottom:var(--s6)}
+html[dir=rtl] .hero h1{font-size:clamp(44px,6.8vw,72px);line-height:1.2}
+.lede{font-size:21px;line-height:1.55;color:var(--ink-soft);max-width:28em;margin-bottom:var(--s7)}
+html[dir=rtl] .lede{font-size:23px}
+.hero .badge{margin:0 0 var(--s5)}
+.hero .badge img{width:168px;height:56px}
+
+/* phone frame */
+.phone{width:min(280px,100%);margin-inline:auto;padding:9px;background:var(--card);border:1px solid var(--line);border-radius:44px;box-shadow:var(--shadow-2)}
+.phone img{display:block;width:100%;height:auto;border-radius:35px;background:var(--bg)}
+
+/* slim App Store bar: in the page flow after the hero, then sticks to the top (no script, no layout shift) */
+.buybar{position:sticky;top:0;z-index:20;background:rgba(233,237,225,.94);border-block:1px solid var(--line);-webkit-backdrop-filter:saturate(1.3) blur(12px);backdrop-filter:saturate(1.3) blur(12px)}
+.buybar-in{display:flex;align-items:center;gap:12px;height:62px}
+.buybar .icon{width:38px;height:38px;border-radius:9px;border:1px solid var(--line);box-shadow:var(--shadow-1);flex:none}
+.bb-text{display:flex;flex-direction:column;line-height:1.25;margin:0 auto 0 0;min-width:0}
+html[dir=rtl] .bb-text{margin:0 0 0 auto}
+.bb-name{color:var(--ink);font-size:16px}
+.bb-sub{color:var(--text-dim);font-size:13px}
+html[dir=rtl] .bb-name{font-size:18px;font-weight:700}
+html[dir=rtl] .bb-sub{font-size:15px}
+.buybar .badge{margin:0;flex:none}
+.buybar .badge img{width:120px;height:40px}
+.buybar .badge:hover{box-shadow:var(--shadow-1)}
+
+/* story sections: one benefit each, image side alternates (mirrors itself in RTL) */
+.story{padding:var(--s9) 0}
+.cv{content-visibility:auto;contain-intrinsic-size:auto 740px}
+.story-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s8);align-items:center}
+.story.flip .story-media{order:-1}
+.story h2,.climb h2,.steps3 h2,.results h2,.tiers h2{font-size:clamp(30px,4.5vw,44px);line-height:1.1;letter-spacing:-.02em;margin:0 0 var(--s6)}
+html[dir=rtl] .story h2,html[dir=rtl] .climb h2,html[dir=rtl] .steps3 h2,html[dir=rtl] .results h2,html[dir=rtl] .tiers h2{font-size:clamp(32px,4.9vw,48px);line-height:1.3;letter-spacing:0}
+.story p,.climb-copy p,.tiers-head p{font-size:19px;line-height:1.6;max-width:24em;margin:0}
+.story p+p{margin-top:var(--s5)}
+html[dir=rtl] .story p,html[dir=rtl] .climb-copy p,html[dir=rtl] .tiers-head p{font-size:21px}
+.story .phone{width:min(260px,100%)}
+
+/* chips and panels: small illustrations built from the app's own labels */
+.chipset{margin-top:var(--s6)}
+.chip-label,.panel-sub,.opt-name{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim);margin:0 0 var(--s4)}
+html[dir=rtl] .chip-label,html[dir=rtl] .panel-sub,html[dir=rtl] .opt-name{font-size:16px;letter-spacing:0;text-transform:none}
+.chips{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{margin:0;padding:5px 12px;border:1px solid var(--line);border-radius:var(--r-s);background:var(--card);color:var(--ink);font-size:15px;line-height:1.35}
+html[dir=rtl] .chips li{font-size:17px}
+.panel{width:min(400px,100%);margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);padding:var(--s7) var(--s6);box-shadow:var(--shadow-2)}
+.panel .chips li{background:var(--bg-2)}
+.panel-cap{font-size:15px;color:var(--ink);margin-bottom:var(--s6)}
+html[dir=rtl] .panel-cap{font-size:18px}
+.pulse{display:grid;gap:12px;margin-bottom:var(--s7)}
+.p-row{display:grid;grid-template-columns:7.2em 1fr;align-items:center;gap:12px}
+.p-name{font-size:15px;color:var(--ink-soft)}
+html[dir=rtl] .p-name{font-size:17px}
+.p-dots{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;direction:ltr}
+.beat{display:flex;justify-content:space-around;align-items:center;height:24px;padding:0 3px;background:var(--bg-2);border:1px solid var(--line);border-radius:8px}
+.beat i{width:7px;height:7px;border-radius:50%;background:var(--text-dim)}
+.beat i:first-child{width:11px;height:11px;background:var(--ink)}
+.opt+.opt{margin-top:var(--s6)}
+
+/* gentle fade-in, added by /js/reveal.js only below the fold and never with reduced motion */
+.rv{opacity:0;transform:translateY(21px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+/* the quieter depth area */
+.depth{background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);padding:var(--s8) var(--s7);margin-top:var(--s7)}
+.depth-in{max-width:680px;margin:0 auto}
+.depth h2{font-size:clamp(26px,3.4vw,34px);line-height:1.15;margin:0 0 var(--s4)}
+html[dir=rtl] .depth h2{font-size:clamp(28px,3.8vw,38px);line-height:1.3}
+.depth .intro{color:var(--text-dim);font-size:16px}
+.depth h3{font-size:21px;margin:var(--s8) 0 var(--s5)}
+.depth h4{font-weight:400;font-size:18px;color:var(--ink);margin:var(--s7) 0 var(--s4)}
+html[dir=rtl] .depth h3{font-size:24px}
+html[dir=rtl] .depth h4{font-size:20px;font-weight:700}
+.depth p,.depth li,.depth dd,.depth summary{font-size:16px}
+html[dir=rtl] .depth p,html[dir=rtl] .depth li,html[dir=rtl] .depth dd,html[dir=rtl] .depth summary{font-size:18px}
+.depth .answer{font-size:17px}
+html[dir=rtl] .depth .answer{font-size:19px}
+
+/* numbered steps and routine cards */
+.steps,.routine{list-style:none;padding:0;counter-reset:step}
+.steps>li,.routine>li{counter-increment:step;position:relative;padding-inline-start:46px;margin-bottom:var(--s5)}
+.steps>li::before,.routine>li::before{content:counter(step);position:absolute;inset-inline-start:0;top:0;width:30px;height:30px;border-radius:50%;background:var(--bg-2);border:1px solid var(--line);color:var(--ink);font-size:14px;line-height:28px;text-align:center}
+html[dir=rtl] .steps>li::before,html[dir=rtl] .routine>li::before{content:counter(step,arabic-indic);font-size:16px}
+.routine>li{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-m);padding:var(--s5) var(--s6);padding-inline-start:58px}
+.routine>li::before{inset-inline-start:var(--s6);top:var(--s5);background:var(--card)}
+.r-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 12px}
+.r-stage{color:var(--ink)}
+.r-time{color:var(--text-dim);font-size:14px}
+html[dir=rtl] .r-time{font-size:16px}
+.routine p{margin:2px 0 0}
+
+/* FAQ */
+.faq{border-bottom:1px solid var(--line)}
+.faq details{border-top:1px solid var(--line)}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0;color:var(--ink);cursor:pointer;list-style:none;border-radius:6px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;width:26px;height:26px;border:1px solid var(--line);border-radius:50%;text-align:center;line-height:24px;color:var(--ink-soft);background:var(--bg-2)}
+.faq details[open] summary::after{content:"\2212"}
+.faq summary:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.faq details p{margin:0 0 var(--s6)}
+
+.depth .related{margin-top:var(--s8)}
+.depth .author{background:var(--bg-2);margin-top:var(--s6)}
+
+@media (max-width:760px){
+  .hero-grid,.story-grid{grid-template-columns:minmax(0,1fr);gap:var(--s7)}
+  .hero{padding-bottom:var(--s8)}
+  .story{padding:var(--s8) 0}
+  .cv{contain-intrinsic-size:auto 880px}
+  .story.flip .story-media{order:0}
+  .phone{width:min(244px,100%)}
+  .story .phone{width:min(230px,100%)}
+}
+@media (max-width:600px){
+  .wide{padding-inline:20px}
+  .lede{font-size:19px}
+  html[dir=rtl] .lede{font-size:21px}
+  .story p{font-size:18px}
+  html[dir=rtl] .story p{font-size:20px}
+  .depth{padding:var(--s7) var(--s6);border-radius:var(--r-m);margin-inline:-6px}
+  .buybar-in{height:58px;gap:10px}
+  .buybar .icon{width:34px;height:34px}
+  .buybar .badge img{width:108px;height:36px}
+  .p-row{grid-template-columns:6.4em minmax(0,1fr);gap:8px}
+  .p-dots{gap:4px}
+  .beat{padding:0 2px}
+  .beat i{width:6px;height:6px}
+  .beat i:first-child{width:9px;height:9px}
+}
+@media (max-height:500px){.buybar{position:static}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .badge,.rv{transition:none}
+  .badge:hover{transform:none}
+  .rv{opacity:1;transform:none}
+}
+
+/* ---- Rhythm Shuffler: phone-first hero, three step cards, a results breakdown, a difficulty grid.
+   Accent: the app's colour-blind-safe result colours (on the beat #00805e, early #9f5e00,
+   late #1f6eb5, miss #a22f7d) and its six difficulty colours. */
+.hero-flip .hero-grid{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)}
+.hero-flip .hero-media{order:-1;position:relative}
+.hero-flip .staff{position:absolute;inset-inline-start:-14%;top:50%;width:128%;height:auto;transform:translateY(-50%)}
+.hero-flip .phone{position:relative}
+
+.steps3{padding:var(--s9) 0 var(--s6)}
+.steps3 h2{text-align:center;max-width:18em;margin-inline:auto}
+.step-cards{list-style:none;padding:0;margin:var(--s7) 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s6)}
+.step-card{margin:0;background:var(--card);border:1px solid var(--line);border-radius:var(--r-m);padding:var(--s7) var(--s6)}
+.step-n{display:flex;width:40px;height:40px;border-radius:50%;align-items:center;justify-content:center;background:#00805e;color:#fff;font-size:18px;margin-bottom:var(--s5)}
+.step-card h3{font-size:22px;margin:0 0 var(--s4)}
+.step-card p{font-size:16px;margin:0}
+html[dir=rtl] .step-card h3{font-size:25px}
+html[dir=rtl] .step-card p{font-size:18px}
+
+.results{padding:var(--s8) 0}
+.res-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s8);align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);padding:var(--s7);box-shadow:var(--shadow-1)}
+.res-fig{margin:0}
+.notes img{display:block;width:100%;height:auto;border-radius:var(--r-m);border:1px solid var(--line)}
+.acc{display:flex;align-items:baseline;gap:10px;margin:var(--s6) 0 var(--s4)}
+.acc-n{font-size:40px;line-height:1;color:var(--ink)}
+.acc-l{font-size:15px;color:var(--text-dim)}
+html[dir=rtl] .acc-l{font-size:18px}
+.counts{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.counts li{margin:0;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 4px;text-align:center;background:var(--bg-2);border-radius:var(--r-s)}
+.v-n{font-size:26px;line-height:1.15}
+.v-l{display:flex;align-items:center;gap:5px;font-size:13px;line-height:1.3;color:var(--ink-soft)}
+html[dir=rtl] .v-l{font-size:15px}
+.v-l::before{content:"";flex:none;width:9px;height:9px;border-radius:50%}
+.v-on .v-n{color:#00805e}.v-on .v-l::before{background:#00805e}
+.v-early .v-n{color:#9f5e00}.v-early .v-l::before{background:#9f5e00}
+.v-late .v-n{color:#1f6eb5}.v-late .v-l::before{background:#1f6eb5}
+.v-miss .v-n{color:#a22f7d}.v-miss .v-l::before{content:"\00d7";width:auto;height:auto;border-radius:0;color:#a22f7d;font-size:16px;line-height:1}
+.res-note{font-size:13px;color:var(--text-dim);margin:var(--s4) 0 0}
+html[dir=rtl] .res-note{font-size:15px}
+.res-copy p{font-size:17px;margin:0}
+.res-copy p+p{margin-top:var(--s5)}
+html[dir=rtl] .res-copy p{font-size:19px}
+
+.tiers{padding:var(--s9) 0 var(--s6)}
+.tiers-head{margin-bottom:var(--s7)}
+.tier-grid{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5)}
+.tier{margin:0;background:var(--card);border:1px solid var(--line);border-radius:var(--r-m);padding:var(--s6)}
+.tier h3{display:flex;align-items:center;gap:10px;font-size:20px;margin:0 0 6px}
+.tier h3::before{content:"";flex:none;width:14px;height:14px;border-radius:50%;background:var(--tier)}
+.tier p{font-size:15px;margin:0}
+html[dir=rtl] .tier h3{font-size:23px}
+html[dir=rtl] .tier p{font-size:17px}
+
+@media (max-width:760px){
+  .hero-flip .hero-grid{grid-template-columns:1fr}
+  .hero-flip .hero-media{order:0}
+  .hero-flip .staff{inset-inline-start:0;width:100%}
+  .step-cards{grid-template-columns:1fr;gap:var(--s5)}
+  .step-card{display:grid;grid-template-columns:40px minmax(0,1fr);column-gap:var(--s5);align-items:center}
+  .step-n{margin:0}
+  .step-card h3{margin:0}
+  .step-card p{grid-column:2;margin-top:var(--s3)}
+  .res-card{grid-template-columns:1fr;gap:var(--s7)}
+  .res-copy{order:-1}
+  .tier-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  .res-card{padding:var(--s6);border-radius:var(--r-m);margin-inline:-6px}
+  .step-card{padding:var(--s6)}
+}
+@media (max-width:420px){
+  .tier-grid{grid-template-columns:1fr}
+  .counts{gap:6px}
+}
+
+/* ---- Final call to action: the same centred DrillTime card at the end of every feature, guide and
+   teachers page (cream card, site border and shadow, chip links). Fills its page column, so it lines
+   up with the content above it. */
+.cta{max-width:none;margin:48px 0 0;padding:44px 28px 34px;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:34px;box-shadow:0 3px 8px rgba(33,38,30,.08),0 13px 34px rgba(33,38,30,.12)}
+.cta h2{margin:0 0 13px;font-size:clamp(26px,3.4vw,34px);line-height:1.15;letter-spacing:-.01em;text-wrap:balance}
+html[dir=rtl] .cta h2{font-size:clamp(28px,3.8vw,38px);line-height:1.3;letter-spacing:0}
+.cta .badge{display:inline-block;margin:8px 0 13px}
+.cta .microcopy{max-width:30em;margin:0 auto}
+.cta nav{margin-top:21px;padding-top:21px;border-top:1px solid var(--line)}
+.cta .more{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:0;margin:0}
+.cta .more li{margin:0}
+.cta .more a{display:inline-block;padding:8px 16px;border:1px solid var(--line);border-radius:13px;background:var(--bg-2);color:var(--ink);font-size:15px;line-height:1.5;text-decoration:none;transition:border-color .2s,background-color .2s}
+html[dir=rtl] .cta .more a{font-size:17px}
+.cta .more a:hover{border-color:#b4bca6;background:var(--bg)}
+.cta .more a:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:13px}
+@media (max-width:600px){
+  .cta{padding:34px 20px 28px;border-radius:21px}
+}
+@media (prefers-reduced-motion:reduce){.cta .more a{transition:none}}
 </style>
 <script type="application/ld+json">
 {
@@ -152,10 +397,10 @@ html[dir=rtl] .fnav a{font-size:16px}
    "@type": "WebPage",
    "@id": "https://drilltimeapp.com/ar/rhythm-shuffler#webpage",
    "url": "https://drilltimeapp.com/ar/rhythm-shuffler",
-   "name": "مبدل الإيقاعات العشوائي: تمرين على قراءة الإيقاع | DrillTime وقت التمرين",
-   "description": "يعرض لك مبدل الإيقاعات العشوائي إيقاعًا مكتوبًا جديدًا في كل مرة، تنقره على الشاشة، ثم يبيّن لك مدى دقة توقيتك. مع جدول لقيم النوتات ونصائح من معلّم غيتار في دبي.",
+   "name": "عازف النبض العشوائي: تمرين على قراءة الإيقاع | DrillTime وقت التمرين",
+   "description": "يعرض لك عازف النبض العشوائي إيقاعًا مكتوبًا جديدًا في كل مرة، تنقره على الشاشة، ثم يبيّن لك مدى دقة توقيتك. مع جدول لقيم النوتات ونصائح من معلّم غيتار في دبي.",
    "inLanguage": "ar",
-   "dateModified": "2026-10-19",
+   "dateModified": "2026-10-21",
    "author": {
     "@id": "https://drilltimeapp.com/#phil"
    },
@@ -172,11 +417,11 @@ html[dir=rtl] .fnav a{font-size:16px}
   {
    "@type": "ImageObject",
    "@id": "https://drilltimeapp.com/ar/rhythm-shuffler#primaryimage",
-   "url": "https://drilltimeapp.com/img/rhythm-shuffler-ar-1-480.webp",
-   "contentUrl": "https://drilltimeapp.com/img/rhythm-shuffler-ar-1-480.webp",
-   "width": 480,
-   "height": 1041,
-   "caption": "شاشة إعداد مبدل الإيقاعات العشوائي في DrillTime، وعليها إيقاع من أربع مازورات في ميزان ٤/٤، والصعوبة مضبوطة على «صعب»، والسرعة ٨٠ نبضة في الدقيقة، مع زرّي «خلط» و«تشغيل»"
+   "url": "https://drilltimeapp.com/img/rs-read-ar-640.webp",
+   "contentUrl": "https://drilltimeapp.com/img/rs-read-ar-640.webp",
+   "width": 640,
+   "height": 1391,
+   "caption": "شاشة القراءة في عازف النبض العشوائي: أربع مازورات من الإيقاع في ميزان ٤/٤، وخط يحدّد موضعك، ولوحة كبيرة مكتوب عليها «انقر الإيقاع»"
   },
   {
    "@type": "BreadcrumbList",
@@ -191,7 +436,7 @@ html[dir=rtl] .fnav a{font-size:16px}
     {
      "@type": "ListItem",
      "position": 2,
-     "name": "مبدل الإيقاعات العشوائي",
+     "name": "عازف النبض العشوائي",
      "item": "https://drilltimeapp.com/ar/rhythm-shuffler"
     }
    ]
@@ -206,7 +451,7 @@ html[dir=rtl] .fnav a{font-size:16px}
    "mainEntity": [
     {
      "@type": "Question",
-     "name": "هل أحتاج إلى قراءة النوتة الموسيقية لأستخدم مبدل الإيقاعات العشوائي؟",
+     "name": "هل أحتاج إلى قراءة النوتة الموسيقية لأستخدم عازف النبض العشوائي؟",
      "acceptedAnswer": {
       "@type": "Answer",
       "text": "يكفي أن تعرف القيم الأساسية للنوتات مثل السوداء وذات السنّ. وخيارات الصعوبة الأسهل تبدأ بإيقاعات أبسط، فهو طريقة جيدة لتعلّم البقية."
@@ -214,7 +459,7 @@ html[dir=rtl] .fnav a{font-size:16px}
     },
     {
      "@type": "Question",
-     "name": "كيف يقيس مبدل الإيقاعات العشوائي دقة توقيتي؟",
+     "name": "كيف يقيس عازف النبض العشوائي دقة توقيتي؟",
      "acceptedAnswer": {
       "@type": "Answer",
       "text": "عندما تنتهي من النقر، يعرض لك نسبة دقتك وعدد النغمات التي جاءت على الإيقاع أو مبكرة أو متأخرة أو فائتة، فترى بالضبط أين اختلّ التوقيت."
@@ -274,6 +519,7 @@ html[dir=rtl] .fnav a{font-size:16px}
 }
 </script>
 <script defer src="/js/page-lang.js?v=1"></script>
+<script defer src="/js/reveal.js?v=1"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">تخطي إلى المحتوى</a>
@@ -286,66 +532,119 @@ html[dir=rtl] .fnav a{font-size:16px}
   <a class="langbtn" href="/rhythm-shuffler" hreflang="en" lang="en">English</a>
 </nav>
 
-<main id="main">
-<div class="wrap">
-
+<main id="main" class="tool-rhythm-shuffler">
+<section class="hero hero-flip">
+<div class="wide">
 <nav class="crumbs" aria-label="مسار التنقّل">
-  <ol><li><a href="/">الرئيسية</a></li><li aria-current="page">مبدل الإيقاعات العشوائي</li></ol>
+  <ol><li><a href="/">الرئيسية</a></li><li aria-current="page">عازف النبض العشوائي</li></ol>
 </nav>
+<div class="hero-grid">
+<div class="hero-copy">
+<h1>عازف النبض العشوائي: تمرين على قراءة الإيقاع</h1>
+<p class="lede">مع عازف النبض العشوائي في DrillTime وقت التمرين تقرأ إيقاعًا جديدًا في كل مرة، وتنقره في وقته، ثم ترى مدى دقة كل نغمة.</p>
+<a class="badge" href="#" data-appstore><img src="/img/appstore-ar-black.svg" alt="تنزيل التطبيق من App Store" width="168" height="56" decoding="async"><span><small class="en">Coming soon on the</small><small class="ar" lang="ar">قريباً على</small>App Store</span></a>
+<p class="microcopy">شراء لمرة واحدة. بدون اشتراك أو إعلانات أو حسابات.</p>
+</div>
+<div class="hero-media">
+<svg class="staff" viewBox="0 0 600 300" aria-hidden="true" focusable="false"><g stroke="#cdd4c0" stroke-width="3" stroke-linecap="round"><line x1="0" y1="96" x2="600" y2="96"/><line x1="0" y1="126" x2="600" y2="126"/><line x1="0" y1="156" x2="600" y2="156"/><line x1="0" y1="186" x2="600" y2="186"/><line x1="0" y1="216" x2="600" y2="216"/></g><circle cx="70" cy="186" r="11" fill="#00805e"/><circle cx="150" cy="156" r="11" fill="#9f5e00"/><circle cx="450" cy="126" r="11" fill="#1f6eb5"/><circle cx="530" cy="171" r="11" fill="#a22f7d"/></svg>
+<div class="phone"><img src="/img/rs-read-ar-480.webp" srcset="/img/rs-read-ar-240.webp 240w, /img/rs-read-ar-320.webp 320w, /img/rs-read-ar-400.webp 400w, /img/rs-read-ar-480.webp 480w, /img/rs-read-ar-640.webp 640w" sizes="(max-width: 760px) 224px, 260px" width="640" height="1391" alt="شاشة القراءة في عازف النبض العشوائي: أربع مازورات من الإيقاع في ميزان ٤/٤، وخط يحدّد موضعك، ولوحة كبيرة مكتوب عليها «انقر الإيقاع»" fetchpriority="high" decoding="async"></div>
+</div>
+</div>
+</div>
+</section>
 
-<h1>مبدل الإيقاعات العشوائي: تمرين على قراءة الإيقاع</h1>
-
-<p class="answer">يعرض لك مبدل الإيقاعات العشوائي في DrillTime وقت التمرين إيقاعًا مكتوبًا قصيرًا، فتنقره على الشاشة، ثم يبيّن لك مدى دقة توقيتك. وهو مناسب للطلاب الذين يتعلّمون قراءة الإيقاع، وللمعلّمين الذين يريدون تمرينًا متجددًا في كل مرة، مع ستة خيارات للصعوبة.</p>
-
-<div class="shots">
-<figure>
-  <img src="/img/rhythm-shuffler-ar-1-240.webp" srcset="/img/rhythm-shuffler-ar-1-180.webp 180w, /img/rhythm-shuffler-ar-1-240.webp 240w, /img/rhythm-shuffler-ar-1-360.webp 360w, /img/rhythm-shuffler-ar-1-480.webp 480w" sizes="(max-width: 600px) calc(50vw - 26px), 240px" width="240" height="521" alt="شاشة إعداد مبدل الإيقاعات العشوائي في DrillTime، وعليها إيقاع من أربع مازورات في ميزان ٤/٤، والصعوبة مضبوطة على «صعب»، والسرعة ٨٠ نبضة في الدقيقة، مع زرّي «خلط» و«تشغيل»" fetchpriority="high" decoding="async">
-  <figcaption>إيقاع جديد من أربع مازورات في ميزان ٤/٤ على سرعة ٨٠ نبضة في الدقيقة.</figcaption>
-</figure>
-<figure>
-  <img src="/img/rhythm-shuffler-ar-2-240.webp" srcset="/img/rhythm-shuffler-ar-2-180.webp 180w, /img/rhythm-shuffler-ar-2-240.webp 240w, /img/rhythm-shuffler-ar-2-360.webp?v=2 360w, /img/rhythm-shuffler-ar-2-480.webp 480w" sizes="(max-width: 600px) calc(50vw - 26px), 240px" width="240" height="521" alt="ملخّص الأداء في مبدل الإيقاعات العشوائي: دقة ٩٢٪ مع عدد النغمات التي جاءت على الإيقاع أو مبكرة أو متأخرة أو فائتة، ونغمات ملوّنة على المدرج، تحت عنوان «اقرأ الإيقاع وانقره بدقة»" loading="lazy" decoding="async">
-  <figcaption>بعد النقر تتلوّن كل نغمة وتظهر لك نسبة دقتك.</figcaption>
-</figure>
+<div class="buybar">
+<div class="wide buybar-in">
+<img class="icon" src="/img/app-icon-76.webp" alt="" width="76" height="76" loading="lazy" decoding="async">
+<p class="bb-text"><span class="bb-name">DrillTime وقت التمرين</span><span class="bb-sub">شراء لمرة واحدة</span></p>
+<a class="badge" href="#" data-appstore><img src="/img/appstore-ar-black.svg" alt="تنزيل التطبيق من App Store" width="120" height="40" loading="lazy" decoding="async"><span><small class="en">Coming soon on the</small><small class="ar" lang="ar">قريباً على</small>App Store</span></a>
+</div>
 </div>
 
-<h2>لمن هذه الأداة؟</h2>
+<section class="steps3" aria-labelledby="s-1">
+<div class="wide">
+<h2 id="s-1" data-reveal>اقرأ، وانقر، وشاهد مدى دقتك</h2>
+<ol class="step-cards"><li class="step-card" data-reveal><span class="step-n" aria-hidden="true">١</span><h3>اقرأ</h3><p>يظهر إيقاع جديد بتدوين واضح، بالميزان وعدد المازورات الذي اخترته.</p></li><li class="step-card" data-reveal><span class="step-n" aria-hidden="true">٢</span><h3>انقر</h3><p>انقر على اللوحة في الوقت الصحيح بينما يتحرّك خط عبر المازورات.</p></li><li class="step-card" data-reveal><span class="step-n" aria-hidden="true">٣</span><h3>شاهد</h3><p>تُعلَّم كل نغمة: على الإيقاع أو مبكرة أو متأخرة أو فائتة، مع نسبة دقتك.</p></li></ol>
+</div>
+</section>
 
-<p>قراءة الإيقاع مهارة مستقلة عن قراءة النغمات، وهي المهارة التي يتجاهلها كثير من طلابي. ويستفيد من مبدل الإيقاعات العشوائي:</p>
+<section class="results cv" aria-labelledby="s-2">
+<div class="wide">
+<div class="res-card" data-reveal>
+<figure class="res-fig">
+<div class="notes"><img src="/img/rs-notes-ar-720.webp" srcset="/img/rs-notes-ar-360.webp 360w, /img/rs-notes-ar-540.webp 540w, /img/rs-notes-ar-720.webp 720w, /img/rs-notes-ar-960.webp 960w" sizes="(max-width: 760px) calc(100vw - 72px), 420px" width="960" height="889" alt="إيقاع من أربع مازورات بعد النقر، وكل نغمة ملوّنة بحسب توقيتها وتحتها دائرة صغيرة تبيّن مدى تبكيرها أو تأخيرها، ونغمة فائتة عليها علامة ×" loading="lazy" decoding="async"></div>
+<figcaption>
+<p class="acc"><span class="acc-n"><bdi dir="ltr">٩٢٪</bdi></span> <span class="acc-l">الدقة</span></p>
+<ul class="counts"><li class="v-on"><span class="v-n">١٧</span><span class="v-l">على الإيقاع</span></li><li class="v-early"><span class="v-n">٢</span><span class="v-l">مبكر</span></li><li class="v-late"><span class="v-n">١</span><span class="v-l">متأخر</span></li><li class="v-miss"><span class="v-n">١</span><span class="v-l">فائت</span></li></ul>
+<p class="res-note">من الإيقاع المعروض المكوّن من أربع مازورات.</p>
+</figcaption>
+</figure>
+<div class="res-copy">
+<h2 id="s-2">اعرف أين اختلّ التوقيت بالضبط</h2>
+<p>تأخذ كل نغمة لونًا بحسب توقيتها، وتحتها دائرة صغيرة تميل نحو بداية المازورة أو نهايتها لتبيّن مدى تبكيرك أو تأخيرك. أما النغمة الفائتة فعليها علامة ×، والألوان مختارة لتبقى واضحة لمن لديهم عمى الألوان.</p>
+<p>انقر على أي نغمة لترى فرق توقيتها بالمللي ثانية، وإذا كانت أغلب نقراتك مبكرة أو متأخرة، فستظهر لك نصيحة قصيرة توضّح ذلك.</p>
+<p>وفي أول استخدام لسماعة أو مكبّر صوت، تتعرّف معايرة سريعة مدتها <bdi dir="ltr">١٥</bdi> ثانية على توقيته، ليُحكم على نقراتك بإنصاف.</p>
+</div>
+</div>
+</div>
+</section>
 
+<section class="tiers" aria-labelledby="s-3">
+<div class="wide">
+<div class="tiers-head" data-reveal>
+<h2 id="s-3">من المبتدئ إلى المحترف</h2>
+<p>ستة خيارات للصعوبة، يضيف كل منها فكرة جديدة واحدة، فتنتقل إلى ما بعده حين يصبح الحالي سهلًا عليك.</p>
+</div>
+<ol class="tier-grid" data-reveal><li class="tier" style="--tier:#2E7FB8"><h3>مبتدئ</h3><p>إيقاع واحد يتكرّر، ونغمة على كل نبضة.</p></li><li class="tier" style="--tier:#2E9E54"><h3>سهل</h3><p>ينضمّ إيقاع ثانٍ، ومعه أولى السكتات.</p></li><li class="tier" style="--tier:#C9920E"><h3>عادي</h3><p>إيقاعات أغنى، والسكتات في أي موضع.</p></li><li class="tier" style="--tier:#D26E14"><h3>صعب</h3><p>أول تأخير للنبر: نغمات تبدأ بين النبضات.</p></li><li class="tier" style="--tier:#CC362F"><h3>خبير</h3><p>يضيف ذوات السنّين والثلاثيات والأربطة.</p></li><li class="tier" style="--tier:#7A49C0"><h3>محترف</h3><p>أوسع مزيج من الإيقاعات، مرتّبًا بحرية.</p></li></ol>
+</div>
+</section>
+
+<section class="story cv" aria-labelledby="s-4">
+<div class="wide story-grid">
+<div class="story-copy" data-reveal>
+<h2 id="s-4">إيقاع جديد في كل مرة</h2>
+<p>اضغط «خلط» لتحصل على إيقاع جديد متى شئت، فتتمرّن على القراءة لا على الحفظ.</p>
+<p>اختر من ثمانية موازين، منها <bdi dir="ltr">٣/٤</bdi> و<bdi dir="ltr">٦/٨</bdi> و<bdi dir="ltr">٧/٨</bdi>، وانقر على أي منها لتسمع نبضه أولًا. ثم اضبط السرعة واعرض من <bdi dir="ltr">٤</bdi> إلى <bdi dir="ltr">٨</bdi> مازورات في المرة.</p>
+</div>
+<div class="story-media" data-reveal>
+<div class="phone"><img src="/img/rs-setup-ar-480.webp" srcset="/img/rs-setup-ar-240.webp 240w, /img/rs-setup-ar-320.webp 320w, /img/rs-setup-ar-400.webp 400w, /img/rs-setup-ar-480.webp 480w, /img/rs-setup-ar-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1389" alt="شاشة إعداد عازف النبض العشوائي في DrillTime، وعليها إيقاع من أربع مازورات في ميزان ٤/٤، والصعوبة مضبوطة على «صعب»، والسرعة ٨٠ نبضة في الدقيقة، مع زرّي «خلط» و«تشغيل»" loading="lazy" decoding="async"></div>
+</div>
+</div>
+</section>
+
+<section class="wide" aria-labelledby="depth-heading">
+<div class="depth" data-reveal>
+<div class="depth-in">
+<h2 id="depth-heading">قراءة الإيقاع مع عازف النبض العشوائي</h2>
+<p class="intro">طريقة الاستخدام، والعادات التي أعلّمها لطلابي، وقيم النوتات الشائعة، والمصطلحات الأساسية، والأسئلة الشائعة.</p>
+
+<h3>لمن هذه الأداة؟</h3>
+<p>قراءة الإيقاع مهارة مستقلة عن قراءة النغمات، وهي المهارة التي يتجاهلها كثير من طلابي. ويستفيد من عازف النبض العشوائي:</p>
 <ul>
   <li>الطلاب الذين يعدّون الإيقاع جيدًا، لكنهم يرتبكون حين يرونه مكتوبًا.</li>
   <li>المبتدئون الذين يتعرّفون لأول مرة إلى ذوات السنّ والسكتات والنوتات المنقّطة.</li>
   <li>الطلاب الذين يستعدّون للقراءة الفورية في الامتحانات أو في تدريبات الفرق الموسيقية.</li>
   <li>المعلّمون الذين يحتاجون إلى إيقاعات جديدة بسرعة دون أن يكتبوها بأيديهم.</li>
 </ul>
-
-<h2>طريقة الاستخدام</h2>
-
+<h3>طريقة الاستخدام</h3>
 <p class="answer">اختر الصعوبة والميزان والسرعة، ثم اضغط «خلط» للحصول على إيقاع. اقرأه وانقره على الشاشة في وقته، ثم راجع مدى دقتك.</p>
-
-<ol>
+<ol class="steps">
   <li>اختر واحدًا من خيارات الصعوبة الستة.</li>
   <li>اضبط الميزان والسرعة وعدد المازورات.</li>
   <li>اضغط «خلط» لتحصل على إيقاع جديد، ثم ابدأ.</li>
   <li>انقر الإيقاع على الشاشة وأنت تقرؤه.</li>
   <li>راجع ملخّص الأداء: نسبة دقتك، وعدد النغمات التي جاءت على الإيقاع أو مبكرة أو متأخرة أو فائتة. بعدها أعد المحاولة على الإيقاع نفسه أو اخلط إيقاعًا جديدًا.</li>
 </ol>
-
-<h2>نصائح للتمرين من معلّم</h2>
-
+<h3>نصائح للتمرين من معلّم</h3>
 <p>قد تتضمّن الإيقاعات نوتات منقّطة وسكتات وأربطة، وهذه عادات تساعد طلابي على قراءتها:</p>
-
 <ul>
   <li>عُدّ النبض بصوت مسموع مدة مازورة كاملة قبل أن تنقر النغمة الأولى.</li>
   <li>اجعل عينك تسبق النغمة التي تنقرها بنبضة واحدة.</li>
   <li>السكتة جزء من الإيقاع، فواصل العدّ خلالها.</li>
   <li>إذا أخطأت في إيقاع ما، فأعد المحاولة عليه قبل أن تخلط إيقاعًا جديدًا.</li>
 </ul>
-
-<h3>قيم النوتات الشائعة</h3>
-
+<h4>قيم النوتات الشائعة</h4>
 <p>تُقاس قيم النوتات بالنسبة إلى بعضها، <a href="https://ar.wikipedia.org/wiki/%D8%B3%D9%88%D8%AF%D8%A7%D8%A1_(%D9%85%D9%88%D8%B3%D9%8A%D9%82%D9%89)" target="_blank" rel="noopener">فالسوداء<span class="vh"> (يُفتح في علامة تبويب جديدة)</span></a> مثلًا تساوي ربع المستديرة ونصف البيضاء. وهذه القيم التي ستقابلها أولًا:</p>
-
 <div class="table-wrap" role="region" aria-labelledby="table-1" tabindex="0">
 <table>
   <caption id="table-1">قيم النوتات الشائعة في ميزان ٤/٤</caption>
@@ -360,9 +659,7 @@ html[dir=rtl] .fnav a{font-size:16px}
   </tbody>
 </table>
 </div>
-
-<h2>مصطلحات أساسية</h2>
-
+<h3>مصطلحات أساسية</h3>
 <dl>
   <dt><dfn>الإيقاع</dfn></dt>
   <dd>نمط الأصوات الطويلة والقصيرة والسكتات في الموسيقى، ويسير على نبض ثابت.</dd>
@@ -373,24 +670,34 @@ html[dir=rtl] .fnav a{font-size:16px}
   <dt><dfn>السوداء</dfn></dt>
   <dd>نوتة تساوي نبضة واحدة في ميزان ٤/٤، واسمها بالإنجليزية البريطانية Crotchet.</dd>
 </dl>
-
-<h2>أسئلة شائعة</h2>
-
-<h3>هل أحتاج إلى قراءة النوتة الموسيقية لأستخدم مبدل الإيقاعات العشوائي؟</h3>
-<p>يكفي أن تعرف القيم الأساسية للنوتات مثل السوداء وذات السنّ. وخيارات الصعوبة الأسهل تبدأ بإيقاعات أبسط، فهو طريقة جيدة لتعلّم البقية.</p>
-<h3>كيف يقيس مبدل الإيقاعات العشوائي دقة توقيتي؟</h3>
-<p>عندما تنتهي من النقر، يعرض لك نسبة دقتك وعدد النغمات التي جاءت على الإيقاع أو مبكرة أو متأخرة أو فائتة، فترى بالضبط أين اختلّ التوقيت.</p>
-<h3>هل تتكرّر الإيقاعات نفسها؟</h3>
-<p>لا، فالإيقاعات تتجدّد في كل مرة، لتتمرّن على القراءة لا على حفظ نمط واحد.</p>
+<h3>أسئلة شائعة</h3>
+<div class="faq">
+<details>
+  <summary>هل أحتاج إلى قراءة النوتة الموسيقية لأستخدم عازف النبض العشوائي؟</summary>
+  <p>يكفي أن تعرف القيم الأساسية للنوتات مثل السوداء وذات السنّ. وخيارات الصعوبة الأسهل تبدأ بإيقاعات أبسط، فهو طريقة جيدة لتعلّم البقية.</p>
+</details>
+<details>
+  <summary>كيف يقيس عازف النبض العشوائي دقة توقيتي؟</summary>
+  <p>عندما تنتهي من النقر، يعرض لك نسبة دقتك وعدد النغمات التي جاءت على الإيقاع أو مبكرة أو متأخرة أو فائتة، فترى بالضبط أين اختلّ التوقيت.</p>
+</details>
+<details>
+  <summary>هل تتكرّر الإيقاعات نفسها؟</summary>
+  <p>لا، فالإيقاعات تتجدّد في كل مرة، لتتمرّن على القراءة لا على حفظ نمط واحد.</p>
+</details>
+</div>
 
 <p class="related">اقرأ أيضًا: <a href="/ar/guides/daily-practice-for-kids">كيف تساعد طفلك على التمرين كل يوم</a></p>
 
 <aside class="author">
   <p class="by">بقلم فيل دوتي، معلّم الغيتار في دبي ومبتكر DrillTime.</p>
   <p>لسنوات كنت أرى طلابي يستمتعون بدروسهم، ثم لا يكادون يلمسون آلاتهم حتى الدرس التالي. لذلك صنعت أداة التمرين التي تمنّيت لو كانت بين أيديهم.</p>
-  <p class="updated">آخر تحديث: ١٩ أكتوبر ٢٠٢٦</p>
+  <p class="updated">آخر تحديث: ٢١ أكتوبر ٢٠٢٦</p>
 </aside>
+</div>
+</div>
+</section>
 
+<div class="wide">
 <section class="cta" aria-labelledby="cta-heading">
   <h2 id="cta-heading">تمرّن مع DrillTime</h2>
   <a class="badge" href="#" data-appstore><img src="/img/appstore-ar-black.svg" alt="تنزيل التطبيق من App Store" width="168" height="56" loading="lazy" decoding="async"><span><small class="en">Coming soon on the</small><small class="ar" lang="ar">قريباً على</small>App Store</span></a>
@@ -399,11 +706,10 @@ html[dir=rtl] .fnav a{font-size:16px}
   <ul class="more">
     <li><a href="/ar/metronome">المترونوم</a></li>
     <li><a href="/ar/speed-builder">بناء السرعة</a></li>
-    <li><a href="/">الرئيسية</a></li>
+    <li><a href="/ar/guides">أدلة التمرين</a></li>
   </ul>
   </nav>
 </section>
-
 </div>
 </main>
 
@@ -419,7 +725,7 @@ html[dir=rtl] .fnav a{font-size:16px}
     <nav class="fnav" aria-label="روابط الموقع">
       <a href="/ar/metronome">المترونوم</a>
       <a href="/ar/speed-builder">بناء السرعة</a>
-      <a href="/ar/rhythm-shuffler">مبدل الإيقاعات العشوائي</a>
+      <a href="/ar/rhythm-shuffler">عازف النبض العشوائي</a>
       <a href="/ar/guides">أدلة التمرين</a>
       <a href="/ar/teachers">للمعلّمين</a>
       <a href="/privacy">الخصوصية</a>
