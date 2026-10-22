@@ -154,6 +154,69 @@ html[dir=rtl] .card h2{font-size:clamp(23px,3vw,28px)}
 .card .go{color:var(--link);text-decoration:underline;text-underline-offset:3px}
 @media (max-width:600px){th,td{padding:10px 12px}caption{padding:12px 12px 8px}}
 
+/* ---- guides: calm reading layout with an "On this page" contents list
+   (a sticky sidebar beside the article on desktop, a collapsible block on phones) */
+html{scroll-padding-top:24px}
+.guide-wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+.guide{max-width:680px;margin:0 auto}
+.guide p,.guide li,.guide dd{max-width:38em}
+.guide h2{margin:64px 0 14px}
+.guide h3{margin-top:34px}
+.guide .shots{margin:34px 0 26px}
+.guide .table-wrap{margin:21px 0 26px}
+.guide-wrap .toc-m a,.guide-wrap .toc-side a{text-decoration:none}
+
+.toc-m{margin:8px 0 34px}
+.toc-m details{background:var(--card);border:1px solid var(--line);border-radius:14px}
+.toc-m summary{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 18px;color:var(--ink);cursor:pointer;list-style:none;border-radius:14px}
+.toc-m summary::-webkit-details-marker{display:none}
+.toc-m summary::after{content:"+";flex:none;width:26px;height:26px;border:1px solid var(--line);border-radius:50%;background:var(--bg-2);color:var(--ink-soft);text-align:center;line-height:24px}
+.toc-m details[open] summary::after{content:"\2212"}
+.toc-m summary:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.toc-m ol{margin:0;padding:0 18px 14px;padding-inline-start:40px}
+.toc-m li{margin:4px 0}
+.toc-m a{display:inline-block;padding:4px 0;color:var(--ink-soft)}
+.toc-m a:hover{color:var(--ink)}
+
+.toc-side{display:none}
+.toc-h{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim);margin:0 0 10px}
+html[dir=rtl] .toc-h{font-size:16px;letter-spacing:0;text-transform:none}
+.toc-side ol{list-style:none;padding:0;margin:0;border-inline-start:1px solid var(--line)}
+.toc-side li{margin:0}
+.toc-side a{display:block;margin-inline-start:-1px;padding:6px 14px;border-inline-start:2px solid transparent;font-size:15px;line-height:1.4;color:var(--text-dim)}
+html[dir=rtl] .toc-side a{font-size:17px}
+.toc-side a:hover{color:var(--ink)}
+.toc-side a[aria-current]{color:var(--ink);border-inline-start-color:#D99B26}
+
+@media (min-width:1024px){
+  .guide-grid{display:grid;grid-template-columns:200px minmax(0,680px);justify-content:center;align-items:start;gap:0 56px}
+  .guide{margin:0}
+  .toc-side{display:block;position:sticky;top:32px;margin-top:118px}
+  .toc-m{display:none}
+}
+
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:34px 0 0}
+.pg{display:flex;flex-direction:column;gap:3px;padding:16px 20px;border:1px solid var(--line);border-radius:18px;background:var(--bg-2);color:var(--ink);text-decoration:none!important;transition:border-color .2s,background-color .2s}
+.pg:hover{border-color:#b4bca6;background:var(--card)}
+.pg.next{grid-column:2;align-items:flex-end;text-align:end}
+.pg-label{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-dim)}
+html[dir=rtl] .pg-label{font-size:15px}
+.next .pg-label{flex-direction:row-reverse}
+.pg-title{font-size:16px;line-height:1.35}
+html[dir=rtl] .pg-title{font-size:18px}
+.pg-arrow{flex:none;width:15px;height:15px}
+.next .pg-arrow{transform:scaleX(-1)}
+html[dir=rtl] .prev .pg-arrow{transform:scaleX(-1)}
+html[dir=rtl] .next .pg-arrow{transform:none}
+.cta-col{max-width:760px;margin:0 auto}
+
+@media (max-width:600px){
+  .guide-wrap{padding-inline:20px}
+  .pager{grid-template-columns:1fr}
+  .pg.next{grid-column:auto}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pg{transition:none}}
+
 /* ---- Final call to action: the same centred DrillTime card at the end of every feature, guide and
    teachers page (cream card, site border and shadow, chip links). Fills its page column, so it lines
    up with the content above it. */
@@ -291,6 +354,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 }
 </script>
 <script defer src="/js/page-lang.js?v=1"></script>
+<script defer src="/js/toc.js?v=1"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">تخطي إلى المحتوى</a>
@@ -304,13 +368,41 @@ html[dir=rtl] .cta .more a{font-size:17px}
 </nav>
 
 <main id="main">
-<div class="wrap">
+<div class="guide-wrap">
+<div class="guide-grid">
+<nav class="toc-side" aria-labelledby="toc-side-h">
+  <p class="toc-h" id="toc-side-h">في هذه الصفحة</p>
+  <ol>
+    <li><a href="#how-long">كم ينبغي أن يتمرّن الأطفال؟</a></li>
+    <li><a href="#daily-habit">اجعل التمرين عادة يومية</a></li>
+    <li><a href="#what-to-say">ماذا تقول، وما الذي تتجنّبه</a></li>
+    <li><a href="#session-structure">ترتيب بسيط لكل جلسة</a></li>
+    <li><a href="#key-terms">مصطلحات أساسية</a></li>
+    <li><a href="#questions">أسئلة شائعة</a></li>
+  </ol>
+</nav>
+
+<article class="guide">
 
 <nav class="crumbs" aria-label="مسار التنقّل">
   <ol><li><a href="/">الرئيسية</a></li><li><a href="/ar/guides">أدلة التمرين</a></li><li aria-current="page">كيف تساعد طفلك على التمرين كل يوم</li></ol>
 </nav>
 
 <h1>كيف تساعد طفلك على التمرين كل يوم</h1>
+
+<nav class="toc-m" aria-labelledby="toc-m-h">
+<details>
+  <summary id="toc-m-h">في هذه الصفحة</summary>
+  <ol>
+    <li><a href="#how-long">كم ينبغي أن يتمرّن الأطفال؟</a></li>
+    <li><a href="#daily-habit">اجعل التمرين عادة يومية</a></li>
+    <li><a href="#what-to-say">ماذا تقول، وما الذي تتجنّبه</a></li>
+    <li><a href="#session-structure">ترتيب بسيط لكل جلسة</a></li>
+    <li><a href="#key-terms">مصطلحات أساسية</a></li>
+    <li><a href="#questions">أسئلة شائعة</a></li>
+  </ol>
+</details>
+</nav>
 
 <p class="answer">ساعد طفلك على التمرين يوميًا بأن تجعل التمرين قصيرًا ومنتظمًا ومتوقّعًا: الوقت نفسه كل يوم، وهدف صغير واضح، وما بين عشر دقائق وعشرين بدلًا من ساعة كاملة. اجلس قريبًا منه، وامدح الجهد لا الكمال، واختم الجلسة بشيء يتقنه. فالعادة اليومية الثابتة أهم بكثير من جلسات طويلة متباعدة.</p>
 
@@ -332,7 +424,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 <!-- PHIL: add a real example here -->
 <p>أرى في طلابي كل أسبوع الفرق الذي يصنعه التمرين المنتظم.</p>
 
-<h2>كم ينبغي أن يتمرّن الأطفال؟</h2>
+<h2 id="how-long">كم ينبغي أن يتمرّن الأطفال؟</h2>
 
 <p>أقل مما يتوقعه معظم الآباء والأمهات. فالجلسات القصيرة المتكررة أنفع من الطويلة المتباعدة، لأن المهارات ترسخ أكثر حين يتوزّع التمرين على فترات. ويُعرف هذا لدى علماء النفس باسم <a href="https://ar.wikipedia.org/wiki/%D8%AA%D8%A3%D8%AB%D9%8A%D8%B1_%D8%A7%D9%84%D8%AA%D8%A8%D8%A7%D8%B9%D8%AF" target="_blank" rel="noopener">تأثير التباعد<span class="vh"> (يُفتح في علامة تبويب جديدة)</span></a>: يدوم التعلّم أطول حين يتوزّع على عدة جلسات بدلًا من حشره في جلسة واحدة.</p>
 
@@ -353,7 +445,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 
 <p>وكثيرًا ما يتعامل الأطفال الصغار مع جلستين قصيرتين جدًا أفضل من جلسة واحدة أطول، كخمس دقائق قبل المدرسة وخمس بعدها، وهذا يُعدّ تمرينًا يوميًا أيضًا.</p>
 
-<h2>اجعل التمرين عادة يومية</h2>
+<h2 id="daily-habit">اجعل التمرين عادة يومية</h2>
 
 <ul>
   <li>اختر الوقت نفسه كل يوم، كأن يكون بعد المدرسة مباشرة أو قبل العشاء.</li>
@@ -374,7 +466,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 
 <p>وأحيانًا يساعد وجود جمهور صغير، فعرض قصير أمام الجدّ أو الجدّة، أو أمام العائلة بعد العشاء، يمنح التمرين معنى يتجاوز الدرس القادم.</p>
 
-<h2>ماذا تقول، وما الذي تتجنّبه</h2>
+<h2 id="what-to-say">ماذا تقول، وما الذي تتجنّبه</h2>
 
 <p>كلماتك تصنع شعور طفلك تجاه التمرين.</p>
 
@@ -392,7 +484,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 
 <p>ومن المفيد أيضًا أن تطرح أسئلة بدلًا من إعطاء التعليمات. فسؤال مثل «على ماذا ستعمل اليوم؟» يجعل طفلك صاحب الجلسة، والأطفال يلتزمون أكثر بالخطط التي شاركوا في وضعها.</p>
 
-<h2>ترتيب بسيط لكل جلسة</h2>
+<h2 id="session-structure">ترتيب بسيط لكل جلسة</h2>
 
 <ol>
   <li>إحماء لدقيقة أو دقيقتين بشيء سهل.</li>
@@ -414,7 +506,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 
 <p>يعمل DrillTime دون اتصال بالإنترنت، ولا يحتاج إلى حساب، ولا يجمع أي بيانات شخصية، لذا يمكن تركه بأمان على جهاز iPad العائلة. يحافظ <a href="/ar/metronome">المترونوم</a> على ثبات التمرين البطيء، وترفع أداة <a href="/ar/speed-builder">بناء السرعة</a> السرعة بخطوات صغيرة، ويعرض <a href="/ar/rhythm-shuffler">عازف النبض العشوائي</a> إيقاعًا جديدًا يقرؤه طفلك وينقره، ثم يبيّن مدى دقة توقيته.</p>
 
-<h2>مصطلحات أساسية</h2>
+<h2 id="key-terms">مصطلحات أساسية</h2>
 
 <dl>
   <dt><dfn>روتين التمرين</dfn></dt>
@@ -425,7 +517,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
   <dd>غاية واحدة محددة يمكن تحقيقها في جلسة واحدة، كمازورة متقنة أو سرعة ثابتة.</dd>
 </dl>
 
-<h2>أسئلة شائعة</h2>
+<h2 id="questions">أسئلة شائعة</h2>
 
 <h3>هل أجلس مع طفلي وهو يتمرّن؟</h3>
 <p>مع الأطفال الصغار نعم، أو على الأقل ابقَ قريبًا منهم. أما الأكبر سنًا فيفضّلون غالبًا التمرين وحدهم، لكنهم يسعدون بأن يُروك ما عملوا عليه.</p>
@@ -440,6 +532,14 @@ html[dir=rtl] .cta .more a{font-size:17px}
   <p class="updated">آخر تحديث: ٢٠ أكتوبر ٢٠٢٦</p>
 </aside>
 
+<nav class="pager" aria-label="أدلة التمرين">
+<a class="pg prev" href="/ar/guides/build-speed" rel="prev"><span class="pg-label"><svg class="pg-arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>الدليل السابق</span><span class="pg-title">كيف ترفع سرعة العزف دون أخطاء</span></a>
+</nav>
+
+</article>
+</div>
+
+<div class="cta-col">
 <section class="cta" aria-labelledby="cta-heading">
   <h2 id="cta-heading">تمرّن مع DrillTime</h2>
   <a class="badge" href="#" data-appstore><img src="/img/appstore-ar-black.svg" alt="تنزيل التطبيق من App Store" width="168" height="56" loading="lazy" decoding="async"><span><small class="en">Coming soon on the</small><small class="ar" lang="ar">قريباً على</small>App Store</span></a>
@@ -453,6 +553,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
   </ul>
   </nav>
 </section>
+</div>
 
 </div>
 </main>
