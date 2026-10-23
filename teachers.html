@@ -161,13 +161,10 @@ html[dir=rtl] .card h2{font-size:clamp(23px,3vw,28px)}
 .copy-btn:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .copy-status{display:inline-block;margin-inline-start:12px;font-size:15px;color:var(--ink-soft)}
 
-/* ---- phone frame: one style for every selling screenshot (home fan, page heroes, story sections, teachers).
-   Screenshots are cropped below their own status bar; proportions use container units, so every phone
-   has the same bezel, island, corner radius and shadow at any size. */
-.phone{container-type:inline-size;width:min(280px,100%);margin-inline:auto}
-.pb{position:relative;padding:4.2cqw;padding-top:10.5cqw;background:var(--card);border:1px solid var(--line);border-radius:15cqw;box-shadow:var(--shadow-2)}
-.pb::before{content:"";position:absolute;top:3.8cqw;left:50%;width:22cqw;height:3.2cqw;margin-left:-11cqw;border-radius:9px;background:#2b3027}
-.pb img{display:block;width:100%;height:auto;border-radius:10cqw;background:var(--bg);vertical-align:top}
+/* ---- phones: Apple's iPhone 18 Pro bezel is composited into each image at build time
+   (build_bezels.py), so the CSS only sizes it and adds a soft shadow that follows the phone's shape. */
+.phone{width:min(280px,100%);margin-inline:auto}
+.phone img{display:block;width:100%;height:auto;filter:drop-shadow(0 14px 22px rgba(33,38,30,.16))}
 .shots .phone{width:100%}
 .shots figure .phone+figcaption{margin-top:13px}
 
@@ -344,11 +341,11 @@ html[dir=rtl] .cta .more a{font-size:17px}
 
 <div class="shots">
 <figure>
-  <div class="phone"><div class="pb"><img src="/img/fm-tempo-en-480.webp" srcset="/img/fm-tempo-en-240.webp 240w, /img/fm-tempo-en-320.webp 320w, /img/fm-tempo-en-400.webp 400w, /img/fm-tempo-en-480.webp 480w, /img/fm-tempo-en-640.webp 640w" sizes="(max-width: 600px) calc(46vw - 34px), 220px" width="640" height="1310" alt="DrillTime metronome screen showing 86 BPM with the tempo name Andante, plus and minus buttons and a tempo slider" fetchpriority="high" decoding="async"></div></div>
+  <div class="phone"><img src="/img/bz-tempo-en-480.webp" srcset="/img/bz-tempo-en-240.webp 240w, /img/bz-tempo-en-320.webp 320w, /img/bz-tempo-en-400.webp 400w, /img/bz-tempo-en-480.webp 480w, /img/bz-tempo-en-640.webp 640w" sizes="(max-width: 600px) calc(46vw - 34px), 220px" width="640" height="1308" alt="DrillTime metronome screen showing 86 BPM with the tempo name Andante, plus and minus buttons and a tempo slider" fetchpriority="high" decoding="async"></div>
   <figcaption>The metronome at 86 BPM, Andante.</figcaption>
 </figure>
 <figure>
-  <div class="phone"><div class="pb"><img src="/img/fr-setup-en-480.webp" srcset="/img/fr-setup-en-240.webp 240w, /img/fr-setup-en-320.webp 320w, /img/fr-setup-en-400.webp 400w, /img/fr-setup-en-480.webp 480w, /img/fr-setup-en-640.webp 640w" sizes="(max-width: 600px) calc(46vw - 34px), 220px" width="640" height="1311" alt="DrillTime Rhythm Shuffler set-up screen with a four-bar rhythm in 4/4, difficulty set to Hard, 80 BPM, and buttons to shuffle and start" loading="lazy" decoding="async"></div></div>
+  <div class="phone"><img src="/img/bz-setup-en-480.webp" srcset="/img/bz-setup-en-240.webp 240w, /img/bz-setup-en-320.webp 320w, /img/bz-setup-en-400.webp 400w, /img/bz-setup-en-480.webp 480w, /img/bz-setup-en-640.webp 640w" sizes="(max-width: 600px) calc(46vw - 34px), 220px" width="640" height="1308" alt="DrillTime Rhythm Shuffler set-up screen with a four-bar rhythm in 4/4, difficulty set to Hard, 80 BPM, and buttons to shuffle and start" loading="lazy" decoding="async"></div>
   <figcaption>A fresh four-bar rhythm in 4/4 at 80 BPM.</figcaption>
 </figure>
 </div>

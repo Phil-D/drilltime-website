@@ -167,13 +167,10 @@ html[dir=rtl] .lede{font-size:23px}
 .hero .badge img{width:168px;height:56px}
 
 /* phone frame */
-/* ---- phone frame: one style for every selling screenshot (home fan, page heroes, story sections, teachers).
-   Screenshots are cropped below their own status bar; proportions use container units, so every phone
-   has the same bezel, island, corner radius and shadow at any size. */
-.phone{container-type:inline-size;width:min(280px,100%);margin-inline:auto}
-.pb{position:relative;padding:4.2cqw;padding-top:10.5cqw;background:var(--card);border:1px solid var(--line);border-radius:15cqw;box-shadow:var(--shadow-2)}
-.pb::before{content:"";position:absolute;top:3.8cqw;left:50%;width:22cqw;height:3.2cqw;margin-left:-11cqw;border-radius:9px;background:#2b3027}
-.pb img{display:block;width:100%;height:auto;border-radius:10cqw;background:var(--bg);vertical-align:top}
+/* ---- phones: Apple's iPhone 18 Pro bezel is composited into each image at build time
+   (build_bezels.py), so the CSS only sizes it and adds a soft shadow that follows the phone's shape. */
+.phone{width:min(280px,100%);margin-inline:auto}
+.phone img{display:block;width:100%;height:auto;filter:drop-shadow(0 14px 22px rgba(33,38,30,.16))}
 
 /* slim App Store bar: in the page flow after the hero, then sticks to the top (no script, no layout shift) */
 .buybar{position:sticky;top:0;z-index:20;background:rgba(233,237,225,.94);border-block:1px solid var(--line);-webkit-backdrop-filter:saturate(1.3) blur(12px);backdrop-filter:saturate(1.3) blur(12px)}
@@ -302,9 +299,12 @@ html[dir=rtl] .r-time{font-size:16px}
 
 /* ---- Speed Builder: the hero sits on a climb that rises towards the phone, then a full-width climb card.
    Accent: the app's single-hue ramp blue (#2E71E2) with its goal green (#1E824C). */
-.hero-climb .hero-media{position:relative}
-.hero-climb .stairs{position:absolute;inset-inline:-10%;bottom:calc(-1 * var(--s6));width:120%;height:46%}
-.hero-climb .phone{position:relative}
+.hero-climb{position:relative}
+/* a fixed-height climb, so the space reserved under the text column always clears it: the tallest
+   step under the text reaches about 120px above the grid's bottom, and the text ends 150px above it */
+.hero-climb .stairs{position:absolute;inset-inline:-28px;bottom:calc(-1 * var(--s7));width:calc(100% + 56px);height:220px}
+.hero-climb .hero-copy{padding-bottom:150px}
+.hero-climb .hero-copy,.hero-climb .hero-media{position:relative}
 
 .climb{padding:var(--s9) 0 var(--s7)}
 .climb-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);padding:var(--s8) var(--s7) var(--s7);box-shadow:var(--shadow-1)}
@@ -327,6 +327,9 @@ html[dir=rtl] .climb-svg .cur{font-size:18px}
 html[dir=rtl] .climb-fig figcaption{font-size:16px}
 
 @media (max-width:760px){
+  /* stacked: the text sits far above the climb, which runs behind the bottom of the phone */
+  .hero-climb .hero-copy{padding-bottom:0}
+  .hero-climb .stairs{height:30%}
   .hero-sb .crumbs ol{justify-content:center}
   .hero-sb .hero-copy{text-align:center}
   .hero-sb .lede{margin-inline:auto}
@@ -339,7 +342,7 @@ html[dir=rtl] .climb-fig figcaption{font-size:16px}
   .climb-svg .cur{font-size:28px}
   html[dir=rtl] .climb-svg .lab{font-size:34px}
   html[dir=rtl] .climb-svg .cur{font-size:32px}
-  .hero-climb .stairs{inset-inline:0;width:100%;height:40%;bottom:calc(-1 * var(--s5))}
+  .hero-climb .stairs{height:30%;inset-inline:-20px;width:calc(100% + 40px);bottom:calc(-1 * var(--s6))}
 }
 
 /* ---- Final call to action: the same centred DrillTime card at the end of every feature, guide and
@@ -504,6 +507,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
   <ol><li><a href="/">Home</a></li><li aria-current="page">Speed Builder</li></ol>
 </nav>
 <div class="hero-grid hero-climb">
+<svg class="stairs" viewBox="0 0 960 280" preserveAspectRatio="none" aria-hidden="true" focusable="false"><rect x="0.0" y="190" width="150.0" height="90" rx="14" fill="#2E71E2" fill-opacity="0.08"/><rect x="162.0" y="156" width="150.0" height="124" rx="14" fill="#2E71E2" fill-opacity="0.13"/><rect x="324.0" y="122" width="150.0" height="158" rx="14" fill="#2E71E2" fill-opacity="0.18"/><rect x="486.0" y="88" width="150.0" height="192" rx="14" fill="#2E71E2" fill-opacity="0.23"/><rect x="648.0" y="54" width="150.0" height="226" rx="14" fill="#2E71E2" fill-opacity="0.28"/><rect x="810.0" y="20" width="150.0" height="260" rx="14" fill="#2E71E2" fill-opacity="0.33"/></svg>
 <div class="hero-copy">
 <h1>Speed Builder: a tempo trainer for music practice</h1>
 <p class="lede">Start at a tempo you can manage, set a goal, and Speed Builder raises the tempo step by step while you keep practising.</p>
@@ -511,8 +515,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 <p class="microcopy">One-time purchase. No subscription, no ads, no accounts.</p>
 </div>
 <div class="hero-media">
-<svg class="stairs" viewBox="0 0 960 280" preserveAspectRatio="none" aria-hidden="true" focusable="false"><rect x="0.0" y="190" width="150.0" height="90" rx="14" fill="#2E71E2" fill-opacity="0.08"/><rect x="162.0" y="156" width="150.0" height="124" rx="14" fill="#2E71E2" fill-opacity="0.13"/><rect x="324.0" y="122" width="150.0" height="158" rx="14" fill="#2E71E2" fill-opacity="0.18"/><rect x="486.0" y="88" width="150.0" height="192" rx="14" fill="#2E71E2" fill-opacity="0.23"/><rect x="648.0" y="54" width="150.0" height="226" rx="14" fill="#2E71E2" fill-opacity="0.28"/><rect x="810.0" y="20" width="150.0" height="260" rx="14" fill="#2E71E2" fill-opacity="0.33"/></svg>
-<div class="phone"><div class="pb"><img src="/img/fs-player-en-480.webp" srcset="/img/fs-player-en-240.webp 240w, /img/fs-player-en-320.webp 320w, /img/fs-player-en-400.webp 400w, /img/fs-player-en-480.webp 480w, /img/fs-player-en-640.webp 640w" sizes="(max-width: 760px) 224px, 260px" width="640" height="1310" alt="DrillTime Speed Builder screen at 86 BPM on step 3 of 6, rising from a start tempo of 80 towards a goal of 95, with the time left shown" fetchpriority="high" decoding="async"></div></div>
+<div class="phone"><img src="/img/bz-player-en-480.webp" srcset="/img/bz-player-en-240.webp 240w, /img/bz-player-en-320.webp 320w, /img/bz-player-en-400.webp 400w, /img/bz-player-en-480.webp 480w, /img/bz-player-en-640.webp 640w" sizes="(max-width: 760px) 224px, 260px" width="640" height="1308" alt="DrillTime Speed Builder screen at 86 BPM on step 3 of 6, rising from a start tempo of 80 towards a goal of 95, with the time left shown" fetchpriority="high" decoding="async"></div>
 </div>
 </div>
 </div>
@@ -566,7 +569,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 <p>At the end you see a calm summary, such as Goal reached, or how many BPM the tempo rose.</p>
 </div>
 <div class="story-media" data-reveal>
-<div class="phone"><div class="pb"><img src="/img/fs-run-en-480.webp" srcset="/img/fs-run-en-240.webp 240w, /img/fs-run-en-320.webp 320w, /img/fs-run-en-400.webp 400w, /img/fs-run-en-480.webp 480w, /img/fs-run-en-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1312" alt="Speed Builder at 96 BPM on step 5 of 11, with a start of 80, a goal of 120, three minutes left and a pause button" loading="lazy" decoding="async"></div></div>
+<div class="phone"><img src="/img/bz-run-en-480.webp" srcset="/img/bz-run-en-240.webp 240w, /img/bz-run-en-320.webp 320w, /img/bz-run-en-400.webp 400w, /img/bz-run-en-480.webp 480w, /img/bz-run-en-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1308" alt="Speed Builder at 96 BPM on step 5 of 11, with a start of 80, a goal of 120, three minutes left and a pause button" loading="lazy" decoding="async"></div>
 </div>
 </div>
 </section>
