@@ -162,9 +162,9 @@ html[dir=rtl] .card h2{font-size:clamp(23px,3vw,28px)}
 .copy-status{display:inline-block;margin-inline-start:12px;font-size:15px;color:var(--ink-soft)}
 
 /* ---- phones: Apple's iPhone 18 Pro bezel is composited into each image at build time
-   (build_bezels.py), so the CSS only sizes it and adds a soft shadow that follows the phone's shape. */
+   (build_bezels.py). Apple's marketing guidelines: upright, unobstructed, no added shadow or effects. */
 .phone{width:min(280px,100%);margin-inline:auto}
-.phone img{display:block;width:100%;height:auto;filter:drop-shadow(0 14px 22px rgba(33,38,30,.16))}
+.phone img{display:block;width:100%;height:auto}
 .shots .phone{width:100%}
 .shots figure .phone+figcaption{margin-top:13px}
 
@@ -487,7 +487,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
     </nav>
   </div>
   <div class="fbottom">
-    <div class="cr">© 2026 DrillTime</div>
+    <div class="cr">© 2026 DrillTime<p class="credit" style="margin:8px 0 0;max-width:46em;font-size:12px;line-height:1.5">Apple, the Apple logo, iPhone and iPad are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc.</p></div>
     <a class="langbtn" href="/ar/teachers" hreflang="ar" lang="ar">العربية</a>
   </div>
 </footer>

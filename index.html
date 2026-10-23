@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>try{var l=localStorage.getItem('dt_lang');if(l==='ar'){var d=document.documentElement;d.setAttribute('dir','rtl');d.setAttribute('lang','ar');}}catch(e){}</script>
-<script async src="/js/lang-assets.js?v=44" data-lcp-en="/img/bz-metronome-en-480.webp" data-lcp-ar="/img/bz-metronome-ar-480.webp" data-lcp-en-srcset="/img/bz-metronome-en-240.webp 240w, /img/bz-metronome-en-320.webp 320w, /img/bz-metronome-en-400.webp 400w, /img/bz-metronome-en-480.webp 480w, /img/bz-metronome-en-640.webp 640w" data-lcp-ar-srcset="/img/bz-metronome-ar-240.webp 240w, /img/bz-metronome-ar-320.webp 320w, /img/bz-metronome-ar-400.webp 400w, /img/bz-metronome-ar-480.webp 480w, /img/bz-metronome-ar-640.webp 640w" data-lcp-sizes="(max-width: 860px) calc(42vw - 17px), 236px"></script>
+<script async src="/js/lang-assets.js?v=44" data-lcp-en="/img/bz-metronome-en-480.webp" data-lcp-ar="/img/bz-metronome-ar-480.webp" data-lcp-en-srcset="/img/bz-metronome-en-240.webp 240w, /img/bz-metronome-en-320.webp 320w, /img/bz-metronome-en-400.webp 400w, /img/bz-metronome-en-480.webp 480w, /img/bz-metronome-en-640.webp 640w" data-lcp-ar-srcset="/img/bz-metronome-ar-240.webp 240w, /img/bz-metronome-ar-320.webp 320w, /img/bz-metronome-ar-400.webp 400w, /img/bz-metronome-ar-480.webp 480w, /img/bz-metronome-ar-640.webp 640w" data-lcp-sizes="(max-width: 860px) calc(48.5vw - 19px), 272px"></script>
 
 <!-- Primary meta -->
 <title>DrillTime – Metronome, Speed Trainer &amp; Rhythm Trainer for Musicians</title>
@@ -253,26 +253,24 @@ html[dir="rtl"] .microcopy{font-size:15px}
 
 /* the fan: Speed Builder and Rhythm Shuffler lean in behind the metronome (mirrored in Arabic) */
 .fan-stage{display:grid;justify-items:center;gap:var(--s6)}
-.fan{display:flex;justify-content:center;align-items:flex-end;padding-block:var(--s5) var(--s4);isolation:isolate}
+.fan{display:flex;justify-content:center;padding-block:var(--s5) var(--s4)}
 /* ---- phones: Apple's iPhone 18 Pro bezel is composited into each image at build time
-   (build_bezels.py), so the CSS only sizes it and adds a soft shadow that follows the phone's shape. */
+   (build_bezels.py). Apple's marketing guidelines: upright, unobstructed, no added shadow or effects. */
 .phone{width:100%;margin-inline:auto}
-.phone img{display:block;width:100%;height:auto;filter:drop-shadow(0 14px 22px rgba(33,38,30,.16))}
+.phone img{display:block;width:100%;height:auto}
 .ph{margin:0;position:relative}
 /* Arabic images are shown with display:inline-block (language switching), so align them explicitly */
 
-/* sizes are shares of the fan's width, so the three phones always fit and stay symmetric */
-.fan{width:min(100%,560px)}
-.ph-m{width:42%;z-index:2}
-.ph-m .phone img{filter:drop-shadow(0 22px 34px rgba(20,23,15,.22))}
-.ph-sb,.ph-rs{width:31%;z-index:1;margin-bottom:4%}
-.ph-sb{margin-inline-end:-7%;transform:rotate(-7deg)}
-.ph-rs{margin-inline-start:-7%;transform:rotate(7deg)}
-html[dir="rtl"] .ph-sb{transform:rotate(7deg)}
-html[dir="rtl"] .ph-rs{transform:rotate(-7deg)}
-/* each tool's accent only as a soft coloured glow behind the phone, never a stroke */
-.ph-sb .phone img{filter:drop-shadow(0 14px 22px rgba(33,38,30,.14)) drop-shadow(0 0 22px color-mix(in srgb,var(--t-speed) 30%,transparent))}
-.ph-rs .phone img{filter:drop-shadow(0 14px 22px rgba(33,38,30,.14)) drop-shadow(0 0 22px color-mix(in srgb,var(--t-rhythm) 30%,transparent))}
+/* one upright iPhone in front; the Speed Builder and Rhythm Shuffler screens sit behind it, bare
+   (no device), smaller and a little lighter, tucked behind its sides for depth. Nothing sits on the
+   device (Apple's marketing guidelines). Shares of the hero's width keep it centred at any size, and
+   logical margins mirror the order in Arabic. */
+.fan{width:min(100%,560px);align-items:center}
+.ph-m{width:48.5%;margin:0;flex:none;position:relative;z-index:2}
+.bare{width:34.4%;margin:0;flex:none;position:relative;z-index:1;opacity:.85}
+.bare img{display:block;width:100%;height:auto}
+.bare-sb{margin-inline-end:-8.7%}
+.bare-rs{margin-inline-start:-8.7%}
 .fan-chips{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:min(540px,100%)}
 .fan-chips li{margin:0}
 .fan-chips a{display:flex;width:100%;align-items:center;gap:8px;padding:7px 14px;white-space:nowrap;border:1px solid var(--line);border-radius:var(--r-s);background:var(--card);color:var(--ink);font-size:14px;text-decoration:none;transition:border-color .15s ease,background-color .15s ease}
@@ -346,8 +344,8 @@ html[dir="rtl"] .pcell b{font-size:20px;font-weight:700}
 html[dir="rtl"] .pcell>span{font-size:17px}
 .safe .more-link{font-size:16px}
 .devices{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:var(--s7);align-items:end;margin:0 0 var(--s7);padding-top:var(--s7);border-top:1px solid var(--line)}
-.ipad{aspect-ratio:1724/2101;max-height:420px;overflow:hidden;border-radius:7% 7% 0 0/5.7% 5.7% 0 0;align-self:end}
-.ipad img{display:block;width:100%;height:auto;vertical-align:top}
+.ipad{align-self:end}
+.ipad img{display:block;width:100%;height:auto;vertical-align:top;border:1px solid var(--line);border-radius:var(--r-m)}
 .devices-text{padding-bottom:var(--s6)}
 .devices h3{font-weight:400;font-size:clamp(24px,3vw,30px);letter-spacing:-.01em;margin-bottom:var(--s4)}
 html[dir="rtl"] .devices h3{font-size:clamp(26px,3.3vw,33px)}
@@ -439,7 +437,7 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
   .pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .devices{grid-template-columns:minmax(0,1fr);gap:var(--s5)}
   .devices-text{order:-1;padding-bottom:0}
-  .ipad{max-height:300px;width:min(300px,100%)}
+  .ipad{width:min(300px,100%)}
   .fgrid{grid-template-columns:1fr}
   .fnav{text-align:start}
   .fbottom{flex-direction:column;text-align:center}
@@ -508,14 +506,14 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
 </div>
 <div class="fan-stage">
 <div class="fan">
-<figure class="ph ph-sb">
-  <div class="phone"><img class="en" src="/img/bz-player-en-480.webp" srcset="/img/bz-player-en-240.webp 240w, /img/bz-player-en-320.webp 320w, /img/bz-player-en-400.webp 400w, /img/bz-player-en-480.webp 480w, /img/bz-player-en-640.webp 640w" sizes="(max-width: 860px) calc(31vw - 12px), 174px" width="640" height="1308" alt="DrillTime Speed Builder screen at 86 BPM on step 3 of 6, rising from a start tempo of 80 towards a goal of 95, with the time left shown" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/bz-player-ar-480.webp" srcset="/img/bz-player-ar-240.webp 240w, /img/bz-player-ar-320.webp 320w, /img/bz-player-ar-400.webp 400w, /img/bz-player-ar-480.webp 480w, /img/bz-player-ar-640.webp 640w" sizes="(max-width: 860px) calc(31vw - 12px), 174px" width="640" height="1308" alt="شاشة بناء السرعة في DrillTime على ٨٦ نبضة في الدقيقة في الخطوة ٣ من ٦، صعودًا من إيقاع البداية ٨٠ نحو إيقاع الهدف ٩٥، مع الوقت المتبقي" loading="lazy" fetchpriority="low" decoding="async"></div>
+<figure class="bare bare-sb">
+  <img class="en" src="/img/bs-player-en-480.webp" srcset="/img/bs-player-en-240.webp 240w, /img/bs-player-en-320.webp 320w, /img/bs-player-en-400.webp 400w, /img/bs-player-en-480.webp 480w, /img/bs-player-en-640.webp 640w" sizes="(max-width: 860px) calc(34.4vw - 14px), 194px" width="640" height="1391" alt="DrillTime Speed Builder screen at 86 BPM on step 3 of 6, rising from a start tempo of 80 towards a goal of 95, with the time left shown" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/bs-player-ar-480.webp" srcset="/img/bs-player-ar-240.webp 240w, /img/bs-player-ar-320.webp 320w, /img/bs-player-ar-400.webp 400w, /img/bs-player-ar-480.webp 480w, /img/bs-player-ar-640.webp 640w" sizes="(max-width: 860px) calc(34.4vw - 14px), 194px" width="640" height="1391" alt="شاشة بناء السرعة في DrillTime على ٨٦ نبضة في الدقيقة في الخطوة ٣ من ٦، صعودًا من إيقاع البداية ٨٠ نحو إيقاع الهدف ٩٥، مع الوقت المتبقي" loading="lazy" fetchpriority="low" decoding="async">
 </figure>
 <figure class="ph ph-m">
-  <div class="phone"><img class="en" src="/img/bz-metronome-en-480.webp" srcset="/img/bz-metronome-en-240.webp 240w, /img/bz-metronome-en-320.webp 320w, /img/bz-metronome-en-400.webp 400w, /img/bz-metronome-en-480.webp 480w, /img/bz-metronome-en-640.webp 640w" sizes="(max-width: 860px) calc(42vw - 17px), 236px" width="640" height="1308" alt="DrillTime metronome screen at 120 BPM with the tempo name Allegro, a tempo slider, and start, minus and plus buttons" loading="lazy" data-lcp fetchpriority="high" decoding="async"><img hidden class="ar" src="/img/bz-metronome-ar-480.webp" srcset="/img/bz-metronome-ar-240.webp 240w, /img/bz-metronome-ar-320.webp 320w, /img/bz-metronome-ar-400.webp 400w, /img/bz-metronome-ar-480.webp 480w, /img/bz-metronome-ar-640.webp 640w" sizes="(max-width: 860px) calc(42vw - 17px), 236px" width="640" height="1308" alt="شاشة المترونوم في DrillTime على سرعة ١٢٠ نبضة في الدقيقة واسم السرعة «سريع»، مع شريط ضبط السرعة وأزرار التشغيل والنقصان والزيادة" loading="lazy" data-lcp fetchpriority="high" decoding="async"></div>
+  <div class="phone"><img class="en" src="/img/bz-metronome-en-480.webp" srcset="/img/bz-metronome-en-240.webp 240w, /img/bz-metronome-en-320.webp 320w, /img/bz-metronome-en-400.webp 400w, /img/bz-metronome-en-480.webp 480w, /img/bz-metronome-en-640.webp 640w" sizes="(max-width: 860px) calc(48.5vw - 19px), 272px" width="640" height="1308" alt="DrillTime metronome screen at 120 BPM with the tempo name Allegro, a tempo slider, and start, minus and plus buttons" loading="lazy" data-lcp fetchpriority="high" decoding="async"><img hidden class="ar" src="/img/bz-metronome-ar-480.webp" srcset="/img/bz-metronome-ar-240.webp 240w, /img/bz-metronome-ar-320.webp 320w, /img/bz-metronome-ar-400.webp 400w, /img/bz-metronome-ar-480.webp 480w, /img/bz-metronome-ar-640.webp 640w" sizes="(max-width: 860px) calc(48.5vw - 19px), 272px" width="640" height="1308" alt="شاشة المترونوم في DrillTime على سرعة ١٢٠ نبضة في الدقيقة واسم السرعة «سريع»، مع شريط ضبط السرعة وأزرار التشغيل والنقصان والزيادة" loading="lazy" data-lcp fetchpriority="high" decoding="async"></div>
 </figure>
-<figure class="ph ph-rs">
-  <div class="phone"><img class="en" src="/img/bz-read-en-480.webp" srcset="/img/bz-read-en-240.webp 240w, /img/bz-read-en-320.webp 320w, /img/bz-read-en-400.webp 400w, /img/bz-read-en-480.webp 480w, /img/bz-read-en-640.webp 640w" sizes="(max-width: 860px) calc(31vw - 12px), 174px" width="640" height="1308" alt="Rhythm Shuffler reading screen with four bars of rhythm in 4/4, a line marking your place, and a large Tap the rhythm pad" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/bz-read-ar-480.webp" srcset="/img/bz-read-ar-240.webp 240w, /img/bz-read-ar-320.webp 320w, /img/bz-read-ar-400.webp 400w, /img/bz-read-ar-480.webp 480w, /img/bz-read-ar-640.webp 640w" sizes="(max-width: 860px) calc(31vw - 12px), 174px" width="640" height="1308" alt="شاشة القراءة في عازف النبض العشوائي: أربع مازورات من الإيقاع في ميزان ٤/٤، وخط يحدّد موضعك، ولوحة كبيرة مكتوب عليها «انقر الإيقاع»" loading="lazy" fetchpriority="low" decoding="async"></div>
+<figure class="bare bare-rs">
+  <img class="en" src="/img/bs-read-en-480.webp" srcset="/img/bs-read-en-240.webp 240w, /img/bs-read-en-320.webp 320w, /img/bs-read-en-400.webp 400w, /img/bs-read-en-480.webp 480w, /img/bs-read-en-640.webp 640w" sizes="(max-width: 860px) calc(34.4vw - 14px), 194px" width="640" height="1391" alt="Rhythm Shuffler reading screen with four bars of rhythm in 4/4, a line marking your place, and a large Tap the rhythm pad" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/bs-read-ar-480.webp" srcset="/img/bs-read-ar-240.webp 240w, /img/bs-read-ar-320.webp 320w, /img/bs-read-ar-400.webp 400w, /img/bs-read-ar-480.webp 480w, /img/bs-read-ar-640.webp 640w" sizes="(max-width: 860px) calc(34.4vw - 14px), 194px" width="640" height="1391" alt="شاشة القراءة في عازف النبض العشوائي: أربع مازورات من الإيقاع في ميزان ٤/٤، وخط يحدّد موضعك، ولوحة كبيرة مكتوب عليها «انقر الإيقاع»" loading="lazy" fetchpriority="low" decoding="async">
 </figure>
 </div>
 <ul class="fan-chips">
@@ -592,7 +590,7 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
 <div class="pcell"><b><span class="en">English &amp; Arabic</span><span class="ar" lang="ar">بالعربية والإنجليزية</span></b><span class="en">Full right-to-left Arabic throughout, made for bilingual classrooms</span><span class="ar ar-block" lang="ar">دعم كامل للغتين الإنجليزية والعربية، مع واجهة عربية كاملة من اليمين إلى اليسار، مصممة للفصول الدراسية ثنائية اللغة.</span></div>
 </div>
 <div class="devices">
-<div class="ipad"><img class="en" src="/img/ipad-home-en-480.webp" srcset="/img/ipad-home-en-320.webp 320w, /img/ipad-home-en-480.webp 480w, /img/ipad-home-en-640.webp 640w, /img/ipad-home-en-960.webp 960w" sizes="(max-width: 860px) calc(100vw - 82px), 340px" width="960" height="1170" alt="DrillTime metronome on an iPad at 120 BPM, Allegro" loading="lazy" decoding="async"><img hidden class="ar" src="/img/ipad-home-ar-480.webp" srcset="/img/ipad-home-ar-320.webp 320w, /img/ipad-home-ar-480.webp 480w, /img/ipad-home-ar-640.webp 640w, /img/ipad-home-ar-960.webp 960w" sizes="(max-width: 860px) calc(100vw - 82px), 340px" width="960" height="1170" alt="مترونوم DrillTime على جهاز iPad على سرعة ١٢٠ نبضة في الدقيقة، بسرعة «سريع»" loading="lazy" decoding="async"></div>
+<div class="ipad"><img class="en" src="/img/ipad-bare-en-480.webp" srcset="/img/ipad-bare-en-320.webp 320w, /img/ipad-bare-en-480.webp 480w, /img/ipad-bare-en-640.webp 640w, /img/ipad-bare-en-960.webp 960w" sizes="(max-width: 860px) calc(100vw - 82px), 340px" width="960" height="1280" alt="DrillTime metronome on an iPad at 120 BPM, Allegro" loading="lazy" decoding="async"><img hidden class="ar" src="/img/ipad-bare-ar-480.webp" srcset="/img/ipad-bare-ar-320.webp 320w, /img/ipad-bare-ar-480.webp 480w, /img/ipad-bare-ar-640.webp 640w, /img/ipad-bare-ar-960.webp 960w" sizes="(max-width: 860px) calc(100vw - 82px), 340px" width="960" height="1280" alt="مترونوم DrillTime على جهاز iPad على سرعة ١٢٠ نبضة في الدقيقة، بسرعة «سريع»" loading="lazy" decoding="async"></div>
 <div class="devices-text">
 <h3><span class="en">Works on iPhone and iPad</span><span class="ar" lang="ar">يعمل على iPhone وiPad</span></h3>
 <p><span class="en">The same app on both, so students can practise on a phone at home and on a shared iPad in class.</span><span class="ar" lang="ar">التطبيق نفسه على الجهازين، فيتمرّن الطلاب على الهاتف في البيت وعلى جهاز iPad مشترك في الفصل.</span></p>
@@ -697,7 +695,7 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
       </nav>
     </div>
     <div class="fbottom">
-      <div class="cr">© 2026 DrillTime</div>
+      <div class="cr">© 2026 DrillTime<p class="credit" style="margin:8px 0 0;max-width:46em;font-size:12px;line-height:1.5"><span class="en">Apple, the Apple logo, iPhone and iPad are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc.</span><span class="ar" lang="ar">Apple وشعار Apple وiPhone وiPad علامات تجارية لشركة Apple Inc.، مسجّلة في الولايات المتحدة وبلدان أخرى. App Store علامة خدمة لشركة Apple Inc.</span></p></div>
       <button class="flang" aria-label="Switch language / تغيير اللغة"><span class="en">العربية</span><span class="ar" lang="ar">English</span></button>
     </div>
   </div>
