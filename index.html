@@ -328,6 +328,14 @@ html[dir="rtl"] .who-list p{font-size:18px}
 .who-list a{color:var(--link);font-size:15px;text-underline-offset:3px}
 html[dir="rtl"] .who-list a{font-size:17px}
 
+/* 10b. PRACTICE STATS (for parents): one upright iPhone beside the text, nothing over it */
+.stats{padding-block:var(--s7) var(--s8)}
+.stats-grid{display:grid;grid-template-columns:230px minmax(0,1fr);gap:var(--s8);align-items:center;max-width:860px}
+.stats-shot{margin:0}
+.stats-text h2{max-width:14em}
+.stats-text p{font-size:17px;color:var(--ink-soft);max-width:30em}
+html[dir="rtl"] .stats-text p{font-size:19px}
+
 /* 11. SAFE BY DESIGN (the existing four cells) */
 .safe{padding-block:var(--s8)}
 .safe-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);padding:var(--s8) var(--s7);box-shadow:var(--shadow-1)}
@@ -443,6 +451,8 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
   .wrap{padding-inline:20px}
   .fan-chips{display:none}
   .pgrid{grid-template-columns:minmax(0,1fr)}
+  .stats-grid{grid-template-columns:minmax(0,1fr);gap:var(--s6)}
+  .stats-shot{width:min(46vw,230px);order:1}
   .safe-card{padding:var(--s7) var(--s6);border-radius:var(--r-m)}
   .end-panel{padding:var(--s8) var(--s6) var(--s7);border-radius:var(--r-m)}
   .buybar-in{height:58px;gap:10px}
@@ -573,6 +583,16 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
   <li data-reveal><p class="who-name"><span class="en">Parents</span><span class="ar" lang="ar">أولياء الأمور</span></p><p><span class="en">Short daily sessions, with no ads and nothing to sign up for.</span><span class="ar" lang="ar">جلسات يومية قصيرة، بلا إعلانات ولا حسابات.</span></p><a class="en" href="/guides/daily-practice-for-kids">How to help your child practise every day</a><a class="ar" lang="ar" href="/ar/guides/daily-practice-for-kids">كيف تساعد طفلك على التمرين كل يوم</a></li>
   <li data-reveal><p class="who-name"><span class="en">Teachers and schools</span><span class="ar" lang="ar">المعلّمون والمدارس</span></p><p><span class="en">Safe on shared iPads in class: no accounts, no data collected, and it works offline.</span><span class="ar" lang="ar">آمن على أجهزة iPad المشتركة في الفصل: بلا حسابات، ولا جمع للبيانات، ويعمل دون إنترنت.</span></p><a class="en" href="/teachers">DrillTime for teachers and schools</a><a class="ar" lang="ar" href="/ar/teachers">DrillTime للمعلّمين والمدارس</a></li>
 </ul>
+</div>
+</section>
+
+<section class="stats" aria-labelledby="stats-h">
+<div class="wrap stats-grid">
+<figure class="stats-shot" data-reveal><div class="phone"><img class="en" src="/img/bz-stats-en-480.webp" srcset="/img/bz-stats-en-240.webp 240w, /img/bz-stats-en-320.webp 320w, /img/bz-stats-en-400.webp 400w, /img/bz-stats-en-480.webp 480w, /img/bz-stats-en-640.webp 640w" sizes="(max-width: 600px) min(46vw, 230px), 230px" width="640" height="1308" alt="DrillTime Practice stats screen with the total practice time, a bar for each day of this week and the time spent on each routine" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/bz-stats-ar-480.webp" srcset="/img/bz-stats-ar-240.webp 240w, /img/bz-stats-ar-320.webp 320w, /img/bz-stats-ar-400.webp 400w, /img/bz-stats-ar-480.webp 480w, /img/bz-stats-ar-640.webp 640w" sizes="(max-width: 600px) min(46vw, 230px), 230px" width="640" height="1308" alt="شاشة «إحصائيات التمرين» في DrillTime مع إجمالي وقت التمرين وعمود لكل يوم من هذا الأسبوع والوقت المخصّص لكل برنامج تدريبي" loading="lazy" fetchpriority="low" decoding="async"></div></figure>
+<div class="stats-text" data-reveal>
+<h2 id="stats-h"><span class="en">How much did your child really practise?</span><span class="ar" lang="ar">كم تمرّن طفلك فعلًا؟</span></h2>
+<p><span class="en">Parents ask me this every week. Practice stats shows the total practice time, a bar for each day of the week and the time spent on each routine, all saved on your child&rsquo;s device only.</span><span class="ar" lang="ar">يسألني أولياء الأمور هذا السؤال كل أسبوع. تعرض «إحصائيات التمرين» إجمالي وقت التمرين، وعمودًا لكل يوم من أيام الأسبوع، والوقت الذي قضاه طفلك في كل برنامج تدريبي، وكل ذلك محفوظ على جهازه فقط.</span></p>
+</div>
 </div>
 </section>
 
