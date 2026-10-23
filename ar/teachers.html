@@ -161,6 +161,13 @@ html[dir=rtl] .card h2{font-size:clamp(23px,3vw,28px)}
 .copy-btn:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .copy-status{display:inline-block;margin-inline-start:12px;font-size:15px;color:var(--ink-soft)}
 
+/* ---- phones: Apple's iPhone 18 Pro bezel is composited into each image at build time
+   (build_bezels.py). Apple's marketing guidelines: upright, unobstructed, no added shadow or effects. */
+.phone{width:min(280px,100%);margin-inline:auto}
+.phone img{display:block;width:100%;height:auto}
+.shots .phone{width:100%}
+.shots figure .phone+figcaption{margin-top:13px}
+
 /* ---- Final call to action: the same centred DrillTime card at the end of every feature, guide and
    teachers page (cream card, site border and shadow, chip links). Fills its page column, so it lines
    up with the content above it. */
@@ -334,11 +341,11 @@ html[dir=rtl] .cta .more a{font-size:17px}
 
 <div class="shots">
 <figure>
-  <img src="/img/metronome-ar-1-240.webp" srcset="/img/metronome-ar-1-180.webp 180w, /img/metronome-ar-1-240.webp 240w, /img/metronome-ar-1-360.webp 360w, /img/metronome-ar-1-480.webp 480w" sizes="(max-width: 600px) calc(50vw - 26px), 240px" width="240" height="520" alt="شاشة المترونوم في DrillTime على سرعة ٨٦ نبضة في الدقيقة، ويظهر تحتها اسم السرعة «سير معتدل» مع زرّي الزيادة والنقصان وشريط ضبط السرعة" fetchpriority="high" decoding="async">
+  <div class="phone"><img src="/img/bz-tempo-ar-480.webp" srcset="/img/bz-tempo-ar-240.webp 240w, /img/bz-tempo-ar-320.webp 320w, /img/bz-tempo-ar-400.webp 400w, /img/bz-tempo-ar-480.webp 480w, /img/bz-tempo-ar-640.webp 640w" sizes="(max-width: 600px) calc(46vw - 34px), 220px" width="640" height="1308" alt="شاشة المترونوم في DrillTime على سرعة ٨٦ نبضة في الدقيقة، ويظهر تحتها اسم السرعة «سير معتدل» مع زرّي الزيادة والنقصان وشريط ضبط السرعة" fetchpriority="high" decoding="async"></div>
   <figcaption>المترونوم على ٨٦ نبضة في الدقيقة، بسرعة «سير معتدل».</figcaption>
 </figure>
 <figure>
-  <img src="/img/rhythm-shuffler-ar-1-240.webp" srcset="/img/rhythm-shuffler-ar-1-180.webp 180w, /img/rhythm-shuffler-ar-1-240.webp 240w, /img/rhythm-shuffler-ar-1-360.webp 360w, /img/rhythm-shuffler-ar-1-480.webp 480w" sizes="(max-width: 600px) calc(50vw - 26px), 240px" width="240" height="521" alt="شاشة إعداد عازف النبض العشوائي في DrillTime، وعليها إيقاع من أربع مازورات في ميزان ٤/٤، والصعوبة مضبوطة على «صعب»، والسرعة ٨٠ نبضة في الدقيقة، مع زرّي «خلط» و«تشغيل»" loading="lazy" decoding="async">
+  <div class="phone"><img src="/img/bz-setup-ar-480.webp" srcset="/img/bz-setup-ar-240.webp 240w, /img/bz-setup-ar-320.webp 320w, /img/bz-setup-ar-400.webp 400w, /img/bz-setup-ar-480.webp 480w, /img/bz-setup-ar-640.webp 640w" sizes="(max-width: 600px) calc(46vw - 34px), 220px" width="640" height="1308" alt="شاشة إعداد عازف النبض العشوائي في DrillTime، وعليها إيقاع من أربع مازورات في ميزان ٤/٤، والصعوبة مضبوطة على «صعب»، والسرعة ٨٠ نبضة في الدقيقة، مع زرّي «خلط» و«تشغيل»" loading="lazy" decoding="async"></div>
   <figcaption>إيقاع جديد من أربع مازورات في ميزان ٤/٤ على سرعة ٨٠ نبضة في الدقيقة.</figcaption>
 </figure>
 </div>
@@ -371,6 +378,8 @@ html[dir=rtl] .cta .more a{font-size:17px}
   </tbody>
 </table>
 </div>
+
+<p>وفي الدرس التالي، اطلب من الطالب أن يفتح «إحصائيات التمرين»، فهي تعرض وقت تمرينه خلال الأسبوع وعمودًا لكل يوم والوقت الذي قضاه في كل برنامج تدريبي، فترى كيف مضت الأيام بين الدرسين.</p>
 
 <h2>آمن للطلاب</h2>
 
@@ -480,7 +489,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
     </nav>
   </div>
   <div class="fbottom">
-    <div class="cr">© 2026 DrillTime</div>
+    <div class="cr">© 2026 DrillTime<p class="credit" style="margin:8px 0 0;max-width:46em;font-size:12px;line-height:1.5">Apple وشعار Apple وiPhone وiPad علامات تجارية لشركة Apple Inc.، مسجّلة في الولايات المتحدة وبلدان أخرى. App Store علامة خدمة لشركة Apple Inc.</p></div>
     <a class="langbtn" href="/teachers" hreflang="en" lang="en">English</a>
   </div>
 </footer>

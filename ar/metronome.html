@@ -167,8 +167,10 @@ html[dir=rtl] .lede{font-size:23px}
 .hero .badge img{width:168px;height:56px}
 
 /* phone frame */
-.phone{width:min(280px,100%);margin-inline:auto;padding:9px;background:var(--card);border:1px solid var(--line);border-radius:44px;box-shadow:var(--shadow-2)}
-.phone img{display:block;width:100%;height:auto;border-radius:35px;background:var(--bg)}
+/* ---- phones: Apple's iPhone 18 Pro bezel is composited into each image at build time
+   (build_bezels.py). Apple's marketing guidelines: upright, unobstructed, no added shadow or effects. */
+.phone{width:min(280px,100%);margin-inline:auto}
+.phone img{display:block;width:100%;height:auto}
 
 /* slim App Store bar: in the page flow after the hero, then sticks to the top (no script, no layout shift) */
 .buybar{position:sticky;top:0;z-index:20;background:rgba(233,237,225,.94);border-block:1px solid var(--line);-webkit-backdrop-filter:saturate(1.3) blur(12px);backdrop-filter:saturate(1.3) blur(12px)}
@@ -472,7 +474,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 <p class="microcopy">شراء لمرة واحدة. بدون اشتراك أو إعلانات أو حسابات.</p>
 </div>
 <div class="hero-media">
-<div class="phone"><img src="/img/pm-metronome-ar-480.webp" srcset="/img/pm-metronome-ar-240.webp 240w, /img/pm-metronome-ar-320.webp 320w, /img/pm-metronome-ar-400.webp 400w, /img/pm-metronome-ar-480.webp 480w, /img/pm-metronome-ar-640.webp 640w" sizes="(max-width: 760px) 224px, 260px" width="640" height="1391" alt="شاشة المترونوم في DrillTime على سرعة ١٢٠ نبضة في الدقيقة واسم السرعة «سريع»، مع شريط ضبط السرعة وأزرار التشغيل والنقصان والزيادة" fetchpriority="high" decoding="async"></div>
+<div class="phone"><img src="/img/bz-metronome-ar-480.webp" srcset="/img/bz-metronome-ar-240.webp 240w, /img/bz-metronome-ar-320.webp 320w, /img/bz-metronome-ar-400.webp 400w, /img/bz-metronome-ar-480.webp 480w, /img/bz-metronome-ar-640.webp 640w" sizes="(max-width: 760px) 224px, 260px" width="640" height="1308" alt="شاشة المترونوم في DrillTime على سرعة ١٢٠ نبضة في الدقيقة واسم السرعة «سريع»، مع شريط ضبط السرعة وأزرار التشغيل والنقصان والزيادة" fetchpriority="high" decoding="async"></div>
 </div>
 </div>
 </div>
@@ -495,7 +497,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 <div class="chipset"><p class="chip-label">تسميات السرعة</p><ul class="chips"><li>ثقيل جداً</li><li>واسع جداً</li><li>هادئ</li><li>سير معتدل</li><li>معتدل</li><li>سريع</li><li>سريع جداً</li><li>سريع للغاية</li></ul></div>
 </div>
 <div class="story-media" data-reveal>
-<div class="phone"><img src="/img/pm-tempo-ar-480.webp" srcset="/img/pm-tempo-ar-240.webp 240w, /img/pm-tempo-ar-320.webp 320w, /img/pm-tempo-ar-400.webp 400w, /img/pm-tempo-ar-480.webp 480w, /img/pm-tempo-ar-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1387" alt="شاشة المترونوم في DrillTime على سرعة ٨٦ نبضة في الدقيقة، ويظهر تحتها اسم السرعة «سير معتدل» مع زرّي الزيادة والنقصان وشريط ضبط السرعة" loading="lazy" decoding="async"></div>
+<div class="phone"><img src="/img/bz-tempo-ar-480.webp" srcset="/img/bz-tempo-ar-240.webp 240w, /img/bz-tempo-ar-320.webp 320w, /img/bz-tempo-ar-400.webp 400w, /img/bz-tempo-ar-480.webp 480w, /img/bz-tempo-ar-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1308" alt="شاشة المترونوم في DrillTime على سرعة ٨٦ نبضة في الدقيقة، ويظهر تحتها اسم السرعة «سير معتدل» مع زرّي الزيادة والنقصان وشريط ضبط السرعة" loading="lazy" decoding="async"></div>
 </div>
 </div>
 </section>
@@ -510,7 +512,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 <div class="chipset"><p class="chip-label">غير منتظم</p><ul class="chips"><li><bdi dir="ltr">٥/٤</bdi></li><li><bdi dir="ltr">٧/٤</bdi></li><li><bdi dir="ltr">٩/٤</bdi></li><li><bdi dir="ltr">٥/٨</bdi></li><li><bdi dir="ltr">٧/٨</bdi></li><li><bdi dir="ltr">١١/٨</bdi></li><li><bdi dir="ltr">١٣/٨</bdi></li></ul></div>
 </div>
 <div class="story-media" data-reveal>
-<div class="phone"><img src="/img/pm-timesig-ar-480.webp" srcset="/img/pm-timesig-ar-240.webp 240w, /img/pm-timesig-ar-320.webp 320w, /img/pm-timesig-ar-400.webp 400w, /img/pm-timesig-ar-480.webp 480w, /img/pm-timesig-ar-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1391" alt="نافذة الميزان الإيقاعي في DrillTime، وفيها موازين بسيطة ومركّبة وغير منتظمة للاختيار منها" loading="lazy" decoding="async"></div>
+<div class="phone"><img src="/img/bz-timesig-ar-480.webp" srcset="/img/bz-timesig-ar-240.webp 240w, /img/bz-timesig-ar-320.webp 320w, /img/bz-timesig-ar-400.webp 400w, /img/bz-timesig-ar-480.webp 480w, /img/bz-timesig-ar-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1308" alt="نافذة الميزان الإيقاعي في DrillTime، وفيها موازين بسيطة ومركّبة وغير منتظمة للاختيار منها" loading="lazy" decoding="async"></div>
 </div>
 </div>
 </section>
@@ -647,7 +649,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
     </nav>
   </div>
   <div class="fbottom">
-    <div class="cr">© 2026 DrillTime</div>
+    <div class="cr">© 2026 DrillTime<p class="credit" style="margin:8px 0 0;max-width:46em;font-size:12px;line-height:1.5">Apple وشعار Apple وiPhone وiPad علامات تجارية لشركة Apple Inc.، مسجّلة في الولايات المتحدة وبلدان أخرى. App Store علامة خدمة لشركة Apple Inc.</p></div>
     <a class="langbtn" href="/metronome" hreflang="en" lang="en">English</a>
   </div>
 </footer>

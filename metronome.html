@@ -167,8 +167,10 @@ html[dir=rtl] .lede{font-size:23px}
 .hero .badge img{width:168px;height:56px}
 
 /* phone frame */
-.phone{width:min(280px,100%);margin-inline:auto;padding:9px;background:var(--card);border:1px solid var(--line);border-radius:44px;box-shadow:var(--shadow-2)}
-.phone img{display:block;width:100%;height:auto;border-radius:35px;background:var(--bg)}
+/* ---- phones: Apple's iPhone 18 Pro bezel is composited into each image at build time
+   (build_bezels.py). Apple's marketing guidelines: upright, unobstructed, no added shadow or effects. */
+.phone{width:min(280px,100%);margin-inline:auto}
+.phone img{display:block;width:100%;height:auto}
 
 /* slim App Store bar: in the page flow after the hero, then sticks to the top (no script, no layout shift) */
 .buybar{position:sticky;top:0;z-index:20;background:rgba(233,237,225,.94);border-block:1px solid var(--line);-webkit-backdrop-filter:saturate(1.3) blur(12px);backdrop-filter:saturate(1.3) blur(12px)}
@@ -472,7 +474,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 <p class="microcopy">One-time purchase. No subscription, no ads, no accounts.</p>
 </div>
 <div class="hero-media">
-<div class="phone"><img src="/img/pm-metronome-en-480.webp" srcset="/img/pm-metronome-en-240.webp 240w, /img/pm-metronome-en-320.webp 320w, /img/pm-metronome-en-400.webp 400w, /img/pm-metronome-en-480.webp 480w, /img/pm-metronome-en-640.webp 640w" sizes="(max-width: 760px) 224px, 260px" width="640" height="1391" alt="DrillTime metronome screen at 120 BPM with the tempo name Allegro, a tempo slider, and start, minus and plus buttons" fetchpriority="high" decoding="async"></div>
+<div class="phone"><img src="/img/bz-metronome-en-480.webp" srcset="/img/bz-metronome-en-240.webp 240w, /img/bz-metronome-en-320.webp 320w, /img/bz-metronome-en-400.webp 400w, /img/bz-metronome-en-480.webp 480w, /img/bz-metronome-en-640.webp 640w" sizes="(max-width: 760px) 224px, 260px" width="640" height="1308" alt="DrillTime metronome screen at 120 BPM with the tempo name Allegro, a tempo slider, and start, minus and plus buttons" fetchpriority="high" decoding="async"></div>
 </div>
 </div>
 </div>
@@ -495,7 +497,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 <div class="chipset"><p class="chip-label">Tempo markings</p><ul class="chips"><li>Grave</li><li>Largo</li><li>Adagio</li><li>Andante</li><li>Moderato</li><li>Allegro</li><li>Presto</li><li>Prestissimo</li></ul></div>
 </div>
 <div class="story-media" data-reveal>
-<div class="phone"><img src="/img/pm-tempo-en-480.webp" srcset="/img/pm-tempo-en-240.webp 240w, /img/pm-tempo-en-320.webp 320w, /img/pm-tempo-en-400.webp 400w, /img/pm-tempo-en-480.webp 480w, /img/pm-tempo-en-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1387" alt="DrillTime metronome screen showing 86 BPM with the tempo name Andante, plus and minus buttons and a tempo slider" loading="lazy" decoding="async"></div>
+<div class="phone"><img src="/img/bz-tempo-en-480.webp" srcset="/img/bz-tempo-en-240.webp 240w, /img/bz-tempo-en-320.webp 320w, /img/bz-tempo-en-400.webp 400w, /img/bz-tempo-en-480.webp 480w, /img/bz-tempo-en-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1308" alt="DrillTime metronome screen showing 86 BPM with the tempo name Andante, plus and minus buttons and a tempo slider" loading="lazy" decoding="async"></div>
 </div>
 </div>
 </section>
@@ -510,7 +512,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
 <div class="chipset"><p class="chip-label">Odd</p><ul class="chips"><li>5/4</li><li>7/4</li><li>9/4</li><li>5/8</li><li>7/8</li><li>11/8</li><li>13/8</li></ul></div>
 </div>
 <div class="story-media" data-reveal>
-<div class="phone"><img src="/img/pm-timesig-en-480.webp" srcset="/img/pm-timesig-en-240.webp 240w, /img/pm-timesig-en-320.webp 320w, /img/pm-timesig-en-400.webp 400w, /img/pm-timesig-en-480.webp 480w, /img/pm-timesig-en-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1391" alt="The Time Signature sheet in DrillTime, with simple, compound and odd time signatures to choose from" loading="lazy" decoding="async"></div>
+<div class="phone"><img src="/img/bz-timesig-en-480.webp" srcset="/img/bz-timesig-en-240.webp 240w, /img/bz-timesig-en-320.webp 320w, /img/bz-timesig-en-400.webp 400w, /img/bz-timesig-en-480.webp 480w, /img/bz-timesig-en-640.webp 640w" sizes="(max-width: 760px) 210px, 240px" width="640" height="1308" alt="The Time Signature sheet in DrillTime, with simple, compound and odd time signatures to choose from" loading="lazy" decoding="async"></div>
 </div>
 </div>
 </section>
@@ -647,7 +649,7 @@ html[dir=rtl] .cta .more a{font-size:17px}
     </nav>
   </div>
   <div class="fbottom">
-    <div class="cr">© 2026 DrillTime</div>
+    <div class="cr">© 2026 DrillTime<p class="credit" style="margin:8px 0 0;max-width:46em;font-size:12px;line-height:1.5">Apple, the Apple logo, iPhone and iPad are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc.</p></div>
     <a class="langbtn" href="/ar/metronome" hreflang="ar" lang="ar">العربية</a>
   </div>
 </footer>
