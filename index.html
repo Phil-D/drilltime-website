@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>try{var l=localStorage.getItem('dt_lang');if(l==='ar'){var d=document.documentElement;d.setAttribute('dir','rtl');d.setAttribute('lang','ar');}}catch(e){}</script>
-<script async src="/js/lang-assets.js?v=44" data-lcp-en="/img/bm-metronome-en-480.webp" data-lcp-ar="/img/bm-metronome-ar-480.webp" data-lcp-en-srcset="/img/bm-metronome-en-240.webp 240w, /img/bm-metronome-en-320.webp 320w, /img/bm-metronome-en-400.webp 400w, /img/bm-metronome-en-480.webp 480w, /img/bm-metronome-en-640.webp 640w" data-lcp-ar-srcset="/img/bm-metronome-ar-240.webp 240w, /img/bm-metronome-ar-320.webp 320w, /img/bm-metronome-ar-400.webp 400w, /img/bm-metronome-ar-480.webp 480w, /img/bm-metronome-ar-640.webp 640w" data-lcp-sizes="(max-width: 860px) calc(33.2vw - 13px), (max-width: 1040px) calc(20.5vw - 18px), 195px"></script>
+<script async src="/js/lang-assets.js?v=44" data-lcp-en="/img/bm-metronome-en-480.webp" data-lcp-ar="/img/bm-metronome-ar-480.webp" data-lcp-en-srcset="/img/bm-metronome-en-240.webp 240w, /img/bm-metronome-en-320.webp 320w, /img/bm-metronome-en-400.webp 400w, /img/bm-metronome-en-480.webp 480w, /img/bm-metronome-en-640.webp 640w" data-lcp-ar-srcset="/img/bm-metronome-ar-240.webp 240w, /img/bm-metronome-ar-320.webp 320w, /img/bm-metronome-ar-400.webp 400w, /img/bm-metronome-ar-480.webp 480w, /img/bm-metronome-ar-640.webp 640w" data-lcp-sizes="(max-width: 767px) calc(33.2vw - 13px), (max-width: 895px) calc(33.2vw - 19px), 279px"></script>
 
 <!-- Primary meta -->
 <title>DrillTime – Metronome, Speed Trainer &amp; Rhythm Trainer for Musicians</title>
@@ -222,25 +222,35 @@ html[dir="rtl"] .sec-intro{font-size:20px}
 .langbtn{color:var(--ink);font-size:13px;letter-spacing:.04em;font-family:inherit;border:1px solid var(--line);border-radius:var(--s9);padding:var(--s4) var(--s6);background:var(--card);transition:background .15s ease,border-color .15s ease}
 .langbtn:hover{background:#fff;border-color:var(--ink-soft)}
 
-/* 7. HERO: the three tools are the main character; the headline (the page's h1) and the pitch sit
-   beside them in a column just wide enough for the headline (it needs at most 356px) */
-.hero{padding-block:var(--s7) var(--s9)}
-.hero-grid{display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1fr);grid-template-areas:"copy fan";column-gap:var(--s7);align-items:center}
-.hero-copy{grid-area:copy}
+/* 7. HERO (768px and wider): stacked and centred. Eyebrow, headline (the page's h1 and its largest
+   type), lede, App Store button and note, then the three phones in a row with their captions.
+   Gaps from the spacing scale: 21 eyebrow-headline, 34 headline-lede, 34 lede-button, 13 button-note,
+   55 copy-phones, 89 top and bottom. Phones first on small screens (see 18. RESPONSIVE). */
+.hero{padding-block:var(--s9)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"copy" "fan";row-gap:var(--s8)}
+/* every line of copy is a full-width box with its text centred inside (not a shrink-wrapped box that is
+   centred), so when the web font changes the text's width, no box moves */
+.hero-copy{grid-area:copy;text-align:center}
 .fan-stage{grid-area:fan}
-.hero-head{font-weight:400;font-size:clamp(26px,3.3vw,36px);line-height:1.2;letter-spacing:-.015em;max-width:15em}
+.hero-head{font-weight:400;font-size:clamp(38px,5vw,56px);line-height:1.15;letter-spacing:-.02em}
 /* the brand eyebrow inside the h1: the site's eyebrow look, on one line of fixed height so a late web
    font never moves the headline; brand spelling kept (no capitals) */
-.hero-head .hero-eyebrow{display:flex;height:24px;line-height:24px;white-space:nowrap;overflow:hidden;max-width:100%;text-transform:none;letter-spacing:.04em;font-weight:400}
+.hero-head .hero-eyebrow{display:block;margin-bottom:var(--s6);height:24px;line-height:24px;white-space:nowrap;overflow:hidden;max-width:100%;text-transform:none;letter-spacing:.04em;font-weight:400}
 html[dir="rtl"] .hero-head .hero-eyebrow{height:28px;line-height:28px;letter-spacing:normal;font-weight:700}
-/* one line per sentence, so the headline wraps the same before and after the web font arrives */
-.hero-head .hl{display:block;white-space:nowrap}
-html[dir="rtl"] .hero-head{font-size:clamp(28px,3.6vw,40px);line-height:1.4;font-weight:700;letter-spacing:0}
-.lede{font-size:clamp(17px,1.8vw,19px);color:var(--ink-soft);margin-block-start:var(--s5);max-width:30em}
+/* one line per sentence, each exactly one line-height tall, so the headline keeps its size before and
+   after the web font arrives (the phones sit below it) */
+.hero-head .hl{display:block;white-space:nowrap;height:1.15em}
+html[dir="rtl"] .hero-head .hl{height:1.3em}
+html[dir="rtl"] .hero-head{font-size:clamp(42px,5.4vw,60px);line-height:1.3;font-weight:700;letter-spacing:0}
+.lede{font-size:clamp(17px,1.8vw,19px);color:var(--ink-soft);margin-block-start:var(--s7);margin-inline:auto;max-width:34em}
+.hero-head .hero-eyebrow::before{display:inline-block;vertical-align:middle;margin-inline-end:var(--s4)}
 html[dir="rtl"] .lede{font-size:clamp(19px,2vw,21px)}
 .mark-underline{white-space:nowrap;position:relative;display:inline-block}
 .mark-underline svg{color:var(--coral);position:absolute;inset-inline:0;bottom:-.2em;width:100%;height:.3em}
-.cta-row{margin-block-start:var(--s7);display:flex;flex-direction:column;align-items:flex-start;gap:var(--s5)}
+.cta-row{margin-block-start:var(--s7);display:flex;flex-direction:column;align-items:stretch;gap:var(--s5)}
+.cta-row .badge{align-self:center}
+/* the shown language's span is a full-width block too (the hidden one stays display:none) */
+.lede>span,.hero .microcopy>span{display:block}
 .badge{display:inline-flex;text-decoration:none;color:var(--bg);font-size:15px;border-radius:var(--r-s);transition:transform .15s ease,box-shadow .15s ease}
 .badge:hover{transform:translateY(-2px);box-shadow:var(--shadow-2)}
 .badge svg,.badge>span{display:none}
@@ -251,7 +261,7 @@ html[dir="rtl"] .microcopy{font-size:15px}
 
 /* the fan: Speed Builder and Rhythm Shuffler lean in behind the metronome (mirrored in Arabic) */
 .fan-stage{display:grid;justify-items:center;gap:var(--s6)}
-.fan{display:flex;justify-content:center;padding-block:var(--s5) var(--s4)}
+.fan{display:flex;justify-content:center;padding-block:0 var(--s4)}
 /* ---- phones: Apple's iPhone 18 Pro bezel is composited into each image at build time
    (build_bezels.py). Apple's marketing guidelines: upright, unobstructed, no added shadow or effects. */
 .phone{width:100%;margin-inline:auto}
@@ -263,7 +273,7 @@ html[dir="rtl"] .microcopy{font-size:15px}
    guidelines): an iPhone 18 Pro Max in the centre and an iPhone 18 Pro either side, drawn at true
    relative scale (the bezel images share one pixels-per-mm, 1470 vs 1350 px wide, so 33.14% : 30.43%).
    The side phones sit a little lower for depth; the row order mirrors itself in Arabic. */
-.fan{width:min(100%,600px);align-items:flex-start;gap:3%}
+.fan{width:min(100%,840px);align-items:flex-start;gap:3%}
 .ph-m{width:33.14%;margin:0;flex:none}
 .ph-sb,.ph-rs{width:30.43%;margin:6% 0 0;flex:none}
 /* captions: one per phone, centred on its own centre line (so the side ones follow their phone's
@@ -278,8 +288,11 @@ html[dir="rtl"] .cap a{font-size:16px}
 html[dir="rtl"] .cap-chev{transform:scaleX(-1)}
 .cap-m{--dot:var(--t-metro)}.cap-sb{--dot:var(--t-speed)}.cap-rs{--dot:var(--t-rhythm)}
 
-/* 8. SLIM APP STORE BAR (in the flow after the hero, then sticks; same as the tool pages) */
-.buybar{position:sticky;top:0;z-index:20;background:rgba(233,237,225,.94);border-block:1px solid var(--line);-webkit-backdrop-filter:saturate(1.3) blur(12px);backdrop-filter:saturate(1.3) blur(12px)}
+/* 8. SLIM APP STORE BAR (same as the tool pages): fixed at the top and hidden until /js/buybar.js reveals it, once the page's main
+   App Store button has scrolled out of view. A transform slide only, so nothing shifts; no JS, no bar. */
+.buybar{transform:translateY(-101%);visibility:hidden;transition:transform .25s ease,visibility 0s linear .25s}
+.buybar.is-shown{transform:none;visibility:visible;transition:transform .25s ease}
+.buybar{position:fixed;top:0;inset-inline:0;z-index:20;background:rgba(233,237,225,.94);border-block:1px solid var(--line);-webkit-backdrop-filter:saturate(1.3) blur(12px);backdrop-filter:saturate(1.3) blur(12px)}
 .buybar-in{display:flex;align-items:center;gap:12px;height:62px}
 .buybar .icon{width:38px;height:38px;border-radius:9px;border:1px solid var(--line);box-shadow:var(--shadow-1);flex:none}
 .bb-text{display:flex;flex-direction:column;line-height:1.25;margin:0 auto 0 0;min-width:0}
@@ -435,10 +448,6 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
 /* 18. RESPONSIVE */
 @media (max-width:860px){
   .top-links{display:none}
-  .hero{padding-block:var(--s6) var(--s8)}
-  /* phones: the three tools first, straight under the nav, then the pitch, so a late web font
-     re-wrapping the headline never moves the phones */
-  .hero-grid{grid-template-columns:minmax(0,1fr);grid-template-areas:"fan" "copy";row-gap:var(--s7)}
   .tool-grid,.who-list,.guide-cards{grid-template-columns:minmax(0,1fr)}
   .tool-shot .phone{width:40%}
   .pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -448,6 +457,23 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
   .fgrid{grid-template-columns:1fr}
   .fnav{text-align:start}
   .fbottom{flex-direction:column;text-align:center}
+}
+@media (max-width:767px){
+  /* phones: the three tools first, straight under the nav, then the pitch (start-aligned), so a late
+     web font re-wrapping the headline never moves the phones */
+  .hero{padding-block:var(--s6) var(--s8)}
+  .hero-grid{grid-template-areas:"fan" "copy";row-gap:var(--s7)}
+  .hero-copy{text-align:start}
+  .hero-head{font-size:26px;line-height:1.2;letter-spacing:-.015em;max-width:15em}
+  html[dir="rtl"] .hero-head{font-size:28px;line-height:1.4}
+  .hero-head .hl{height:1.2em}
+  html[dir="rtl"] .hero-head .hl{height:1.4em}
+  .hero-head .hero-eyebrow{display:flex;margin-bottom:var(--s5)}
+  .hero-head .hero-eyebrow::before{display:block;margin-inline-end:0}
+  .lede{margin-block-start:var(--s5);margin-inline:0;max-width:30em}
+  .cta-row{align-items:flex-start}
+  .cta-row .badge{align-self:auto}
+  .fan{width:min(100%,600px);padding-block:var(--s5) var(--s4)}
 }
 @media (max-width:600px){
   .wrap{padding-inline:20px}
@@ -475,7 +501,7 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
   html[dir="rtl"] .lede{min-height:3.25em}
 }
 @media (max-width:379px){.cap{display:none}}
-@media (max-height:500px){.buybar{position:static}}
+@media (max-height:500px){.buybar{display:none}}
 
 /* 19. MOTION SAFETY */
 @media (prefers-reduced-motion:reduce){
@@ -523,15 +549,15 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
 <div class="fan-stage">
 <div class="fan">
 <figure class="ph ph-sb">
-  <div class="phone"><img class="en" src="/img/bz-player-en-480.webp" srcset="/img/bz-player-en-240.webp 240w, /img/bz-player-en-320.webp 320w, /img/bz-player-en-400.webp 400w, /img/bz-player-en-480.webp 480w, /img/bz-player-en-640.webp 640w" sizes="(max-width: 860px) calc(30.5vw - 12px), (max-width: 1040px) calc(18.8vw - 17px), 179px" width="640" height="1308" alt="DrillTime Speed Builder screen at 86 BPM on step 3 of 6, rising from a start tempo of 80 towards a goal of 95, with the time left shown" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/bz-player-ar-480.webp" srcset="/img/bz-player-ar-240.webp 240w, /img/bz-player-ar-320.webp 320w, /img/bz-player-ar-400.webp 400w, /img/bz-player-ar-480.webp 480w, /img/bz-player-ar-640.webp 640w" sizes="(max-width: 860px) calc(30.5vw - 12px), (max-width: 1040px) calc(18.8vw - 17px), 179px" width="640" height="1308" alt="شاشة بناء السرعة في DrillTime على ٨٦ نبضة في الدقيقة في الخطوة ٣ من ٦، صعودًا من إيقاع البداية ٨٠ نحو إيقاع الهدف ٩٥، مع الوقت المتبقي" loading="lazy" fetchpriority="low" decoding="async"></div>
+  <div class="phone"><img class="en" src="/img/bz-player-en-480.webp" srcset="/img/bz-player-en-240.webp 240w, /img/bz-player-en-320.webp 320w, /img/bz-player-en-400.webp 400w, /img/bz-player-en-480.webp 480w, /img/bz-player-en-640.webp 640w" sizes="(max-width: 767px) calc(30.5vw - 12px), (max-width: 895px) calc(30.5vw - 17px), 256px" width="640" height="1308" alt="DrillTime Speed Builder screen at 86 BPM on step 3 of 6, rising from a start tempo of 80 towards a goal of 95, with the time left shown" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/bz-player-ar-480.webp" srcset="/img/bz-player-ar-240.webp 240w, /img/bz-player-ar-320.webp 320w, /img/bz-player-ar-400.webp 400w, /img/bz-player-ar-480.webp 480w, /img/bz-player-ar-640.webp 640w" sizes="(max-width: 767px) calc(30.5vw - 12px), (max-width: 895px) calc(30.5vw - 17px), 256px" width="640" height="1308" alt="شاشة بناء السرعة في DrillTime على ٨٦ نبضة في الدقيقة في الخطوة ٣ من ٦، صعودًا من إيقاع البداية ٨٠ نحو إيقاع الهدف ٩٥، مع الوقت المتبقي" loading="lazy" fetchpriority="low" decoding="async"></div>
   <figcaption class="cap cap-sb"><a class="en" href="/speed-builder">Speed Builder<svg class="cap-chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="ar" lang="ar" href="/ar/speed-builder">بناء السرعة<svg class="cap-chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></figcaption>
 </figure>
 <figure class="ph ph-m">
-  <div class="phone"><img class="en" src="/img/bm-metronome-en-480.webp" srcset="/img/bm-metronome-en-240.webp 240w, /img/bm-metronome-en-320.webp 320w, /img/bm-metronome-en-400.webp 400w, /img/bm-metronome-en-480.webp 480w, /img/bm-metronome-en-640.webp 640w" sizes="(max-width: 860px) calc(33.2vw - 13px), (max-width: 1040px) calc(20.5vw - 18px), 195px" width="640" height="1306" alt="DrillTime metronome screen at 120 BPM with the tempo name Allegro, a tempo slider, and start, minus and plus buttons" loading="lazy" data-lcp fetchpriority="high" decoding="async"><img hidden class="ar" src="/img/bm-metronome-ar-480.webp" srcset="/img/bm-metronome-ar-240.webp 240w, /img/bm-metronome-ar-320.webp 320w, /img/bm-metronome-ar-400.webp 400w, /img/bm-metronome-ar-480.webp 480w, /img/bm-metronome-ar-640.webp 640w" sizes="(max-width: 860px) calc(33.2vw - 13px), (max-width: 1040px) calc(20.5vw - 18px), 195px" width="640" height="1306" alt="شاشة المترونوم في DrillTime على سرعة ١٢٠ نبضة في الدقيقة واسم السرعة «سريع»، مع شريط ضبط السرعة وأزرار التشغيل والنقصان والزيادة" loading="lazy" data-lcp fetchpriority="high" decoding="async"></div>
+  <div class="phone"><img class="en" src="/img/bm-metronome-en-480.webp" srcset="/img/bm-metronome-en-240.webp 240w, /img/bm-metronome-en-320.webp 320w, /img/bm-metronome-en-400.webp 400w, /img/bm-metronome-en-480.webp 480w, /img/bm-metronome-en-640.webp 640w" sizes="(max-width: 767px) calc(33.2vw - 13px), (max-width: 895px) calc(33.2vw - 19px), 279px" width="640" height="1306" alt="DrillTime metronome screen at 120 BPM with the tempo name Allegro, a tempo slider, and start, minus and plus buttons" loading="lazy" data-lcp fetchpriority="high" decoding="async"><img hidden class="ar" src="/img/bm-metronome-ar-480.webp" srcset="/img/bm-metronome-ar-240.webp 240w, /img/bm-metronome-ar-320.webp 320w, /img/bm-metronome-ar-400.webp 400w, /img/bm-metronome-ar-480.webp 480w, /img/bm-metronome-ar-640.webp 640w" sizes="(max-width: 767px) calc(33.2vw - 13px), (max-width: 895px) calc(33.2vw - 19px), 279px" width="640" height="1306" alt="شاشة المترونوم في DrillTime على سرعة ١٢٠ نبضة في الدقيقة واسم السرعة «سريع»، مع شريط ضبط السرعة وأزرار التشغيل والنقصان والزيادة" loading="lazy" data-lcp fetchpriority="high" decoding="async"></div>
   <figcaption class="cap cap-m"><a class="en" href="/metronome">Metronome<svg class="cap-chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="ar" lang="ar" href="/ar/metronome">المترونوم<svg class="cap-chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></figcaption>
 </figure>
 <figure class="ph ph-rs">
-  <div class="phone"><img class="en" src="/img/bz-read-en-480.webp" srcset="/img/bz-read-en-240.webp 240w, /img/bz-read-en-320.webp 320w, /img/bz-read-en-400.webp 400w, /img/bz-read-en-480.webp 480w, /img/bz-read-en-640.webp 640w" sizes="(max-width: 860px) calc(30.5vw - 12px), (max-width: 1040px) calc(18.8vw - 17px), 179px" width="640" height="1308" alt="Rhythm Shuffler reading screen with four bars of rhythm in 4/4, a line marking your place, and a large Tap the rhythm pad" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/bz-read-ar-480.webp" srcset="/img/bz-read-ar-240.webp 240w, /img/bz-read-ar-320.webp 320w, /img/bz-read-ar-400.webp 400w, /img/bz-read-ar-480.webp 480w, /img/bz-read-ar-640.webp 640w" sizes="(max-width: 860px) calc(30.5vw - 12px), (max-width: 1040px) calc(18.8vw - 17px), 179px" width="640" height="1308" alt="شاشة القراءة في عازف النبض العشوائي: أربع مازورات من الإيقاع في ميزان ٤/٤، وخط يحدّد موضعك، ولوحة كبيرة مكتوب عليها «انقر الإيقاع»" loading="lazy" fetchpriority="low" decoding="async"></div>
+  <div class="phone"><img class="en" src="/img/bz-read-en-480.webp" srcset="/img/bz-read-en-240.webp 240w, /img/bz-read-en-320.webp 320w, /img/bz-read-en-400.webp 400w, /img/bz-read-en-480.webp 480w, /img/bz-read-en-640.webp 640w" sizes="(max-width: 767px) calc(30.5vw - 12px), (max-width: 895px) calc(30.5vw - 17px), 256px" width="640" height="1308" alt="Rhythm Shuffler reading screen with four bars of rhythm in 4/4, a line marking your place, and a large Tap the rhythm pad" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/bz-read-ar-480.webp" srcset="/img/bz-read-ar-240.webp 240w, /img/bz-read-ar-320.webp 320w, /img/bz-read-ar-400.webp 400w, /img/bz-read-ar-480.webp 480w, /img/bz-read-ar-640.webp 640w" sizes="(max-width: 767px) calc(30.5vw - 12px), (max-width: 895px) calc(30.5vw - 17px), 256px" width="640" height="1308" alt="شاشة القراءة في عازف النبض العشوائي: أربع مازورات من الإيقاع في ميزان ٤/٤، وخط يحدّد موضعك، ولوحة كبيرة مكتوب عليها «انقر الإيقاع»" loading="lazy" fetchpriority="low" decoding="async"></div>
   <figcaption class="cap cap-rs"><a class="en" href="/rhythm-shuffler">Rhythm Shuffler<svg class="cap-chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="ar" lang="ar" href="/ar/rhythm-shuffler">عازف النبض العشوائي<svg class="cap-chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></figcaption>
 </figure>
 </div>
@@ -724,5 +750,6 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
     </div>
   </div>
 </footer>
+<script defer src="/js/buybar.js?v=1"></script>
 </body>
 </html>
