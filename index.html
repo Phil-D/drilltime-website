@@ -266,13 +266,17 @@ html[dir="rtl"] .microcopy{font-size:15px}
 .fan{width:min(100%,600px);align-items:flex-start;gap:3%}
 .ph-m{width:33.14%;margin:0;flex:none}
 .ph-sb,.ph-rs{width:30.43%;margin:6% 0 0;flex:none}
-.fan-chips{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:min(540px,100%)}
-.fan-chips li{margin:0}
-.fan-chips a{display:flex;width:100%;align-items:center;gap:8px;padding:7px 14px;white-space:nowrap;border:1px solid var(--line);border-radius:var(--r-s);background:var(--card);color:var(--ink);font-size:14px;text-decoration:none;transition:border-color .15s ease,background-color .15s ease}
-html[dir="rtl"] .fan-chips a{font-size:16px}
-.fan-chips a:hover{border-color:#b4bca6;background:#fff}
-.fan-chips a::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--dot)}
-.chip-m{--dot:var(--t-metro)}.chip-sb{--dot:var(--t-speed)}.chip-rs{--dot:var(--t-rhythm)}
+/* captions: one per phone, centred on its own centre line (so the side ones follow their phone's
+   lower offset), no box; the tool's accent dot, the name, a small chevron (mirrored in Arabic).
+   A fixed 44px row reserves the space and is the tap height. */
+.cap{display:flex;justify-content:center;height:44px;margin-top:var(--s3);white-space:nowrap}
+.cap a{display:inline-flex;align-items:center;gap:7px;height:44px;padding-inline:6px;color:var(--ink-soft);font-size:14px;text-decoration:none;text-underline-offset:4px}
+html[dir="rtl"] .cap a{font-size:16px}
+.cap a::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--dot);flex:none}
+.cap a:hover{color:var(--ink);text-decoration:underline;text-decoration-color:var(--dot)}
+.cap-chev{flex:none;opacity:.7}
+html[dir="rtl"] .cap-chev{transform:scaleX(-1)}
+.cap-m{--dot:var(--t-metro)}.cap-sb{--dot:var(--t-speed)}.cap-rs{--dot:var(--t-rhythm)}
 
 /* 8. SLIM APP STORE BAR (in the flow after the hero, then sticks; same as the tool pages) */
 .buybar{position:sticky;top:0;z-index:20;background:rgba(233,237,225,.94);border-block:1px solid var(--line);-webkit-backdrop-filter:saturate(1.3) blur(12px);backdrop-filter:saturate(1.3) blur(12px)}
@@ -447,7 +451,9 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
 }
 @media (max-width:600px){
   .wrap{padding-inline:20px}
-  .fan-chips{display:none}
+  /* captions stay on phones, smaller; below 380px wide they would crowd each other, so they hide */
+  .cap a{font-size:12px;gap:5px;padding-inline:2px}
+  html[dir="rtl"] .cap a{font-size:14px}
   .pgrid{grid-template-columns:minmax(0,1fr)}
   .stats-grid{grid-template-columns:minmax(0,1fr);gap:var(--s6)}
   .stats-shot{width:min(46vw,230px);order:1}
@@ -468,6 +474,7 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
   /* likewise the Arabic lede: two lines in the fallback font, one in Beiruti */
   html[dir="rtl"] .lede{min-height:3.25em}
 }
+@media (max-width:379px){.cap{display:none}}
 @media (max-height:500px){.buybar{position:static}}
 
 /* 19. MOTION SAFETY */
@@ -517,19 +524,17 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
 <div class="fan">
 <figure class="ph ph-sb">
   <div class="phone"><img class="en" src="/img/bz-player-en-480.webp" srcset="/img/bz-player-en-240.webp 240w, /img/bz-player-en-320.webp 320w, /img/bz-player-en-400.webp 400w, /img/bz-player-en-480.webp 480w, /img/bz-player-en-640.webp 640w" sizes="(max-width: 860px) calc(30.5vw - 12px), (max-width: 1040px) calc(18.8vw - 17px), 179px" width="640" height="1308" alt="DrillTime Speed Builder screen at 86 BPM on step 3 of 6, rising from a start tempo of 80 towards a goal of 95, with the time left shown" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/bz-player-ar-480.webp" srcset="/img/bz-player-ar-240.webp 240w, /img/bz-player-ar-320.webp 320w, /img/bz-player-ar-400.webp 400w, /img/bz-player-ar-480.webp 480w, /img/bz-player-ar-640.webp 640w" sizes="(max-width: 860px) calc(30.5vw - 12px), (max-width: 1040px) calc(18.8vw - 17px), 179px" width="640" height="1308" alt="شاشة بناء السرعة في DrillTime على ٨٦ نبضة في الدقيقة في الخطوة ٣ من ٦، صعودًا من إيقاع البداية ٨٠ نحو إيقاع الهدف ٩٥، مع الوقت المتبقي" loading="lazy" fetchpriority="low" decoding="async"></div>
+  <figcaption class="cap cap-sb"><a class="en" href="/speed-builder">Speed Builder<svg class="cap-chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="ar" lang="ar" href="/ar/speed-builder">بناء السرعة<svg class="cap-chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></figcaption>
 </figure>
 <figure class="ph ph-m">
   <div class="phone"><img class="en" src="/img/bm-metronome-en-480.webp" srcset="/img/bm-metronome-en-240.webp 240w, /img/bm-metronome-en-320.webp 320w, /img/bm-metronome-en-400.webp 400w, /img/bm-metronome-en-480.webp 480w, /img/bm-metronome-en-640.webp 640w" sizes="(max-width: 860px) calc(33.2vw - 13px), (max-width: 1040px) calc(20.5vw - 18px), 195px" width="640" height="1306" alt="DrillTime metronome screen at 120 BPM with the tempo name Allegro, a tempo slider, and start, minus and plus buttons" loading="lazy" data-lcp fetchpriority="high" decoding="async"><img hidden class="ar" src="/img/bm-metronome-ar-480.webp" srcset="/img/bm-metronome-ar-240.webp 240w, /img/bm-metronome-ar-320.webp 320w, /img/bm-metronome-ar-400.webp 400w, /img/bm-metronome-ar-480.webp 480w, /img/bm-metronome-ar-640.webp 640w" sizes="(max-width: 860px) calc(33.2vw - 13px), (max-width: 1040px) calc(20.5vw - 18px), 195px" width="640" height="1306" alt="شاشة المترونوم في DrillTime على سرعة ١٢٠ نبضة في الدقيقة واسم السرعة «سريع»، مع شريط ضبط السرعة وأزرار التشغيل والنقصان والزيادة" loading="lazy" data-lcp fetchpriority="high" decoding="async"></div>
+  <figcaption class="cap cap-m"><a class="en" href="/metronome">Metronome<svg class="cap-chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="ar" lang="ar" href="/ar/metronome">المترونوم<svg class="cap-chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></figcaption>
 </figure>
 <figure class="ph ph-rs">
   <div class="phone"><img class="en" src="/img/bz-read-en-480.webp" srcset="/img/bz-read-en-240.webp 240w, /img/bz-read-en-320.webp 320w, /img/bz-read-en-400.webp 400w, /img/bz-read-en-480.webp 480w, /img/bz-read-en-640.webp 640w" sizes="(max-width: 860px) calc(30.5vw - 12px), (max-width: 1040px) calc(18.8vw - 17px), 179px" width="640" height="1308" alt="Rhythm Shuffler reading screen with four bars of rhythm in 4/4, a line marking your place, and a large Tap the rhythm pad" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/bz-read-ar-480.webp" srcset="/img/bz-read-ar-240.webp 240w, /img/bz-read-ar-320.webp 320w, /img/bz-read-ar-400.webp 400w, /img/bz-read-ar-480.webp 480w, /img/bz-read-ar-640.webp 640w" sizes="(max-width: 860px) calc(30.5vw - 12px), (max-width: 1040px) calc(18.8vw - 17px), 179px" width="640" height="1308" alt="شاشة القراءة في عازف النبض العشوائي: أربع مازورات من الإيقاع في ميزان ٤/٤، وخط يحدّد موضعك، ولوحة كبيرة مكتوب عليها «انقر الإيقاع»" loading="lazy" fetchpriority="low" decoding="async"></div>
+  <figcaption class="cap cap-rs"><a class="en" href="/rhythm-shuffler">Rhythm Shuffler<svg class="cap-chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="ar" lang="ar" href="/ar/rhythm-shuffler">عازف النبض العشوائي<svg class="cap-chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></figcaption>
 </figure>
 </div>
-<ul class="fan-chips">
-  <li class="chip-sb"><a class="en" href="/speed-builder">Speed Builder</a><a class="ar" lang="ar" href="/ar/speed-builder">بناء السرعة</a></li>
-  <li class="chip-m"><a class="en" href="/metronome">Metronome</a><a class="ar" lang="ar" href="/ar/metronome">المترونوم</a></li>
-  <li class="chip-rs"><a class="en" href="/rhythm-shuffler">Rhythm Shuffler</a><a class="ar" lang="ar" href="/ar/rhythm-shuffler">عازف النبض العشوائي</a></li>
-</ul>
 </div>
 </div>
 </section>
