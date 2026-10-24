@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>try{var l=localStorage.getItem('dt_lang');if(l==='ar'){var d=document.documentElement;d.setAttribute('dir','rtl');d.setAttribute('lang','ar');}}catch(e){}</script>
-<script async src="/js/lang-assets.js?v=44" data-lcp-en="/img/bm-metronome-en-480.webp" data-lcp-ar="/img/bm-metronome-ar-480.webp" data-lcp-en-srcset="/img/bm-metronome-en-240.webp 240w, /img/bm-metronome-en-320.webp 320w, /img/bm-metronome-en-400.webp 400w, /img/bm-metronome-en-480.webp 480w, /img/bm-metronome-en-640.webp 640w" data-lcp-ar-srcset="/img/bm-metronome-ar-240.webp 240w, /img/bm-metronome-ar-320.webp 320w, /img/bm-metronome-ar-400.webp 400w, /img/bm-metronome-ar-480.webp 480w, /img/bm-metronome-ar-640.webp 640w" data-lcp-sizes="(max-width: 860px) calc(33.2vw - 13px), 186px"></script>
+<script async src="/js/lang-assets.js?v=44" data-lcp-en="/img/bm-metronome-en-480.webp" data-lcp-ar="/img/bm-metronome-ar-480.webp" data-lcp-en-srcset="/img/bm-metronome-en-240.webp 240w, /img/bm-metronome-en-320.webp 320w, /img/bm-metronome-en-400.webp 400w, /img/bm-metronome-en-480.webp 480w, /img/bm-metronome-en-640.webp 640w" data-lcp-ar-srcset="/img/bm-metronome-ar-240.webp 240w, /img/bm-metronome-ar-320.webp 320w, /img/bm-metronome-ar-400.webp 400w, /img/bm-metronome-ar-480.webp 480w, /img/bm-metronome-ar-640.webp 640w" data-lcp-sizes="(max-width: 860px) calc(33.2vw - 13px), (max-width: 1040px) calc(20.5vw - 18px), 195px"></script>
 
 <!-- Primary meta -->
 <title>DrillTime – Metronome, Speed Trainer &amp; Rhythm Trainer for Musicians</title>
@@ -222,19 +222,13 @@ html[dir="rtl"] .sec-intro{font-size:20px}
 .langbtn{color:var(--ink);font-size:13px;letter-spacing:.04em;font-family:inherit;border:1px solid var(--line);border-radius:var(--s9);padding:var(--s4) var(--s6);background:var(--card);transition:background .15s ease,border-color .15s ease}
 .langbtn:hover{background:#fff;border-color:var(--ink-soft)}
 
-/* 7. HERO: the logo lockup and copy beside a fan of the three tools */
+/* 7. HERO: the three tools are the main character; the headline (the page's h1) and the pitch sit
+   beside them in a column just wide enough for the headline (it needs at most 356px) */
 .hero{padding-block:var(--s7) var(--s9)}
-.hero-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);grid-template-areas:"brand fan" "copy fan";grid-template-rows:auto 1fr;column-gap:var(--s7);align-items:start}
-.hero-brand{grid-area:brand;padding-top:var(--s7)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1fr);grid-template-areas:"copy fan";column-gap:var(--s7);align-items:center}
 .hero-copy{grid-area:copy}
-.fan-stage{grid-area:fan;align-self:center}
-.hero-logo{width:55px;height:auto;color:var(--ink);margin-block-end:var(--s5)}
-h1{font-weight:400;font-size:clamp(42px,6vw,68px);line-height:1;letter-spacing:-.02em}
-html[dir="rtl"] h1{font-size:clamp(48px,7vw,76px)}
-.tagline{font-size:clamp(19px,2.4vw,24px);color:var(--text-dim);letter-spacing:-.01em;margin-block-start:var(--s4)}
-html[dir="rtl"] .tagline{font-size:clamp(21px,2.7vw,27px)}
-.hero-head{font-size:clamp(26px,3.3vw,36px);line-height:1.2;letter-spacing:-.015em;margin-block-start:var(--s7);max-width:15em}
-.hero-brand h1,.hero-brand .tagline{white-space:nowrap}
+.fan-stage{grid-area:fan}
+.hero-head{font-weight:400;font-size:clamp(26px,3.3vw,36px);line-height:1.2;letter-spacing:-.015em;max-width:15em}
 /* one line per sentence, so the headline wraps the same before and after the web font arrives */
 .hero-head .hl{display:block;white-space:nowrap}
 html[dir="rtl"] .hero-head{font-size:clamp(28px,3.6vw,40px);line-height:1.4;font-weight:700;letter-spacing:0}
@@ -265,7 +259,7 @@ html[dir="rtl"] .microcopy{font-size:15px}
    guidelines): an iPhone 18 Pro Max in the centre and an iPhone 18 Pro either side, drawn at true
    relative scale (the bezel images share one pixels-per-mm, 1470 vs 1350 px wide, so 33.14% : 30.43%).
    The side phones sit a little lower for depth; the row order mirrors itself in Arabic. */
-.fan{width:min(100%,560px);align-items:flex-start;gap:3%}
+.fan{width:min(100%,600px);align-items:flex-start;gap:3%}
 .ph-m{width:33.14%;margin:0;flex:none}
 .ph-sb,.ph-rs{width:30.43%;margin:6% 0 0;flex:none}
 .fan-chips{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:min(540px,100%)}
@@ -434,10 +428,9 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
 @media (max-width:860px){
   .top-links{display:none}
   .hero{padding-block:var(--s6) var(--s8)}
-  /* phones: the single-line logo lockup, then the three tools, then the pitch, so a late web font
+  /* phones: the three tools first, straight under the nav, then the pitch, so a late web font
      re-wrapping the headline never moves the phones */
-  .hero-grid{grid-template-columns:minmax(0,1fr);grid-template-areas:"brand" "fan" "copy";grid-template-rows:auto;row-gap:var(--s7)}
-  .hero-brand{padding-top:0}
+  .hero-grid{grid-template-columns:minmax(0,1fr);grid-template-areas:"fan" "copy";row-gap:var(--s7)}
   .tool-grid,.who-list,.guide-cards{grid-template-columns:minmax(0,1fr)}
   .tool-shot .phone{width:40%}
   .pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -461,6 +454,11 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
   .buybar .apple-badge{width:108px;height:36px}
   .sec-intro{margin-bottom:var(--s7)}
   .cv{contain-intrinsic-size:auto 1900px}
+}
+@media (max-width:480px){
+  /* the Arabic lede is three lines in the fallback font and two in Beiruti: reserve three so the
+     App Store button never jumps when the web font arrives */
+  html[dir="rtl"] .lede{min-height:4.8em}
 }
 @media (max-height:500px){.buybar{position:static}}
 
@@ -498,13 +496,8 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
 <main id="main">
 <section class="hero">
 <div class="wrap hero-grid">
-<div class="hero-brand">
-<svg class="hero-logo" viewBox="-40 -40 912 602" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="68" height="522" rx="34" fill="currentColor"/><rect x="764" y="0" width="68" height="522" rx="34" fill="currentColor"/><circle cx="136" cy="193" r="34" fill="currentColor"/><circle cx="136" cy="329" r="34" fill="currentColor"/><circle cx="696" cy="193" r="34" fill="currentColor"/><circle cx="696" cy="329" r="34" fill="currentColor"/><path d="M266 227L266 92L496 92" stroke="currentColor" stroke-width="68" stroke-linecap="round" stroke-linejoin="round"/><path d="M496 27L601 92L496 157Z" fill="currentColor" stroke="currentColor" stroke-width="68" stroke-linecap="round" stroke-linejoin="round"/><path d="M566 295L566 430L336 430" stroke="currentColor" stroke-width="68" stroke-linecap="round" stroke-linejoin="round"/><path d="M336 495L231 430L336 365Z" fill="currentColor" stroke="currentColor" stroke-width="68" stroke-linecap="round" stroke-linejoin="round"/></svg>
-<h1><span class="en">drill time</span><span class="ar" lang="ar">وقت التمرين</span></h1>
-<p class="tagline"><span class="en">Daily music practice</span><span class="ar" lang="ar">التدريب الموسيقي اليومي</span></p>
-</div>
 <div class="hero-copy">
-<p class="hero-head"><span class="en"><span class="hl">One app. Three tools.</span> <span class="hl"><span class="mark-underline">Every<svg viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M2 8c22-5 54-6 96-3" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></span> day of practice.</span></span><span class="ar" lang="ar"><span class="hl">تطبيق واحد، وثلاث أدوات،</span> <span class="hl">لتمرين <span class="mark-underline">كل<svg viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M2 8c22-5 54-6 96-3" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></span> يوم.</span></span></p>
+<h1 class="hero-head"><span class="en"><span class="hl">One app. Three tools.</span> <span class="hl"><span class="mark-underline">Every<svg viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M2 8c22-5 54-6 96-3" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></span> day of practice.</span></span><span class="ar" lang="ar"><span class="hl">تطبيق واحد، وثلاث أدوات،</span> <span class="hl">لتمرين <span class="mark-underline">كل<svg viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M2 8c22-5 54-6 96-3" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></span> يوم.</span></span></h1>
 <p class="lede"><span class="en">I teach guitar, and these are the three tools I want every student to practise with between lessons.</span><span class="ar" lang="ar">أنا معلّم غيتار، وفي DrillTime وقت التمرين جمعت الأدوات الثلاث التي أريد أن يتمرّن بها كل طالب بين الدروس.</span></p>
 <div class="cta-row">
 <a class="badge" href="#" data-appstore><img class="apple-badge badge-ar blk" alt="تنزيل التطبيق من App Store" src="img/appstore-ar-black.svg" width="168" height="56" loading="lazy" decoding="async"><img class="apple-badge badge-ar wht" alt="تنزيل التطبيق من App Store" src="img/appstore-ar-white.svg" width="168" height="56" loading="lazy" decoding="async"><img class="apple-badge badge-en blk" alt="Download on the App Store" src="img/appstore-en-black.svg" width="168" height="56" loading="lazy" decoding="async"><img class="apple-badge badge-en wht" alt="Download on the App Store" src="img/appstore-en-white.svg" width="168" height="56" loading="lazy" decoding="async"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17 12.5c0-2 1.6-3 1.7-3-.9-1.4-2.4-1.5-2.9-1.6-1.2-.1-2.4.7-3 .7s-1.6-.7-2.6-.7c-1.3 0-2.6.8-3.2 2-1.4 2.4-.4 6 1 8 .7 1 1.5 2.1 2.5 2 1-.04 1.4-.6 2.6-.6s1.5.6 2.6.6 1.7-1 2.4-2c.5-.7.9-1.5 1-1.6-.02-.02-2.6-1-2.6-4.2zM15 6.2c.6-.7 1-1.6.9-2.6-.8.04-1.9.6-2.5 1.3-.6.6-1 1.6-.9 2.5.9.07 1.9-.5 2.5-1.2z"/></svg>
@@ -515,13 +508,13 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
 <div class="fan-stage">
 <div class="fan">
 <figure class="ph ph-sb">
-  <div class="phone"><img class="en" src="/img/bz-player-en-480.webp" srcset="/img/bz-player-en-240.webp 240w, /img/bz-player-en-320.webp 320w, /img/bz-player-en-400.webp 400w, /img/bz-player-en-480.webp 480w, /img/bz-player-en-640.webp 640w" sizes="(max-width: 860px) calc(30.5vw - 12px), 171px" width="640" height="1308" alt="DrillTime Speed Builder screen at 86 BPM on step 3 of 6, rising from a start tempo of 80 towards a goal of 95, with the time left shown" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/bz-player-ar-480.webp" srcset="/img/bz-player-ar-240.webp 240w, /img/bz-player-ar-320.webp 320w, /img/bz-player-ar-400.webp 400w, /img/bz-player-ar-480.webp 480w, /img/bz-player-ar-640.webp 640w" sizes="(max-width: 860px) calc(30.5vw - 12px), 171px" width="640" height="1308" alt="شاشة بناء السرعة في DrillTime على ٨٦ نبضة في الدقيقة في الخطوة ٣ من ٦، صعودًا من إيقاع البداية ٨٠ نحو إيقاع الهدف ٩٥، مع الوقت المتبقي" loading="lazy" fetchpriority="low" decoding="async"></div>
+  <div class="phone"><img class="en" src="/img/bz-player-en-480.webp" srcset="/img/bz-player-en-240.webp 240w, /img/bz-player-en-320.webp 320w, /img/bz-player-en-400.webp 400w, /img/bz-player-en-480.webp 480w, /img/bz-player-en-640.webp 640w" sizes="(max-width: 860px) calc(30.5vw - 12px), (max-width: 1040px) calc(18.8vw - 17px), 179px" width="640" height="1308" alt="DrillTime Speed Builder screen at 86 BPM on step 3 of 6, rising from a start tempo of 80 towards a goal of 95, with the time left shown" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/bz-player-ar-480.webp" srcset="/img/bz-player-ar-240.webp 240w, /img/bz-player-ar-320.webp 320w, /img/bz-player-ar-400.webp 400w, /img/bz-player-ar-480.webp 480w, /img/bz-player-ar-640.webp 640w" sizes="(max-width: 860px) calc(30.5vw - 12px), (max-width: 1040px) calc(18.8vw - 17px), 179px" width="640" height="1308" alt="شاشة بناء السرعة في DrillTime على ٨٦ نبضة في الدقيقة في الخطوة ٣ من ٦، صعودًا من إيقاع البداية ٨٠ نحو إيقاع الهدف ٩٥، مع الوقت المتبقي" loading="lazy" fetchpriority="low" decoding="async"></div>
 </figure>
 <figure class="ph ph-m">
-  <div class="phone"><img class="en" src="/img/bm-metronome-en-480.webp" srcset="/img/bm-metronome-en-240.webp 240w, /img/bm-metronome-en-320.webp 320w, /img/bm-metronome-en-400.webp 400w, /img/bm-metronome-en-480.webp 480w, /img/bm-metronome-en-640.webp 640w" sizes="(max-width: 860px) calc(33.2vw - 13px), 186px" width="640" height="1306" alt="DrillTime metronome screen at 120 BPM with the tempo name Allegro, a tempo slider, and start, minus and plus buttons" loading="lazy" data-lcp fetchpriority="high" decoding="async"><img hidden class="ar" src="/img/bm-metronome-ar-480.webp" srcset="/img/bm-metronome-ar-240.webp 240w, /img/bm-metronome-ar-320.webp 320w, /img/bm-metronome-ar-400.webp 400w, /img/bm-metronome-ar-480.webp 480w, /img/bm-metronome-ar-640.webp 640w" sizes="(max-width: 860px) calc(33.2vw - 13px), 186px" width="640" height="1306" alt="شاشة المترونوم في DrillTime على سرعة ١٢٠ نبضة في الدقيقة واسم السرعة «سريع»، مع شريط ضبط السرعة وأزرار التشغيل والنقصان والزيادة" loading="lazy" data-lcp fetchpriority="high" decoding="async"></div>
+  <div class="phone"><img class="en" src="/img/bm-metronome-en-480.webp" srcset="/img/bm-metronome-en-240.webp 240w, /img/bm-metronome-en-320.webp 320w, /img/bm-metronome-en-400.webp 400w, /img/bm-metronome-en-480.webp 480w, /img/bm-metronome-en-640.webp 640w" sizes="(max-width: 860px) calc(33.2vw - 13px), (max-width: 1040px) calc(20.5vw - 18px), 195px" width="640" height="1306" alt="DrillTime metronome screen at 120 BPM with the tempo name Allegro, a tempo slider, and start, minus and plus buttons" loading="lazy" data-lcp fetchpriority="high" decoding="async"><img hidden class="ar" src="/img/bm-metronome-ar-480.webp" srcset="/img/bm-metronome-ar-240.webp 240w, /img/bm-metronome-ar-320.webp 320w, /img/bm-metronome-ar-400.webp 400w, /img/bm-metronome-ar-480.webp 480w, /img/bm-metronome-ar-640.webp 640w" sizes="(max-width: 860px) calc(33.2vw - 13px), (max-width: 1040px) calc(20.5vw - 18px), 195px" width="640" height="1306" alt="شاشة المترونوم في DrillTime على سرعة ١٢٠ نبضة في الدقيقة واسم السرعة «سريع»، مع شريط ضبط السرعة وأزرار التشغيل والنقصان والزيادة" loading="lazy" data-lcp fetchpriority="high" decoding="async"></div>
 </figure>
 <figure class="ph ph-rs">
-  <div class="phone"><img class="en" src="/img/bz-read-en-480.webp" srcset="/img/bz-read-en-240.webp 240w, /img/bz-read-en-320.webp 320w, /img/bz-read-en-400.webp 400w, /img/bz-read-en-480.webp 480w, /img/bz-read-en-640.webp 640w" sizes="(max-width: 860px) calc(30.5vw - 12px), 171px" width="640" height="1308" alt="Rhythm Shuffler reading screen with four bars of rhythm in 4/4, a line marking your place, and a large Tap the rhythm pad" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/bz-read-ar-480.webp" srcset="/img/bz-read-ar-240.webp 240w, /img/bz-read-ar-320.webp 320w, /img/bz-read-ar-400.webp 400w, /img/bz-read-ar-480.webp 480w, /img/bz-read-ar-640.webp 640w" sizes="(max-width: 860px) calc(30.5vw - 12px), 171px" width="640" height="1308" alt="شاشة القراءة في عازف النبض العشوائي: أربع مازورات من الإيقاع في ميزان ٤/٤، وخط يحدّد موضعك، ولوحة كبيرة مكتوب عليها «انقر الإيقاع»" loading="lazy" fetchpriority="low" decoding="async"></div>
+  <div class="phone"><img class="en" src="/img/bz-read-en-480.webp" srcset="/img/bz-read-en-240.webp 240w, /img/bz-read-en-320.webp 320w, /img/bz-read-en-400.webp 400w, /img/bz-read-en-480.webp 480w, /img/bz-read-en-640.webp 640w" sizes="(max-width: 860px) calc(30.5vw - 12px), (max-width: 1040px) calc(18.8vw - 17px), 179px" width="640" height="1308" alt="Rhythm Shuffler reading screen with four bars of rhythm in 4/4, a line marking your place, and a large Tap the rhythm pad" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/bz-read-ar-480.webp" srcset="/img/bz-read-ar-240.webp 240w, /img/bz-read-ar-320.webp 320w, /img/bz-read-ar-400.webp 400w, /img/bz-read-ar-480.webp 480w, /img/bz-read-ar-640.webp 640w" sizes="(max-width: 860px) calc(30.5vw - 12px), (max-width: 1040px) calc(18.8vw - 17px), 179px" width="640" height="1308" alt="شاشة القراءة في عازف النبض العشوائي: أربع مازورات من الإيقاع في ميزان ٤/٤، وخط يحدّد موضعك، ولوحة كبيرة مكتوب عليها «انقر الإيقاع»" loading="lazy" fetchpriority="low" decoding="async"></div>
 </figure>
 </div>
 <ul class="fan-chips">
