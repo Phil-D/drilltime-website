@@ -229,6 +229,10 @@ html[dir="rtl"] .sec-intro{font-size:20px}
 .hero-copy{grid-area:copy}
 .fan-stage{grid-area:fan}
 .hero-head{font-weight:400;font-size:clamp(26px,3.3vw,36px);line-height:1.2;letter-spacing:-.015em;max-width:15em}
+/* the brand eyebrow inside the h1: the site's eyebrow look, on one line of fixed height so a late web
+   font never moves the headline; brand spelling kept (no capitals) */
+.hero-head .hero-eyebrow{display:flex;height:24px;line-height:24px;white-space:nowrap;overflow:hidden;max-width:100%;text-transform:none;letter-spacing:.04em;font-weight:400}
+html[dir="rtl"] .hero-head .hero-eyebrow{height:28px;line-height:28px;letter-spacing:normal;font-weight:700}
 /* one line per sentence, so the headline wraps the same before and after the web font arrives */
 .hero-head .hl{display:block;white-space:nowrap}
 html[dir="rtl"] .hero-head{font-size:clamp(28px,3.6vw,40px);line-height:1.4;font-weight:700;letter-spacing:0}
@@ -456,9 +460,13 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
   .cv{contain-intrinsic-size:auto 1900px}
 }
 @media (max-width:480px){
-  /* the Arabic lede is three lines in the fallback font and two in Beiruti: reserve three so the
+  /* the lede can be three lines in one font and two in the other: reserve three so the
      App Store button never jumps when the web font arrives */
-  html[dir="rtl"] .lede{min-height:4.8em}
+  .lede{min-height:4.85em}
+}
+@media (min-width:481px) and (max-width:860px){
+  /* likewise the Arabic lede: two lines in the fallback font, one in Beiruti */
+  html[dir="rtl"] .lede{min-height:3.25em}
 }
 @media (max-height:500px){.buybar{position:static}}
 
@@ -497,8 +505,8 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
 <section class="hero">
 <div class="wrap hero-grid">
 <div class="hero-copy">
-<h1 class="hero-head"><span class="en"><span class="hl">One app. Three tools.</span> <span class="hl"><span class="mark-underline">Every<svg viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M2 8c22-5 54-6 96-3" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></span> day of practice.</span></span><span class="ar" lang="ar"><span class="hl">تطبيق واحد، وثلاث أدوات،</span> <span class="hl">لتمرين <span class="mark-underline">كل<svg viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M2 8c22-5 54-6 96-3" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></span> يوم.</span></span></h1>
-<p class="lede"><span class="en">I teach guitar, and these are the three tools I want every student to practise with between lessons.</span><span class="ar" lang="ar">أنا معلّم غيتار، وفي DrillTime وقت التمرين جمعت الأدوات الثلاث التي أريد أن يتمرّن بها كل طالب بين الدروس.</span></p>
+<h1 class="hero-head"><span class="eyebrow hero-eyebrow"><span class="en">DrillTime · Music practice app</span><span class="ar" lang="ar">DrillTime وقت التمرين · تطبيق التمرين الموسيقي</span></span><span class="en"><span class="hl">One app. Three tools.</span> <span class="hl"><span class="mark-underline">Every<svg viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M2 8c22-5 54-6 96-3" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></span> day of practice.</span></span><span class="ar" lang="ar"><span class="hl">تطبيق واحد، وثلاث أدوات،</span> <span class="hl">لتمرين <span class="mark-underline">كل<svg viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M2 8c22-5 54-6 96-3" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></span> يوم.</span></span></h1>
+<p class="lede"><span class="en">I’m a guitar teacher. I built DrillTime for the six days between lessons, when the real practice happens.</span><span class="ar" lang="ar">أنا مدرّس غيتار، وصمّمت DrillTime للأيام الستة بين درس وآخر، فهناك يحدث التمرين الحقيقي.</span></p>
 <div class="cta-row">
 <a class="badge" href="#" data-appstore><img class="apple-badge badge-ar blk" alt="تنزيل التطبيق من App Store" src="img/appstore-ar-black.svg" width="168" height="56" loading="lazy" decoding="async"><img class="apple-badge badge-ar wht" alt="تنزيل التطبيق من App Store" src="img/appstore-ar-white.svg" width="168" height="56" loading="lazy" decoding="async"><img class="apple-badge badge-en blk" alt="Download on the App Store" src="img/appstore-en-black.svg" width="168" height="56" loading="lazy" decoding="async"><img class="apple-badge badge-en wht" alt="Download on the App Store" src="img/appstore-en-white.svg" width="168" height="56" loading="lazy" decoding="async"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17 12.5c0-2 1.6-3 1.7-3-.9-1.4-2.4-1.5-2.9-1.6-1.2-.1-2.4.7-3 .7s-1.6-.7-2.6-.7c-1.3 0-2.6.8-3.2 2-1.4 2.4-.4 6 1 8 .7 1 1.5 2.1 2.5 2 1-.04 1.4-.6 2.6-.6s1.5.6 2.6.6 1.7-1 2.4-2c.5-.7.9-1.5 1-1.6-.02-.02-2.6-1-2.6-4.2zM15 6.2c.6-.7 1-1.6.9-2.6-.8.04-1.9.6-2.5 1.3-.6.6-1 1.6-.9 2.5.9.07 1.9-.5 2.5-1.2z"/></svg>
           <span><small class="en">Coming soon on the</small><small class="ar" lang="ar">قريباً على</small>App Store</span></a>
