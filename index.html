@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>try{var l=localStorage.getItem('dt_lang');if(l==='ar'){var d=document.documentElement;d.setAttribute('dir','rtl');d.setAttribute('lang','ar');}}catch(e){}</script>
-<script async src="/js/lang-assets.js?v=44" data-lcp-en="/img/bm-metronome-en-480.webp" data-lcp-ar="/img/bm-metronome-ar-480.webp" data-lcp-en-srcset="/img/bm-metronome-en-240.webp 240w, /img/bm-metronome-en-320.webp 320w, /img/bm-metronome-en-400.webp 400w, /img/bm-metronome-en-480.webp 480w, /img/bm-metronome-en-640.webp 640w" data-lcp-ar-srcset="/img/bm-metronome-ar-240.webp 240w, /img/bm-metronome-ar-320.webp 320w, /img/bm-metronome-ar-400.webp 400w, /img/bm-metronome-ar-480.webp 480w, /img/bm-metronome-ar-640.webp 640w" data-lcp-sizes="(max-width: 767px) calc(33.2vw - 13px), (max-width: 895px) calc(33.2vw - 19px), 279px"></script>
+<script async src="/js/lang-assets.js?v=44" data-lcp-en="/img/bm-metronome-en-480.webp" data-lcp-ar="/img/bm-metronome-ar-480.webp" data-lcp-en-srcset="/img/bm-metronome-en-240.webp 240w, /img/bm-metronome-en-320.webp 320w, /img/bm-metronome-en-400.webp 400w, /img/bm-metronome-en-480.webp 480w, /img/bm-metronome-en-640.webp 640w" data-lcp-ar-srcset="/img/bm-metronome-ar-240.webp 240w, /img/bm-metronome-ar-320.webp 320w, /img/bm-metronome-ar-400.webp 400w, /img/bm-metronome-ar-480.webp 480w, /img/bm-metronome-ar-640.webp 640w" data-lcp-sizes="(max-width: 767px) calc(33.2vw - 13px), 279px"></script>
 
 <!-- Primary meta -->
 <title>DrillTime – Metronome, Speed Trainer &amp; Rhythm Trainer for Musicians</title>
@@ -162,7 +162,7 @@
 
 /* 2. TOKENS */
 :root{
-  --bg:#e9ede1;--bg-2:#eef2e7;--card:#f4f6ee;--line:#d7dccb;
+  --bg:#e9ede1;--bg-2:#eef2e7;--stage:#dfe5d3;--card:#f4f6ee;--line:#d7dccb;
   --ink:#21261e;--ink-soft:#464b3e;--text-dim:#5f675b;
   --blue:#2f6bff;--link:#2b5fe3;--coral:#e8663c;
   --panel:#14170f;--panel-2:#1d2117;
@@ -222,34 +222,35 @@ html[dir="rtl"] .sec-intro{font-size:20px}
 .langbtn{color:var(--ink);font-size:13px;letter-spacing:.04em;font-family:inherit;border:1px solid var(--line);border-radius:var(--s9);padding:var(--s4) var(--s6);background:var(--card);transition:background .15s ease,border-color .15s ease}
 .langbtn:hover{background:#fff;border-color:var(--ink-soft)}
 
-/* 7. HERO (768px and wider): stacked and centred. Eyebrow, headline (the page's h1 and its largest
-   type), lede, App Store button and note, then the three phones in a row with their captions.
-   Gaps from the spacing scale: 21 eyebrow-headline, 34 headline-lede, 34 lede-button, 13 button-note,
-   55 copy-phones, 89 top and bottom. Phones first on small screens (see 18. RESPONSIVE). */
-.hero{padding-block:var(--s9)}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"copy" "fan";row-gap:var(--s8)}
-/* every line of copy is a full-width box with its text centred inside (not a shrink-wrapped box that is
-   centred), so when the web font changes the text's width, no box moves */
-.hero-copy{grid-area:copy;text-align:center}
-.fan-stage{grid-area:fan}
-.hero-head{font-weight:400;font-size:clamp(38px,5vw,56px);line-height:1.15;letter-spacing:-.02em}
+/* 7. HERO: "headline bar + stage". A compact top row inside the content width (eyebrow, headline in its
+   two set lines, a one-line lede; the App Store button and note at the row's end), then the three phones
+   standing on a soft full-width band. Spacing from the scale; phones first on small screens (see 18). */
+.hero{display:flex;flex-direction:column;padding-block-start:var(--s8)}
+/* everything above the phones plus the captions under them (measured), so the phones fit the first screen */
+.hero{--above:404px}
+html[dir="rtl"] .hero{--above:432px}
+/* full width always (in the hero's flex column its auto margins would otherwise shrink it to its text,
+   so a late web font would resize and move it) */
+.hero-top{width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:var(--s8);align-items:center}
+.hero-copy{min-width:0}
+/* the headline stays the largest type on the page (section h2: up to 44px, Arabic 48px) */
+.hero-head{font-weight:400;font-size:clamp(38px,5vw,48px);line-height:1.12;letter-spacing:-.02em}
+html[dir="rtl"] .hero-head{font-size:clamp(42px,5.4vw,52px);line-height:1.25;font-weight:700;letter-spacing:0}
 /* the brand eyebrow inside the h1: the site's eyebrow look, on one line of fixed height so a late web
    font never moves the headline; brand spelling kept (no capitals) */
-.hero-head .hero-eyebrow{display:block;margin-bottom:var(--s6);height:24px;line-height:24px;white-space:nowrap;overflow:hidden;max-width:100%;text-transform:none;letter-spacing:.04em;font-weight:400}
+.hero-head .hero-eyebrow{display:flex;margin-bottom:var(--s5);height:24px;line-height:24px;white-space:nowrap;overflow:hidden;max-width:100%;text-transform:none;letter-spacing:.04em;font-weight:400}
 html[dir="rtl"] .hero-head .hero-eyebrow{height:28px;line-height:28px;letter-spacing:normal;font-weight:700}
 /* one line per sentence, each exactly one line-height tall, so the headline keeps its size before and
-   after the web font arrives (the phones sit below it) */
-.hero-head .hl{display:block;white-space:nowrap;height:1.15em}
-html[dir="rtl"] .hero-head .hl{height:1.3em}
-html[dir="rtl"] .hero-head{font-size:clamp(42px,5.4vw,60px);line-height:1.3;font-weight:700;letter-spacing:0}
-.lede{font-size:clamp(17px,1.8vw,19px);color:var(--ink-soft);margin-block-start:var(--s7);margin-inline:auto;max-width:34em}
-.hero-head .hero-eyebrow::before{display:inline-block;vertical-align:middle;margin-inline-end:var(--s4)}
-html[dir="rtl"] .lede{font-size:clamp(19px,2vw,21px)}
+   after the web font arrives */
+.hero-head .hl{display:block;white-space:nowrap;height:1.12em}
+html[dir="rtl"] .hero-head .hl{height:1.25em}
+/* the one-line lede: quieter and smaller than the headline */
+.lede{font-size:clamp(16px,1.6vw,18px);color:var(--text-dim);margin-block-start:var(--s6)}
+html[dir="rtl"] .lede{font-size:clamp(18px,1.8vw,20px)}
 .mark-underline{white-space:nowrap;position:relative;display:inline-block}
 .mark-underline svg{color:var(--coral);position:absolute;inset-inline:0;bottom:-.2em;width:100%;height:.3em}
-.cta-row{margin-block-start:var(--s7);display:flex;flex-direction:column;align-items:stretch;gap:var(--s5)}
-.cta-row .badge{align-self:center}
-/* the shown language's span is a full-width block too (the hidden one stays display:none) */
+/* the button and note sit at the row's end, aligned to that edge, so neither moves if the note's width changes */
+.cta-row{display:flex;flex-direction:column;align-items:flex-end;gap:var(--s5);text-align:end}
 .lede>span,.hero .microcopy>span{display:block}
 .badge{display:inline-flex;text-decoration:none;color:var(--bg);font-size:15px;border-radius:var(--r-s);transition:transform .15s ease,box-shadow .15s ease}
 .badge:hover{transform:translateY(-2px);box-shadow:var(--shadow-2)}
@@ -259,9 +260,13 @@ html[dir="rtl"] .lede{font-size:clamp(19px,2vw,21px)}
 .microcopy{font-size:13px;color:var(--text-dim)}
 html[dir="rtl"] .microcopy{font-size:15px}
 
-/* the fan: Speed Builder and Rhythm Shuffler lean in behind the metronome (mirrored in Arabic) */
-.fan-stage{display:grid;justify-items:center;gap:var(--s6)}
-.fan{display:flex;justify-content:center;padding-block:0 var(--s4)}
+/* the stage: the phones stand on a flat, full-width band one gentle step darker than the page. The band
+   is background only (behind the phones, from about half way up them); it is drawn by the fan and clipped
+   to the stage, so it is always exactly as wide as the screen and never adds sideways scroll. */
+.stage{margin-block-start:var(--s7);padding-block-end:var(--s8);overflow:clip}
+.fan-stage{display:grid;justify-items:center}
+.fan{display:flex;justify-content:center;position:relative;isolation:isolate;padding-block:0 var(--s4)}
+.fan::before{content:"";position:absolute;z-index:-1;top:45%;bottom:-200px;left:50%;width:100vw;margin-left:-50vw;background:var(--stage)}
 /* ---- phones: Apple's iPhone 18 Pro bezel is composited into each image at build time
    (build_bezels.py). Apple's marketing guidelines: upright, unobstructed, no added shadow or effects. */
 .phone{width:100%;margin-inline:auto}
@@ -273,7 +278,7 @@ html[dir="rtl"] .microcopy{font-size:15px}
    guidelines): an iPhone 18 Pro Max in the centre and an iPhone 18 Pro either side, drawn at true
    relative scale (the bezel images share one pixels-per-mm, 1470 vs 1350 px wide, so 33.14% : 30.43%).
    The side phones sit a little lower for depth; the row order mirrors itself in Arabic. */
-.fan{width:min(100%,840px);align-items:flex-start;gap:3%}
+.fan{width:min(100%,840px,max(420px,calc((100vh - var(--above)) * 1.466)));align-items:flex-start;gap:3%}
 .ph-m{width:33.14%;margin:0;flex:none}
 .ph-sb,.ph-rs{width:30.43%;margin:6% 0 0;flex:none}
 /* captions: one per phone, centred on its own centre line (so the side ones follow their phone's
@@ -458,23 +463,23 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
   .fnav{text-align:start}
   .fbottom{flex-direction:column;text-align:center}
 }
+@media (max-width:1023px){
+  /* the top row wraps: eyebrow, headline and lede full width, the button and note below, start-aligned */
+  .hero-top{grid-template-columns:minmax(0,1fr);row-gap:var(--s7)}
+  .cta-row{align-items:flex-start;text-align:start}
+}
 @media (max-width:767px){
-  /* phones: the three tools first, straight under the nav, then the pitch (start-aligned), so a late
-     web font re-wrapping the headline never moves the phones */
+  /* phones: the three tools on their stage first, straight under the nav, then the pitch (start-aligned),
+     so a late web font re-wrapping the headline never moves the phones */
   .hero{padding-block:var(--s6) var(--s8)}
-  .hero-grid{grid-template-areas:"fan" "copy";row-gap:var(--s7)}
-  .hero-copy{text-align:start}
+  .stage{order:-1;margin-block:0 var(--s7);padding-block-end:var(--s6)}
   /* the hero headline leads the hierarchy on phones too: always a little larger than the section
      headings (h2 is clamp(30px,4.4vw,44px), Arabic clamp(32px,4.8vw,48px)) */
   .hero-head{font-size:clamp(31px,4.6vw,36px);line-height:1.2;letter-spacing:-.015em;max-width:15em}
   html[dir="rtl"] .hero-head{font-size:clamp(33px,5vw,40px);line-height:1.4}
   .hero-head .hl{height:1.2em}
   html[dir="rtl"] .hero-head .hl{height:1.4em}
-  .hero-head .hero-eyebrow{display:flex;margin-bottom:var(--s5)}
-  .hero-head .hero-eyebrow::before{display:block;margin-inline-end:0}
-  .lede{margin-block-start:var(--s5);margin-inline:0;max-width:30em}
-  .cta-row{align-items:flex-start}
-  .cta-row .badge{align-self:auto}
+  .lede{margin-block-start:var(--s5);max-width:30em}
   .fan{width:min(100%,600px);padding-block:var(--s5) var(--s4)}
 }
 @media (max-width:600px){
@@ -493,14 +498,10 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
   .sec-intro{margin-bottom:var(--s7)}
   .cv{contain-intrinsic-size:auto 1900px}
 }
-@media (max-width:480px){
-  /* the lede can be three lines in one font and two in the other: reserve three so the
-     App Store button never jumps when the web font arrives */
-  .lede{min-height:4.85em}
-}
-@media (min-width:481px) and (max-width:860px){
-  /* likewise the Arabic lede: two lines in the fallback font, one in Beiruti */
-  html[dir="rtl"] .lede{min-height:3.25em}
+@media (max-width:540px){
+  /* the English lede is two lines in Varela Round but can be one in the fallback font: reserve two so
+     the App Store button never jumps when the web font arrives */
+  html[dir="ltr"] .lede{min-height:3.2em}
 }
 @media (max-width:379px){.cap{display:none}}
 @media (max-height:500px){.buybar{display:none}}
@@ -538,28 +539,30 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
 
 <main id="main">
 <section class="hero">
-<div class="wrap hero-grid">
+<div class="wrap hero-top">
 <div class="hero-copy">
 <h1 class="hero-head"><span class="eyebrow hero-eyebrow"><span class="en">DrillTime · Music practice app</span><span class="ar" lang="ar">DrillTime وقت التمرين · تطبيق التمرين الموسيقي</span></span><span class="en"><span class="hl">One app. Three tools.</span> <span class="hl"><span class="mark-underline">Every<svg viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M2 8c22-5 54-6 96-3" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></span> day of practice.</span></span><span class="ar" lang="ar"><span class="hl">تطبيق واحد، وثلاث أدوات،</span> <span class="hl">لتمرين <span class="mark-underline">كل<svg viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M2 8c22-5 54-6 96-3" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></span> يوم.</span></span></h1>
-<p class="lede"><span class="en">I’m a guitar teacher. I built DrillTime for the six days between lessons, when the real practice happens.</span><span class="ar" lang="ar">أنا مدرّس غيتار، وصمّمت DrillTime للأيام الستة بين درس وآخر، فهناك يحدث التمرين الحقيقي.</span></p>
+<p class="lede"><span class="en">Made by a guitar teacher for the six days between lessons.</span><span class="ar" lang="ar">صمّمه مدرّس غيتار للأيام الستة بين درس وآخر.</span></p>
+</div>
 <div class="cta-row">
 <a class="badge" href="#" data-appstore><img class="apple-badge badge-ar blk" alt="تنزيل التطبيق من App Store" src="img/appstore-ar-black.svg" width="168" height="56" loading="lazy" decoding="async"><img class="apple-badge badge-ar wht" alt="تنزيل التطبيق من App Store" src="img/appstore-ar-white.svg" width="168" height="56" loading="lazy" decoding="async"><img class="apple-badge badge-en blk" alt="Download on the App Store" src="img/appstore-en-black.svg" width="168" height="56" loading="lazy" decoding="async"><img class="apple-badge badge-en wht" alt="Download on the App Store" src="img/appstore-en-white.svg" width="168" height="56" loading="lazy" decoding="async"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17 12.5c0-2 1.6-3 1.7-3-.9-1.4-2.4-1.5-2.9-1.6-1.2-.1-2.4.7-3 .7s-1.6-.7-2.6-.7c-1.3 0-2.6.8-3.2 2-1.4 2.4-.4 6 1 8 .7 1 1.5 2.1 2.5 2 1-.04 1.4-.6 2.6-.6s1.5.6 2.6.6 1.7-1 2.4-2c.5-.7.9-1.5 1-1.6-.02-.02-2.6-1-2.6-4.2zM15 6.2c.6-.7 1-1.6.9-2.6-.8.04-1.9.6-2.5 1.3-.6.6-1 1.6-.9 2.5.9.07 1.9-.5 2.5-1.2z"/></svg>
           <span><small class="en">Coming soon on the</small><small class="ar" lang="ar">قريباً على</small>App Store</span></a>
 <p class="microcopy"><span class="en">One-time purchase. No subscription, no ads, no accounts.</span><span class="ar" lang="ar">شراء لمرة واحدة. بدون اشتراك أو إعلانات أو حسابات.</span></p>
 </div>
 </div>
-<div class="fan-stage">
+<div class="stage">
+<div class="wrap fan-stage">
 <div class="fan">
 <figure class="ph ph-sb">
-  <div class="phone"><img class="en" src="/img/bz-player-en-480.webp" srcset="/img/bz-player-en-240.webp 240w, /img/bz-player-en-320.webp 320w, /img/bz-player-en-400.webp 400w, /img/bz-player-en-480.webp 480w, /img/bz-player-en-640.webp 640w" sizes="(max-width: 767px) calc(30.5vw - 12px), (max-width: 895px) calc(30.5vw - 17px), 256px" width="640" height="1308" alt="DrillTime Speed Builder screen at 86 BPM on step 3 of 6, rising from a start tempo of 80 towards a goal of 95, with the time left shown" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/bz-player-ar-480.webp" srcset="/img/bz-player-ar-240.webp 240w, /img/bz-player-ar-320.webp 320w, /img/bz-player-ar-400.webp 400w, /img/bz-player-ar-480.webp 480w, /img/bz-player-ar-640.webp 640w" sizes="(max-width: 767px) calc(30.5vw - 12px), (max-width: 895px) calc(30.5vw - 17px), 256px" width="640" height="1308" alt="شاشة بناء السرعة في DrillTime على ٨٦ نبضة في الدقيقة في الخطوة ٣ من ٦، صعودًا من إيقاع البداية ٨٠ نحو إيقاع الهدف ٩٥، مع الوقت المتبقي" loading="lazy" fetchpriority="low" decoding="async"></div>
+  <div class="phone"><img class="en" src="/img/bz-player-en-480.webp" srcset="/img/bz-player-en-240.webp 240w, /img/bz-player-en-320.webp 320w, /img/bz-player-en-400.webp 400w, /img/bz-player-en-480.webp 480w, /img/bz-player-en-640.webp 640w" sizes="(max-width: 767px) calc(30.5vw - 12px), 256px" width="640" height="1308" alt="DrillTime Speed Builder screen at 86 BPM on step 3 of 6, rising from a start tempo of 80 towards a goal of 95, with the time left shown" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/bz-player-ar-480.webp" srcset="/img/bz-player-ar-240.webp 240w, /img/bz-player-ar-320.webp 320w, /img/bz-player-ar-400.webp 400w, /img/bz-player-ar-480.webp 480w, /img/bz-player-ar-640.webp 640w" sizes="(max-width: 767px) calc(30.5vw - 12px), 256px" width="640" height="1308" alt="شاشة بناء السرعة في DrillTime على ٨٦ نبضة في الدقيقة في الخطوة ٣ من ٦، صعودًا من إيقاع البداية ٨٠ نحو إيقاع الهدف ٩٥، مع الوقت المتبقي" loading="lazy" fetchpriority="low" decoding="async"></div>
   <figcaption class="cap cap-sb"><a class="en" href="/speed-builder">Speed Builder<svg class="cap-chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="ar" lang="ar" href="/ar/speed-builder">بناء السرعة<svg class="cap-chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></figcaption>
 </figure>
 <figure class="ph ph-m">
-  <div class="phone"><img class="en" src="/img/bm-metronome-en-480.webp" srcset="/img/bm-metronome-en-240.webp 240w, /img/bm-metronome-en-320.webp 320w, /img/bm-metronome-en-400.webp 400w, /img/bm-metronome-en-480.webp 480w, /img/bm-metronome-en-640.webp 640w" sizes="(max-width: 767px) calc(33.2vw - 13px), (max-width: 895px) calc(33.2vw - 19px), 279px" width="640" height="1306" alt="DrillTime metronome screen at 120 BPM with the tempo name Allegro, a tempo slider, and start, minus and plus buttons" loading="lazy" data-lcp fetchpriority="high" decoding="async"><img hidden class="ar" src="/img/bm-metronome-ar-480.webp" srcset="/img/bm-metronome-ar-240.webp 240w, /img/bm-metronome-ar-320.webp 320w, /img/bm-metronome-ar-400.webp 400w, /img/bm-metronome-ar-480.webp 480w, /img/bm-metronome-ar-640.webp 640w" sizes="(max-width: 767px) calc(33.2vw - 13px), (max-width: 895px) calc(33.2vw - 19px), 279px" width="640" height="1306" alt="شاشة المترونوم في DrillTime على سرعة ١٢٠ نبضة في الدقيقة واسم السرعة «سريع»، مع شريط ضبط السرعة وأزرار التشغيل والنقصان والزيادة" loading="lazy" data-lcp fetchpriority="high" decoding="async"></div>
+  <div class="phone"><img class="en" src="/img/bm-metronome-en-480.webp" srcset="/img/bm-metronome-en-240.webp 240w, /img/bm-metronome-en-320.webp 320w, /img/bm-metronome-en-400.webp 400w, /img/bm-metronome-en-480.webp 480w, /img/bm-metronome-en-640.webp 640w" sizes="(max-width: 767px) calc(33.2vw - 13px), 279px" width="640" height="1306" alt="DrillTime metronome screen at 120 BPM with the tempo name Allegro, a tempo slider, and start, minus and plus buttons" loading="lazy" data-lcp fetchpriority="high" decoding="async"><img hidden class="ar" src="/img/bm-metronome-ar-480.webp" srcset="/img/bm-metronome-ar-240.webp 240w, /img/bm-metronome-ar-320.webp 320w, /img/bm-metronome-ar-400.webp 400w, /img/bm-metronome-ar-480.webp 480w, /img/bm-metronome-ar-640.webp 640w" sizes="(max-width: 767px) calc(33.2vw - 13px), 279px" width="640" height="1306" alt="شاشة المترونوم في DrillTime على سرعة ١٢٠ نبضة في الدقيقة واسم السرعة «سريع»، مع شريط ضبط السرعة وأزرار التشغيل والنقصان والزيادة" loading="lazy" data-lcp fetchpriority="high" decoding="async"></div>
   <figcaption class="cap cap-m"><a class="en" href="/metronome">Metronome<svg class="cap-chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="ar" lang="ar" href="/ar/metronome">المترونوم<svg class="cap-chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></figcaption>
 </figure>
 <figure class="ph ph-rs">
-  <div class="phone"><img class="en" src="/img/bz-read-en-480.webp" srcset="/img/bz-read-en-240.webp 240w, /img/bz-read-en-320.webp 320w, /img/bz-read-en-400.webp 400w, /img/bz-read-en-480.webp 480w, /img/bz-read-en-640.webp 640w" sizes="(max-width: 767px) calc(30.5vw - 12px), (max-width: 895px) calc(30.5vw - 17px), 256px" width="640" height="1308" alt="Rhythm Shuffler reading screen with four bars of rhythm in 4/4, a line marking your place, and a large Tap the rhythm pad" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/bz-read-ar-480.webp" srcset="/img/bz-read-ar-240.webp 240w, /img/bz-read-ar-320.webp 320w, /img/bz-read-ar-400.webp 400w, /img/bz-read-ar-480.webp 480w, /img/bz-read-ar-640.webp 640w" sizes="(max-width: 767px) calc(30.5vw - 12px), (max-width: 895px) calc(30.5vw - 17px), 256px" width="640" height="1308" alt="شاشة القراءة في عازف النبض العشوائي: أربع مازورات من الإيقاع في ميزان ٤/٤، وخط يحدّد موضعك، ولوحة كبيرة مكتوب عليها «انقر الإيقاع»" loading="lazy" fetchpriority="low" decoding="async"></div>
+  <div class="phone"><img class="en" src="/img/bz-read-en-480.webp" srcset="/img/bz-read-en-240.webp 240w, /img/bz-read-en-320.webp 320w, /img/bz-read-en-400.webp 400w, /img/bz-read-en-480.webp 480w, /img/bz-read-en-640.webp 640w" sizes="(max-width: 767px) calc(30.5vw - 12px), 256px" width="640" height="1308" alt="Rhythm Shuffler reading screen with four bars of rhythm in 4/4, a line marking your place, and a large Tap the rhythm pad" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/bz-read-ar-480.webp" srcset="/img/bz-read-ar-240.webp 240w, /img/bz-read-ar-320.webp 320w, /img/bz-read-ar-400.webp 400w, /img/bz-read-ar-480.webp 480w, /img/bz-read-ar-640.webp 640w" sizes="(max-width: 767px) calc(30.5vw - 12px), 256px" width="640" height="1308" alt="شاشة القراءة في عازف النبض العشوائي: أربع مازورات من الإيقاع في ميزان ٤/٤، وخط يحدّد موضعك، ولوحة كبيرة مكتوب عليها «انقر الإيقاع»" loading="lazy" fetchpriority="low" decoding="async"></div>
   <figcaption class="cap cap-rs"><a class="en" href="/rhythm-shuffler">Rhythm Shuffler<svg class="cap-chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="ar" lang="ar" href="/ar/rhythm-shuffler">عازف النبض العشوائي<svg class="cap-chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></figcaption>
 </figure>
 </div>
