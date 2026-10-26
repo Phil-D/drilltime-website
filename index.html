@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>try{var l=localStorage.getItem('dt_lang');if(l==='ar'){var d=document.documentElement;d.setAttribute('dir','rtl');d.setAttribute('lang','ar');}}catch(e){}</script>
-<script async src="/js/lang-assets.js?v=44" data-lcp-en="/img/bm-metronome-en-480.webp" data-lcp-ar="/img/bm-metronome-ar-480.webp" data-lcp-en-srcset="/img/bm-metronome-en-240.webp 240w, /img/bm-metronome-en-320.webp 320w, /img/bm-metronome-en-400.webp 400w, /img/bm-metronome-en-480.webp 480w, /img/bm-metronome-en-640.webp 640w" data-lcp-ar-srcset="/img/bm-metronome-ar-240.webp 240w, /img/bm-metronome-ar-320.webp 320w, /img/bm-metronome-ar-400.webp 400w, /img/bm-metronome-ar-480.webp 480w, /img/bm-metronome-ar-640.webp 640w" data-lcp-sizes="(max-width: 860px) calc(33.2vw - 13px), 186px"></script>
+<script async src="/js/lang-assets.js?v=44" data-lcp-en="/img/bm-metronome-en-480.webp" data-lcp-ar="/img/bm-metronome-ar-480.webp" data-lcp-en-srcset="/img/bm-metronome-en-240.webp 240w, /img/bm-metronome-en-320.webp 320w, /img/bm-metronome-en-400.webp 400w, /img/bm-metronome-en-480.webp 480w, /img/bm-metronome-en-640.webp 640w" data-lcp-ar-srcset="/img/bm-metronome-ar-240.webp 240w, /img/bm-metronome-ar-320.webp 320w, /img/bm-metronome-ar-400.webp 400w, /img/bm-metronome-ar-480.webp 480w, /img/bm-metronome-ar-640.webp 640w" data-lcp-sizes="(max-width: 767px) calc(33.2vw - 13px), 279px"></script>
 
 <!-- Primary meta -->
 <title>DrillTime – Metronome, Speed Trainer &amp; Rhythm Trainer for Musicians</title>
@@ -162,7 +162,7 @@
 
 /* 2. TOKENS */
 :root{
-  --bg:#e9ede1;--bg-2:#eef2e7;--card:#f4f6ee;--line:#d7dccb;
+  --bg:#e9ede1;--bg-2:#eef2e7;--stage:#dfe5d3;--card:#f4f6ee;--line:#d7dccb;
   --ink:#21261e;--ink-soft:#464b3e;--text-dim:#5f675b;
   --blue:#2f6bff;--link:#2b5fe3;--coral:#e8663c;
   --panel:#14170f;--panel-2:#1d2117;
@@ -222,27 +222,58 @@ html[dir="rtl"] .sec-intro{font-size:20px}
 .langbtn{color:var(--ink);font-size:13px;letter-spacing:.04em;font-family:inherit;border:1px solid var(--line);border-radius:var(--s9);padding:var(--s4) var(--s6);background:var(--card);transition:background .15s ease,border-color .15s ease}
 .langbtn:hover{background:#fff;border-color:var(--ink-soft)}
 
-/* 7. HERO: the logo lockup and copy beside a fan of the three tools */
-.hero{padding-block:var(--s7) var(--s9)}
-.hero-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);grid-template-areas:"brand fan" "copy fan";grid-template-rows:auto 1fr;column-gap:var(--s7);align-items:start}
-.hero-brand{grid-area:brand;padding-top:var(--s7)}
-.hero-copy{grid-area:copy}
-.fan-stage{grid-area:fan;align-self:center}
-.hero-logo{width:55px;height:auto;color:var(--ink);margin-block-end:var(--s5)}
-h1{font-weight:400;font-size:clamp(42px,6vw,68px);line-height:1;letter-spacing:-.02em}
-html[dir="rtl"] h1{font-size:clamp(48px,7vw,76px)}
-.tagline{font-size:clamp(19px,2.4vw,24px);color:var(--text-dim);letter-spacing:-.01em;margin-block-start:var(--s4)}
-html[dir="rtl"] .tagline{font-size:clamp(21px,2.7vw,27px)}
-.hero-head{font-size:clamp(26px,3.3vw,36px);line-height:1.2;letter-spacing:-.015em;margin-block-start:var(--s7);max-width:15em}
-.hero-brand h1,.hero-brand .tagline{white-space:nowrap}
-/* one line per sentence, so the headline wraps the same before and after the web font arrives */
-.hero-head .hl{display:block;white-space:nowrap}
-html[dir="rtl"] .hero-head{font-size:clamp(28px,3.6vw,40px);line-height:1.4;font-weight:700;letter-spacing:0}
-.lede{font-size:clamp(17px,1.8vw,19px);color:var(--ink-soft);margin-block-start:var(--s5);max-width:30em}
-html[dir="rtl"] .lede{font-size:clamp(19px,2vw,21px)}
+/* 7. HERO: "headline bar + stage". A compact top row inside the content width (eyebrow, headline in its
+   two set lines, a one-line lede; the App Store button and note at the row's end), then the three phones
+   standing on a soft full-width band. Spacing from the scale; phones first on small screens (see 18). */
+.hero{display:flex;flex-direction:column;padding-block-start:var(--s8)}
+/* full width always (in the hero's flex column its auto margins would otherwise shrink it to its text,
+   so a late web font would resize and move it) */
+.hero-top{width:100%;display:grid;grid-template-columns:minmax(0,1fr);row-gap:var(--s7)}
+.hero-copy{min-width:0}
+/* the headline stays the largest type on the page (section h2: up to 44px, Arabic 48px) */
+.hero-head{font-weight:400;font-size:clamp(38px,5vw,48px);line-height:1.12;letter-spacing:-.02em}
+html[dir="rtl"] .hero-head{font-size:clamp(42px,5.4vw,52px);line-height:1.25;font-weight:700;letter-spacing:0}
+/* the brand eyebrow inside the h1: small, regular and quiet grey like the purchase note (no dots, no blue,
+   so the coral underline is the hero's only accent), on one line of fixed height so a late web font never
+   moves the headline; brand spelling kept (no capitals) */
+.hero-head .hero-eyebrow{display:flex;margin-bottom:var(--s5);height:24px;line-height:24px;white-space:nowrap;overflow:hidden;max-width:100%;text-transform:none;letter-spacing:.02em;font-weight:400;font-size:13px;color:var(--text-dim)}
+.hero-head .hero-eyebrow::before{content:none}
+html[dir="rtl"] .hero-head .hero-eyebrow{height:28px;line-height:28px;letter-spacing:normal;font-weight:400;font-size:15px}
+/* one line per sentence, each exactly one line-height tall, so the headline keeps its size before and
+   after the web font arrives */
+.hero-head .hl{display:block;white-space:nowrap;height:1.12em}
+html[dir="rtl"] .hero-head .hl{height:1.25em}
+/* the one-line lede: quieter and smaller than the headline */
+.lede{font-size:clamp(16px,1.6vw,18px);color:var(--text-dim);margin-block-start:var(--s6)}
+html[dir="rtl"] .lede{font-size:clamp(18px,1.8vw,20px)}
 .mark-underline{white-space:nowrap;position:relative;display:inline-block}
 .mark-underline svg{color:var(--coral);position:absolute;inset-inline:0;bottom:-.2em;width:100%;height:.3em}
-.cta-row{margin-block-start:var(--s7);display:flex;flex-direction:column;align-items:flex-start;gap:var(--s5)}
+/* below 1024px the button and note follow the lede, start-aligned: lede to button 34 (the row gap), button to note 13 */
+.cta-row{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s5)}
+/* no single-word last lines in the lede or the note (where text-wrap is unsupported, lines wrap as before) */
+.lede,.hero .microcopy{text-wrap:balance}
+@media (min-width:1024px){
+  /* one row: the words on the start side, the button and note at the end, aligned to that edge */
+  .hero-top{grid-template-columns:minmax(0,1fr) auto;column-gap:var(--s8);align-items:center}
+  .cta-row{align-items:flex-end;text-align:end}
+}
+@supports (grid-template-rows:subgrid){
+  @media (min-width:1024px){
+    /* one grid with four shared rows: eyebrow, headline line 1, headline line 2, lede. The words and the
+       h1 pass the rows down (subgrid), so the button sits in the second headline line's row, centred on
+       it, and the note shares the lede's row, on its last baseline. Reading order is unchanged. */
+    .hero-top{grid-template-rows:repeat(4,auto);row-gap:0;align-items:stretch}
+    .hero-copy{grid-column:1;grid-row:1/5;display:grid;grid-template-rows:subgrid}
+    .hero-head{grid-row:1/4;display:grid;grid-template-rows:subgrid}
+    .hero-head .hero-eyebrow{grid-row:1}
+    .hero-head>.en,.hero-head>.ar{grid-row:2/4;display:grid;grid-template-rows:subgrid}
+    .lede{grid-row:4;align-self:last baseline}
+    .cta-row{grid-column:2;grid-row:3/5;display:grid;grid-template-rows:subgrid;justify-items:end;gap:0}
+    .cta-row .badge{grid-row:1;align-self:center}
+    .cta-row .microcopy{grid-row:2;align-self:last baseline}
+  }
+}
+.lede>span,.hero .microcopy>span{display:block}
 .badge{display:inline-flex;text-decoration:none;color:var(--bg);font-size:15px;border-radius:var(--r-s);transition:transform .15s ease,box-shadow .15s ease}
 .badge:hover{transform:translateY(-2px);box-shadow:var(--shadow-2)}
 .badge svg,.badge>span{display:none}
@@ -251,9 +282,13 @@ html[dir="rtl"] .lede{font-size:clamp(19px,2vw,21px)}
 .microcopy{font-size:13px;color:var(--text-dim)}
 html[dir="rtl"] .microcopy{font-size:15px}
 
-/* the fan: Speed Builder and Rhythm Shuffler lean in behind the metronome (mirrored in Arabic) */
-.fan-stage{display:grid;justify-items:center;gap:var(--s6)}
-.fan{display:flex;justify-content:center;padding-block:var(--s5) var(--s4)}
+/* the stage: the phones stand on a flat, full-width band one gentle step darker than the page. The band
+   is background only (behind the phones, from about half way up them); it is drawn by the fan and clipped
+   to the stage, so it is always exactly as wide as the screen and never adds sideways scroll. */
+.stage{margin-block-start:var(--s7);padding-block-end:var(--s8);overflow:clip}
+.fan-stage{display:grid;justify-items:center}
+.fan{display:flex;justify-content:center;position:relative;isolation:isolate;padding-block:0 var(--s4)}
+.fan::before{content:"";position:absolute;z-index:-1;top:45%;bottom:-200px;left:50%;width:100vw;margin-left:-50vw;background:var(--stage)}
 /* ---- phones: Apple's iPhone 18 Pro bezel is composited into each image at build time
    (build_bezels.py). Apple's marketing guidelines: upright, unobstructed, no added shadow or effects. */
 .phone{width:100%;margin-inline:auto}
@@ -265,19 +300,26 @@ html[dir="rtl"] .microcopy{font-size:15px}
    guidelines): an iPhone 18 Pro Max in the centre and an iPhone 18 Pro either side, drawn at true
    relative scale (the bezel images share one pixels-per-mm, 1470 vs 1350 px wide, so 33.14% : 30.43%).
    The side phones sit a little lower for depth; the row order mirrors itself in Arabic. */
-.fan{width:min(100%,560px);align-items:flex-start;gap:3%}
+.fan{width:min(100%,840px);align-items:flex-start;gap:3%}
 .ph-m{width:33.14%;margin:0;flex:none}
 .ph-sb,.ph-rs{width:30.43%;margin:6% 0 0;flex:none}
-.fan-chips{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:min(540px,100%)}
-.fan-chips li{margin:0}
-.fan-chips a{display:flex;width:100%;align-items:center;gap:8px;padding:7px 14px;white-space:nowrap;border:1px solid var(--line);border-radius:var(--r-s);background:var(--card);color:var(--ink);font-size:14px;text-decoration:none;transition:border-color .15s ease,background-color .15s ease}
-html[dir="rtl"] .fan-chips a{font-size:16px}
-.fan-chips a:hover{border-color:#b4bca6;background:#fff}
-.fan-chips a::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--dot)}
-.chip-m{--dot:var(--t-metro)}.chip-sb{--dot:var(--t-speed)}.chip-rs{--dot:var(--t-rhythm)}
+/* captions: one per phone, centred on its own centre line (so the side ones follow their phone's
+   lower offset), no box; the tool's accent dot, the name, a small chevron (mirrored in Arabic).
+   A fixed 44px row reserves the space and is the tap height. */
+.cap{display:flex;justify-content:center;height:44px;margin-top:var(--s3);white-space:nowrap}
+.cap a{display:inline-flex;align-items:center;gap:7px;height:44px;padding-inline:6px;color:var(--ink-soft);font-size:14px;text-decoration:none;text-underline-offset:4px}
+html[dir="rtl"] .cap a{font-size:16px}
+.cap a::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--dot);flex:none}
+.cap a:hover{color:var(--ink);text-decoration:underline;text-decoration-color:var(--dot)}
+.cap-chev{flex:none;opacity:.7}
+html[dir="rtl"] .cap-chev{transform:scaleX(-1)}
+.cap-m{--dot:var(--t-metro)}.cap-sb{--dot:var(--t-speed)}.cap-rs{--dot:var(--t-rhythm)}
 
-/* 8. SLIM APP STORE BAR (in the flow after the hero, then sticks; same as the tool pages) */
-.buybar{position:sticky;top:0;z-index:20;background:rgba(233,237,225,.94);border-block:1px solid var(--line);-webkit-backdrop-filter:saturate(1.3) blur(12px);backdrop-filter:saturate(1.3) blur(12px)}
+/* 8. SLIM APP STORE BAR (same as the tool pages): fixed at the top and hidden until /js/buybar.js reveals it, once the page's main
+   App Store button has scrolled out of view. A transform slide only, so nothing shifts; no JS, no bar. */
+.buybar{transform:translateY(-101%);visibility:hidden;transition:transform .25s ease,visibility 0s linear .25s}
+.buybar.is-shown{transform:none;visibility:visible;transition:transform .25s ease}
+.buybar{position:fixed;top:0;inset-inline:0;z-index:20;background:rgba(233,237,225,.94);border-block:1px solid var(--line);-webkit-backdrop-filter:saturate(1.3) blur(12px);backdrop-filter:saturate(1.3) blur(12px)}
 .buybar-in{display:flex;align-items:center;gap:12px;height:62px}
 .buybar .icon{width:38px;height:38px;border-radius:9px;border:1px solid var(--line);box-shadow:var(--shadow-1);flex:none}
 .bb-text{display:flex;flex-direction:column;line-height:1.25;margin:0 auto 0 0;min-width:0}
@@ -433,11 +475,6 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
 /* 18. RESPONSIVE */
 @media (max-width:860px){
   .top-links{display:none}
-  .hero{padding-block:var(--s6) var(--s8)}
-  /* phones: the single-line logo lockup, then the three tools, then the pitch, so a late web font
-     re-wrapping the headline never moves the phones */
-  .hero-grid{grid-template-columns:minmax(0,1fr);grid-template-areas:"brand" "fan" "copy";grid-template-rows:auto;row-gap:var(--s7)}
-  .hero-brand{padding-top:0}
   .tool-grid,.who-list,.guide-cards{grid-template-columns:minmax(0,1fr)}
   .tool-shot .phone{width:40%}
   .pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -448,9 +485,25 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
   .fnav{text-align:start}
   .fbottom{flex-direction:column;text-align:center}
 }
+@media (max-width:767px){
+  /* phones: the three tools on their stage first, straight under the nav, then the pitch (start-aligned),
+     so a late web font re-wrapping the headline never moves the phones */
+  .hero{padding-block:var(--s6) var(--s8)}
+  .stage{order:-1;margin-block:0 var(--s7);padding-block-end:var(--s6)}
+  /* the hero headline leads the hierarchy on phones too: always a little larger than the section
+     headings (h2 is clamp(30px,4.4vw,44px), Arabic clamp(32px,4.8vw,48px)) */
+  .hero-head{font-size:clamp(31px,4.6vw,36px);line-height:1.2;letter-spacing:-.015em;max-width:15em}
+  html[dir="rtl"] .hero-head{font-size:clamp(33px,5vw,40px);line-height:1.4}
+  .hero-head .hl{height:1.2em}
+  html[dir="rtl"] .hero-head .hl{height:1.4em}
+  .lede{margin-block-start:var(--s5);max-width:30em}
+  .fan{width:min(100%,600px);padding-block:var(--s5) var(--s4)}
+}
 @media (max-width:600px){
   .wrap{padding-inline:20px}
-  .fan-chips{display:none}
+  /* captions stay on phones, smaller; below 380px wide they would crowd each other, so they hide */
+  .cap a{font-size:12px;gap:5px;padding-inline:2px}
+  html[dir="rtl"] .cap a{font-size:14px}
   .pgrid{grid-template-columns:minmax(0,1fr)}
   .stats-grid{grid-template-columns:minmax(0,1fr);gap:var(--s6)}
   .stats-shot{width:min(46vw,230px);order:1}
@@ -462,7 +515,17 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
   .sec-intro{margin-bottom:var(--s7)}
   .cv{contain-intrinsic-size:auto 1900px}
 }
-@media (max-height:500px){.buybar{position:static}}
+@media (max-width:540px){
+  /* the English lede is two lines in Varela Round but can be one in the fallback font: reserve two so
+     the App Store button never jumps when the web font arrives */
+  html[dir="ltr"] .lede{min-height:3.2em}
+}
+@media (max-width:429px){
+  /* the English note breaks after "One-time purchase." rather than leaving a word alone on its last line */
+  .hero .microcopy .note-rest{display:block}
+}
+@media (max-width:379px){.cap{display:none}}
+@media (max-height:500px){.buybar{display:none}}
 
 /* 19. MOTION SAFETY */
 @media (prefers-reduced-motion:reduce){
@@ -497,38 +560,33 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
 
 <main id="main">
 <section class="hero">
-<div class="wrap hero-grid">
-<div class="hero-brand">
-<svg class="hero-logo" viewBox="-40 -40 912 602" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="68" height="522" rx="34" fill="currentColor"/><rect x="764" y="0" width="68" height="522" rx="34" fill="currentColor"/><circle cx="136" cy="193" r="34" fill="currentColor"/><circle cx="136" cy="329" r="34" fill="currentColor"/><circle cx="696" cy="193" r="34" fill="currentColor"/><circle cx="696" cy="329" r="34" fill="currentColor"/><path d="M266 227L266 92L496 92" stroke="currentColor" stroke-width="68" stroke-linecap="round" stroke-linejoin="round"/><path d="M496 27L601 92L496 157Z" fill="currentColor" stroke="currentColor" stroke-width="68" stroke-linecap="round" stroke-linejoin="round"/><path d="M566 295L566 430L336 430" stroke="currentColor" stroke-width="68" stroke-linecap="round" stroke-linejoin="round"/><path d="M336 495L231 430L336 365Z" fill="currentColor" stroke="currentColor" stroke-width="68" stroke-linecap="round" stroke-linejoin="round"/></svg>
-<h1><span class="en">drill time</span><span class="ar" lang="ar">وقت التمرين</span></h1>
-<p class="tagline"><span class="en">Daily music practice</span><span class="ar" lang="ar">التدريب الموسيقي اليومي</span></p>
-</div>
+<div class="wrap hero-top">
 <div class="hero-copy">
-<p class="hero-head"><span class="en"><span class="hl">One app. Three tools.</span> <span class="hl"><span class="mark-underline">Every<svg viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M2 8c22-5 54-6 96-3" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></span> day of practice.</span></span><span class="ar" lang="ar"><span class="hl">تطبيق واحد، وثلاث أدوات،</span> <span class="hl">لتمرين <span class="mark-underline">كل<svg viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M2 8c22-5 54-6 96-3" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></span> يوم.</span></span></p>
-<p class="lede"><span class="en">I teach guitar, and these are the three tools I want every student to practise with between lessons.</span><span class="ar" lang="ar">أنا معلّم غيتار، وفي DrillTime وقت التمرين جمعت الأدوات الثلاث التي أريد أن يتمرّن بها كل طالب بين الدروس.</span></p>
+<h1 class="hero-head"><span class="eyebrow hero-eyebrow"><span class="en">DrillTime · Music practice app</span><span class="ar" lang="ar">DrillTime وقت التمرين · تطبيق التمرين الموسيقي</span></span><span class="en"><span class="hl">One app. Three tools.</span> <span class="hl"><span class="mark-underline">Every<svg viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M2 8c22-5 54-6 96-3" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></span> day of practice.</span></span><span class="ar" lang="ar"><span class="hl">تطبيق واحد، وثلاث أدوات،</span> <span class="hl">لتمرين <span class="mark-underline">كل<svg viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M2 8c22-5 54-6 96-3" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></span> يوم.</span></span></h1>
+<p class="lede"><span class="en">Made by a guitar teacher for the six days between lessons.</span><span class="ar" lang="ar">صمّمه مدرّس غيتار للأيام الستة بين درس وآخر.</span></p>
+</div>
 <div class="cta-row">
 <a class="badge" href="#" data-appstore><img class="apple-badge badge-ar blk" alt="تنزيل التطبيق من App Store" src="img/appstore-ar-black.svg" width="168" height="56" loading="lazy" decoding="async"><img class="apple-badge badge-ar wht" alt="تنزيل التطبيق من App Store" src="img/appstore-ar-white.svg" width="168" height="56" loading="lazy" decoding="async"><img class="apple-badge badge-en blk" alt="Download on the App Store" src="img/appstore-en-black.svg" width="168" height="56" loading="lazy" decoding="async"><img class="apple-badge badge-en wht" alt="Download on the App Store" src="img/appstore-en-white.svg" width="168" height="56" loading="lazy" decoding="async"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17 12.5c0-2 1.6-3 1.7-3-.9-1.4-2.4-1.5-2.9-1.6-1.2-.1-2.4.7-3 .7s-1.6-.7-2.6-.7c-1.3 0-2.6.8-3.2 2-1.4 2.4-.4 6 1 8 .7 1 1.5 2.1 2.5 2 1-.04 1.4-.6 2.6-.6s1.5.6 2.6.6 1.7-1 2.4-2c.5-.7.9-1.5 1-1.6-.02-.02-2.6-1-2.6-4.2zM15 6.2c.6-.7 1-1.6.9-2.6-.8.04-1.9.6-2.5 1.3-.6.6-1 1.6-.9 2.5.9.07 1.9-.5 2.5-1.2z"/></svg>
           <span><small class="en">Coming soon on the</small><small class="ar" lang="ar">قريباً على</small>App Store</span></a>
-<p class="microcopy"><span class="en">One-time purchase. No subscription, no ads, no accounts.</span><span class="ar" lang="ar">شراء لمرة واحدة. بدون اشتراك أو إعلانات أو حسابات.</span></p>
+<p class="microcopy"><span class="en">One-time purchase. <span class="note-rest">No subscription, no ads, no accounts.</span></span><span class="ar" lang="ar">شراء لمرة واحدة. بدون اشتراك أو إعلانات أو حسابات.</span></p>
 </div>
 </div>
-<div class="fan-stage">
+<div class="stage">
+<div class="wrap fan-stage">
 <div class="fan">
 <figure class="ph ph-sb">
-  <div class="phone"><img class="en" src="/img/bz-player-en-480.webp" srcset="/img/bz-player-en-240.webp 240w, /img/bz-player-en-320.webp 320w, /img/bz-player-en-400.webp 400w, /img/bz-player-en-480.webp 480w, /img/bz-player-en-640.webp 640w" sizes="(max-width: 860px) calc(30.5vw - 12px), 171px" width="640" height="1308" alt="DrillTime Speed Builder screen at 86 BPM on step 3 of 6, rising from a start tempo of 80 towards a goal of 95, with the time left shown" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/bz-player-ar-480.webp" srcset="/img/bz-player-ar-240.webp 240w, /img/bz-player-ar-320.webp 320w, /img/bz-player-ar-400.webp 400w, /img/bz-player-ar-480.webp 480w, /img/bz-player-ar-640.webp 640w" sizes="(max-width: 860px) calc(30.5vw - 12px), 171px" width="640" height="1308" alt="شاشة بناء السرعة في DrillTime على ٨٦ نبضة في الدقيقة في الخطوة ٣ من ٦، صعودًا من إيقاع البداية ٨٠ نحو إيقاع الهدف ٩٥، مع الوقت المتبقي" loading="lazy" fetchpriority="low" decoding="async"></div>
+  <div class="phone"><img class="en" src="/img/bz-player-en-480.webp" srcset="/img/bz-player-en-240.webp 240w, /img/bz-player-en-320.webp 320w, /img/bz-player-en-400.webp 400w, /img/bz-player-en-480.webp 480w, /img/bz-player-en-640.webp 640w" sizes="(max-width: 767px) calc(30.5vw - 12px), 256px" width="640" height="1308" alt="DrillTime Speed Builder screen at 86 BPM on step 3 of 6, rising from a start tempo of 80 towards a goal of 95, with the time left shown" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/bz-player-ar-480.webp" srcset="/img/bz-player-ar-240.webp 240w, /img/bz-player-ar-320.webp 320w, /img/bz-player-ar-400.webp 400w, /img/bz-player-ar-480.webp 480w, /img/bz-player-ar-640.webp 640w" sizes="(max-width: 767px) calc(30.5vw - 12px), 256px" width="640" height="1308" alt="شاشة بناء السرعة في DrillTime على ٨٦ نبضة في الدقيقة في الخطوة ٣ من ٦، صعودًا من إيقاع البداية ٨٠ نحو إيقاع الهدف ٩٥، مع الوقت المتبقي" loading="lazy" fetchpriority="low" decoding="async"></div>
+  <figcaption class="cap cap-sb"><a class="en" href="/speed-builder">Speed Builder<svg class="cap-chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="ar" lang="ar" href="/ar/speed-builder">بناء السرعة<svg class="cap-chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></figcaption>
 </figure>
 <figure class="ph ph-m">
-  <div class="phone"><img class="en" src="/img/bm-metronome-en-480.webp" srcset="/img/bm-metronome-en-240.webp 240w, /img/bm-metronome-en-320.webp 320w, /img/bm-metronome-en-400.webp 400w, /img/bm-metronome-en-480.webp 480w, /img/bm-metronome-en-640.webp 640w" sizes="(max-width: 860px) calc(33.2vw - 13px), 186px" width="640" height="1306" alt="DrillTime metronome screen at 120 BPM with the tempo name Allegro, a tempo slider, and start, minus and plus buttons" loading="lazy" data-lcp fetchpriority="high" decoding="async"><img hidden class="ar" src="/img/bm-metronome-ar-480.webp" srcset="/img/bm-metronome-ar-240.webp 240w, /img/bm-metronome-ar-320.webp 320w, /img/bm-metronome-ar-400.webp 400w, /img/bm-metronome-ar-480.webp 480w, /img/bm-metronome-ar-640.webp 640w" sizes="(max-width: 860px) calc(33.2vw - 13px), 186px" width="640" height="1306" alt="شاشة المترونوم في DrillTime على سرعة ١٢٠ نبضة في الدقيقة واسم السرعة «سريع»، مع شريط ضبط السرعة وأزرار التشغيل والنقصان والزيادة" loading="lazy" data-lcp fetchpriority="high" decoding="async"></div>
+  <div class="phone"><img class="en" src="/img/bm-metronome-en-480.webp" srcset="/img/bm-metronome-en-240.webp 240w, /img/bm-metronome-en-320.webp 320w, /img/bm-metronome-en-400.webp 400w, /img/bm-metronome-en-480.webp 480w, /img/bm-metronome-en-640.webp 640w" sizes="(max-width: 767px) calc(33.2vw - 13px), 279px" width="640" height="1306" alt="DrillTime metronome screen at 120 BPM with the tempo name Allegro, a tempo slider, and start, minus and plus buttons" loading="lazy" data-lcp fetchpriority="high" decoding="async"><img hidden class="ar" src="/img/bm-metronome-ar-480.webp" srcset="/img/bm-metronome-ar-240.webp 240w, /img/bm-metronome-ar-320.webp 320w, /img/bm-metronome-ar-400.webp 400w, /img/bm-metronome-ar-480.webp 480w, /img/bm-metronome-ar-640.webp 640w" sizes="(max-width: 767px) calc(33.2vw - 13px), 279px" width="640" height="1306" alt="شاشة المترونوم في DrillTime على سرعة ١٢٠ نبضة في الدقيقة واسم السرعة «سريع»، مع شريط ضبط السرعة وأزرار التشغيل والنقصان والزيادة" loading="lazy" data-lcp fetchpriority="high" decoding="async"></div>
+  <figcaption class="cap cap-m"><a class="en" href="/metronome">Metronome<svg class="cap-chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="ar" lang="ar" href="/ar/metronome">المترونوم<svg class="cap-chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></figcaption>
 </figure>
 <figure class="ph ph-rs">
-  <div class="phone"><img class="en" src="/img/bz-read-en-480.webp" srcset="/img/bz-read-en-240.webp 240w, /img/bz-read-en-320.webp 320w, /img/bz-read-en-400.webp 400w, /img/bz-read-en-480.webp 480w, /img/bz-read-en-640.webp 640w" sizes="(max-width: 860px) calc(30.5vw - 12px), 171px" width="640" height="1308" alt="Rhythm Shuffler reading screen with four bars of rhythm in 4/4, a line marking your place, and a large Tap the rhythm pad" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/bz-read-ar-480.webp" srcset="/img/bz-read-ar-240.webp 240w, /img/bz-read-ar-320.webp 320w, /img/bz-read-ar-400.webp 400w, /img/bz-read-ar-480.webp 480w, /img/bz-read-ar-640.webp 640w" sizes="(max-width: 860px) calc(30.5vw - 12px), 171px" width="640" height="1308" alt="شاشة القراءة في عازف النبض العشوائي: أربع مازورات من الإيقاع في ميزان ٤/٤، وخط يحدّد موضعك، ولوحة كبيرة مكتوب عليها «انقر الإيقاع»" loading="lazy" fetchpriority="low" decoding="async"></div>
+  <div class="phone"><img class="en" src="/img/bz-read-en-480.webp" srcset="/img/bz-read-en-240.webp 240w, /img/bz-read-en-320.webp 320w, /img/bz-read-en-400.webp 400w, /img/bz-read-en-480.webp 480w, /img/bz-read-en-640.webp 640w" sizes="(max-width: 767px) calc(30.5vw - 12px), 256px" width="640" height="1308" alt="Rhythm Shuffler reading screen with four bars of rhythm in 4/4, a line marking your place, and a large Tap the rhythm pad" loading="lazy" fetchpriority="low" decoding="async"><img hidden class="ar" src="/img/bz-read-ar-480.webp" srcset="/img/bz-read-ar-240.webp 240w, /img/bz-read-ar-320.webp 320w, /img/bz-read-ar-400.webp 400w, /img/bz-read-ar-480.webp 480w, /img/bz-read-ar-640.webp 640w" sizes="(max-width: 767px) calc(30.5vw - 12px), 256px" width="640" height="1308" alt="شاشة القراءة في عازف النبض العشوائي: أربع مازورات من الإيقاع في ميزان ٤/٤، وخط يحدّد موضعك، ولوحة كبيرة مكتوب عليها «انقر الإيقاع»" loading="lazy" fetchpriority="low" decoding="async"></div>
+  <figcaption class="cap cap-rs"><a class="en" href="/rhythm-shuffler">Rhythm Shuffler<svg class="cap-chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="ar" lang="ar" href="/ar/rhythm-shuffler">عازف النبض العشوائي<svg class="cap-chev" viewBox="0 0 8 14" width="7" height="12" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></figcaption>
 </figure>
 </div>
-<ul class="fan-chips">
-  <li class="chip-sb"><a class="en" href="/speed-builder">Speed Builder</a><a class="ar" lang="ar" href="/ar/speed-builder">بناء السرعة</a></li>
-  <li class="chip-m"><a class="en" href="/metronome">Metronome</a><a class="ar" lang="ar" href="/ar/metronome">المترونوم</a></li>
-  <li class="chip-rs"><a class="en" href="/rhythm-shuffler">Rhythm Shuffler</a><a class="ar" lang="ar" href="/ar/rhythm-shuffler">عازف النبض العشوائي</a></li>
-</ul>
 </div>
 </div>
 </section>
@@ -718,5 +776,6 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
     </div>
   </div>
 </footer>
+<script defer src="/js/buybar.js?v=1"></script>
 </body>
 </html>
