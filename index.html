@@ -226,20 +226,19 @@ html[dir="rtl"] .sec-intro{font-size:20px}
    two set lines, a one-line lede; the App Store button and note at the row's end), then the three phones
    standing on a soft full-width band. Spacing from the scale; phones first on small screens (see 18). */
 .hero{display:flex;flex-direction:column;padding-block-start:var(--s8)}
-/* everything above the phones plus the captions under them (measured), so the phones fit the first screen */
-.hero{--above:404px}
-html[dir="rtl"] .hero{--above:432px}
 /* full width always (in the hero's flex column its auto margins would otherwise shrink it to its text,
    so a late web font would resize and move it) */
-.hero-top{width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:var(--s8);align-items:center}
+.hero-top{width:100%;display:grid;grid-template-columns:minmax(0,1fr);row-gap:var(--s7)}
 .hero-copy{min-width:0}
 /* the headline stays the largest type on the page (section h2: up to 44px, Arabic 48px) */
 .hero-head{font-weight:400;font-size:clamp(38px,5vw,48px);line-height:1.12;letter-spacing:-.02em}
 html[dir="rtl"] .hero-head{font-size:clamp(42px,5.4vw,52px);line-height:1.25;font-weight:700;letter-spacing:0}
-/* the brand eyebrow inside the h1: the site's eyebrow look, on one line of fixed height so a late web
-   font never moves the headline; brand spelling kept (no capitals) */
-.hero-head .hero-eyebrow{display:flex;margin-bottom:var(--s5);height:24px;line-height:24px;white-space:nowrap;overflow:hidden;max-width:100%;text-transform:none;letter-spacing:.04em;font-weight:400}
-html[dir="rtl"] .hero-head .hero-eyebrow{height:28px;line-height:28px;letter-spacing:normal;font-weight:700}
+/* the brand eyebrow inside the h1: small, regular and quiet grey like the purchase note (no dots, no blue,
+   so the coral underline is the hero's only accent), on one line of fixed height so a late web font never
+   moves the headline; brand spelling kept (no capitals) */
+.hero-head .hero-eyebrow{display:flex;margin-bottom:var(--s5);height:24px;line-height:24px;white-space:nowrap;overflow:hidden;max-width:100%;text-transform:none;letter-spacing:.02em;font-weight:400;font-size:13px;color:var(--text-dim)}
+.hero-head .hero-eyebrow::before{content:none}
+html[dir="rtl"] .hero-head .hero-eyebrow{height:28px;line-height:28px;letter-spacing:normal;font-weight:400;font-size:15px}
 /* one line per sentence, each exactly one line-height tall, so the headline keeps its size before and
    after the web font arrives */
 .hero-head .hl{display:block;white-space:nowrap;height:1.12em}
@@ -249,8 +248,31 @@ html[dir="rtl"] .hero-head .hl{height:1.25em}
 html[dir="rtl"] .lede{font-size:clamp(18px,1.8vw,20px)}
 .mark-underline{white-space:nowrap;position:relative;display:inline-block}
 .mark-underline svg{color:var(--coral);position:absolute;inset-inline:0;bottom:-.2em;width:100%;height:.3em}
-/* the button and note sit at the row's end, aligned to that edge, so neither moves if the note's width changes */
-.cta-row{display:flex;flex-direction:column;align-items:flex-end;gap:var(--s5);text-align:end}
+/* below 1024px the button and note follow the lede, start-aligned: lede to button 34 (the row gap), button to note 13 */
+.cta-row{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s5)}
+/* no single-word last lines in the lede or the note (where text-wrap is unsupported, lines wrap as before) */
+.lede,.hero .microcopy{text-wrap:balance}
+@media (min-width:1024px){
+  /* one row: the words on the start side, the button and note at the end, aligned to that edge */
+  .hero-top{grid-template-columns:minmax(0,1fr) auto;column-gap:var(--s8);align-items:center}
+  .cta-row{align-items:flex-end;text-align:end}
+}
+@supports (grid-template-rows:subgrid){
+  @media (min-width:1024px){
+    /* one grid with four shared rows: eyebrow, headline line 1, headline line 2, lede. The words and the
+       h1 pass the rows down (subgrid), so the button sits in the second headline line's row, centred on
+       it, and the note shares the lede's row, on its last baseline. Reading order is unchanged. */
+    .hero-top{grid-template-rows:repeat(4,auto);row-gap:0;align-items:stretch}
+    .hero-copy{grid-column:1;grid-row:1/5;display:grid;grid-template-rows:subgrid}
+    .hero-head{grid-row:1/4;display:grid;grid-template-rows:subgrid}
+    .hero-head .hero-eyebrow{grid-row:1}
+    .hero-head>.en,.hero-head>.ar{grid-row:2/4;display:grid;grid-template-rows:subgrid}
+    .lede{grid-row:4;align-self:last baseline}
+    .cta-row{grid-column:2;grid-row:3/5;display:grid;grid-template-rows:subgrid;justify-items:end;gap:0}
+    .cta-row .badge{grid-row:1;align-self:center}
+    .cta-row .microcopy{grid-row:2;align-self:last baseline}
+  }
+}
 .lede>span,.hero .microcopy>span{display:block}
 .badge{display:inline-flex;text-decoration:none;color:var(--bg);font-size:15px;border-radius:var(--r-s);transition:transform .15s ease,box-shadow .15s ease}
 .badge:hover{transform:translateY(-2px);box-shadow:var(--shadow-2)}
@@ -278,7 +300,7 @@ html[dir="rtl"] .microcopy{font-size:15px}
    guidelines): an iPhone 18 Pro Max in the centre and an iPhone 18 Pro either side, drawn at true
    relative scale (the bezel images share one pixels-per-mm, 1470 vs 1350 px wide, so 33.14% : 30.43%).
    The side phones sit a little lower for depth; the row order mirrors itself in Arabic. */
-.fan{width:min(100%,840px,max(420px,calc((100vh - var(--above)) * 1.466)));align-items:flex-start;gap:3%}
+.fan{width:min(100%,840px);align-items:flex-start;gap:3%}
 .ph-m{width:33.14%;margin:0;flex:none}
 .ph-sb,.ph-rs{width:30.43%;margin:6% 0 0;flex:none}
 /* captions: one per phone, centred on its own centre line (so the side ones follow their phone's
@@ -463,11 +485,6 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
   .fnav{text-align:start}
   .fbottom{flex-direction:column;text-align:center}
 }
-@media (max-width:1023px){
-  /* the top row wraps: eyebrow, headline and lede full width, the button and note below, start-aligned */
-  .hero-top{grid-template-columns:minmax(0,1fr);row-gap:var(--s7)}
-  .cta-row{align-items:flex-start;text-align:start}
-}
 @media (max-width:767px){
   /* phones: the three tools on their stage first, straight under the nav, then the pitch (start-aligned),
      so a late web font re-wrapping the headline never moves the phones */
@@ -502,6 +519,10 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
   /* the English lede is two lines in Varela Round but can be one in the fallback font: reserve two so
      the App Store button never jumps when the web font arrives */
   html[dir="ltr"] .lede{min-height:3.2em}
+}
+@media (max-width:429px){
+  /* the English note breaks after "One-time purchase." rather than leaving a word alone on its last line */
+  .hero .microcopy .note-rest{display:block}
 }
 @media (max-width:379px){.cap{display:none}}
 @media (max-height:500px){.buybar{display:none}}
@@ -547,7 +568,7 @@ footer{border-block-start:1px solid var(--line);padding-block:var(--s8) var(--s6
 <div class="cta-row">
 <a class="badge" href="#" data-appstore><img class="apple-badge badge-ar blk" alt="تنزيل التطبيق من App Store" src="img/appstore-ar-black.svg" width="168" height="56" loading="lazy" decoding="async"><img class="apple-badge badge-ar wht" alt="تنزيل التطبيق من App Store" src="img/appstore-ar-white.svg" width="168" height="56" loading="lazy" decoding="async"><img class="apple-badge badge-en blk" alt="Download on the App Store" src="img/appstore-en-black.svg" width="168" height="56" loading="lazy" decoding="async"><img class="apple-badge badge-en wht" alt="Download on the App Store" src="img/appstore-en-white.svg" width="168" height="56" loading="lazy" decoding="async"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17 12.5c0-2 1.6-3 1.7-3-.9-1.4-2.4-1.5-2.9-1.6-1.2-.1-2.4.7-3 .7s-1.6-.7-2.6-.7c-1.3 0-2.6.8-3.2 2-1.4 2.4-.4 6 1 8 .7 1 1.5 2.1 2.5 2 1-.04 1.4-.6 2.6-.6s1.5.6 2.6.6 1.7-1 2.4-2c.5-.7.9-1.5 1-1.6-.02-.02-2.6-1-2.6-4.2zM15 6.2c.6-.7 1-1.6.9-2.6-.8.04-1.9.6-2.5 1.3-.6.6-1 1.6-.9 2.5.9.07 1.9-.5 2.5-1.2z"/></svg>
           <span><small class="en">Coming soon on the</small><small class="ar" lang="ar">قريباً على</small>App Store</span></a>
-<p class="microcopy"><span class="en">One-time purchase. No subscription, no ads, no accounts.</span><span class="ar" lang="ar">شراء لمرة واحدة. بدون اشتراك أو إعلانات أو حسابات.</span></p>
+<p class="microcopy"><span class="en">One-time purchase. <span class="note-rest">No subscription, no ads, no accounts.</span></span><span class="ar" lang="ar">شراء لمرة واحدة. بدون اشتراك أو إعلانات أو حسابات.</span></p>
 </div>
 </div>
 <div class="stage">
